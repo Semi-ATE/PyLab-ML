@@ -10,7 +10,7 @@ todo:
 import time
 from enum import Enum
 from datetime import datetime
-from ate_spyder_lab_control.labml_adjutancy.misc.spinner import spinner
+from pylab_ml.common.spinner import spinner
 from pylab_ml.base_instrument import logger
 from pylab_ml.collate_instrument import Interface
 from pylab_ml.thermostreamer.base_thermostreamer import Base_Thermostreamer

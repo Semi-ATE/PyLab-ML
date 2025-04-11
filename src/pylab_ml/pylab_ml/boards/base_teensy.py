@@ -161,7 +161,7 @@ class Teensy (Instrument):
             value = ""
             val = self.read()
             starttime = time()
-            while "$OK" not in val and "$Error" not in val:
+            while "$OK" not in val and "$Error" not in val and val != 'timeout':
                 value = "%s%s" % (value, val)
                 val = self.read()
                 if (time()-starttime) > self.timeout:

@@ -10,12 +10,12 @@ import time
 from abc import ABC, abstractmethod
 from serial.tools import list_ports
 import logging
-from ate_spyder_lab_control.labml_adjutancy.misc.singleton import Singleton
-from ate_spyder_lab_control.labml_adjutancy.misc.mqtt_client import mqtt_deviceattributes, mqtt_init
+from pylab_ml.common.singleton import Singleton
 from pylab_ml.dummy import Dummy
 from pylab_ml.ident import Ident
 from pylab_ml.collate_instrument import Interface, DefInter, CollateInstrument
 from pylab_ml.scope.lecroy.vicp import VICP
+from ate_spyder_lab_control.labml_adjutancy.misc.mqtt_client import mqtt_deviceattributes, mqtt_init
 
 
 def measure(self, message, *args, **kws):

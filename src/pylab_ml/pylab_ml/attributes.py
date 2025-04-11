@@ -10,7 +10,7 @@ Call the methode read() for get, or write() for set attribute, with some checks 
 from pylab_ml.base_instrument import logger
 from enum import Enum
 import hightime
-from ate_spyder_lab_control.labml_adjutancy.misc.common import str2num
+from pylab_ml.common.common import str2num
 
 
 class create_attributes(object):

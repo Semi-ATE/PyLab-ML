@@ -15,7 +15,7 @@ Their definitions are organized by their function, for example smu, dmm, scope. 
 For example the class that defines the National Instrument PXIE 4138 SourceMeter can be imported by calling:
 
 ```bash
-from labml_instruments.smu.natinst.pxie41xx import PXIe41xx
+from pylab_ml.smu.natinst.pxie41xx import PXIe41xx
 ...
 ```
 
@@ -26,17 +26,17 @@ activate your Semi-ATE environment
 ```bash
 conda activate <your environment>
 cd ~/repos/<your environment>
-git clone https://github.com/Semi-ATE/LAB-ML.git
+git clone https://github.com/Semi-ATE/PyLab-ML.git
 
-cd LAB-ML/src/labml_instruments
+cd pylab_ml/src/pylab_ml
 pip install -e .
 
-cd ../plugins/labml-instruments         # install the spyder plugin for semi-ate in the General Purpose Funktions from the hardwaresetups
+cd ../plugins/pylab_ml                  # install the spyder plugin for semi-ate in the General Purpose Funktions from the hardwaresetups
 pip install -e .
 
-cd ../plugins\stdf_browser              # install the STDF-data widget for spyder
+cd ../plugins/stdf_browser              # install the STDF-data widget for spyder
 pip install -e .
 ...
 ```
 
- The detailed description of the different devices with functions and attributes can be found [here](https://semi-ate.github.io/LAB-ML/)
+ The detailed description of the different devices with functions and attributes can be found [here](https://semi-ate.github.io/PyLab-ML/)

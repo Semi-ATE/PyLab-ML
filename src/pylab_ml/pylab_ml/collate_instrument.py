@@ -36,7 +36,7 @@ import os
 from enum import Enum
 from dataclasses import dataclass
 from typing import Any
-from ate_spyder_lab_control.labml_adjutancy.misc.singleton import Singleton
+from pylab_ml.common.singleton import Singleton
 
 import logging
 
