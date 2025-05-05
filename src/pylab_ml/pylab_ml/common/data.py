@@ -207,7 +207,7 @@ def str2num(value, base=10, default=""):
     if value = '' -> set to default value
     """
     #    if type(value) in [bool, int, float, np.int32, np.float64]:
-    if type(value) is str:
+    if type(value) is not str:
         return value
     value = value.strip()
     if value == "" or value is None:
