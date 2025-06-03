@@ -28,15 +28,9 @@ conda activate <your environment>
 cd ~/repos/<your environment>
 git clone https://github.com/Semi-ATE/PyLab-ML.git
 
-cd pylab_ml/src/pylab_ml
-pip install -e .
-
-cd ../plugins/pylab_ml                  # install the spyder plugin for semi-ate in the General Purpose Funktions from the hardwaresetups
-pip install -e .
-
-cd ../plugins/stdf_browser              # install the STDF-data widget for spyder
-pip install -e .
-...
+cd PyLab-ML
+pip install -e .						# install the pylab-ml instrument lib, the spyder plugin for semi-ate in the General Purpose Funktions from the hardwaresetup,
+										# and the STDF-data widget for spyder
 ```
 
  The detailed description of the different devices with functions and attributes can be found [here](https://semi-ate.github.io/PyLab-ML/)
