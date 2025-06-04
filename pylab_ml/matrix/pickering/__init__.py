@@ -1,1 +1,0 @@
-"""Pickering Matrix."""

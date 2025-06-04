@@ -1,1 +1,0 @@
-"""TTI Power Supplys."""

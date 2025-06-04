@@ -1,2 +1,0 @@
-[spyder.plugins]
-Stdf = stdf_browser.plugin:StdfBrowser
