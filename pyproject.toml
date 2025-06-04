@@ -49,6 +49,7 @@ dependencies = [
 	"pyserial",
 	"pyvisa",
 	"pyvisa-py",
+	"h5py",
 	"Semi-ATE-spyder",
 	"nidcpower==1.4.2",
 	"nidmm==1.4.2",
