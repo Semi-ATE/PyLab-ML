@@ -9,7 +9,13 @@ import ast
 import copy
 import psutil
 from pylab_ml.common.data import str2num
-# from ate_common.logger import LogLevel
+
+mylogger = None
+
+
+def set_logger(logger):
+    global mylogger
+    mylogger = logger
 
 
 def kill_proc_tree(pid=None, instance=None, including_parent=False):
@@ -273,16 +279,16 @@ def check(msg, target, actual, tolerance=0, mask=None):
         msg = f"{msg}  different type: target= {target}({type(target)}) <-> actual= {actual}({type(actual)}) -> couldn't check')"
     elif type(actual) is list:
         if len(target) != len(actual):
-            print("Warning: len() from target list (={len(target)}) <-> actual list ({len(actual)}), are different!!!!")
+            logprint("WARNING", f": check len() from target list (={len(target)}) <-> actual list ({len(actual)}), are different!!!!")
         for index in range(0, len(actual)):
             if actual[index] != target[index]:
-                print("ERROR: Wrong value at adr 0x{:2x}, read 0x{:x}, expected 0x{:x} ".format(index, actual[index], target[index]))
+                logprint("ERROR", f"Wrong value at adr 0x{index:2x}, read 0x{actual[index]:x}, expected 0x{target[index]:x}")
                 error += 1
         msg = f"{msg}: {len(actual)} Word checked ->"
         if error == 0:
             msg = f"{msg} OK"
         else:
-            msg = f"{msg} Error"
+            msg = f"{msg} {error} Errors"
     elif type(actual) is int:
         if mask is not None and (actual & mask) != (target & mask):
             error = 1
@@ -292,7 +298,7 @@ def check(msg, target, actual, tolerance=0, mask=None):
             msg = f"{msg}  target: 0x{target:x} != actual: 0x{actual:x}" if tolerance == 0 \
                 else f"{msg}: 0x{target:x} +- 0x{tolerance:x} <> 0x{actual:x}"
         else:
-            msg = "{} == 0x{:2x}".format(msg, actual)
+            msg = f"{msg} == 0x{actual:2x}"
     elif (type(actual) is str) or (type(actual) is bool):
         if target != actual:
             error = 1
@@ -306,12 +312,12 @@ def check(msg, target, actual, tolerance=0, mask=None):
         else:
             msg = f"{msg}:  expected {target} +- {tolerance} == {actual}"
     else:
-        print("Check Error: type {} not yet implant !".format(type(actual)))
+        logprint("ERROR", "pylab_ml.common.check: type {type(actual)} not yet implant !")
         error = 1
     if error > 0:
-        print(f"ERROR: {msg}")
+        logprint("ERROR", msg)
     else:
-        print(f"MEASURE {msg}")
+        logprint("MEASURE", msg)
     return error
 
 
@@ -349,6 +355,22 @@ def color(n, s):
         return value
     except Exception:
         pass
+
+
+def logprint(level, msg):
+    if mylogger is None:
+        print(f"{level}: {msg}")
+    else:
+        if level == "DEBUG":
+            mylogger.debug(msg)
+        elif level == "MEASURE":
+            mylogger.measure(msg)
+        elif level == "INFO":
+            mylogger.info(msg)
+        elif level == "WARNING":
+            mylogger.warning(msg)
+        elif level == "ERROR":
+            mylogger.error(msg)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 """Data manipulation functions."""
 import time
 import numpy as np
+import datetime as dt
 
 
 def unsigned_data(f):
@@ -21,21 +22,22 @@ def unsigned_data(f):
     return int(f)
 
 
-def signed_data(f):
+def signed_data(f, bitwidth=16):
     """
-    Convert to 16-bit signed_data.
+    Convert to signed_data.
 
     Parameters
     ----------
-    f : 16-bit value
+    f : default 16-bit value or define bitwidht
+    bitwidth: bit width
 
     Returns
     -------
-    signed 16-bit value
+    signed value
 
     """
-    if f > 32767:
-        f -= 65536
+    if f > (1 << bitwidth-1)-1:
+        f -= (1 << bitwidth)
     return int(f)
 
 
@@ -193,10 +195,13 @@ def Parity(data, even=True):
     return parity % 2
 
 
-def datetime():
+def datetime(typ=None):
     """Return the acual time as a string (year, month, day, _, hour, min, sec)."""
-    date = time.localtime(time.time())
-    return f'{date.tm_year:04d}{date.tm_mon:02d}{date.tm_mday:02d}_{date.tm_hour:02d}{date.tm_min:02d}{date.tm_sec:02d}'
+    if typ is None:
+        date = time.localtime(time.time())
+        return f'{date.tm_year:04d}{date.tm_mon:02d}{date.tm_mday:02d}_{date.tm_hour:02d}{date.tm_min:02d}{date.tm_sec:02d}'
+    elif typ == "str""":
+        return dt.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
 
 
 def str2num(value, base=10, default=""):

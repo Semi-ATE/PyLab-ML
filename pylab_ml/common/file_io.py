@@ -23,6 +23,17 @@ def help():
 NETWORK = '//samba'
 
 
+def filedialog(initialdir, title, filetypes):
+    from tkinter import Tk
+    from tkinter import filedialog as fd
+
+    root = Tk()
+    root.withdraw()
+    filename = fd.askopenfilename(initialdir=initialdir, title=title, filetypes=filetypes)
+    root.destroy()
+    return filename
+
+
 def openFile(fileName, *argv, **kwargs):
     '''open a file with name= fileName
 
@@ -301,6 +312,8 @@ def readVlogMemFile(fileName, memSize=0, defaultvalues=None, bitwidth=None, debu
 
       fileName........path to verilog file
       memSize.........number of memory addresses, if 0 then calculate from the data of the file
+      defaultvalues...default values for the memory array if no data was read
+      bitwidth........bitwidht from the data
       debug...........if True it prints out the data loaded
 
     return data
