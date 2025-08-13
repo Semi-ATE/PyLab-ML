@@ -58,7 +58,9 @@ def byte2uint(list8):
 
 
 def complement(value, bits):
-    """Binary complement from a value with number of bits."""
+    """Binary complement from a positive value with number of bits."""
+    if value < 0:
+        raise ValueError(f"complement value must be an positive integer, not {value}")
     formatstring = '{:0%ib}' % bits
     bvalue = formatstring.format(value)
     return int(''.join({'0': '1', '1': '0'}[x] for x in bvalue), 2)
