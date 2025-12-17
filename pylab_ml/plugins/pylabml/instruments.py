@@ -16,12 +16,12 @@ import os
 import sys
 from pathlib import Path
 import importlib
-import inspect
+# import inspect
 from ate_common.logger import LogLevel
 from ate_semiateplugins.hookspec import hookimpl
 from ate_spyder_lab_control.labml_adjutancy.misc import environment
 from ate_spyder_lab_control.labml_adjutancy.misc import projectsetup
-from ate_spyder_lab_control.labml_adjutancy.register import registermaster
+from pylab_ml.misc import registermaster
 
 __author__ = "Christian Jung"
 __copyright__ = "Copyright 2021, TDK Micronas"
@@ -251,10 +251,10 @@ class Instruments:
         project_path = self.main_path
         harness = ''
         path_prefix = ''
-        working_dir= ''
+        working_dir = ''
         if 'Network prefix' in config and config['Network prefix'] != '' and os.name == "nt":
             path_prefix = config['Network prefix']
-        if 'working directory' in config and config['working directory'] != '':        
+        if 'working directory' in config and config['working directory'] != '':
             for path in config['working directory'].split(';'):
                 if os.path.exists(path):
                     working_dir = path
