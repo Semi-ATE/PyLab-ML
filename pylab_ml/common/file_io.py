@@ -420,6 +420,52 @@ def writeVlogMemFile(fileName, mem, a_dig=4, d_dig=8, adroffset=0, adrinc=1, hea
     fi.close()
     return True
 
+def readVerilogMemFile(filename):
+    """
+    Parses an EEPROM file with format '@Address Data' in hex 
+     and returns a dictionary with decimal keys and values.
+
+    Parameters
+    @filename : string
+        Path to the EEPROM file.
+
+    Returns
+    eeprom_dict : dict
+        Dictionary with address (decimal) as keys and data (decimal) as values.
+    """
+    eeprom_dict = {}
+    
+    try:
+        with open(filename, 'r') as file:
+            for line in file:
+                line = line.strip()
+                # Ensure the line starts with '@' and has both address and data
+                if line.startswith('@'):
+                    parts = line.split()
+                    if len(parts) >= 2:
+                        # Extract and clean hex strings
+                        hex_address = parts[0].replace('@', '')
+                        hex_data = parts[1]
+                        
+                        # Convert hex to decimal
+                        address_decimal = int(hex_address, 16)
+                        data_decimal = int(hex_data, 16)
+                        
+                        # Store in dictionary
+                        eeprom_dict[address_decimal] = data_decimal
+        
+        return eeprom_dict
+
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' was not found.")
+        return {}
+    except ValueError:
+        print(f"Error: Could not convert a value in the file. Check the hex format.")
+        return {}
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return {}
+
 
 if __name__ == '__main__':
     data = [1, 2, 3, 4, 5]
