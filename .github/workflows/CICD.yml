@@ -65,7 +65,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v3
         with:
           miniconda-version: "latest" 
-          python-version: 3.10
+          python-version: 3.9
           channel-priority: false    # "strict"
           channels: "conda-forge"  
           mamba-version: "*"
