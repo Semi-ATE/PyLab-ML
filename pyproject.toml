@@ -41,21 +41,24 @@ classifiers = [
     "Topic :: Software Development :: Quality Assurance"
 ]
 dependencies = [
-    "semi-ate-common",
+    "hightime",
+	"h5py",
+	"ipywidgets",
+	"nidcpower==1.4.2",
+	"nidmm==1.4.2",
+	"niscope==1.4.1",
+	"nitclk==1.4.1",	
+	"matplotlib",
     "paho-mqtt",
     "pandas",
-	"matplotlib",
-	"ipywidgets",
-	"regex",
+	"psutil",
+	"PyQt5",
 	"pythonnet",
 	"pyserial",
 	"pyvisa",
 	"pyvisa-py",
-	"h5py",
-	"nidcpower==1.4.2",
-	"nidmm==1.4.2",
-	"niscope==1.4.1",
-	"nitclk==1.4.1",
+	"regex",
+    "semi-ate-common",
 ]
 
 [project.optional-dependencies]
