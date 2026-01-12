@@ -19,8 +19,8 @@ import importlib
 # import inspect
 from ate_common.logger import LogLevel
 from ate_semiateplugins.hookspec import hookimpl
-from ate_spyder_lab_control.labml_adjutancy.misc import environment
-from ate_spyder_lab_control.labml_adjutancy.misc import projectsetup
+from pylab_ml.common import environment
+from pylab_ml.common import projectsetup
 from pylab_ml.misc import registermaster
 
 __author__ = "Christian Jung"

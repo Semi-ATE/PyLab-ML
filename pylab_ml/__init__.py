@@ -4,16 +4,15 @@
 __version__ = '0.0.2'
 
 __all__ = [
-            "init",
             "baseclass",
-            "boards",
-            "coil",
             "common"
             "dmm",
             "example",
+	    "gui",
             "matrix",
-            "others"
+	    "misc",
+	    "plugins",
             "scope",
             "smu",
-            "thermostreamer",
+            "thermostreamer"
             ]

@@ -113,7 +113,7 @@ class Pickering_40_5xx(Pickering):
         self.connectionTableName = connectionTableName
         self.connectionTable = None
         self.emulator = emulator
-        self.gui = "ate_spyder_lab_control.labml_adjutancy.gui.instruments.matrix.matrix"  # semi-ctrl use this lib for the matrix gui
+        self.gui = "pylab_ml.gui.instruments.matrix.matrix"  # semi-ctrl use this lib for the matrix gui
         kwargs = {"addr": addr, "backend": Pipx40, "identify": identify, "instName": instName}
         super().__init__(**kwargs)
         logger.debug("Class {}".format(self.__class__.__name__))

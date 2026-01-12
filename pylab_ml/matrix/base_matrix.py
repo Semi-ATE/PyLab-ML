@@ -62,7 +62,7 @@ class BaseMatrix():
         self.connectionTableName = connectionTableName
         self.connectionTable = None
         self.emulator = emulator
-        self.gui = "ate_spyder_lab_control.labml_adjutancy.gui.instruments.matrix.matrix"  # semi-ctrl use this lib for the matrix gui
+        self.gui = "pylab_ml.gui.instruments.matrix.matrix"  # semi-ctrl use this lib for the matrix gui
         logger.debug("Class {}".format(self.__class__.__name__))
 
     def setup_inst(self):
