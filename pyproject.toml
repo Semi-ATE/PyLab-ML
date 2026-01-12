@@ -41,8 +41,9 @@ classifiers = [
     "Topic :: Software Development :: Quality Assurance"
 ]
 dependencies = [
-        "semi-ate-common",
-	"pandas",
+    "semi-ate-common",
+    "paho-mqtt",
+    "pandas",
 	"matplotlib",
 	"ipywidgets",
 	"regex",
