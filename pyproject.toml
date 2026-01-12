@@ -41,6 +41,7 @@ classifiers = [
     "Topic :: Software Development :: Quality Assurance"
 ]
 dependencies = [
+        "semi-ate-common",
 	"pandas",
 	"matplotlib",
 	"ipywidgets",

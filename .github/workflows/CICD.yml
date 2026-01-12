@@ -92,7 +92,7 @@ jobs:
           pip install --upgrade myst-parser
           pip install check-manifest
           pip install -e .
-          # install spyder and semi-ate
+          # install spyder and semi-ate ?
 
       - name: Run Manifest Check
         run: |
