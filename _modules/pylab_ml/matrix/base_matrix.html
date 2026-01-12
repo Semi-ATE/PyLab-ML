@@ -1,0 +1,690 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.matrix.base_matrix &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=e588eae9" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyLab-ML Documentation
+              <img src="../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyLab-ML Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.matrix.base_matrix</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.matrix.base_matrix</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Interface to a relay matrix.</span>
+
+<span class="sd">:Date: |today|</span>
+<span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
+
+<span class="sd">[Categories]</span>
+<span class="sd">Pos=struct                     (&#39;Name&#39;, &#39;Pos&#39;,                      &#39;Type&#39;, &#39;Exclusive&#39;, &#39;List&#39;, {&#39;Position1&#39;, &#39;Position2&#39;},                    &#39;Protected&#39;, 0, &#39;Color&#39;, [1,0.6,0])</span>
+<span class="sd">Supplies=struct				   (&#39;Name&#39;, &#39;Supplies&#39;,                 &#39;Type&#39;, &#39;Exclusive&#39;, &#39;List&#39;, {&#39;C_Board_Vsup&#39;, &#39;ContactTestGND&#39;},            &#39;Protected&#39;, 0, &#39;Color&#39;, [0.2,0.6,1])</span>
+<span class="sd">CommunicationBoardConfig=struct(&#39;Name&#39;, &#39;CommunicationBoardConfig&#39;, &#39;Type&#39;, &#39;Exclusive&#39;, &#39;List&#39;, {&#39;C_BoardOut_BUS1&#39;, &#39;C_BoardOut_Only_BUS1&#39;},   &#39;Protected&#39;, 0, &#39;Color&#39;, [0.2,0.8,0])</span>
+<span class="sd">Additonal=struct               (&#39;Name&#39;, &#39;Additonal&#39;,                &#39;Type&#39;, &#39;Stackable&#39;, &#39;List&#39;, {&#39;Scope_BUS1&#39;, &#39;US1_VSUP&#39;},                    &#39;Protected&#39;, 0, &#39;Color&#39;, [0.74902,0,0.74902])</span>
+<span class="sd">BUS1Config=struct              (&#39;Name&#39;, &#39;BUS1Config&#39;,               &#39;Type&#39;, &#39;Exclusive&#39;, &#39;List&#39;, {&#39;BUS1_IO1_Position1&#39;},                        &#39;Protected&#39;, 0, &#39;Color&#39;, [0.93333,0.46667,0])</span>
+<span class="sd">BUS2Config=struct              (&#39;Name&#39;, &#39;BUS2Config&#39;,               &#39;Type&#39;, &#39;Exclusive&#39;, &#39;List&#39;, {&#39;BUS2_IO1_Position1&#39;},                        &#39;Protected&#39;, 0, &#39;Color&#39;, [0.8,0.33333,0])</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">configparser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.collate_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interface</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
+
+
+<div class="viewcode-block" id="BaseMatrix">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.BaseMatrix.html#pylab_ml.matrix.base_matrix.BaseMatrix">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BaseMatrix</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Basic interface to a Relay Matrix.</span>
+
+<span class="sd">    :Date: |today|</span>
+<span class="sd">    :Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">interchoices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">generic</span><span class="p">]</span>
+
+<div class="viewcode-block" id="BaseMatrix.__init__">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.BaseMatrix.html#pylab_ml.matrix.base_matrix.BaseMatrix.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connectionTableName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">emulator</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the instrument.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ---------_</span>
+<span class="sd">        connectionTableName : str, optional</span>
+<span class="sd">            filename from setup- or matlab-file with connection definition. The default is $WORKAREA/harness/matrix*.setup</span>
+<span class="sd">        emulator : bool, optional</span>
+<span class="sd">            if True than emulate only a Matrix. No real hardware. The default is False.</span>
+
+
+<span class="sd">        Example: Initialization</span>
+<span class="sd">           &gt;&gt;&gt; tablename = &#39;matrix_messplatz.setup&#39;</span>
+<span class="sd">           &gt;&gt;&gt; matrix = Pickering_40_5xx(addr=&#39;Switch&#39;, tablename, instName=&#39;matrix&#39;)</span>
+<span class="sd">           &gt;&gt;&gt; matrix.set(&#39;Position2&#39;,&#39;close&#39;)              # need connectionTable</span>
+<span class="sd">           &gt;&gt;&gt; matrix.set(&#39;Oszi&#39;,&#39;close&#39;)</span>
+<span class="sd">           &gt;&gt;&gt; matrix.set(&#39;APB_Vsup&#39;,&#39;close&#39;)</span>
+<span class="sd">           &gt;&gt;&gt; matrix.set(&#39;APB_Vsup&#39;,&#39;open&#39;)</span>
+<span class="sd">           &gt;&gt;&gt; matrix.set(&#39;SMU_Vsup&#39;,&#39;close&#39;)</span>
+<span class="sd">           &gt;&gt;&gt; matrix.set(&#39;SMU_Vsup&#39;)                       # default = open</span>
+<span class="sd">           &gt;&gt;&gt; matrix.set(&#39;APB_Vsup&#39;,&#39;close&#39;,SwitchOver=True)</span>
+<span class="sd">           &gt;&gt;&gt; matrix.connect(&#39;1,1,1;1,2,3;1,3,5&#39;,&#39;close&#39;)  # if connectionTable not loaded</span>
+
+<span class="sd">        detailed example of usage:</span>
+<span class="sd">           * :download:`examples/pickeringmatrix/matrix_40_541_201.py &lt;../../../examples/pickeringmatrix/matrix_40_541_201.py&gt;`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connectionTableName</span> <span class="o">=</span> <span class="n">connectionTableName</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emulator</span> <span class="o">=</span> <span class="n">emulator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="s2">&quot;pylab_ml.gui.instruments.matrix.matrix&quot;</span>  <span class="c1"># semi-ctrl use this lib for the matrix gui</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="BaseMatrix.setup_inst">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.BaseMatrix.html#pylab_ml.matrix.base_matrix.BaseMatrix.setup_inst">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set instrument settings for setup, called von class Instrument.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_inst</span><span class="p">()</span>
+        <span class="nb">breakpoint</span><span class="p">()</span>
+        <span class="n">errorlist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_list</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">errorlist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> found Diagnose error </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">errorlist</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cardnr</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># only one card Sub-Unit accept, changes necessary for more sub-units,   if more than self.inst.GetSubCounts()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># will be set if connectionTable = *.setup</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dic_constantsTable</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># &quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;harness&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTableName</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_connectionTable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connectionTableName</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">path</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>  <span class="c1"># load default $workarea/harness/matrix*.setup</span>
+            <span class="n">load</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">with</span> <span class="n">os</span><span class="o">.</span><span class="n">scandir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">entries</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="ow">and</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;.setup&quot;</span> <span class="ow">and</span> <span class="n">entry</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;matrix&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">load</span><span class="p">:</span>
+                            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2"> found more than one setup file, use </span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">load_connectionTable</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+                        <span class="n">load</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_all</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;set()&quot;</span><span class="p">,</span> <span class="s2">&quot;clear()&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;load_connectionTable()&quot;</span><span class="p">,</span> <span class="s2">&quot;close()&quot;</span><span class="p">,</span> <span class="s2">&quot;display()&quot;</span><span class="p">]</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the error_message from instance.&quot;&quot;&quot;</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.Error: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">ErrorMessage</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">msg</span>
+
+<div class="viewcode-block" id="BaseMatrix.display">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.BaseMatrix.html#pylab_ml.matrix.base_matrix.BaseMatrix.display">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Display state, nodes or connection in ASCII-String.</span>
+
+<span class="sd">           | mode==None or &#39;state&#39;  display actual state</span>
+<span class="sd">           | mode==&#39;nodes&#39;  display connected nodes</span>
+<span class="sd">           | mode==&#39;connection&#39; display available codes for connections</span>
+<span class="sd">           | mode==someone else  display help</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;state&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;   display(</span><span class="si">{}</span><span class="s2">) not possible, connectionTable not loaded&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;ModeSets.&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;    </span><span class="si">{:&lt;20}</span><span class="s2"> :         </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.display(&#39;?&#39;) for other modes</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">publish_get</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;nodes&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_GetCrosspointState</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cardnr</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;connection&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;   display(</span><span class="si">{}</span><span class="s2">) not possible, connectionTable not loaded&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span>
+                <span class="k">return</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;ModeSets.&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;:         </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;    </span><span class="si">{:&lt;20}{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;            </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    usage: display(mode)&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;       with mode= &#39;state&#39; &quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;                = &#39;nodes&#39; &quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;                = &#39;connection&#39; &quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseMatrix.clear">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.BaseMatrix.html#pylab_ml.matrix.base_matrix.BaseMatrix.clear">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear all connections (open).</span>
+
+<span class="sd">        add the correct command for the instance to this function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span> <span class="o">=</span> <span class="s2">&quot;open&quot;</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># set all Categories to open</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">&quot;clear&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseMatrix.set">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.BaseMatrix.html#pylab_ml.matrix.base_matrix.BaseMatrix.set">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="n">SwitchOver</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set categories or scenarios to state &#39;open&#39; or &#39;close&#39;.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection (str):  categories or scenarios.</span>
+<span class="sd">            state (str, optional):  &#39;open&#39; or &#39;close&#39;. Defaults to &#39;open&#39;.</span>
+<span class="sd">            SwitchOver (TYPE, optional):</span>
+<span class="sd">               | True : connection will be open AFTER the new one was set,</span>
+<span class="sd">               | False : default -&gt; first: open last connection, than: close new connection</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;set(</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">) not possible: connectionTable not loaded&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">connection</span>  <span class="c1"># for setup-File</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;Category_&quot;</span> <span class="o">+</span> <span class="n">connection</span>  <span class="c1"># for Matlab-File</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">:</span>  <span class="c1"># what is the key, is it in Categories ?</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">state</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;set(</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">) already set&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+                <span class="k">return</span>
+            <span class="n">vtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;Type&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">vtype</span> <span class="o">==</span> <span class="s2">&quot;Exclusive&quot;</span><span class="p">:</span>  <span class="c1"># if Exclusive than open the last setting</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]],</span> <span class="s2">&quot;open&quot;</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;open&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">&quot;set&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">vtype</span> <span class="o">==</span> <span class="s2">&quot;Stackable&quot;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;found Stackable&quot;</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">connection</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="s2">&quot;open&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.set type </span><span class="si">{}</span><span class="s2"> unknown, please check your setup-file&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">vtype</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;ModeSets.&quot;</span> <span class="o">+</span> <span class="n">connection</span>  <span class="c1"># for Matlab-File</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">:</span>  <span class="c1"># search for ScenariosSets</span>
+            <span class="k">for</span> <span class="n">connection</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>  <span class="c1"># it is a ScenariosSets</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">&quot;set&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="c1"># it is not a categorie or ScenariosSets, so it is a scenario:</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>  <span class="c1"># scan all keys for the connection</span>
+            <span class="k">if</span> <span class="n">connection</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">last_connection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">SwitchOver</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">key</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Category_Supply&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;Type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Exclusive&quot;</span><span class="p">)</span>
+                <span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+                    <span class="s2">&quot;open&quot;</span>
+                <span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># if supply than always open last state</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]],</span> <span class="s2">&quot;open&quot;</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;open&quot;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">return</span>
+                <span class="k">for</span> <span class="n">gkey</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>  <span class="c1"># search for key &#39;open*&#39; and if found, than &#39;open&#39; last connection</span>
+                    <span class="k">if</span> <span class="n">gkey</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># key open indicate open before close</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]],</span> <span class="s2">&quot;open&quot;</span><span class="p">):</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;open&quot;</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">return</span>  <span class="c1"># connection goes wrong...</span>
+                        <span class="k">if</span> <span class="n">connection</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">gkey</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="n">found</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># do nothing more</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="n">found</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;mode&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">connection</span><span class="p">],</span> <span class="n">state</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s2">&quot;close&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">connection</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">ActualState</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span>
+                <span class="k">if</span> <span class="n">SwitchOver</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">last_connection</span><span class="p">],</span> <span class="s2">&quot;open&quot;</span><span class="p">)</span>  <span class="c1"># open last connection</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">&quot;set&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.set(&#39;</span><span class="si">{</span><span class="n">connection</span><span class="si">}</span><span class="s2">&#39;, &#39;</span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">found</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.set(&#39;</span><span class="si">{}</span><span class="s2">&#39;) not found !&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">connection</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;     for available connections, write   </span><span class="si">{}</span><span class="s2">.display(&#39;connection&#39;)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+        <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="BaseMatrix.load_connectionTable">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.BaseMatrix.html#pylab_ml.matrix.base_matrix.BaseMatrix.load_connectionTable">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_connectionTable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connectionTableName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load matlab(.m) or setup-file(.setup) with definition from connections.</span>
+
+<span class="sd">        create constantsTable and connectionTable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+        <span class="k">if</span> <span class="n">connectionTableName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTableName</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">connectionTableName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTableName</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.load_connectionTable: connectionTableName isn&#39;t defined&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="n">file_extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">connectionTableName</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">file_extension</span> <span class="o">==</span> <span class="s2">&quot;.m&quot;</span><span class="p">:</span>
+            <span class="n">constants</span><span class="p">,</span> <span class="n">contab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_matlabTable</span><span class="p">(</span><span class="n">connectionTableName</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">constants</span><span class="p">,</span> <span class="n">contab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_setupTable</span><span class="p">(</span><span class="n">connectionTableName</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.load_connectionTable(&#39;</span><span class="si">{</span><span class="n">connectionTableName</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connectionTableName</span> <span class="o">=</span> <span class="n">connectionTableName</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">&quot;dic_constantsTable&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_constantsTable</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">&quot;dic_connectionTable&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span> <span class="o">!=</span> <span class="n">contab</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span> <span class="o">=</span> <span class="n">contab</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constantsTable</span> <span class="o">=</span> <span class="n">constants</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connectionTable</span> <span class="o">=</span> <span class="n">contab</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constantsTable</span> <span class="o">=</span> <span class="n">constants</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_setupTable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load filename  and create dictionary constants and contab.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filename (TYPE):  filename *.setup</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: IOError.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            constants (dic)  contab.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot; couldn&#39;t find </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+        <span class="n">dic_connectionTable</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">dic_constantsTable</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># constants = {}</span>
+        <span class="n">contab</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">optionxform</span> <span class="o">=</span> <span class="nb">str</span>  <span class="c1"># allow upper character in key</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">sections</span><span class="p">()</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot; </span><span class="si">{}</span><span class="s2"> couldn&#39;t found necessary information in the file&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;Device&quot;</span><span class="p">]:</span>
+            <span class="n">dic_constantsTable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_struc2dic</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;Device&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">])</span>  <span class="c1"># have to change for more than one devices</span>
+            <span class="c1"># if &#39;XLables&#39; in dic_constantsTable:</span>
+            <span class="c1">#     constants = dic_constantsTable[&#39;XLables&#39;]</span>
+            <span class="c1"># if &#39;YLables&#39; in dic_constantsTable:</span>
+            <span class="c1">#     constants.update(dic_constantsTable[&#39;YLables&#39;])</span>
+        <span class="k">for</span> <span class="n">categories</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;Categories&quot;</span><span class="p">]:</span>
+            <span class="n">dic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_struc2dic</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;Categories&quot;</span><span class="p">][</span><span class="n">categories</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;Scenarios&quot;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">[</span><span class="s2">&quot;List&quot;</span><span class="p">]:</span>
+                    <span class="n">dic</span><span class="p">[</span><span class="s2">&quot;List&quot;</span><span class="p">][</span><span class="n">scenario</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;Scenarios&quot;</span><span class="p">][</span><span class="n">scenario</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+            <span class="n">dic_connectionTable</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">dic</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]:</span> <span class="n">dic</span><span class="p">})</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dic_connectionTable</span><span class="p">:</span>
+            <span class="n">contab</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;Name&quot;</span><span class="p">]:</span> <span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;List&quot;</span><span class="p">]})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span> <span class="o">=</span> <span class="n">dic_connectionTable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dic_constantsTable</span> <span class="o">=</span> <span class="n">dic_constantsTable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="c1"># return(constants, contab)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">dic_constantsTable</span><span class="p">,</span> <span class="n">contab</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BaseMatrix.connect">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.BaseMatrix.html#pylab_ml.matrix.base_matrix.BaseMatrix.connect">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">crosspointtable</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set state from crosspoint.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            crosspointtable (str): stringlist with nodes (&#39;1,3,4;1,5,6;1,2,14&#39;)  card, row, col.</span>
+<span class="sd">            state (str): &#39;open&#39; or &#39;close&#39;.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: when more than one card use.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool:</span>
+<span class="sd">               | True : etablish state</span>
+<span class="sd">               | False : error</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s2">&quot;close&quot;</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">state</span> <span class="o">==</span> <span class="s2">&quot;open&quot;</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.connect: could not connect to state </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">crosspoints</span> <span class="o">=</span> <span class="n">crosspointtable</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">crosspoints</span><span class="p">:</span>
+            <span class="n">net</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">net</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">cardnr</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">col</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cardnr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">col</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">cardnr</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> supports only 1 Card, but Card=</span><span class="si">{}</span><span class="s2">, if you need this, please extend the software....&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">cardnr</span><span class="p">))</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">SetCrosspointState</span><span class="p">(</span><span class="n">cardnr</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.connect: row=</span><span class="si">{}</span><span class="s2">, col=</span><span class="si">{}</span><span class="s2">, state=</span><span class="si">{}</span><span class="s2">  -&gt; </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_error_message</span><span class="p">(</span><span class="n">err</span><span class="p">)))</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">&quot;SetCrosspointState&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">cardnr</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_GetCrosspointState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cardnr</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    </span><span class="si">{}</span><span class="s2"> = </span><span class="si">{}</span><span class="s2">  </span><span class="si">{}</span><span class="s2">x</span><span class="si">{}</span><span class="se">\n</span><span class="s2">      &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rows</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">cols</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;         </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cols</span><span class="p">))</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">      &quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">cols</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cols</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">rows</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rows</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    </span><span class="si">{}</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">cols</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">err</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">GetCrosspointState</span><span class="p">(</span><span class="n">cardnr</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span>
+                <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_constantsTable</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_constantsTable</span><span class="p">[</span><span class="s2">&quot;YLables&quot;</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_constantsTable</span><span class="p">[</span><span class="s2">&quot;YLables&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Matrix_Emulator">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.Matrix_Emulator.html#pylab_ml.matrix.base_matrix.Matrix_Emulator">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Matrix_Emulator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Emulator from a relay Matrix.</span>
+
+<span class="sd">    :Date: |today|</span>
+<span class="sd">    :Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
+
+<span class="sd">    Usable if you have no real Matrix as instance</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<div class="viewcode-block" id="Matrix_Emulator.__init__">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.Matrix_Emulator.html#pylab_ml.matrix.base_matrix.Matrix_Emulator.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">66</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="n">addr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_max</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">=</span> <span class="n">x</span></div>
+
+
+<div class="viewcode-block" id="Matrix_Emulator.Reset">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.Matrix_Emulator.html#pylab_ml.matrix.base_matrix.Matrix_Emulator.Reset">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">Reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Matrix_Emulator.clear">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.Matrix_Emulator.html#pylab_ml.matrix.base_matrix.Matrix_Emulator.clear">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear all connections (opem).&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ClearCard</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Matrix_Emulator.Close">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.Matrix_Emulator.html#pylab_ml.matrix.base_matrix.Matrix_Emulator.Close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">Close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close connection to Pickering Emulator.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="Matrix_Emulator.ClearCard">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.Matrix_Emulator.html#pylab_ml.matrix.base_matrix.Matrix_Emulator.ClearCard">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ClearCard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Open all connections.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">y_max</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span><span class="p">))</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">SetCrosspointState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cardnr</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span><span class="p">[</span><span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">col</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">GetCrosspointState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cardnr</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span><span class="p">[</span><span class="n">rows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">cols</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">ErrorMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Emulator.matrix:  something goes wrong, error = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Matrix_Emulator.message">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_matrix.Matrix_Emulator.html#pylab_ml.matrix.base_matrix.Matrix_Emulator.message">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Device has no display, message display to logger.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">GetCardId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Pickering Emulator Matrix&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">Diagnostic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">SubInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cardnr</span><span class="p">,</span> <span class="n">unknown</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_max</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

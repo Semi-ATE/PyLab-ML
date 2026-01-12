@@ -1,0 +1,6 @@
+pylab\_ml.common.common.logprint
+================================
+
+.. currentmodule:: pylab_ml.common.common
+
+.. autofunction:: logprint

@@ -1,0 +1,32 @@
+pylab\_ml.common.memorytest.MER
+===============================
+
+.. currentmodule:: pylab_ml.common.memorytest
+
+.. autoclass:: MER
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MER.__init__
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MER.SIZE
+      ~MER.pmer
+   
+   

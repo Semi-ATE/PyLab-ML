@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.common.memorytest &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=e588eae9" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyLab-ML Documentation
+              <img src="../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyLab-ML Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.common.memorytest</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.common.memorytest</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on Fri Aug  8 15:18:15 2025</span>
+
+<span class="sd">@author: Zlin526F</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">complement</span>
+
+
+<div class="viewcode-block" id="MER">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.memorytest.MER.html#pylab_ml.common.memorytest.MER">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MER</span><span class="p">:</span>
+    <span class="n">SIZE</span> <span class="o">=</span> <span class="mi">4</span>
+
+    <span class="n">pmer</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;r0&quot;</span><span class="p">,</span> <span class="s2">&quot;r1&quot;</span><span class="p">,</span> <span class="s2">&quot;w0&quot;</span><span class="p">,</span> <span class="s2">&quot;w1&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="MER.__init__">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.memorytest.MER.html#pylab_ml.common.memorytest.MER.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_error</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_error</span> <span class="o">=</span> <span class="n">log_error</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_values</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;read 0&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">SIZE</span>                           <span class="c1"># define 4 March Element Register, default value = &quot;read 0&quot;</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">SIZE</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index=</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">, must be between 1 and </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">SIZE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">SIZE</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index must be between 1 and </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">SIZE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pmer</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Wert must be </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pmer</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">trvalue</span> <span class="o">=</span> <span class="s1">&#39;read &#39;</span> <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;r&#39;</span> <span class="k">else</span> <span class="s1">&#39;write &#39;</span>
+        <span class="n">trvalue</span> <span class="o">=</span> <span class="n">trvalue</span> <span class="o">+</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">trvalue</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">SIZE</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cnt</span> <span class="o">=</span> <span class="n">index</span></div>
+
+
+
+<div class="viewcode-block" id="Memory_test">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.memorytest.Memory_test.html#pylab_ml.common.memorytest.Memory_test">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Memory_test</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    TODO:   </span>
+<span class="sd">        - only data background = sdb implemented, missing: &#39;bdb&#39;, &#39;rdb&#39;, &#39;cdb&#39;</span>
+<span class="sd">        - Address counting according to the actual layout structure is missing. </span>
+<span class="sd">            - bin x = linear counting</span>
+<span class="sd">            - bin y missing</span>
+<span class="sd">        - operation next missing</span>
+<span class="sd">        - operation hammer missing</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pdata_background</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdb&#39;</span><span class="p">,</span>              <span class="c1"># solid DB - all bits with same data</span>
+                        <span class="s1">&#39;bdb&#39;</span>               <span class="c1"># checkerboard DB - adjacent cells with different data    not implemented</span>
+                        <span class="s1">&#39;rdb&#39;</span>               <span class="c1"># row stripes DB                                          not implemented</span>
+                        <span class="s1">&#39;cdb&#39;</span>               <span class="c1"># column striped DB                                       not implemented</span>
+                         <span class="p">]</span>
+    <span class="n">pcount_method</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bin x&#39;</span><span class="p">,</span> <span class="s1">&#39;complement&#39;</span><span class="p">]</span>
+    <span class="n">padr_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;down&#39;</span><span class="p">]</span>
+    
+    <span class="n">algo_ops</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Scan&#39;</span><span class="p">:</span>            <span class="p">{</span><span class="s1">&#39;len&#39;</span> <span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;ops&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;r1&#39;</span><span class="p">]]},</span>
+                <span class="s1">&#39;Scan Complement&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;len&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;ops&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;complement&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;bin x&#39;</span><span class="p">,</span> <span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;complement&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">]]},</span>
+                <span class="s1">&#39;Scan+&#39;</span><span class="p">:</span>           <span class="p">{</span><span class="s1">&#39;len&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;ops&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;r1&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;r1&#39;</span><span class="p">]]},</span>
+                <span class="s1">&#39;MATS+&#39;</span><span class="p">:</span>           <span class="p">{</span><span class="s1">&#39;len&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;ops&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                      <span class="p">[</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">]]},</span>
+                <span class="s1">&#39;March C-&#39;</span><span class="p">:</span>        <span class="p">{</span><span class="s1">&#39;len&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;ops&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">]]},</span>
+                <span class="s1">&#39;PMOVI&#39;</span><span class="p">:</span>           <span class="p">{</span><span class="s1">&#39;len&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;ops&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">]]},</span>
+                <span class="s1">&#39;March U&#39;</span><span class="p">:</span>         <span class="p">{</span><span class="s1">&#39;len&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;ops&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">]]},</span>
+                <span class="s1">&#39;March LR&#39;</span><span class="p">:</span>        <span class="p">{</span><span class="s1">&#39;len&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;ops&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">]]},</span>
+               <span class="c1"># &#39;BLIF = 10n&#39;:     # TODO implement next command</span>
+               <span class="c1"># &#39;HAMW8 = 41n&#39;:    # TODO implement hammer command</span>
+                <span class="s1">&#39;BLIF-&#39;</span><span class="p">:</span>           <span class="p">{</span><span class="s1">&#39;len&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;ops&#39;</span><span class="p">:</span>  <span class="p">[[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;w0&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">]]},</span>
+                <span class="s1">&#39;Algor. B&#39;</span><span class="p">:</span>        <span class="p">{</span><span class="s1">&#39;len&#39;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">&#39;ops&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;w0&#39;</span><span class="p">],</span>
+                                                       <span class="p">[</span><span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;w1&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">]]},</span>
+                <span class="c1"># &#39;HAMR8 = 18n&#39;:    # TODO implement hammer command</span>
+              <span class="p">}</span>
+              
+
+<div class="viewcode-block" id="Memory_test.__init__">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.memorytest.Memory_test.html#pylab_ml.common.memorytest.Memory_test.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">bitwidth</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">readfunc</span><span class="p">,</span> <span class="n">writefunc</span><span class="p">,</span> <span class="n">beforefunc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">afterfunc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">end</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">readfunc</span> <span class="o">=</span> <span class="n">readfunc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writefunc</span> <span class="o">=</span> <span class="n">writefunc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beforefunc</span> <span class="o">=</span> <span class="n">beforefunc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">afterfunc</span> <span class="o">=</span> <span class="n">afterfunc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ao</span> <span class="o">=</span> <span class="s1">&#39;up&#39;</span>                             <span class="c1"># address order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cm</span> <span class="o">=</span> <span class="s1">&#39;bin x&#39;</span>                          <span class="c1"># counting method posible values = self.pcount_method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_db</span> <span class="o">=</span> <span class="s1">&#39;sdb&#39;</span>                            <span class="c1"># data background = self.pdata_background</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bitwidth</span> <span class="o">=</span> <span class="n">bitwidth</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mer</span> <span class="o">=</span> <span class="n">MER</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error_values</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">algorithmen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alist</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Argument have to be a list. Values are </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">algo_ops</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">algo_ops</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Name from algorithmus not availabe, values are </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">algo_ops</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">errors</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">errors</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithmus</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">algo_ops</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;len&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">n&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">algo_ops</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;ops&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">errors</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">algorithmus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">operations</span><span class="p">):</span>
+        <span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Memory-Test: will run </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># set default values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ao</span> <span class="o">=</span> <span class="s1">&#39;up&#39;</span>                             <span class="c1"># address order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cm</span> <span class="o">=</span> <span class="s1">&#39;bin x&#39;</span>                          <span class="c1"># counting method posible values = self.pcount_method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_db</span> <span class="o">=</span> <span class="s1">&#39;sdb&#39;</span>                            <span class="c1"># data background = self.pdata_background</span>
+        <span class="k">for</span> <span class="n">operation</span> <span class="ow">in</span> <span class="n">operations</span><span class="p">:</span>
+            <span class="n">mer_index</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">sop</span> <span class="ow">in</span> <span class="n">operation</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">sop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">padr_order</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">adr_order</span> <span class="o">=</span> <span class="n">sop</span>
+                <span class="k">elif</span> <span class="n">sop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcount_method</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_cm</span> <span class="o">=</span> <span class="n">sop</span>
+                <span class="k">elif</span> <span class="n">sop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pdata_background</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_db</span> <span class="o">=</span> <span class="n">sop</span>
+                <span class="k">elif</span> <span class="n">sop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mer</span><span class="o">.</span><span class="n">pmer</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">mer</span><span class="p">[</span><span class="n">mer_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">sop</span>
+                    <span class="n">mer_index</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Memory_test operation </span><span class="si">{</span><span class="n">sop</span><span class="si">}</span><span class="s1"> not valid&#39;</span><span class="p">)</span>
+            <span class="n">errors</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;   Memory_test result: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> run in </span><span class="si">{</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">starttime</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s, found </span><span class="si">{</span><span class="n">errors</span><span class="si">}</span><span class="s2"> Errors&quot;</span>
+        <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">errors</span>
+
+<div class="viewcode-block" id="Memory_test.run">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.memorytest.Memory_test.html#pylab_ml.common.memorytest.Memory_test.run">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;read/write memory with the commands in the march element registers.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">beforefunc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">beforefunc</span><span class="p">()</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">start</span> <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">end</span> <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inc</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">adr_order</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cm</span> <span class="o">==</span> <span class="s1">&#39;complement&#39;</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_startadr</span> <span class="o">=</span> <span class="n">start</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">adr_order</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cm</span> <span class="o">==</span> <span class="s1">&#39;complement&#39;</span> <span class="k">else</span> <span class="n">end</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_endadr</span> <span class="o">=</span> <span class="n">end</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inc</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">adr_order</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cm</span> <span class="o">==</span> <span class="s1">&#39;complement&#39;</span> <span class="k">else</span> <span class="n">start</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">_inc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_space</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_endadr</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_startadr</span><span class="p">)</span>
+        <span class="n">space_bits</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_space</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">error_values</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">counting</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">adr_order</span><span class="si">:</span><span class="s2">10s</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cm</span> <span class="o">==</span> <span class="s1">&#39;complement&#39;</span> <span class="k">else</span> <span class="s2">&quot;complement&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    Memory_test: from 0x</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_startadr</span><span class="si">:</span><span class="s1">0x</span><span class="si">}</span><span class="s1"> to 0x</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_endadr</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_inc</span><span class="si">:</span><span class="s1">0x</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">counting</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_space</span><span class="si">}</span><span class="s1"> values do </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mer</span><span class="o">.</span><span class="n">_values</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">adr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_startadr</span>
+        <span class="n">compare_data</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mer</span><span class="o">.</span><span class="n">SIZE</span><span class="p">)]</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">docomp</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">dump</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cnt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_space</span><span class="p">):</span>
+            <span class="n">mer_cnt</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="n">mer_cnt</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mer</span><span class="o">.</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">operand</span><span class="p">,</span> <span class="n">dat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mer</span><span class="p">[</span><span class="n">mer_cnt</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+                <span class="n">cdata</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dat</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">bitwidth</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>                  <span class="c1"># data to write, or target read data</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operand</span><span class="p">)(</span><span class="n">adr</span><span class="p">,</span> <span class="n">cdata</span><span class="p">)</span>               <span class="c1"># call read/write</span>
+                <span class="k">if</span> <span class="n">operand</span> <span class="o">==</span> <span class="s1">&#39;read&#39;</span><span class="p">:</span>
+                    <span class="n">compare_data</span><span class="p">[</span><span class="n">mer_cnt</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">adr</span><span class="p">,</span> <span class="n">cdata</span><span class="p">])</span>
+                    <span class="n">dump</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="n">mer_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cm</span> <span class="o">==</span> <span class="s1">&#39;complement&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">docomp</span><span class="p">:</span>
+                <span class="n">docomp</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">lastadr</span> <span class="o">=</span> <span class="n">adr</span>
+                <span class="n">adr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_startadr</span> <span class="o">+</span> <span class="n">complement</span><span class="p">(</span><span class="n">adr</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_startadr</span><span class="p">,</span> <span class="n">space_bits</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">docomp</span><span class="p">:</span>
+                <span class="n">docomp</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">adr</span> <span class="o">=</span> <span class="n">lastadr</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inc</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">adr</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inc</span>
+                    
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">afterfunc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dump</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">afterfunc</span><span class="p">()</span>                                   <span class="c1"># get list from all read (=captured) values,</span>
+        <span class="n">compare_data_length</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">compare_data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dump</span><span class="p">)</span> <span class="o">!=</span> <span class="n">compare_data_length</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; Memory_test: dump error, read </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dump</span><span class="p">)</span><span class="si">}</span><span class="s1"> values, should be </span><span class="si">{</span><span class="n">compare_data_length</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="n">len_compare_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span> <span class="k">for</span> <span class="n">adata</span> <span class="ow">in</span> <span class="n">compare_data</span><span class="p">]</span>
+        <span class="n">cntarrays</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">compare_data</span><span class="p">)</span> <span class="o">-</span> <span class="n">len_compare_data</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">pdump_start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">read_data</span> <span class="o">=</span> <span class="n">compare_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">length</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">len_compare_data</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">len_compare_data</span><span class="p">))):</span>
+            <span class="k">if</span> <span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">pdump</span> <span class="o">=</span> <span class="n">dump</span><span class="p">[</span><span class="n">pdump_start</span><span class="p">::</span><span class="n">cntarrays</span><span class="p">]</span>           <span class="c1"># assign the result to the correct operation (=array)</span>
+                <span class="n">pdump_start</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">read_data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">read_data</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">pdump</span><span class="p">)]</span>
+                <span class="n">read_data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">compare_data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">mer_error</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">if</span> <span class="n">read_data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">!=</span> <span class="n">compare_data</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span>
+                    <span class="k">for</span> <span class="n">rd</span><span class="p">,</span> <span class="n">cd</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">read_data</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">compare_data</span><span class="p">[</span><span class="n">index</span><span class="p">]):</span>
+                        <span class="k">if</span> <span class="n">rd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">cd</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                            <span class="n">mer_error</span> <span class="o">+=</span> <span class="mi">1</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  read error 0x</span><span class="si">{</span><span class="n">rd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">0x</span><span class="si">}</span><span class="s2"> = 0x</span><span class="si">{</span><span class="n">rd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">0x</span><span class="si">}</span><span class="s2"> != target 0x</span><span class="si">{</span><span class="n">cd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">0x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Memorytest &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mer</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; found </span><span class="si">{</span><span class="n">mer_error</span><span class="si">}</span><span class="s2"> errors&quot;</span><span class="p">)</span>                 
+                <span class="n">errors</span> <span class="o">+=</span> <span class="n">mer_error</span>
+        <span class="k">return</span> <span class="n">errors</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">adr</span><span class="p">,</span> <span class="n">compare</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">dat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readfunc</span><span class="p">(</span><span class="n">adr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dat</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">adr</span><span class="p">,</span> <span class="n">dat</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writefunc</span><span class="p">(</span><span class="n">adr</span><span class="p">,</span> <span class="n">dat</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">adr_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Address Order, up or down.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ao</span>
+
+    <span class="nd">@adr_order</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">adr_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">padr_order</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Memory_test: wrong address order: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> should be </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">padr_order</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ao</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Counting method.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cm</span>
+
+    <span class="nd">@count_method</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">str</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcount_method</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Memory_test: wrong counter: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> should be </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pcount_method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cm</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">data_background</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Data background.</span>
+
+<span class="sd">         &#39;sdb&#39; - solid DB - all bits with same data</span>
+<span class="sd">         &#39;bdb&#39; - checkerboard DB - adjacent cells with different data</span>
+<span class="sd">         &#39;rdb&#39; - row stripes DB</span>
+<span class="sd">         &#39;cdb&#39; - column striped DB</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ao</span>
+
+    <span class="nd">@data_background</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">data_background</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pdata_background</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Memory_test: data_background: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> should be </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pdata_background</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_db</span> <span class="o">=</span> <span class="n">value</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.collate_instrument &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=e588eae9" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            PyLab-ML Documentation
+              <img src="../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PyLab-ML Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.collate_instrument</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.collate_instrument</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Package: collate_instrument.</span>
+
+<span class="sd">    :Date: |today|</span>
+<span class="sd">    :Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
+
+<span class="sd">this collate_instrument package provides utilities to collate Instruments</span>
+
+<span class="sd">it provides the following</span>
+
+<span class="sd">Classes:</span>
+
+<span class="sd">    Interface:</span>
+<span class="sd">        enumeration of instrument interface types</span>
+
+<span class="sd">    InterfaceItem:</span>
+<span class="sd">        dataclass to classify interface item</span>
+
+<span class="sd">    InstrumentItem</span>
+<span class="sd">        dataclass to classify instrument item</span>
+
+<span class="sd">    DefInter:</span>
+<span class="sd">        singleton class to determine the default interface and optional backend</span>
+
+<span class="sd">    CollateInstrument:</span>
+<span class="sd">        singleton class to collate all instrument instantiations</span>
+
+<span class="sd">    note::</span>
+<span class="sd">          DefInter.check4nidriver() should find the national instrument driver if exist</span>
+<span class="sd">          the used key depends from the pyvisa-version</span>
+<span class="sd">          search for an independent solution !!</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common.singleton</span><span class="w"> </span><span class="kn">import</span> <span class="n">Singleton</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;pylab_ml.base_instrument&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Interface">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.Interface.html#pylab_ml.collate_instrument.Interface">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Interface</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">gpib</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">usbserial</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">pxie</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">tcpip</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">singular</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">generic</span> <span class="o">=</span> <span class="mi">6</span></div>
+
+
+
+<div class="viewcode-block" id="InterfaceItem">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html#pylab_ml.collate_instrument.InterfaceItem">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">InterfaceItem</span><span class="p">:</span>
+    <span class="n">interface</span><span class="p">:</span> <span class="n">Interface</span>
+    <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">hostname</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">port</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">addr</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+
+<div class="viewcode-block" id="InstrumentItem">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html#pylab_ml.collate_instrument.InstrumentItem">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">InstrumentItem</span><span class="p">:</span>
+    <span class="n">instName</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">moduleName</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">className</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">interfaceItem</span><span class="p">:</span> <span class="n">InterfaceItem</span>
+    <span class="n">identity</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">initialized</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">instance</span><span class="p">:</span> <span class="n">Any</span></div>
+
+
+
+<div class="viewcode-block" id="DefInter">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.DefInter.html#pylab_ml.collate_instrument.DefInter">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DefInter</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">Singleton</span><span class="p">):</span>
+
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pyvisa</span>
+
+    <span class="n">visa_backends</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;@py&quot;</span><span class="p">,</span> <span class="s2">&quot;@ivi&quot;</span><span class="p">,</span> <span class="s2">&quot;@ni&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="DefInter.__init__">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.DefInter.html#pylab_ml.collate_instrument.DefInter.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">(</span><span class="n">style</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">&quot;Linux&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">default_interface</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">tcpip</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">default_backend</span> <span class="o">=</span> <span class="s2">&quot;@py&quot;</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">&quot;usbserial&quot;</span> <span class="ow">or</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">&quot;Serial&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">default_interface</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">tcpip</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">]</span>
+                <span class="n">default_backend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check4nidriver</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">default_backend</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">default_backend</span> <span class="o">=</span> <span class="n">default_backend</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">default_backend</span> <span class="o">=</span> <span class="s2">&quot;@py&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">default_interface</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">tcpip</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">default_backend</span> <span class="o">=</span> <span class="s2">&quot;@py&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">default_interface</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">tcpip</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">gpib</span><span class="p">]</span>
+                <span class="n">default_backend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check4nidriver</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">default_backend</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">default_backend</span> <span class="o">=</span> <span class="n">default_backend</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">default_backend</span> <span class="o">=</span> <span class="s2">&quot;@py&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">default_interface</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">tcpip</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">default_backend</span> <span class="o">=</span> <span class="s2">&quot;@py&quot;</span>
+
+<div class="viewcode-block" id="DefInter.check4nidriver">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.DefInter.html#pylab_ml.collate_instrument.DefInter.check4nidriver">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check4nidriver</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Search for the national instrument driver if exist.</span>
+
+<span class="sd">          The used key depends from the pyvisa-version</span>
+<span class="sd">          search for an independent solution !!</span>
+<span class="sd">          returns @default_backend or False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">default_backend</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="s2">&quot;ni&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pyvisa</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">get_system_details</span><span class="p">()[</span><span class="s2">&quot;backends&quot;</span><span class="p">]:</span>  <span class="c1"># pyvisa 1.10.1</span>
+            <span class="n">vlib</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pyvisa</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">get_system_details</span><span class="p">()[</span><span class="s2">&quot;backends&quot;</span><span class="p">][</span><span class="s2">&quot;ni&quot;</span><span class="p">]</span>
+            <span class="n">default_backend</span> <span class="o">=</span> <span class="s2">&quot;@ni&quot;</span>
+        <span class="k">elif</span> <span class="s2">&quot;ivi&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pyvisa</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">get_system_details</span><span class="p">()[</span><span class="s2">&quot;backends&quot;</span><span class="p">]:</span>  <span class="c1"># pyvisa 1.11.3</span>
+            <span class="n">vlib</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pyvisa</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">get_system_details</span><span class="p">()[</span><span class="s2">&quot;backends&quot;</span><span class="p">][</span><span class="s2">&quot;ivi&quot;</span><span class="p">]</span>
+            <span class="n">default_backend</span> <span class="o">=</span> <span class="s2">&quot;@ivi&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;unknown key in pyvisa, please check your pyvisa-version&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="s2">&quot;Binary library&quot;</span> <span class="ow">in</span> <span class="n">vlib</span> <span class="ow">and</span> <span class="n">vlib</span><span class="p">[</span><span class="s2">&quot;Binary library&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Not found&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">default_backend</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="CollateInstrument">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html#pylab_ml.collate_instrument.CollateInstrument">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CollateInstrument</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">Singleton</span><span class="p">):</span>
+<div class="viewcode-block" id="CollateInstrument.__init__">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html#pylab_ml.collate_instrument.CollateInstrument.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="k">if</span> <span class="n">interface</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">interface</span> <span class="o">=</span> <span class="n">DefInter</span><span class="p">()</span><span class="o">.</span><span class="n">default_interface</span>
+        <span class="k">if</span> <span class="n">interface</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span>
+        <span class="k">for</span> <span class="n">inter</span> <span class="ow">in</span> <span class="n">interface</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> :&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inter</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">inter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">inter</span><span class="p">]:</span>
+                    <span class="n">instr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">inter</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+                    <span class="n">intrf</span> <span class="o">=</span> <span class="n">instr</span><span class="o">.</span><span class="n">interfaceItem</span>
+                    <span class="k">if</span> <span class="n">instr</span><span class="o">.</span><span class="n">instance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">inam</span> <span class="o">=</span> <span class="n">instr</span><span class="o">.</span><span class="n">instance</span><span class="o">.</span><span class="n">find_names</span><span class="p">()</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">inam</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">instr</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inam</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    : </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instr</span><span class="o">.</span><span class="n">moduleName</span><span class="p">,</span> <span class="n">instr</span><span class="o">.</span><span class="n">className</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;       : </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">intrf</span><span class="o">.</span><span class="n">interface</span><span class="p">,</span> <span class="n">intrf</span><span class="o">.</span><span class="n">backend</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;       : </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">intrf</span><span class="o">.</span><span class="n">hostname</span><span class="p">,</span> <span class="n">intrf</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;       : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">intrf</span><span class="o">.</span><span class="n">addr</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    : </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instr</span><span class="o">.</span><span class="n">identity</span><span class="p">,</span> <span class="n">instr</span><span class="o">.</span><span class="n">initialized</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instr</span><span class="o">.</span><span class="n">instance</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instrument</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">instrument</span><span class="o">.</span><span class="n">interface</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">interface</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">instrument</span><span class="o">.</span><span class="n">instName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">instrument</span><span class="o">.</span><span class="n">instName</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instrument</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">instrument</span><span class="o">.</span><span class="n">addr</span> <span class="o">==</span> <span class="s2">&quot;?&quot;</span><span class="p">:</span>
+            <span class="n">addr</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="n">addr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">interface</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">addr</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">instrument</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="n">addr</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Allocating first free </span><span class="si">{!r}</span><span class="s2"> address </span><span class="si">{!r}</span><span class="s2"> to </span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">addr</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="n">interfaceItem</span> <span class="o">=</span> <span class="n">InterfaceItem</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">interface</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">backend</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">hostname</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">addr</span><span class="p">)</span>
+        <span class="n">instrumentItem</span> <span class="o">=</span> <span class="n">InstrumentItem</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="vm">__module__</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">interfaceItem</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">instrument</span><span class="p">)</span>
+        <span class="n">otherInstrumentItem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_instrument</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">interface</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">addr</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">otherInstrumentItem</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Replacing already occupied </span><span class="si">{!r}</span><span class="s2"> </span><span class="si">{!r}</span><span class="s2"> by </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">addr</span><span class="p">,</span> <span class="n">otherInstrumentItem</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">otherInstrumentItem</span><span class="o">.</span><span class="n">instance</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">otherInstrumentItem</span><span class="o">.</span><span class="n">instance</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;could not close other instrument </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">otherInstrumentItem</span><span class="o">.</span><span class="n">className</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">interface</span><span class="p">][</span><span class="n">instrument</span><span class="o">.</span><span class="n">addr</span><span class="p">]</span> <span class="o">=</span> <span class="n">instrumentItem</span>
+        <span class="k">return</span> <span class="n">instrument</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">identification</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">identity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initialized</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">interface</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">address</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">][</span><span class="n">address</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">][</span><span class="n">address</span><span class="p">]</span> <span class="o">=</span> <span class="n">InstrumentItem</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">module</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">][</span><span class="n">address</span><span class="p">]</span><span class="o">.</span><span class="n">moduleName</span> <span class="o">=</span> <span class="n">module</span>
+                <span class="k">if</span> <span class="n">identity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">][</span><span class="n">address</span><span class="p">]</span><span class="o">.</span><span class="n">identity</span> <span class="o">=</span> <span class="n">identity</span>
+                <span class="k">if</span> <span class="n">initialized</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">][</span><span class="n">address</span><span class="p">]</span><span class="o">.</span><span class="n">initialized</span> <span class="o">=</span> <span class="n">initialized</span>
+                <span class="k">if</span> <span class="n">instance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">][</span><span class="n">address</span><span class="p">]</span><span class="o">.</span><span class="n">instance</span> <span class="o">=</span> <span class="n">instance</span>
+                <span class="k">if</span> <span class="n">instName</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">][</span><span class="n">address</span><span class="p">]</span><span class="o">.</span><span class="n">instName</span> <span class="o">=</span> <span class="n">instName</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_instrument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">interface</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">address</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">][</span><span class="n">address</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_instrument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instName</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">interface</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">]:</span>
+                <span class="n">instrument</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_instrument</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">instrument</span><span class="o">.</span><span class="n">instName</span> <span class="o">==</span> <span class="n">instName</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">instrument</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">drop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">interface</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">address</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">force</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">][</span><span class="n">address</span><span class="p">]</span><span class="o">.</span><span class="n">initialized</span><span class="p">:</span>
+                    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface_addresses</span><span class="p">[</span><span class="n">interface</span><span class="p">][</span><span class="n">address</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="InstrumentDefinition">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html#pylab_ml.collate_instrument.InstrumentDefinition">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">InstrumentDefinition</span><span class="p">:</span>
+    <span class="n">nickName</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">moduleName</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">className</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+
+<div class="viewcode-block" id="InstrumentLibrary">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html#pylab_ml.collate_instrument.InstrumentLibrary">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">InstrumentLibrary</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">Singleton</span><span class="p">):</span>
+<div class="viewcode-block" id="InstrumentLibrary.__init__">
+<a class="viewcode-back" href="../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html#pylab_ml.collate_instrument.InstrumentLibrary.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tcc_pythonpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TCC_PYTHONPATH&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collation</span> <span class="o">=</span> <span class="n">CollateInstrument</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">library</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">library</span><span class="p">[</span><span class="s2">&quot;smu.Keithley2000&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">InstrumentDefinition</span><span class="p">(</span><span class="s2">&quot;smu.Keithley2000&quot;</span><span class="p">,</span> <span class="s2">&quot;pylab_ml.smu.keithley.keithley2000&quot;</span><span class="p">,</span> <span class="s2">&quot;Keithley2000&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">library</span><span class="p">[</span><span class="s2">&quot;smu.Keithley2400&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">InstrumentDefinition</span><span class="p">(</span><span class="s2">&quot;smu.Keithley2400&quot;</span><span class="p">,</span> <span class="s2">&quot;pylab_ml.smu.keithley.keithley2400&quot;</span><span class="p">,</span> <span class="s2">&quot;Keithley2400&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">library</span><span class="p">[</span><span class="s2">&quot;smu.Keithley2602&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">InstrumentDefinition</span><span class="p">(</span><span class="s2">&quot;smu.Keithley2602&quot;</span><span class="p">,</span> <span class="s2">&quot;pylab_ml.smu.keithley.keithley2602&quot;</span><span class="p">,</span> <span class="s2">&quot;Keithley2602&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">library</span><span class="p">[</span><span class="s2">&quot;scope.Lecroy.Wavesurfer3054&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">InstrumentDefinition</span><span class="p">(</span>
+            <span class="s2">&quot;scope.Lecroy.Wavesurfer3054&quot;</span><span class="p">,</span> <span class="s2">&quot;pylab_ml.scope.lecroy.wavesurfer.wavesurfer3054&quot;</span><span class="p">,</span> <span class="s2">&quot;Wavesurfer3054&quot;</span>
+        <span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

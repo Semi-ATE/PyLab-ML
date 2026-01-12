@@ -1,0 +1,1391 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.smu.natinst.pxie41xx.PXIe41xx &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e588eae9" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pylab_ml.smu.rohde_schwarz" href="pylab_ml.smu.rohde_schwarz.html" />
+    <link rel="prev" title="pylab_ml.smu.natinst.pxie41xx" href="pylab_ml.smu.natinst.pxie41xx.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyLab-ML Documentation
+              <img src="../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="pylab_ml.html">pylab_ml</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.misc.html">pylab_ml.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="pylab_ml.smu.html">pylab_ml.smu</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyLab-ML Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.html">pylab_ml</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.smu.html">pylab_ml.smu</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.smu.natinst.pxie41xx.html">pylab_ml.smu.natinst.pxie41xx</a></li>
+      <li class="breadcrumb-item active">pylab_ml.smu.natinst.pxie41xx.PXIe41xx</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pylab_ml.smu.natinst.pxie41xx.PXIe41xx.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pylab-ml-smu-natinst-pxie41xx-pxie41xx">
+<h1>pylab_ml.smu.natinst.pxie41xx.PXIe41xx<a class="headerlink" href="#pylab-ml-smu-natinst-pxie41xx-pxie41xx" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PXIe41xx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runningmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst" title="pylab_ml.baseclass.base_natinst.NatInst"><code class="xref py py-class docutils literal notranslate"><span class="pre">NatInst</span></code></a></p>
+<p>Interface to the Power-Measuremet-Unit (SMU) NI PXIe-41xx (e.q. 4138, 4141).</p>
+<img alt="static/pxie_4138.jpg" src="static/pxie_4138.jpg" />
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>January 12, 2026</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Semi-ATE &lt;<a class="reference external" href="mailto:info&#37;&#52;&#48;Semi-ATE&#46;org">info<span>&#64;</span>Semi-ATE<span>&#46;</span>org</a>&gt;</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>add sequence_loop_count</p>
+</div>
+<p>The National Instruments PXIe-41xx can source and sink power in all four voltage/current quadrants and
+measure voltage and current precisely</p>
+<dl>
+<dt>This Module supports (=tested) the National Instruments</dt><dd><ul class="simple">
+<li><p>PXIe-4138</p></li>
+<li><p>PXIe-4141</p></li>
+</ul>
+</dd>
+<dt>known Bugs:</dt><dd><ul>
+<li><p>wenn eine mqtt message von extern empfangen wird, so kann ein aktuelles Artribute
+set/get unterbrochen werden, und es kann dadurch zu Problemen mit dem aktuellen state geben.
+z.bsp aperture_time=2, es kommt aber ein voltage von extern (weil gui aufgerufen wird),
+state war auf uncommited, voltage setzt state auf running
+aperture_time wird weiter verarbeitet, brauch state aber uncommited
+==&gt; setzen von Attribute darf nicht unterbrochen werden…</p></li>
+<li><p>Source Mode must be configured to Single Point when multiple channels are present
+in the same session (e.q. PXIe4141) -&gt; Workaround for stair_sweep, which is implemented :</p>
+<ol class="arabic simple">
+<li><p>rescue all adjustments</p></li>
+<li><p>close session (source remain their state)</p></li>
+<li><p>reopen only one channel</p></li>
+<li><p>write adjustements to this channel</p></li>
+<li><p>run stair_sweep</p></li>
+<li><p>close session</p></li>
+<li><p>reopen the channels again and write all adjustements to the channels</p></li>
+</ol>
+<ul class="simple">
+<li><p>–&gt; if you know a better solution, please improve the stair_sweep</p></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>some functions of the PXIe41xx are not implemented now,</dt><dd><p>see: <a class="reference external" href="http://nimi-python.readthedocs.io/en/master/nidcpower.html">http://nimi-python.readthedocs.io/en/master/nidcpower.html</a>
+or read the manual <a class="reference external" href="http://zone.ni.com/reference/en-XX/help/370736U-01/">http://zone.ni.com/reference/en-XX/help/370736U-01/</a></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>self.ch[0].source_delay = 0.01667</p></li>
+<li><p>self.ch[0].sequence_loop_count = run count x sequence</p></li>
+</ul>
+</div></blockquote>
+</dd>
+</dl>
+<p>for generell measurement: <a class="reference external" href="http://www.ni.com/de-de/innovations/white-papers/14/top-measurement-considerations-for-modular-source-measure-units-.html">http://www.ni.com/de-de/innovations/white-papers/14/top-measurement-considerations-for-modular-source-measure-units-.html</a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runningmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>addr</strong> (<em>string</em>) – name from the PXI-Slot e.q. ‘PXI1Slot3’ or ‘SMU’.</p></li>
+<li><p><strong>channels</strong> (<em>string</em><em>, </em><em>optional</em>) – (only 4141).
+Specifies which output channel(s) to include to this module.
+Specify multiple channels by using a channel list or a channel range.
+A channel list is a comma (,) separated sequence of channel names.
+For example, ‘0,2’ specifies channels 0 and 2.</p></li>
+<li><p><strong>identify</strong> (<em>bool</em><em>, </em><em>optional</em>) – Defaults to False.</p></li>
+<li><p><strong>instName</strong> (<em>string</em><em>, </em><em>optional</em>) – Instance Name from top.</p></li>
+<li><p><strong>runningmode</strong> (<em>string</em><em>, </em><em>optional</em>) – handle state of the instrument automaticall or manual. Defaults to ‘auto’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="pylab_ml.base_instrument.InvalidInstrumentConnection.html#pylab_ml.base_instrument.InvalidInstrumentConnection" title="pylab_ml.base_instrument.InvalidInstrumentConnection"><strong>InvalidInstrumentConnection</strong></a> – something is wrong with the connection.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For Instrument handling it is much easier to set runningmode = ‘auto’ (default).
+Otherwise you have to handle commit, initiate and abort by yourselve,
+and often you will raise an Excepetion by the instrument.</p>
+</div>
+<dl>
+<dt><em>Examples:</em></dt><dd><ul>
+<li><dl>
+<dt>Initialization</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span> <span class="o">=</span> <span class="n">PXIe41xx</span><span class="p">(</span><span class="n">addr</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">instName</span><span class="o">=</span><span class="s1">&#39;vdd&#39;</span><span class="p">)</span>   <span class="c1"># connect and initialize instrument PXI-4138 or one channel fro PXI-4141</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span> <span class="o">=</span> <span class="n">PXIe41xx</span><span class="p">(</span><span class="n">addr</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">channel</span><span class="o">=</span><span class="s1">&#39;0,1&#39;</span><span class="p">,</span><span class="n">instName</span><span class="o">=</span><span class="s1">&#39;vdd&#39;</span><span class="p">)</span>   <span class="c1"># connect and initialize instrument PXI-4141 with channel 0,1</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Use instrument as voltage source</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="o">.</span><span class="n">i_clamp</span> <span class="o">=</span> <span class="mf">0.01</span>           <span class="c1"># current protection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="o">.</span><span class="n">voltage</span> <span class="o">=</span> <span class="mf">3.3</span>            <span class="c1"># set output voltage</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">vdd</span><span class="o">.</span><span class="n">current</span>              <span class="c1"># measure (supply) current</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Use instrument as current source</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="o">.</span><span class="n">v_clamp</span> <span class="o">=</span> <span class="mi">5</span>              <span class="c1"># voltage protection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mf">0.1</span>            <span class="c1"># set output current_range</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">vdd</span><span class="o">.</span><span class="n">voltage</span>              <span class="c1"># measure voltage</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>detailed example of usage:</dt><dd><ul class="simple">
+<li><p>common for PXIe4138: <code class="xref download docutils literal notranslate"><span class="pre">examples/smu/PXIe4138.py</span></code></p></li>
+<li><p>common for PXIe4141: <code class="xref download docutils literal notranslate"><span class="pre">examples/smu/PXIe4141.py</span></code></p></li>
+<li><p>measure loops : <code class="xref download docutils literal notranslate"><span class="pre">examples/smu/PXIe4141_2.py</span></code></p></li>
+<li><p>loops and stairsweep combined (2x faster as the example before), for PXIe4141/PXIe4138: <code class="xref download docutils literal notranslate"><span class="pre">examples/smu/PXIe4141_3.py</span></code></p></li>
+<li><p>and an example, how you should not used this module: <code class="xref download docutils literal notranslate"><span class="pre">examples/smu/PXIe4141_badexample.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.__init__" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([addr, channels, identify, ...])</p></td>
+<td><p>Initialise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.abort" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.abort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abort</span></code></a>()</p></td>
+<td><p>Set state from Instrument to uncommitted.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.checkstate" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.checkstate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">checkstate</span></code></a>(value)</p></td>
+<td><p>Compare actual state with value and set it to value if compare false.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.clear" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<td><p>Clear error status.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.close" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code></a>()</p></td>
+<td><p>Disable all outputs and terminate interface.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.close_session" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.close_session"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close_session</span></code></a>()</p></td>
+<td><p>Close the session (=inst).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.commit" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.commit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">commit</span></code></a>()</p></td>
+<td><p>Set state from Instrument to commit.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.createattributes" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.createattributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">createattributes</span></code></a>(dictionary[, parent, ...])</p></td>
+<td><p>Create attributes or methods from a dictionary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.disable" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.disable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disable</span></code></a>()</p></td>
+<td><p>Set state from Instrument to uncommitted.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.error_list" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.error_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">error_list</span></code></a>()</p></td>
+<td><p>List of outstanding errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_data</span></code>(npoints[, measure])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.find_names" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.find_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_names</span></code></a>()</p></td>
+<td><p>find_names() returns list of identifiers strings, lhs of = assignments</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.get_values" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.get_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_values</span></code></a>([typ])</p></td>
+<td><p>Get response of previous stair_sweep(), choosing result rows from previous request typ.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">help</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.identify" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.identify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identify</span></code></a>([showInstName])</p></td>
+<td><p>Identify message.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.init" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init</span></code></a>([identify])</p></td>
+<td><p>Optional init for interlock startup after identification.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.initiate" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.initiate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initiate</span></code></a>()</p></td>
+<td><p>Set state from Instrument to running.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.list_PXIdevices" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.list_PXIdevices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_PXIdevices</span></code></a>()</p></td>
+<td><p>List all PXIe devices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.local" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.local"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local</span></code></a>()</p></td>
+<td><p>Not possible, always remote control.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.message" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">message</span></code></a>([message])</p></td>
+<td><p>Device has no display, message display to logger.info.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mfilter</span></code>(input)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_add" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_add</span></code></a>(client, instrument[, liste, qos])</p></td>
+<td><p>Add the instrument to mqtt.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_disconnect" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_disconnect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_disconnect</span></code></a>()</p></td>
+<td><p>Remove the instrument from mqtt.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.off" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.off"><code class="xref py py-obj docutils literal notranslate"><span class="pre">off</span></code></a>()</p></td>
+<td><p>Switch output off.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.on" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on</span></code></a>()</p></td>
+<td><p>Switch output on.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_smu_data</span></code>(time[, voltage, current])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish"><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish</span></code></a>(topic, value)</p></td>
+<td><p>Publish topic as type='cmd' with paylad=value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish_get" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish_get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish_get</span></code></a>(function_name, value)</p></td>
+<td><p>Publish function_name as type='get' with paylad=value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish_set" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish_set</span></code></a>(function_name, value)</p></td>
+<td><p>Publish function_name as type='set' with paylad=value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.reopen_session" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.reopen_session"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reopen_session</span></code></a>(channels)</p></td>
+<td><p>Reopen last session with channels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.reset" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
+<td><p>reset, and all channels set to.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.self_cal" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.self_cal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">self_cal</span></code></a>([force])</p></td>
+<td><p>Perform self calibration if last self calibration is older than 1 day.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.setup_inst" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.setup_inst"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_inst</span></code></a>()</p></td>
+<td><p>Set the instrument settings and intialise some variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">smu_fetch_settings</span></code>([record_length, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_sweep" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_sweep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stair_sweep</span></code></a>(start, stop[, dstep, stime, ...])</p></td>
+<td><p>Make a stait sweep beetween start and stop.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Current" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Current"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Current</span></code></a></p></td>
+<td><p>Get driver current.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.I_autorange" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.I_autorange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">I_autorange</span></code></a></p></td>
+<td><p>Get/set current drive autorange.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.I_range" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.I_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">I_range</span></code></a></p></td>
+<td><p>Set/get current drive range.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.V_autorange" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.V_autorange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">V_autorange</span></code></a></p></td>
+<td><p>Get/set voltage drive autorange.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.V_range" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.V_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">V_range</span></code></a></p></td>
+<td><p>Get/set voltage drive range.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Voltage" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Voltage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Voltage</span></code></a></p></td>
+<td><p>Get driver Voltage.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.aperture_time" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.aperture_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aperture_time</span></code></a></p></td>
+<td><p>Specifiy the measurement aperture time for the channel configuration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.aperture_time_units" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.aperture_time_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aperture_time_units</span></code></a></p></td>
+<td><p>Specifiy the units of the aperture_time property for the channel configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.auto_zero" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.auto_zero"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_zero</span></code></a></p></td>
+<td><p>Specifiy the auto-zero method to use on the device.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.channel" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.channel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">channel</span></code></a></p></td>
+<td><p>Set/get channel number if the instrument have more than one channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.cmpl" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.cmpl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmpl</span></code></a></p></td>
+<td><p>Check compliance from Device.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">command</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.current" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.current"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current</span></code></a></p></td>
+<td><p>Get/set output current.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.dc_noise_rejection" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.dc_noise_rejection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dc_noise_rejection</span></code></a></p></td>
+<td><p>Determine the relative weighting of samples in a measurement.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_autorange" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_autorange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">i_autorange</span></code></a></p></td>
+<td><p>Get/set current measurement autorange.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_clamp" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_clamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">i_clamp</span></code></a></p></td>
+<td><p>Set the current clamping (A), will adjust current measurement range.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_range" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">i_range</span></code></a></p></td>
+<td><p>Set/Get the current range (A), will adjust current clamping.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.id" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">id</span></code></a></p></td>
+<td><p>Get the id from the device.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.instName" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.instName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">instName</span></code></a></p></td>
+<td><p>Return with instname or instname[ch] if it has channels.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">interchoices</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.measure" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.measure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure</span></code></a></p></td>
+<td><p>Get voltage and current together without delay, or set the measure typ.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.measurecnt" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.measurecnt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measurecnt</span></code></a></p></td>
+<td><p>Set/get the number of measurement to be carried out in a loop.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_enable</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_list</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_status" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_status</span></code></a></p></td>
+<td><p>Getter for the mqtt_status.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.onAfterset" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.onAfterset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onAfterset</span></code></a></p></td>
+<td><p>Define behaving after change voltage/curret setting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.onoff" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.onoff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onoff</span></code></a></p></td>
+<td><p>Get/set on state (True), for set 1 or 'on' always possible.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.output_function" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.output_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">output_function</span></code></a></p></td>
+<td><p>Configure the output funkction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.runningmode" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.runningmode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">runningmode</span></code></a></p></td>
+<td><p>Set/get runningmode.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.selftest" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.selftest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">selftest</span></code></a></p></td>
+<td><p>Perform the device self-test routine and return pass, otherwise raise an exception.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.sense" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.sense"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sense</span></code></a></p></td>
+<td><p>Get/set local or remote sensing of the output voltage.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_slope" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_slope"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stair_slope</span></code></a></p></td>
+<td><p>stair_slope to target or target,slope_time using previous stair_sweep() parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_step" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stair_step</span></code></a></p></td>
+<td><p>stair_step to target or target, dstep or target, dstep,stime, using previous stair_sweep() parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.state" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code></a></p></td>
+<td><p>Set/get state, only set state if necessary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stime" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stime</span></code></a></p></td>
+<td><p>Set/get delay between steps.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.sweepto" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.sweepto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sweepto</span></code></a></p></td>
+<td><p>This is the end value if you run a sweep.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_autorange" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_autorange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_autorange</span></code></a></p></td>
+<td><p>Get/set voltage measurement autorange.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_clamp" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_clamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_clamp</span></code></a></p></td>
+<td><p>Set the voltage clamping (V), will adjust voltage measurement range.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_range" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_range</span></code></a></p></td>
+<td><p>Set the voltage range, will adjust voltage clamping.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.voltage" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.voltage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">voltage</span></code></a></p></td>
+<td><p>Get or set output voltage.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.ATTR_ERROR" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.ATTR_ERROR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ATTR_ERROR</span></code></a></p></td>
+<td><p>if something wrong with your called methode, than set the result to self.ATTR_ERROR</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.attrLast" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.attrLast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">attrLast</span></code></a></p></td>
+<td><p>last set/get attribute name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.attrLastvalue" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.attrLastvalue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">attrLastvalue</span></code></a></p></td>
+<td><p>last set attribute value.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.ATTR_ERROR">
+<span class="sig-name descname"><span class="pre">ATTR_ERROR</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.ATTR_ERROR" title="Link to this definition"></a></dt>
+<dd><p>if something wrong with your called methode, than set the result to self.ATTR_ERROR</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Current">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Current</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Current" title="Link to this definition"></a></dt>
+<dd><p>Get driver current.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>driver current (in A).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>value (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.I_autorange">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">I_autorange</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.I_autorange" title="Link to this definition"></a></dt>
+<dd><p>Get/set current drive autorange.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.I_range">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">I_range</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.I_range" title="Link to this definition"></a></dt>
+<dd><p>Set/get current drive range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>val (float)</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>current drive range (in A).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Runningmode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Runningmode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Runningmode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Possible Modes for state handling.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Runningmode.auto">
+<span class="sig-name descname"><span class="pre">auto</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Runningmode.auto" title="Link to this definition"></a></dt>
+<dd><p>handle commit, uncommit, running automatically</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Runningmode.man">
+<span class="sig-name descname"><span class="pre">man</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Runningmode.man" title="Link to this definition"></a></dt>
+<dd><p>do it by yourselve</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">State</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Possible states for the instrument.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>actual state</p></th>
+<th class="head"><p>send command</p></th>
+<th class="head"><p>new state</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>uncommitted state</p></td>
+<td><p>commit</p></td>
+<td><p>committed state</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>uncommitted state</p></td>
+<td><p>initiate</p></td>
+<td><p>running state</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>committed state</p></td>
+<td><p>modify any property</p></td>
+<td><p>uncommitted state</p></td>
+<td><p>laut Beschreibung, ist das wirklich so?? es wird
+normalerweise immer eine exception ausglöst</p></td>
+</tr>
+<tr class="row-odd"><td><p>running state</p></td>
+<td><p>abort</p></td>
+<td><p>uncommitted state</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>running state</p></td>
+<td><p>commit</p></td>
+<td><p>running state</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State.committed">
+<span class="sig-name descname"><span class="pre">committed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State.committed" title="Link to this definition"></a></dt>
+<dd><p>committed state</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State.disabled">
+<span class="sig-name descname"><span class="pre">disabled</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State.disabled" title="Link to this definition"></a></dt>
+<dd><p>reset instrument, output switched off</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State.running">
+<span class="sig-name descname"><span class="pre">running</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State.running" title="Link to this definition"></a></dt>
+<dd><p>running  state</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State.uncommitted">
+<span class="sig-name descname"><span class="pre">uncommitted</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State.uncommitted" title="Link to this definition"></a></dt>
+<dd><p>uncommitted state</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.V_autorange">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">V_autorange</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.V_autorange" title="Link to this definition"></a></dt>
+<dd><p>Get/set voltage drive autorange.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.V_range">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">V_range</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.V_range" title="Link to this definition"></a></dt>
+<dd><p>Get/set voltage drive range.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Voltage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Voltage</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.Voltage" title="Link to this definition"></a></dt>
+<dd><p>Get driver Voltage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>driver Voltage (in V).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>value(float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.abort">
+<span class="sig-name descname"><span class="pre">abort</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.abort" title="Link to this definition"></a></dt>
+<dd><p>Set state from Instrument to uncommitted.</p>
+<p>usually handle automatically, if runningmode==’auto’.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.aperture_time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">aperture_time</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.aperture_time" title="Link to this definition"></a></dt>
+<dd><p>Specifiy the measurement aperture time for the channel configuration.</p>
+<p>Aperture time is specified in the units set by the aperture_time_units property</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.aperture_time_units">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">aperture_time_units</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.aperture_time_units" title="Link to this definition"></a></dt>
+<dd><p>Specifiy the units of the aperture_time property for the channel configuration.</p>
+<p>SECONDS or POWER_LINE_CYCLES.
+see: <a class="reference external" href="http://nimi-python.readthedocs.io/en/master/nidcpower/class.html#aperture-time-units">http://nimi-python.readthedocs.io/en/master/nidcpower/class.html#aperture-time-units</a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.attrLast">
+<span class="sig-name descname"><span class="pre">attrLast</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.attrLast" title="Link to this definition"></a></dt>
+<dd><p>last set/get attribute name.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.attrLastvalue">
+<span class="sig-name descname"><span class="pre">attrLastvalue</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.attrLastvalue" title="Link to this definition"></a></dt>
+<dd><p>last set attribute value.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.auto_zero">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">auto_zero</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.auto_zero" title="Link to this definition"></a></dt>
+<dd><p>Specifiy the auto-zero method to use on the device.</p>
+<p>OFF, ON or ONCE.
+see: <a class="reference external" href="http://nimi-python.readthedocs.io/en/master/nidcpower/class.html#auto-zero">http://nimi-python.readthedocs.io/en/master/nidcpower/class.html#auto-zero</a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.channel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channel</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.channel" title="Link to this definition"></a></dt>
+<dd><p>Set/get channel number if the instrument have more than one channel.</p>
+<dl>
+<dt>you can also use:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span> <span class="o">=</span> <span class="mi">5</span>           <span class="c1"># set voltage from channel 0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mf">0.1</span>         <span class="c1"># set current from channel 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">vdd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span>           <span class="c1"># measure voltage from channel 1</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.checkstate">
+<span class="sig-name descname"><span class="pre">checkstate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx.checkstate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.checkstate" title="Link to this definition"></a></dt>
+<dd><p>Compare actual state with value and set it to value if compare false.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<code class="xref py py-mod docutils literal notranslate"><span class="pre">NatInst.State</span></code>) – expected status.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.clear" title="Link to this definition"></a></dt>
+<dd><p>Clear error status.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.close" title="Link to this definition"></a></dt>
+<dd><p>Disable all outputs and terminate interface.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.close_session">
+<span class="sig-name descname"><span class="pre">close_session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.close_session" title="Link to this definition"></a></dt>
+<dd><p>Close the session (=inst).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.cmpl">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cmpl</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.cmpl" title="Link to this definition"></a></dt>
+<dd><p>Check compliance from Device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p><strong>value</strong> –</p>
+<ul class="simple">
+<li><p>False no compliance</p></li>
+<li><p>True  compliance, limit accomplished</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.commit">
+<span class="sig-name descname"><span class="pre">commit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.commit" title="Link to this definition"></a></dt>
+<dd><p>Set state from Instrument to commit.</p>
+<p>usually handle automatically, if runningmode==’auto’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.createattributes">
+<span class="sig-name descname"><span class="pre">createattributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">childname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.createattributes" title="Link to this definition"></a></dt>
+<dd><p>Create attributes or methods from a dictionary.</p>
+<p>syntax from the dictionary see example in the class documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dictionary</strong> (<em>dict</em>) – {attribute/methode name : (Device command for read/write) , range, call functions}.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.current">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.current" title="Link to this definition"></a></dt>
+<dd><p>Get/set output current.</p>
+<p>If the current is set, the output is switched on immediately (if self.onAfterset == True).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – set to current (in A).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>current (in A).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>value (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.dc_noise_rejection">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dc_noise_rejection</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.dc_noise_rejection" title="Link to this definition"></a></dt>
+<dd><p>Determine the relative weighting of samples in a measurement.</p>
+<p>NORMAL or SECOND_ORDER
+see: <a class="reference external" href="https://nimi-python.readthedocs.io/en/master/nidcpower/class.html#dc-noise-rejection">https://nimi-python.readthedocs.io/en/master/nidcpower/class.html#dc-noise-rejection</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.disable">
+<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.disable" title="Link to this definition"></a></dt>
+<dd><p>Set state from Instrument to uncommitted.</p>
+<p>usually handle automtically, if runningmode==’auto’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.error_list">
+<span class="sig-name descname"><span class="pre">error_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.error_list" title="Link to this definition"></a></dt>
+<dd><p>List of outstanding errors.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.find_names">
+<span class="sig-name descname"><span class="pre">find_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.find_names" title="Link to this definition"></a></dt>
+<dd><p>find_names() returns list of identifiers strings, lhs of = assignments</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.get_values">
+<span class="sig-name descname"><span class="pre">get_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx.get_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.get_values" title="Link to this definition"></a></dt>
+<dd><p>Get response of previous stair_sweep(), choosing result rows from previous request typ.</p>
+<p>get info about calculated divergence to target sweep values, for checking ramping time is ok
+Transfer last requested measurement sweep results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typ</strong> (<em>TYPE</em><em>, </em><em>could be 'VITS'</em>) – V = Voltage
+I = current
+T = time
+S = status(compliance)
+The default is ‘’.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array from the values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TYPE</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_autorange">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">i_autorange</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_autorange" title="Link to this definition"></a></dt>
+<dd><p>Get/set current measurement autorange.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_clamp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">i_clamp</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_clamp" title="Link to this definition"></a></dt>
+<dd><p>Set the current clamping (A), will adjust current measurement range.</p>
+<dl class="simple">
+<dt>Current Limit Range and Current Limit are :</dt><dd><ul class="simple">
+<li><p>i_clamp 0.000001 A (int) / 1 µA = Limit +0.00000001 A to +0.000001 A (int) / +10 nA to +1 µA</p></li>
+<li><p>i_clamp 0.00001 A (int) / 10 µA = Limit +0.0000001 A to +0.00001 A (int) / +100 nA to +10 µA</p></li>
+<li><p>i_clamp 0.0001A (int) / 100 µA = Limit +0.000001 A to +0.0001 A (int) /  +1 µA to +100 µA</p></li>
+<li><p>i_clamp 0.001 A (int) / 1 mA = Limit +0.00001 A to +0.001 A (int) / +10 µA to +1 mA</p></li>
+<li><p>i_clamp 0.01 A (int) / 10 mA = Limit +0.0001 A to +0.01 A (int) / +100 µA to +10 mA</p></li>
+<li><p>i_clamp 0.1 A (int) / 100 mA = Limit +0.001 A to +0.1 A (int) / +1 mA to +100 mA</p></li>
+<li><p>i_clamp 1 A (int) / 1 A = Limit +0.01 A to +1 A (int) / +10 mA to +1 A</p></li>
+<li><p>i_clamp 3 A (int) / 3 A = Limit +0.1 A to +3 A (int) / +100 mA to +3 A</p></li>
+<li><p>i_clamp 10 A (int) / 10 A = Limit +0.1 A to +10 A pulsing only (int) / +100 mA to +10 A</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_range">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">i_range</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.i_range" title="Link to this definition"></a></dt>
+<dd><p>Set/Get the current range (A), will adjust current clamping.</p>
+<dl class="simple">
+<dt>Current Value Range and Current Value are :</dt><dd><ul class="simple">
+<li><p>i_range 0.000001 A (int) / 1 µA = Value ±0.000001 A (int) /  ±1 µA</p></li>
+<li><p>i_range 0.00001 A (int) / 10 µA = Value ±0.00001 A (int) / ±10 µA</p></li>
+<li><p>i_range 0.0001 A (int) / 100 µA = Value ±0.0001 A (int) /  ±100 µA</p></li>
+<li><p>i_range 0.001 A (int) / 1 mA = Value ±0.001 A (int) / ±1 mA</p></li>
+<li><p>i_range 0.01 A (int) / 10 mA = Value ±0.01 A (int) / ±10 mA</p></li>
+<li><p>i_range 0.1 A (int) / 100 mA = Value ±0.1 A (int) / ±100 mA</p></li>
+<li><p>i_range 3 A (int) / 3 A = Value ±3 A (int) / ±3 A</p></li>
+<li><p>i_range 10 A (int) / 10 A = Value ±10 A pulsing only (int) / ±10 A</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.id" title="Link to this definition"></a></dt>
+<dd><p>Get the id from the device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.identify">
+<span class="sig-name descname"><span class="pre">identify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">showInstName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.identify" title="Link to this definition"></a></dt>
+<dd><p>Identify message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.init" title="Link to this definition"></a></dt>
+<dd><p>Optional init for interlock startup after identification.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.initiate">
+<span class="sig-name descname"><span class="pre">initiate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.initiate" title="Link to this definition"></a></dt>
+<dd><p>Set state from Instrument to running.</p>
+<p>usually handle automatically, if runningmode==’auto’.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.instName">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instName</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.instName" title="Link to this definition"></a></dt>
+<dd><p>Return with instname or instname[ch] if it has channels.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.json">
+<span class="sig-name descname"><span class="pre">json</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;module</span> <span class="pre">'json'</span> <span class="pre">from</span> <span class="pre">'/home/runner/miniconda3/envs/test/lib/python3.9/json/__init__.py'&gt;</span></em><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.json" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.list_PXIdevices">
+<span class="sig-name descname"><span class="pre">list_PXIdevices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx.list_PXIdevices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.list_PXIdevices" title="Link to this definition"></a></dt>
+<dd><p>List all PXIe devices.</p>
+<p>but it’s not running correcly….
+how can we make a list from all devices on PXIe ?</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.local">
+<span class="sig-name descname"><span class="pre">local</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.local" title="Link to this definition"></a></dt>
+<dd><p>Not possible, always remote control.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.measure">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">measure</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.measure" title="Link to this definition"></a></dt>
+<dd><p>Get voltage and current together without delay, or set the measure typ.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mesasured voltage.
+* float: measured current.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>float</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>measure is 2x faster as separate voltage and current.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.measurecnt">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">measurecnt</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.measurecnt" title="Link to this definition"></a></dt>
+<dd><p>Set/get the number of measurement to be carried out in a loop.</p>
+<p>TODO: this function is not running yet, it is only a dummy</p>
+<p>if the result == None than this function not implemented.
+The return value for the measurement is calculated togetheer with the mfilter setting.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.message">
+<span class="sig-name descname"><span class="pre">message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.message" title="Link to this definition"></a></dt>
+<dd><p>Device has no display, message display to logger.info.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_add">
+<span class="sig-name descname"><span class="pre">mqtt_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liste</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_add" title="Link to this definition"></a></dt>
+<dd><p>Add the instrument to mqtt.</p>
+<p>calling from base_instrument, after the instrument (device) has been create.
+Normally you have not to use this function, only base_instrument use it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_disconnect">
+<span class="sig-name descname"><span class="pre">mqtt_disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_disconnect" title="Link to this definition"></a></dt>
+<dd><p>Remove the instrument from mqtt.</p>
+<p>calling from base_instrument, if the instrument are closing.
+Normally you have not to use this function, only base_instrument use it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mqtt_status</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.mqtt_status" title="Link to this definition"></a></dt>
+<dd><p>Getter for the mqtt_status.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.off">
+<span class="sig-name descname"><span class="pre">off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx.off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.off" title="Link to this definition"></a></dt>
+<dd><p>Switch output off.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.on">
+<span class="sig-name descname"><span class="pre">on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx.on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.on" title="Link to this definition"></a></dt>
+<dd><p>Switch output on.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.onAfterset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">onAfterset</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.onAfterset" title="Link to this definition"></a></dt>
+<dd><p>Define behaving after change voltage/curret setting.</p>
+<dl class="simple">
+<dt>Args: if set</dt><dd><dl class="simple">
+<dt>value (bool):</dt><dd><ul class="simple">
+<li><p>True : enable output after voltage/current setting (default).</p></li>
+<li><p>False : output not switching after voltage/current setting.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>Returns: if get</dt><dd><dl class="simple">
+<dt>value (bool):</dt><dd><p>True or False.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.onoff">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">onoff</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.onoff" title="Link to this definition"></a></dt>
+<dd><p>Get/set on state (True), for set 1 or ‘on’ always possible.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.output_function">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_function</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.output_function" title="Link to this definition"></a></dt>
+<dd><p>Configure the output funkction.</p>
+<p>DC_CURRENT or DC_VOLTAGE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish">
+<span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish" title="Link to this definition"></a></dt>
+<dd><p>Publish topic as type=’cmd’ with paylad=value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish_get">
+<span class="sig-name descname"><span class="pre">publish_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish_get" title="Link to this definition"></a></dt>
+<dd><p>Publish function_name as type=’get’ with paylad=value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish_set">
+<span class="sig-name descname"><span class="pre">publish_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.publish_set" title="Link to this definition"></a></dt>
+<dd><p>Publish function_name as type=’set’ with paylad=value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.reopen_session">
+<span class="sig-name descname"><span class="pre">reopen_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.reopen_session" title="Link to this definition"></a></dt>
+<dd><p>Reopen last session with channels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.reset" title="Link to this definition"></a></dt>
+<dd><p>reset, and all channels set to.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>current_limit_autorange=True</p></li>
+<li><p>voltage_limit_autorange=True</p></li>
+<li><p>power_line_frequency = 50.0</p></li>
+<li><p>aperture_time_units=POWER_LINE_CYCLES</p></li>
+<li><p>aperture_time=2</p></li>
+<li><p>inst.auto_zero=OFF</p></li>
+<li><p>dc_noise_rejection=SECOND_ORDER</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.runningmode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">runningmode</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.runningmode" title="Link to this definition"></a></dt>
+<dd><p>Set/get runningmode.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.self_cal">
+<span class="sig-name descname"><span class="pre">self_cal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.self_cal" title="Link to this definition"></a></dt>
+<dd><p>Perform self calibration if last self calibration is older than 1 day.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – if force==True -&gt; perform self calibration independent from last calibration. The default is True.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>None.</em></p></li>
+<li><p><em>gives information about the calibration</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.selftest">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">selftest</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.selftest" title="Link to this definition"></a></dt>
+<dd><p>Perform the device self-test routine and return pass, otherwise raise an exception.</p>
+<p>After selftest the device is in reset state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>result</strong> – state from selftest.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.sense">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sense</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.sense" title="Link to this definition"></a></dt>
+<dd><p>Get/set local or remote sensing of the output voltage.</p>
+<p>LOCAL or ‘REMOTE’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.setup_inst">
+<span class="sig-name descname"><span class="pre">setup_inst</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx.setup_inst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.setup_inst" title="Link to this definition"></a></dt>
+<dd><p>Set the instrument settings and intialise some variable.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_slope">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stair_slope</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_slope" title="Link to this definition"></a></dt>
+<dd><p>stair_slope to target or target,slope_time using previous stair_sweep() parameters.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_step">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stair_step</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_step" title="Link to this definition"></a></dt>
+<dd><p>stair_step to target or target, dstep or target, dstep,stime, using previous stair_sweep() parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_sweep">
+<span class="sig-name descname"><span class="pre">stair_sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dstep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'V'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stair</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Lin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aperture_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/natinst/pxie41xx.html#PXIe41xx.stair_sweep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stair_sweep" title="Link to this definition"></a></dt>
+<dd><p>Make a stait sweep beetween start and stop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>float</em>) – Start value in volts or amps.</p></li>
+<li><p><strong>stop</strong> (<em>TYPE</em>) – Stop value in volts or amps.</p></li>
+<li><p><strong>dstep</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – Delta amplitude for Lin, Points to interpolate for Log, if “None” than take minimum dstep and stime= time for the whole sweep(=rising,falling time). The default is None.</p></li>
+<li><p><strong>stime</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – Delay between steps, if dstep=’None’ than stime is the whole time for the sweep (=rising,falling time). The default is 0.</p></li>
+<li><p><strong>typ</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – ‘V-’, ‘I-’  = Voltage / Current sourced, ‘-’ changes direction,
+volts, amps, timestamp  are sensed. The default is ‘V’.</p></li>
+<li><p><strong>stair</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – (‘Lin’,’Log) = linear or log source. The default is ‘Lin’.</p></li>
+<li><p><strong>aperture_time</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – <dl class="simple">
+<dt>Specifies the measurement aperture time for the channel configuration.</dt><dd><p>Aperture time is specified in the units set by aperture_time_units (default is seconds).
+more help: <a class="reference external" href="http://zone.ni.com/reference/en-XX/help/370736U-01/nidcpowercref/nidcpower_attr_aperture_time/">http://zone.ni.com/reference/en-XX/help/370736U-01/nidcpowercref/nidcpower_attr_aperture_time/</a>. The default is None.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>wait</strong> (<em>TYPE</em><em>, </em><em>optional</em>) – not implemented yet. The default is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>original data from the instrument (Voltage, Current, Compliance).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TYPE</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.state" title="Link to this definition"></a></dt>
+<dd><p>Set/get state, only set state if necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>newstate</strong> (<a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State"><em>State</em></a>) – mod:<a class="reference internal" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State" title="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.State"><code class="xref py py-obj docutils literal notranslate"><span class="pre">State</span></code></a>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(State)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stime">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stime</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.stime" title="Link to this definition"></a></dt>
+<dd><p>Set/get delay between steps.</p>
+<p>if dstep=’None’ than stime is the whole time for the sweep (=rising or falling time).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.sweepto">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sweepto</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.sweepto" title="Link to this definition"></a></dt>
+<dd><p>This is the end value if you run a sweep.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_autorange">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v_autorange</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_autorange" title="Link to this definition"></a></dt>
+<dd><p>Get/set voltage measurement autorange.</p>
+<p>True or False</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_clamp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v_clamp</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_clamp" title="Link to this definition"></a></dt>
+<dd><p>Set the voltage clamping (V), will adjust voltage measurement range.</p>
+<dl class="simple">
+<dt>Voltage Limit Range and Voltage Limit</dt><dd><ul class="simple">
+<li><p>v_clamp 0.6 V (int) / 600 mV = Limit +0.006 V to +0.6 V (int) / +6 mV to +600 mV</p></li>
+<li><p>v_clamp 6 V (int) / 6 V = Limit +0.06 V to +6 V (int) / +60 mV to +6 V</p></li>
+<li><p>v_clamp 60 V (int) / 60 V = Limit +0.6 V to +60 V (int) / +600 mV to +60 V</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_range">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v_range</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.v_range" title="Link to this definition"></a></dt>
+<dd><p>Set the voltage range, will adjust voltage clamping.</p>
+<dl class="simple">
+<dt>Voltage Value Range and Voltage Value are:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>PXIe4138:</dt><dd><ul>
+<li><p>v_range 0.6 V (int) / Value ±0.6 V</p></li>
+<li><p>v_range 6 V   (int) / Value ±6 V</p></li>
+<li><p>v_range 60 V  (int) / Value ±60 V</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>PXIe4141:</dt><dd><ul>
+<li><p>v_range 10.0 V (int) / Value ±10 V</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.natinst.pxie41xx.PXIe41xx.voltage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">voltage</span></span><a class="headerlink" href="#pylab_ml.smu.natinst.pxie41xx.PXIe41xx.voltage" title="Link to this definition"></a></dt>
+<dd><p>Get or set output voltage.</p>
+<p>If the voltage is set, the output is switched on immediately (if self.onAfterset == True).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – set to voltage (in V).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>output voltage (in V).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>value (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pylab_ml.smu.natinst.pxie41xx.html" class="btn btn-neutral float-left" title="pylab_ml.smu.natinst.pxie41xx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pylab_ml.smu.rohde_schwarz.html" class="btn btn-neutral float-right" title="pylab_ml.smu.rohde_schwarz" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

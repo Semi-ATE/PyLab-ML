@@ -1,0 +1,42 @@
+pylab\_ml.common.memorytest.Memory\_test
+========================================
+
+.. currentmodule:: pylab_ml.common.memorytest
+
+.. autoclass:: Memory_test
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Memory_test.__init__
+      ~Memory_test.algorithmen
+      ~Memory_test.algorithmus
+      ~Memory_test.read
+      ~Memory_test.run
+      ~Memory_test.write
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Memory_test.adr_order
+      ~Memory_test.algo_ops
+      ~Memory_test.count_method
+      ~Memory_test.data_background
+      ~Memory_test.padr_order
+      ~Memory_test.pcount_method
+      ~Memory_test.pdata_background
+   
+   

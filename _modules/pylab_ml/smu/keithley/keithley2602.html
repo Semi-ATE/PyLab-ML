@@ -1,0 +1,1355 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.smu.keithley.keithley2602 &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=e588eae9" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyLab-ML Documentation
+              <img src="../../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyLab-ML Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.smu.keithley.keithley2602</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.smu.keithley.keithley2602</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Interface to the dual channel Power-Measuremet-Unit (SMU) Keithley2602.</span>
+
+<span class="sd">:Date: |today|</span>
+<span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.collate_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interface</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.smu.keithley.base_keithley</span><span class="w"> </span><span class="kn">import</span> <span class="n">Keithley</span>
+
+
+<div class="viewcode-block" id="Keithley2602">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Keithley2602</span> <span class="p">(</span><span class="n">Keithley</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Interface to the dual channel Power-Measuremet-Unit (SMU) Keithley2602.</span>
+
+<span class="sd">    :Date: |today|</span>
+<span class="sd">    :Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
+
+<span class="sd">    .. image:: ../static/kethley2602.jpg</span>
+
+<span class="sd">    The Keithley2602 can</span>
+<span class="sd">    source and sink power in all four voltage/current quadrants and</span>
+<span class="sd">    measure voltage and current precisely on dual channels a &amp; b</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">A</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>    <span class="c1"># channel A</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="s2">&quot;b&quot;</span>    <span class="c1"># channel B</span>
+
+    <span class="n">interchoices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">gpib</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Keithley2602.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Connect and initialize.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">           addr (int):</span>
+<span class="sd">              interface address</span>
+<span class="sd">           interface (Interface):</span>
+<span class="sd">              gpib, usbserial</span>
+
+<span class="sd">           backend (str):</span>
+<span class="sd">              visa backend is either &#39;@ni&#39; for NI-Library or</span>
+<span class="sd">              &#39;@py&#39; for pure python pyvisa-py backend.</span>
+<span class="sd">              On default it uses &#39;@ni&#39; on win32 and &#39;@py&#39; on</span>
+<span class="sd">              other platforms.</span>
+<span class="sd">           instName (string):</span>
+<span class="sd">              Instance Name from parent.</span>
+
+
+<span class="sd">        Example: Initialization</span>
+<span class="sd">           &gt;&gt;&gt; vdd = Keithley2400(addr=24)  # GPIB or USB address</span>
+<span class="sd">           &gt;&gt;&gt;                              #  validate displayed message Id on device</span>
+<span class="sd">           &gt;&gt;&gt; vdd.init()                   # connect and initialize instrument</span>
+
+<span class="sd">        Example: Voltage source</span>
+<span class="sd">           &gt;&gt;&gt; vdd.i_clamp = 0.01           # current protection</span>
+<span class="sd">           &gt;&gt;&gt; vdd.voltage = 3.3            # set output voltage</span>
+<span class="sd">           &gt;&gt;&gt; i = vdd.current              # measure (supply) current</span>
+
+<span class="sd">        Example: Current source</span>
+<span class="sd">           &gt;&gt;&gt; vdd.v_clamp = 5              # voltage protection</span>
+<span class="sd">           &gt;&gt;&gt; vdd.current = 0.1            # set output current_range</span>
+<span class="sd">           &gt;&gt;&gt; v = vdd.voltage              # measure voltage</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">has_scripts</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="n">addr</span><span class="p">,</span> <span class="s2">&quot;interface&quot;</span><span class="p">:</span> <span class="n">interface</span><span class="p">,</span> <span class="s2">&quot;backend&quot;</span><span class="p">:</span> <span class="n">backend</span><span class="p">,</span> <span class="s2">&quot;identify&quot;</span><span class="p">:</span> <span class="n">identify</span><span class="p">,</span> <span class="s2">&quot;instName&quot;</span><span class="p">:</span> <span class="n">instName</span><span class="p">}</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Keithley2602.setup_inst">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.setup_inst">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start setup instrument settings, called from class instruments.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_inst</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span> <span class="o">=</span> <span class="s2">&quot;virp&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read_termination</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write_termination</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nplc</span> <span class="o">=</span> <span class="mf">0.01</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i_clamp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_v_clamp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>   <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i_range</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_v_range</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>   <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_I_range</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_V_range</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>   <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_set</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="p">{</span><span class="s2">&quot;typ&quot;</span><span class="p">:</span> <span class="s2">&quot;V&quot;</span><span class="p">}]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_get</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stair_measure</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="Keithley2602.reset">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.reset">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset and switch beep off.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;localnode.prompts = 0&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;reset()&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;beeper.enable = 0&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clearbuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clearbuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">B</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i_clamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i_clamp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_clamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_clamp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i_clamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i_clamp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">B</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_clamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_clamp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">B</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i_range</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i_range</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_range</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_range</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">I_range</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_I_range</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">B</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">V_range</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_V_range</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">B</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span></div>
+
+
+<div class="viewcode-block" id="Keithley2602.close">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close the connection and switch off all outputs.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">onoff</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">B</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">onoff</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Keithley2602.on">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.on">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reactivate output.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.output = smu</span><span class="si">{ch}</span><span class="s1">.OUTPUT_ON&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Keithley2602.off">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.off">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Deactivate output.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.output = smu</span><span class="si">{ch}</span><span class="s1">.OUTPUT_OFF&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">onoff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get on state from output (True).&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;print(smu</span><span class="si">{ch}</span><span class="s1">.source.output)&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+    <span class="nd">@onoff</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">onoff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Keithley2602.clearbuffer">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.clearbuffer">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clearbuffer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear the instrument buffer.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{}</span><span class="s1">.nvbuffer1.clear()&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">.</span><span class="n">lower</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{}</span><span class="s1">.nvbuffer2.clear()&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">.</span><span class="n">lower</span><span class="p">()))</span></div>
+
+
+<div class="viewcode-block" id="Keithley2602.message">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.message">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Message display.</span>
+
+<span class="sd">        instrument message (&quot;string&quot;) or ()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;display.clear()&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">linlen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">message</span><span class="p">[:</span><span class="n">linlen</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;display.clear()&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;display.settext(&quot;</span><span class="si">{message}</span><span class="s1">&quot;)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Query IDN.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*IDN?&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Keithley2602.error_list">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.error_list">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">error_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;List of instrument errors.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">errorlist</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">errormsg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;print(errorqueue.next())&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">errormsg</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">errormsg</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">errors_cmsn</span> <span class="o">=</span> <span class="n">errormsg</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">errors_cmsn</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">errormsg</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+                <span class="n">errorlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">errormsg</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+                <span class="n">errorlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">errormsg</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">errormsg</span> <span class="o">==</span> <span class="s1">&#39;0.00000e+00</span><span class="se">\t</span><span class="s1">Queue Is Empty</span><span class="se">\t</span><span class="s1">0.00000e+00</span><span class="se">\t</span><span class="s1">0.00000e+00&#39;</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">errorlist</span></div>
+
+
+<div class="viewcode-block" id="Keithley2602.channel">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.channel">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel A or B.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chab</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or Set channel A or B.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+
+    <span class="nd">@ch</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">nplc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the conversion number of power line cycles accuracy, for all converters.</span>
+
+<span class="sd">        for a plc of 0.1, conversion rate is 0.1/50s = 2ms. Accuracy max 25, min 0.001</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;print(smu</span><span class="si">{ch}</span><span class="s1">.measure.nplc)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+    <span class="nd">@nplc</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">nplc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycles</span><span class="p">):</span>            <span class="c1"># cycles are number of power line cycles for conversion</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nplc</span> <span class="o">=</span> <span class="n">cycles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># in Keithley 2400 each measurement (v,i,r) is common accuracy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.nplc =  </span><span class="si">{nplc}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">nplc</span><span class="o">=</span><span class="n">cycles</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">v_autorange</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Autorange voltage measurement on or off.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;print(smu</span><span class="si">{ch}</span><span class="s1">.measure.autorangev)&#39;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@v_autorange</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">v_autorange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">on</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">on</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.autorangev = smu</span><span class="si">{ch}</span><span class="s1">.AUTORANGE_ON&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.autorangev = smu</span><span class="si">{ch}</span><span class="s1">.AUTORANGE_OFF&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">i_autorange</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Autorange current measurement on or off.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;print(smu</span><span class="si">{ch}</span><span class="s1">.measure.autorangei)&#39;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@i_autorange</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">i_autorange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">on</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">on</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.autorangei = smu</span><span class="si">{ch}</span><span class="s1">.AUTORANGE_ON&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.autorangei = smu</span><span class="si">{ch}</span><span class="s1">.AUTORANGE_OFF&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">V_autorange</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Autorange drive voltage on or off.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;print(smu</span><span class="si">{ch}</span><span class="s1">.source.autorangev)&#39;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@V_autorange</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">V_autorange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">on</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">on</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.autorangev = smu</span><span class="si">{ch}</span><span class="s1">.AUTORANGE_ON&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.autorangev = smu</span><span class="si">{ch}</span><span class="s1">.AUTORANGE_OFF&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">I_autorange</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Autorange drive current on or off.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;print(smu</span><span class="si">{ch}</span><span class="s1">.source.autorangei)&#39;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@I_autorange</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">I_autorange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">on</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">on</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.autorangei = smu</span><span class="si">{ch}</span><span class="s1">.AUTORANGE_ON&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.autorangei = smu</span><span class="si">{ch}</span><span class="s1">.AUTORANGE_OFF&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">measure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set measure.</span>
+
+<span class="sd">        where the measurements are defined by &quot;virp&quot; flags (VOLTAGE,CURRENT,RESISTANCE,POWER).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">onoff</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">measv</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">measi</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">measr</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">measp</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="s2">&quot;v&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span><span class="p">:</span>
+            <span class="n">measv</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="s2">&quot;i&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span><span class="p">:</span>
+            <span class="n">measi</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="s2">&quot;r&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span><span class="p">:</span>
+            <span class="n">measr</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="s2">&quot;p&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span><span class="p">:</span>
+            <span class="n">measp</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">measv</span> <span class="ow">and</span> <span class="n">measi</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.iv()&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+            <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span>
+        <span class="k">elif</span> <span class="n">measv</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.v()&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+            <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span>
+        <span class="k">elif</span> <span class="n">measi</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.i()&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+            <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span>
+        <span class="k">if</span> <span class="n">measr</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.r()&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+            <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span>
+        <span class="k">if</span> <span class="n">measp</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.p()&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+            <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span>
+        <span class="k">if</span> <span class="n">msg</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> measure undefined measurements &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> measure returns </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;print(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">res</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">measv</span> <span class="ow">and</span> <span class="n">measi</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">measr</span><span class="p">:</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">res</span>
+            <span class="k">elif</span> <span class="n">measp</span><span class="p">:</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">res</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span><span class="p">,</span> <span class="n">res</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+    <span class="nd">@measure</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">measure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s2">&quot;virp&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span> <span class="o">=</span> <span class="n">typ</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set output voltage.</span>
+
+<span class="sd">        If the voltage is set the output is switched on immediately.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">onoff</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;display.screen = display.SMU</span><span class="si">{CH}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">CH</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;display.smu</span><span class="si">{ch}</span><span class="s1">.measure.func = display.MEASURE_DCVOLTS&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.nplc = 1&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;print(smu</span><span class="si">{ch}</span><span class="s1">.measure.v())&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> voltage@</span><span class="si">{}</span><span class="s2"> == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@voltage</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;display.screen = display.SMU</span><span class="si">{CH}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">CH</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+        <span class="c1"># Select voltage source</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.func = smu</span><span class="si">{ch}</span><span class="s1">.OUTPUT_DCVOLTS&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="c1"># Select voltage level</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.levelv = </span><span class="si">{val}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">value</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> voltage@</span><span class="si">{}</span><span class="s2"> := </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">onoff</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">voltage</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">current</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set output current.</span>
+
+<span class="sd">        If the current is set the output is switched on immediately.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">onoff</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;display.screen = display.SMU</span><span class="si">{CH}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">CH</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ch</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+        <span class="c1"># Current measure function</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;display.smu</span><span class="si">{ch}</span><span class="s1">.measure.func = display.MEASURE_DCAMPS&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.nplc = 1&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;print(smu</span><span class="si">{ch}</span><span class="s1">.measure.i())&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> current@</span><span class="si">{}</span><span class="s2"> == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@current</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">current</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;display.screen = display.SMU</span><span class="si">{CH}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">CH</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ch</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+        <span class="c1"># Select current source</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.func = smu</span><span class="si">{ch}</span><span class="s1">.OUTPUT_DCAMPS&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="c1"># Select current level</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.leveli = </span><span class="si">{val}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">value</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> current@</span><span class="si">{}</span><span class="s2"> := </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">onoff</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">i_clamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the current clamping (A), will adjust current measurement range.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;print(smu</span><span class="si">{ch}</span><span class="s2">.source.limiti)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+
+    <span class="nd">@i_clamp</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">i_clamp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imax</span><span class="p">):</span>            <span class="c1"># imax in A</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i_clamp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">]</span> <span class="o">=</span> <span class="n">imax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.limiti = </span><span class="si">{val}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">imax</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">v_clamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the voltage clamping (V), will adjust voltage measurement range.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;print(smu</span><span class="si">{ch}</span><span class="s2">.source.limitv)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+
+    <span class="nd">@v_clamp</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">v_clamp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>            <span class="c1"># vmax in V</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_v_clamp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.limitv = </span><span class="si">{val}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">vmax</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">i_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the current measurement range (A).&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;print(smu</span><span class="si">{ch}</span><span class="s2">.measure.rangei)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+
+    <span class="nd">@i_range</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">i_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imax</span><span class="p">):</span>            <span class="c1"># imax in A</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i_range</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">]</span> <span class="o">=</span> <span class="n">imax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.rangei = </span><span class="si">{val}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">imax</span><span class="p">)))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">v_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the voltage measurement range (V).&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;print(smu</span><span class="si">{ch}</span><span class="s2">.measure.rangev)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+
+    <span class="nd">@v_range</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">v_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>            <span class="c1"># vmax in V</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_v_range</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.rangev = </span><span class="si">{val}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">vmax</span><span class="p">)))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">I_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the current driver range (A).&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;print(smu</span><span class="si">{ch}</span><span class="s2">.source.rangei)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+
+    <span class="nd">@I_range</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">I_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imax</span><span class="p">):</span>            <span class="c1"># imax in A</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_I_range</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">]</span> <span class="o">=</span> <span class="n">imax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.rangei = </span><span class="si">{val}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">imax</span><span class="p">)))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">V_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the voltage driver range (V).&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;print(smu</span><span class="si">{ch}</span><span class="s2">.source.rangev)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+
+    <span class="nd">@V_range</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">V_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>            <span class="c1"># vmax in V</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_V_range</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.source.rangev = </span><span class="si">{val}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">vmax</span><span class="p">)))</span>
+
+<div class="viewcode-block" id="Keithley2602.stair_sweep">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.stair_sweep">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stair_sweep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">dstep</span><span class="p">,</span> <span class="n">stime</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="n">stair</span><span class="o">=</span><span class="s1">&#39;Lin&#39;</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sweep V or I, measure v,i,r,p at time t with state s, wait for response.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">           typ:</span>
+<span class="sd">              | &#39;Vvirpts-?&#39;, &#39;Ivirpts-?&#39;  = Voltage / Current sourced, &#39;-&#39; changes direction,</span>
+<span class="sd">              |  volts, amps, ohms, power, timestamp, status are sensed, ? animates display</span>
+<span class="sd">           start:</span>
+<span class="sd">              Start value in volts or amps</span>
+<span class="sd">           stop:</span>
+<span class="sd">              Stop value in volts or amps</span>
+<span class="sd">           dstep:</span>
+<span class="sd">              Delta amplitude for Lin, Points to interpolate for Log, stime is slope time for None (&gt;0.2ms)</span>
+<span class="sd">           stime:</span>
+<span class="sd">              Delay between steps or slope time if dstep == None</span>
+<span class="sd">           stair:</span>
+<span class="sd">              (&#39;Lin&#39;,&#39;Log) = linear or log source</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">dstep</span><span class="p">]</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;stime&#39;</span><span class="p">:</span> <span class="n">stime</span><span class="p">,</span> <span class="s1">&#39;typ&#39;</span><span class="p">:</span> <span class="n">typ</span><span class="p">,</span> <span class="s1">&#39;stair&#39;</span><span class="p">:</span> <span class="n">stair</span><span class="p">,</span> <span class="s1">&#39;wait&#39;</span><span class="p">:</span> <span class="n">wait</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_set</span> <span class="o">=</span> <span class="p">[</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_scripts</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scripts</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_scripts</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> has no scripts loaded&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="n">styp</span> <span class="o">=</span> <span class="s1">&#39;V&#39;</span>
+        <span class="n">mtyp</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">measure</span> <span class="o">=</span> <span class="s2">&quot;V&quot;</span>
+        <span class="n">measi</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">measv</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">measr</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">measp</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">lne</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="s1">&#39;I&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+            <span class="n">measure</span> <span class="o">=</span> <span class="s2">&quot;I&quot;</span>
+            <span class="n">styp</span> <span class="o">=</span> <span class="s1">&#39;I&#39;</span>
+        <span class="k">if</span> <span class="s2">&quot;v&quot;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+            <span class="n">measure</span> <span class="o">+=</span> <span class="s2">&quot;v&quot;</span>
+            <span class="n">mtyp</span> <span class="o">=</span> <span class="n">mtyp</span> <span class="o">|</span> <span class="mi">2</span>
+            <span class="n">measv</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="s2">&quot;i&quot;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+            <span class="n">measure</span> <span class="o">+=</span> <span class="s2">&quot;i&quot;</span>
+            <span class="n">mtyp</span> <span class="o">=</span> <span class="n">mtyp</span> <span class="o">|</span> <span class="mi">1</span>
+            <span class="n">measi</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="s2">&quot;r&quot;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+            <span class="n">measure</span> <span class="o">+=</span> <span class="s2">&quot;r&quot;</span>
+            <span class="n">mtyp</span> <span class="o">=</span> <span class="n">mtyp</span> <span class="o">|</span> <span class="mi">4</span>
+            <span class="n">measr</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="s2">&quot;p&quot;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+            <span class="n">measure</span> <span class="o">+=</span> <span class="s2">&quot;p&quot;</span>
+            <span class="n">mtyp</span> <span class="o">=</span> <span class="n">mtyp</span> <span class="o">|</span> <span class="mi">8</span>
+            <span class="n">measp</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="s2">&quot;t&quot;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+            <span class="n">measure</span> <span class="o">+=</span> <span class="s2">&quot;t&quot;</span>
+            <span class="n">mtyp</span> <span class="o">=</span> <span class="n">mtyp</span> <span class="o">|</span> <span class="mi">16</span>
+            <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="s2">&quot;s&quot;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+            <span class="n">measure</span> <span class="o">+=</span> <span class="s2">&quot;s&quot;</span>
+            <span class="n">mtyp</span> <span class="o">=</span> <span class="n">mtyp</span> <span class="o">|</span> <span class="mi">32</span>
+            <span class="n">lne</span> <span class="o">+=</span> <span class="n">measv</span> <span class="o">+</span> <span class="n">measi</span> <span class="o">+</span> <span class="n">measr</span> <span class="o">+</span> <span class="n">measp</span>
+        <span class="k">if</span> <span class="s2">&quot;?&quot;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+            <span class="n">mtyp</span> <span class="o">=</span> <span class="n">mtyp</span> <span class="o">|</span> <span class="mi">64</span>
+        <span class="n">lne</span> <span class="o">+=</span> <span class="p">(</span><span class="n">measv</span> <span class="o">|</span> <span class="n">measi</span> <span class="o">|</span> <span class="n">measr</span> <span class="o">|</span> <span class="n">measp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;?&#39;</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">voltage</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> initial start assumed to be 0&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">dstep</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">stop</span> <span class="ow">and</span> <span class="n">dstep</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">dstep</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">dstep</span>
+        <span class="k">if</span> <span class="n">dstep</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># stime is slope time</span>
+            <span class="c1"># No measurement</span>
+            <span class="c1">#   v_range =  &lt;= 40</span>
+            <span class="c1"># 1001 points for 40V == 240ms</span>
+            <span class="c1"># 1001 points for 20V == 240ms</span>
+            <span class="c1"># 1001 points for 10V == 240ms</span>
+            <span class="c1"># 1001 points for 7V == 240ms</span>
+            <span class="c1">#   v_range &lt;= 6</span>
+            <span class="c1"># 1001 points for 6V == 170ms</span>
+            <span class="c1"># 1001 points for 5V == 170ms</span>
+            <span class="c1"># 1001 points for 4V == 170ms</span>
+            <span class="c1"># 1001 points for 3V == 170ms</span>
+            <span class="c1"># 1001 points for 2V == 160ms</span>
+            <span class="c1">#   v_range &lt;= 1</span>
+            <span class="c1"># 1001 points for 1V == 140ms</span>
+            <span class="c1"># 101 points for 1V == 14.8ms</span>
+            <span class="c1"># 11 points for 1V == ~1.5ms</span>
+            <span class="c1">#   v_range &lt;= 0.1</span>
+            <span class="c1"># ?</span>
+            <span class="c1"># V measurement, nplc = 0.001</span>
+            <span class="c1"># 1001 points for 10V == 580ms</span>
+            <span class="c1"># 1001 points for 7V == 580ms</span>
+            <span class="c1">#   v_range &lt;= 6</span>
+            <span class="c1"># 1001 points for 6V == 510ms</span>
+            <span class="c1"># 1001 points for 3V == 510ms</span>
+            <span class="c1"># 1001 points for 2V == 510ms</span>
+            <span class="c1">#   v_range &lt;= 1</span>
+            <span class="c1"># 1001 points for 1V == 480ms</span>
+            <span class="c1"># 101 points for 1V == 49ms</span>
+            <span class="c1"># 11 points for 1V == ~4.9ms</span>
+            <span class="c1"># I measurement, nplc = 0.001</span>
+            <span class="c1"># 1001 points for 10V == 580ms</span>
+            <span class="c1">#   v_range &lt;= 6</span>
+            <span class="c1"># 1001 points for 6V == 510ms</span>
+            <span class="c1">#   v_range &lt;= 1</span>
+            <span class="c1"># 1001 points for 1V == 470ms</span>
+            <span class="c1"># 101 points for 1V == 49ms</span>
+            <span class="c1"># 11 points for 1V == 5ms</span>
+            <span class="c1"># VI (+R) measurement, nplc = 0.001</span>
+            <span class="c1"># 1001 points for 10V == 680ms</span>
+            <span class="c1">#   v_range &lt;= 6</span>
+            <span class="c1"># 1001 points for 6V == 620ms</span>
+            <span class="c1"># 1001 points for 2V == 620ms</span>
+            <span class="c1">#   v_range &lt;= 1</span>
+            <span class="c1"># 1001 points for 1V == 590ms</span>
+            <span class="c1"># 101 points for 1V == 60ms</span>
+            <span class="c1"># 11 points for 1V == 6ms</span>
+            <span class="c1"># R measurement, nplc = 0.01</span>
+            <span class="c1"># 101 points for 1V == 510ms</span>
+            <span class="n">nplc</span> <span class="o">=</span> <span class="mf">0.001</span>
+            <span class="n">fsd</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">start</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">stop</span><span class="p">))</span>
+            <span class="n">rang</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+            <span class="n">max_pts</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rang</span> <span class="o">+</span> <span class="mf">1.05</span><span class="p">)</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">measv</span> <span class="ow">and</span> <span class="n">measi</span> <span class="ow">or</span> <span class="n">measv</span> <span class="ow">and</span> <span class="n">measr</span> <span class="ow">or</span> <span class="n">measi</span> <span class="ow">and</span> <span class="n">measr</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">fsd</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+                    <span class="n">meas_cost</span> <span class="o">=</span> <span class="mf">0.66e-3</span>
+                <span class="k">if</span> <span class="n">fsd</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">meas_cost</span> <span class="o">=</span> <span class="mf">0.62e-3</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">meas_cost</span> <span class="o">=</span> <span class="mf">0.6e-3</span>
+            <span class="k">elif</span> <span class="n">measi</span> <span class="ow">or</span> <span class="n">measr</span> <span class="ow">or</span> <span class="n">measv</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">fsd</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+                    <span class="n">meas_cost</span> <span class="o">=</span> <span class="mf">0.58e-3</span>
+                <span class="k">if</span> <span class="n">fsd</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">meas_cost</span> <span class="o">=</span> <span class="mf">0.51e-3</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">meas_cost</span> <span class="o">=</span> <span class="mf">0.49e-3</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">fsd</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+                    <span class="n">meas_cost</span> <span class="o">=</span> <span class="mf">0.24e-3</span>
+                <span class="k">if</span> <span class="n">fsd</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">meas_cost</span> <span class="o">=</span> <span class="mf">0.17e-3</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">meas_cost</span> <span class="o">=</span> <span class="mf">0.14e-3</span>
+            <span class="n">meas_pts</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">stime</span> <span class="o">/</span> <span class="n">meas_cost</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+            <span class="k">if</span> <span class="n">meas_pts</span> <span class="o">&lt;</span> <span class="n">max_pts</span><span class="p">:</span>
+                <span class="n">pts</span> <span class="o">=</span> <span class="n">meas_pts</span>
+                <span class="n">step_time</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pts</span> <span class="o">=</span> <span class="n">max_pts</span>
+                <span class="n">step_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">stime</span> <span class="o">-</span> <span class="n">pts</span> <span class="o">*</span> <span class="n">meas_cost</span><span class="p">)</span> <span class="o">/</span> <span class="n">pts</span>
+            <span class="k">if</span> <span class="n">pts</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">dstep</span> <span class="o">=</span> <span class="p">(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+                <span class="n">step_time</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dstep</span> <span class="o">=</span> <span class="p">(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">pts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> rang </span><span class="si">{}</span><span class="s2">  max_pts </span><span class="si">{}</span><span class="s2">   meas_pts </span><span class="si">{}</span><span class="s2">   pts </span><span class="si">{}</span><span class="s2">   dstep </span><span class="si">{}</span><span class="s2">   step_time </span><span class="si">{}</span><span class="s2">&quot;</span>
+                         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">rang</span><span class="p">,</span> <span class="n">max_pts</span><span class="p">,</span> <span class="n">meas_pts</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">dstep</span><span class="p">,</span> <span class="n">step_time</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">dstep</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">nplc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nplc</span>
+            <span class="n">step_time</span> <span class="o">=</span> <span class="n">stime</span>
+            <span class="n">pts</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nplc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nplc</span>
+            <span class="n">step_time</span> <span class="o">=</span> <span class="n">stime</span>
+            <span class="n">pts</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">((</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">dstep</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="s2">&quot;-&quot;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+            <span class="n">dstep</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span><span class="p">,</span> <span class="n">start</span>
+            <span class="n">typ</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">typ</span> <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s1">&#39;-&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.nplc = </span><span class="si">{nplc}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">nplc</span><span class="o">=</span><span class="n">nplc</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stair_measure</span> <span class="o">=</span> <span class="n">measure</span>
+        <span class="k">if</span> <span class="n">wait</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;waitcomplete()</span><span class="se">\r</span><span class="s1"> print(SweepStaircase(smu</span><span class="si">{ch}</span><span class="s1">, </span><span class="si">{start}</span><span class="s1">, </span><span class="si">{stop}</span><span class="s1">, </span><span class="si">{dstep}</span><span class="s1">, </span><span class="si">{stime}</span><span class="s1">, &quot;</span><span class="si">{typ}</span><span class="s1">&quot;, </span><span class="si">{mtyp}</span><span class="s1">))&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">,</span> <span class="n">dstep</span><span class="o">=</span><span class="n">dstep</span><span class="p">,</span> <span class="n">stime</span><span class="o">=</span><span class="n">step_time</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="n">styp</span><span class="p">,</span> <span class="n">mtyp</span><span class="o">=</span><span class="n">mtyp</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span> <span class="o">*</span> <span class="p">(</span><span class="n">step_time</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">lne</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">))</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">measv</span> <span class="ow">or</span> <span class="n">measi</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> stair_sweep returns </span><span class="si">{}</span><span class="s2"> * </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">lne</span><span class="p">,</span> <span class="n">ret</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> stair_sweep drives </span><span class="si">{}</span><span class="s2"> stepoints&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">ret</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;waitcomplete()</span><span class="se">\r</span><span class="s1"> SweepStaircase(smu</span><span class="si">{ch}</span><span class="s1">, </span><span class="si">{start}</span><span class="s1">, </span><span class="si">{stop}</span><span class="s1">, </span><span class="si">{dstep}</span><span class="s1">, </span><span class="si">{stime}</span><span class="s1">, &quot;</span><span class="si">{typ}</span><span class="s1">&quot;, </span><span class="si">{mtyp}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">,</span> <span class="n">dstep</span><span class="o">=</span><span class="n">dstep</span><span class="p">,</span> <span class="n">stime</span><span class="o">=</span><span class="n">step_time</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="n">styp</span><span class="p">,</span> <span class="n">mtyp</span><span class="o">=</span><span class="n">mtyp</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pts</span> <span class="o">*</span> <span class="p">(</span><span class="n">step_time</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">lne</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">measv</span> <span class="ow">or</span> <span class="n">measi</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> stair_sweep initiates </span><span class="si">{}</span><span class="s2"> * </span><span class="si">{}</span><span class="s2"> measurements&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">lne</span><span class="p">,</span> <span class="n">pts</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> stair_sweep initiates drive of </span><span class="si">{}</span><span class="s2"> stepoints&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">pts</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.measure.nplc = </span><span class="si">{nplc}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">,</span> <span class="n">nplc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_nplc</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">ret</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">wait</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="n">typ</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="Keithley2602.get_values">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.get_values">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Transfer last requested measurement sweep results.</span>
+
+<span class="sd">        Get response of previous stair_sweep(), choosing result rows from previous request typ</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        typ : string, optional</span>
+<span class="sd">            &#39;virpts&#39;. The default is &#39;&#39;.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        TYPE</span>
+<span class="sd">            values.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">typ</span> <span class="ow">or</span> <span class="n">typ</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">typ</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_measure</span>
+        <span class="n">unknown_measure</span> <span class="o">=</span> <span class="p">[</span><span class="n">tm</span> <span class="k">for</span> <span class="n">tm</span> <span class="ow">in</span> <span class="n">typ</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">tm</span> <span class="ow">in</span> <span class="s2">&quot;VI&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_measure</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">unknown_measure</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> get_values &#39;</span><span class="si">{}</span><span class="s2">&#39; for stair_sweep of &#39;</span><span class="si">{}</span><span class="s2">&#39; unknown&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">unknown_measure</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_measure</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">lne</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_scripts</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> has no scripts loaded&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;waitcomplete()</span><span class="se">\r</span><span class="s1"> print(math.max(smu</span><span class="si">{ch}</span><span class="s1">.nvbuffer1.n,smu</span><span class="si">{ch}</span><span class="s1">.nvbuffer2.n))&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">))</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span>
+            <span class="n">measurements</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">if</span> <span class="s1">&#39;V&#39;</span> <span class="ow">in</span> <span class="n">typ</span> <span class="ow">or</span> <span class="s1">&#39;I&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;i&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                    <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.nvbuffer1.sourcevalues&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+                    <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                    <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="s1">&#39;v&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                    <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.nvbuffer2.sourcevalues&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+                    <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                    <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="s1">&#39;i&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.nvbuffer1.readings&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+                <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="s1">&#39;v&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.nvbuffer2.readings&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+                <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="s1">&#39;r&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;nvbuffer3.readings&#39;</span>
+                <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="s1">&#39;p&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;nvbuffer4.readings&#39;</span>
+                <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="s1">&#39;t&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;i&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                    <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.nvbuffer1.timestamps&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+                    <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                    <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="s1">&#39;v&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                    <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.nvbuffer2.timestamps&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+                    <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                    <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="s1">&#39;s&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;i&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                    <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.nvbuffer1.statuses&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+                    <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                    <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="s1">&#39;v&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                    <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;smu</span><span class="si">{ch}</span><span class="s1">.nvbuffer2.statuses&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chab</span><span class="p">)</span>
+                    <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                    <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="s1">&#39;r&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                    <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;nvbuffer3.statuses&#39;</span>
+                    <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                    <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="s1">&#39;p&#39;</span> <span class="ow">in</span> <span class="n">typ</span><span class="p">:</span>
+                    <span class="n">measurements</span> <span class="o">+=</span> <span class="n">msep</span> <span class="o">+</span> <span class="s1">&#39;nvbuffer4.statuses&#39;</span>
+                    <span class="n">msep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+                    <span class="n">lne</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;waitcomplete()</span><span class="se">\r</span><span class="s1"> printbuffer(1,</span><span class="si">{l}</span><span class="s1">,</span><span class="si">{m}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">measurements</span><span class="p">))</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">na</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+            <span class="n">nb</span> <span class="o">=</span> <span class="n">na</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">na</span><span class="p">))</span><span class="o">//</span><span class="n">lne</span><span class="p">,</span> <span class="n">lne</span><span class="p">)</span>
+            <span class="n">nc</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">nc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">nc</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stair_step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set incremental ramp to target or (target,dstep) or (target,dstep,stime).</span>
+
+<span class="sd">        Step_stair to target or target,dstep or target,dstep,stime, using previous stair_sweep() parameters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stair_step_get</span><span class="p">)</span>
+
+    <span class="nd">@stair_step</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stair_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stair_set</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">stair_set</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="nb">tuple</span><span class="p">()),</span> <span class="nb">type</span><span class="p">(</span><span class="nb">list</span><span class="p">())]:</span>
+            <span class="n">stair_set_args</span><span class="p">,</span> <span class="n">stair_set_kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_set</span>
+            <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set</span>
+            <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;wait&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_get</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_sweep</span><span class="p">(</span><span class="o">*</span><span class="n">stair_set_args</span><span class="p">,</span> <span class="o">**</span><span class="n">stair_set_kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stair_set</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">stair_set_args</span><span class="p">,</span> <span class="n">stair_set_kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_set</span>
+                <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;wait&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_get</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_sweep</span><span class="p">(</span><span class="o">*</span><span class="n">stair_set_args</span><span class="p">,</span> <span class="o">**</span><span class="n">stair_set_kwargs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stair_set</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">stair_set_args</span><span class="p">,</span> <span class="n">stair_set_kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_set</span>
+                <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;wait&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;stime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_get</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_sweep</span><span class="p">(</span><span class="o">*</span><span class="n">stair_set_args</span><span class="p">,</span> <span class="o">**</span><span class="n">stair_set_kwargs</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stair_slope</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;stair_slope to target or target, slope_time using previous stair_sweep() parameters.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stair_step_get</span><span class="p">)</span>
+
+    <span class="nd">@stair_slope</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stair_slope</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stair_set</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">stair_set</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="nb">tuple</span><span class="p">()),</span> <span class="nb">type</span><span class="p">(</span><span class="nb">list</span><span class="p">())]:</span>
+            <span class="n">stair_set_args</span><span class="p">,</span> <span class="n">stair_set_kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_set</span>
+            <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set</span>
+            <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;wait&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;typ&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;typ&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_get</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_sweep</span><span class="p">(</span><span class="o">*</span><span class="n">stair_set_args</span><span class="p">,</span> <span class="o">**</span><span class="n">stair_set_kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">stair_set_args</span><span class="p">,</span> <span class="n">stair_set_kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_set</span>
+            <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">stair_set_args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;stime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;wait&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;typ&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stair_set_kwargs</span><span class="p">[</span><span class="s1">&#39;typ&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stair_step_get</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stair_sweep</span><span class="p">(</span><span class="o">*</span><span class="n">stair_set_args</span><span class="p">,</span> <span class="o">**</span><span class="n">stair_set_kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Keithley2602.scriptin">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.scriptin">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scriptin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A multiline LUA script needs to have -- comments correctly handled and newlines.</span>
+
+<span class="sd">        converted to returns</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;display.clear()&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;display.settext(&quot;loading scripts: &quot;)&#39;</span><span class="p">)</span>
+        <span class="n">newmsg</span> <span class="o">=</span> <span class="s2">&quot;loadandrunscript</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">msg</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+                <span class="n">mo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;.*(--)(\[\[)*&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">mo</span> <span class="ow">and</span> <span class="n">mo</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="n">newline</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="s2">&quot;--[[&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                    <span class="n">newmsg</span> <span class="o">+=</span> <span class="n">newline</span> <span class="o">+</span> <span class="s2">&quot;]]&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">newmsg</span> <span class="o">+=</span> <span class="n">line</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">newmsg</span> <span class="o">+=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">newmsg</span> <span class="o">+=</span> <span class="s2">&quot;endscript&quot;</span>
+        <span class="k">return</span> <span class="n">newmsg</span></div>
+
+
+<div class="viewcode-block" id="Keithley2602.scripts">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.scripts">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scripts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Upload specific functionality : sweep DUT.&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;loading scripts&quot;</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">display.clear()</span>
+<span class="s2">display.settext(&quot;loading scripts: &quot;)</span>
+<span class="s2">SweepStaircase = nil</span>
+<span class="s2">AbortScript = nil</span>
+<span class="s2">--nvbuffer3 = nil</span>
+<span class="s2">--nvbuffer4 = nil</span>
+<span class="s2">function SweepStaircase(smu, start, stop, dstep, stime, typ, mtyp)</span>
+<span class="s2">    -- Save settings in temporary variables so they can be restored at the end.</span>
+<span class="s2">    local l_d_screen = display.screen</span>
+<span class="s2">    -- Temporary variables used by this function.</span>
+<span class="s2">    local l_dstep = dstep</span>
+<span class="s2">    local l_sweep = 0</span>
+<span class="s2">    local l_typ = typ</span>
+<span class="s2">    local l_limit = 0</span>
+<span class="s2">    local l_j</span>
+<span class="s2">    local points</span>
+<span class="s2">    local l_measiv = bit.getfield(mtyp,1,2)</span>
+<span class="s2">    local l_measi = bit.test(mtyp,1)</span>
+<span class="s2">    local l_measv = bit.test(mtyp,2)</span>
+<span class="s2">    local l_measr = bit.test(mtyp,3)</span>
+<span class="s2">    local l_measp = bit.test(mtyp,4)</span>
+<span class="s2">    local l_meast = bit.test(mtyp,5)</span>
+<span class="s2">    local l_meass = bit.test(mtyp,6)</span>
+<span class="s2">    local l_disptrack = bit.test(mtyp,7)</span>
+<span class="s2">    display.settext(&quot;c&quot;)</span>
+<span class="s2">    -- Default to smua if no smu is specified.</span>
+<span class="s2">    if smu == nil then</span>
+<span class="s2">        smu = smua</span>
+<span class="s2">    end</span>
+<span class="s2">    -- Default to V sweep</span>
+<span class="s2">    if tostring(l_typ) ~= &quot;I&quot; then</span>
+<span class="s2">        l_typ = &quot;V&quot;</span>
+<span class="s2">        l_limit = smu.source.limitv</span>
+<span class="s2">    else</span>
+<span class="s2">        l_typ = &quot;I&quot;</span>
+<span class="s2">        l_limit = smu.source.limiti</span>
+<span class="s2">    end</span>
+<span class="s2">    -- Default to no measurement</span>
+<span class="s2">    if mtyp == nil then</span>
+<span class="s2">        mtyp = 0</span>
+<span class="s2">    end</span>
+<span class="s2">    -- calculate points</span>
+<span class="s2">    points = 0</span>
+<span class="s2">    if l_dstep == 0 then</span>
+<span class="s2">        smu.nvbuffer1.clear()</span>
+<span class="s2">        smu.nvbuffer2.clear()</span>
+<span class="s2">        AbortScript(&quot;: dstep==0&quot;, l_d_screen)</span>
+<span class="s2">        return 0</span>
+<span class="s2">    end</span>
+<span class="s2">    if start &lt; stop then</span>
+<span class="s2">        if l_dstep &lt; 0 then</span>
+<span class="s2">            l_dstep = l_dstep * -1.0</span>
+<span class="s2">        end</span>
+<span class="s2">        points = math.floor((stop - start) / l_dstep)</span>
+<span class="s2">        if points &lt; 1 then</span>
+<span class="s2">            points = 1</span>
+<span class="s2">            l_dstep = stop - start</span>
+<span class="s2">        end</span>
+<span class="s2">    else</span>
+<span class="s2">        if l_dstep &gt; 0 then</span>
+<span class="s2">            l_dstep = l_dstep * -1.0</span>
+<span class="s2">        end</span>
+<span class="s2">        points = math.floor((stop - start) / l_dstep)</span>
+<span class="s2">        if points &lt; 1 then</span>
+<span class="s2">            points = 1</span>
+<span class="s2">            l_dstep = start - stop</span>
+<span class="s2">        end</span>
+<span class="s2">    end</span>
+<span class="s2">    l_sweep = start</span>
+<span class="s2">    -- Setup a buffers to store the result(s) in and start testing.</span>
+<span class="s2">    smu.nvbuffer1.clear()</span>
+<span class="s2">    smu.nvbuffer1.appendmode = 1</span>
+<span class="s2">    smu.nvbuffer1.collectsourcevalues = 1</span>
+<span class="s2">    if l_meast then</span>
+<span class="s2">        smu.nvbuffer1.collecttimestamps = 1</span>
+<span class="s2">    else</span>
+<span class="s2">        smu.nvbuffer1.collecttimestamps = 0</span>
+<span class="s2">    end</span>
+<span class="s2">    smu.nvbuffer2.clear()</span>
+<span class="s2">    smu.nvbuffer2.appendmode = 1</span>
+<span class="s2">    smu.nvbuffer2.collectsourcevalues = 1</span>
+<span class="s2">    if l_meast then</span>
+<span class="s2">        smu.nvbuffer2.collecttimestamps = 1</span>
+<span class="s2">    else</span>
+<span class="s2">       smu.nvbuffer2.collecttimestamps = 0</span>
+<span class="s2">    end</span>
+<span class="s2">    --nvbuffer3 = nil</span>
+<span class="s2">    nvbuffer3 = smu.makebuffer(points+1)</span>
+<span class="s2">    nvbuffer3.clear()</span>
+<span class="s2">    nvbuffer3.appendmode = 1</span>
+<span class="s2">    --nvbuffer4 = nil</span>
+<span class="s2">    nvbuffer4 = smu.makebuffer(points+1)</span>
+<span class="s2">    nvbuffer4.clear()</span>
+<span class="s2">    nvbuffer4.appendmode = 1</span>
+<span class="s2">    -- Check limits not exceeded in sweep</span>
+<span class="s2">    if math.abs(start) &gt; math.abs(l_limit) then</span>
+<span class="s2">        AbortScript(&quot;: start&gt;limit&quot;, l_d_screen)</span>
+<span class="s2">        return 0</span>
+<span class="s2">    end</span>
+<span class="s2">    if math.abs(stop) &gt; math.abs(l_limit) then</span>
+<span class="s2">        AbortScript(&quot;: stop&gt;limit&quot;, l_d_screen)</span>
+<span class="s2">        return 0</span>
+<span class="s2">    end</span>
+<span class="s2">    -- update display</span>
+<span class="s2">    display.clear()</span>
+<span class="s2">    display.settext(&quot;SweepStairs &quot; .. l_typ .. &quot; &quot; .. points)</span>
+<span class="s2">    -- Configure source and measure settings.</span>
+<span class="s2">    if l_typ == &quot;V&quot; then</span>
+<span class="s2">        smu.source.func = smu.OUTPUT_DCVOLTS</span>
+<span class="s2">        smu.source.levelv = l_sweep</span>
+<span class="s2">        smu.source.rangev = math.max(math.abs(start), math.abs(stop))</span>
+<span class="s2">    else</span>
+<span class="s2">        smu.source.func = smu.OUTPUT_DCAMPS</span>
+<span class="s2">        smu.source.leveli = l_sweep</span>
+<span class="s2">        smu.source.rangei = math.max(math.abs(start), math.abs(stop))</span>
+<span class="s2">    end</span>
+<span class="s2">    smu.source.output = smu.OUTPUT_ON</span>
+<span class="s2">    smu.measure.autozero = smu.AUTOZERO_OFF</span>
+<span class="s2">    for l_j = 1,points do</span>
+<span class="s2">        delay(stime)                  -- Wait desired settling time.</span>
+<span class="s2">        if l_measiv == 1 then</span>
+<span class="s2">            smu.measure.i(smu.nvbuffer1)  -- Measure current and store in reading buffer.</span>
+<span class="s2">        elseif l_measiv == 2 then</span>
+<span class="s2">            smu.measure.v(smu.nvbuffer2)  -- Measure voltage and store in reading buffer.</span>
+<span class="s2">        elseif l_measiv == 3 then</span>
+<span class="s2">            smu.measure.iv(smu.nvbuffer1,smu.nvbuffer2)  -- Measure current &amp; voltage and store in reading buffers.</span>
+<span class="s2">        end</span>
+<span class="s2">        if l_measr then</span>
+<span class="s2">            smu.measure.r(nvbuffer3)  -- Measure resistance and store in reading buffer.</span>
+<span class="s2">        end</span>
+<span class="s2">        if l_measp then</span>
+<span class="s2">            smu.measure.p(nvbuffer4)  -- Measure power and store in reading buffer.</span>
+<span class="s2">        end</span>
+<span class="s2">        l_sweep = l_sweep + l_dstep</span>
+<span class="s2">        if l_disptrack then</span>
+<span class="s2">            display.clear()</span>
+<span class="s2">            display.settext(l_j .. &quot;: &quot; .. l_sweep .. l_typ .. &quot;  &quot; .. l_dstep .. &quot; - &quot;)</span>
+<span class="s2">        end</span>
+<span class="s2">        if l_typ == &quot;V&quot; then</span>
+<span class="s2">            smu.source.levelv = l_sweep</span>
+<span class="s2">        else</span>
+<span class="s2">            smu.source.leveli = l_sweep</span>
+<span class="s2">        end</span>
+<span class="s2">    end</span>
+<span class="s2">    delay(stime)                  -- Wait desired settling time.</span>
+<span class="s2">    if l_measiv == 1 then</span>
+<span class="s2">        smu.measure.i(smu.nvbuffer1)  -- Measure current and store in reading buffer.</span>
+<span class="s2">    elseif l_measiv == 2 then</span>
+<span class="s2">        smu.measure.v(smu.nvbuffer2)  -- Measure voltage and store in reading buffer.</span>
+<span class="s2">    elseif l_measiv == 3 then</span>
+<span class="s2">        smu.measure.iv(smu.nvbuffer1,smu.nvbuffer2)  -- Measure current &amp; voltage and store in reading buffers.</span>
+<span class="s2">    end</span>
+<span class="s2">    if l_measr then</span>
+<span class="s2">        smu.measure.r(nvbuffer3)  -- Measure resistance and store in reading buffer.</span>
+<span class="s2">    end</span>
+<span class="s2">    if l_measp then</span>
+<span class="s2">        smu.measure.p(nvbuffer4)  -- Measure power and store in reading buffer.</span>
+<span class="s2">    end</span>
+<span class="s2">    if l_typ == &quot;V&quot; then</span>
+<span class="s2">        smu.source.levelv = stop</span>
+<span class="s2">    else</span>
+<span class="s2">        smu.source.leveli = stop</span>
+<span class="s2">    end</span>
+<span class="s2">    display.clear()</span>
+<span class="s2">    display.screen = l_d_screen</span>
+<span class="s2">    return points</span>
+<span class="s2">end</span>
+
+<span class="s2">function AbortScript(msg, screen)</span>
+<span class="s2">    --Abort script on nil (typically exit keypress)</span>
+<span class="s2">    display.clear() --clear display</span>
+<span class="s2">    display.settext(&quot;Script Aborted &quot; .. msg)</span>
+<span class="s2">    delay(2)</span>
+<span class="s2">    display.clear() --clear display</span>
+<span class="s2">    display.screen = screen --show default screen</span>
+<span class="s2">    exit() --abort script</span>
+<span class="s2">end --function AbortScript()</span>
+
+<span class="s2">display.clear()</span>
+<span class="s2">display.settext(&quot;loaded scripts: &quot;)</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scriptin</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">has_scripts</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Keithley2602.com_recover">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.keithley2602.Keithley2602.html#pylab_ml.smu.keithley.keithley2602.Keithley2602.com_recover">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">com_recover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fix</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Detect &amp; attempt to recover out of step communication (maybe after timeout).</span>
+
+<span class="sd">        can lose coherency between read request and data, usually because of Timeout</span>
+<span class="sd">        this routine can diagnose such loss of coherency and attempt to fix it, when fix=Tru</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">ires</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;print(</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ires</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For </span><span class="si">{}</span><span class="s2"> got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ires</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> <span class="ow">and</span> <span class="n">fix</span><span class="p">:</span>
+                    <span class="n">diff</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">ires</span>
+                    <span class="k">if</span> <span class="n">diff</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;See offset </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
+                        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">diff</span><span class="p">):</span>
+                            <span class="n">consume</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Consumed &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">consume</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For </span><span class="si">{}</span><span class="s2"> got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">res</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">ires</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

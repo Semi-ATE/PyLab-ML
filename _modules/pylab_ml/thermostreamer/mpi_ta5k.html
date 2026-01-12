@@ -1,0 +1,683 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.thermostreamer.mpi_ta5k &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=e588eae9" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyLab-ML Documentation
+              <img src="../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyLab-ML Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.thermostreamer.mpi_ta5k</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.thermostreamer.mpi_ta5k</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Thermostreamer MPI_TA5000.</span>
+
+<span class="sd">:Date: |today|</span>
+<span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
+
+<span class="sd">todo:</span>
+<span class="sd">   MPI_TA5K send no acknowledge,</span>
+<span class="sd">   check if this module is running for other Thermostreamer</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common.spinner</span><span class="w"> </span><span class="kn">import</span> <span class="n">spinner</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.collate_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interface</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.thermostreamer.base_thermostreamer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Base_Thermostreamer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.attributes</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_attributes</span>
+
+
+<div class="viewcode-block" id="MPI_TA5K">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.html#pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MPI_TA5K</span><span class="p">(</span><span class="n">create_attributes</span><span class="p">,</span> <span class="n">Base_Thermostreamer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interface to the Thermostreamer MPI_TA5000.</span>
+
+<span class="sd">    :Date: |today|</span>
+<span class="sd">    :Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
+
+<span class="sd">    .. image:: ../static/mpi_ta5000.jpg</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># create functions or proberty and wrap it to the inst.funcname:</span>
+    <span class="c1"># if state != necessary state -&gt; switch to the necessary state</span>
+    <span class="c1">#  proberty/function name -&gt; inst.funcname (get,set)    , range,    call functions</span>
+    <span class="c1">#                                                         range : None, Enum or range value</span>
+    <span class="c1">#                                                         call functions: see help in attributes</span>
+    <span class="n">_properties</span> <span class="o">=</span> <span class="p">{</span>
+                  <span class="s1">&#39;airtemp&#39;</span><span class="p">:</span>         <span class="p">((</span><span class="s1">&#39;TMPA?&#39;</span><span class="p">,</span>  <span class="kc">None</span><span class="p">),</span>     <span class="kc">None</span><span class="p">,</span>           <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;compressor&#39;</span><span class="p">:</span>      <span class="p">((</span><span class="s1">&#39;COOL?&#39;</span><span class="p">,</span> <span class="s1">&#39;COOL &#39;</span><span class="p">),</span>   <span class="s1">&#39;Compressor&#39;</span><span class="p">,</span>   <span class="p">{</span><span class="s1">&#39;sac&#39;</span><span class="p">:</span> <span class="s1">&#39;_compressor(value)&#39;</span><span class="p">}),</span>
+                  <span class="s1">&#39;dutsensortype&#39;</span><span class="p">:</span>   <span class="p">((</span><span class="s1">&#39;DSNS?&#39;</span><span class="p">,</span> <span class="s1">&#39;DSNS &#39;</span><span class="p">),</span>   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>         <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;dutmode&#39;</span><span class="p">:</span>         <span class="p">((</span><span class="s1">&#39;DUTM?&#39;</span><span class="p">,</span> <span class="s1">&#39;DUTM &#39;</span><span class="p">),</span>   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>         <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;duttemp&#39;</span><span class="p">:</span>         <span class="p">((</span><span class="s1">&#39;TMPD?&#39;</span><span class="p">,</span>  <span class="kc">None</span><span class="p">),</span>     <span class="kc">None</span><span class="p">,</span>           <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;flow&#39;</span><span class="p">:</span>            <span class="p">((</span><span class="s1">&#39;FLOW?&#39;</span><span class="p">,</span> <span class="s1">&#39;FLOW &#39;</span><span class="p">),</span>   <span class="s1">&#39;Flow&#39;</span><span class="p">,</span>         <span class="p">{</span><span class="s1">&#39;sa&#39;</span><span class="p">:</span>  <span class="s1">&#39;_wait4flow(value)&#39;</span><span class="p">}),</span>
+                  <span class="s1">&#39;flowrate&#39;</span><span class="p">:</span>        <span class="p">((</span><span class="s1">&#39;FLWM?&#39;</span><span class="p">,</span> <span class="s1">&#39;FLWM &#39;</span><span class="p">),</span>   <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span>        <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;head&#39;</span><span class="p">:</span>            <span class="p">((</span><span class="s1">&#39;HEAD?&#39;</span><span class="p">,</span> <span class="s1">&#39;HEAD &#39;</span><span class="p">),</span>   <span class="s1">&#39;Head&#39;</span><span class="p">,</span>         <span class="p">{</span><span class="s1">&#39;sac&#39;</span><span class="p">:</span> <span class="s1">&#39;_head(value)&#39;</span><span class="p">}),</span>
+                  <span class="s1">&#39;headlock&#39;</span><span class="p">:</span>        <span class="p">((</span><span class="s1">&#39;HDLK?&#39;</span><span class="p">,</span> <span class="s1">&#39;HDLK &#39;</span><span class="p">),</span>   <span class="s1">&#39;Headlock&#39;</span><span class="p">,</span>     <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;llim&#39;</span><span class="p">:</span>            <span class="p">((</span><span class="s1">&#39;LLIM?&#39;</span><span class="p">,</span> <span class="s1">&#39;LLIM &#39;</span><span class="p">),</span>   <span class="p">[</span><span class="o">-</span><span class="mf">150.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;ramp&#39;</span><span class="p">:</span>            <span class="p">((</span><span class="s1">&#39;RAMP?&#39;</span><span class="p">,</span> <span class="s1">&#39;RAMP &#39;</span><span class="p">),</span>   <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">99.9</span><span class="p">],</span>    <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;setn&#39;</span><span class="p">:</span>            <span class="p">((</span><span class="s1">&#39;SETN?&#39;</span><span class="p">,</span> <span class="s1">&#39;SETN &#39;</span><span class="p">),</span>   <span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">17</span><span class="p">],</span>         <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;setupfile&#39;</span><span class="p">:</span>       <span class="p">((</span><span class="s1">&#39;SFIL?&#39;</span><span class="p">,</span> <span class="s1">&#39;SFIL &#39;</span><span class="p">),</span>   <span class="kc">None</span><span class="p">,</span>           <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;soak&#39;</span><span class="p">:</span>            <span class="p">((</span><span class="s1">&#39;SOAK?&#39;</span><span class="p">,</span> <span class="s1">&#39;SOAK &#39;</span><span class="p">),</span>   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9999</span><span class="p">],</span>      <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;state&#39;</span><span class="p">:</span>           <span class="p">((</span><span class="s1">&#39;TECR?&#39;</span><span class="p">,</span>  <span class="kc">None</span><span class="p">),</span>     <span class="kc">None</span><span class="p">,</span>           <span class="p">{</span><span class="s1">&#39;gac&#39;</span><span class="p">:</span>  <span class="s1">&#39;_trstate(value)&#39;</span><span class="p">}),</span>
+                  <span class="s1">&#39;Temp&#39;</span><span class="p">:</span>            <span class="p">((</span><span class="s1">&#39;SETP?&#39;</span><span class="p">,</span> <span class="s1">&#39;SETP &#39;</span><span class="p">),</span>   <span class="kc">None</span><span class="p">,</span>           <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;ulim&#39;</span><span class="p">:</span>            <span class="p">((</span><span class="s1">&#39;ULIM?&#39;</span><span class="p">,</span> <span class="s1">&#39;ULIM &#39;</span><span class="p">),</span>   <span class="p">[</span><span class="mf">25.0</span><span class="p">,</span> <span class="mf">225.0</span><span class="p">],</span>  <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;window&#39;</span><span class="p">:</span>          <span class="p">((</span><span class="s1">&#39;WNDW?&#39;</span><span class="p">,</span> <span class="s1">&#39;WNDW &#39;</span><span class="p">),</span>   <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">],</span>     <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;what&#39;</span><span class="p">:</span>            <span class="p">((</span><span class="s1">&#39;WHAT?&#39;</span><span class="p">,</span>  <span class="kc">None</span><span class="p">),</span>     <span class="kc">None</span><span class="p">,</span>           <span class="kc">None</span><span class="p">),</span>
+                  <span class="p">}</span>
+
+    <span class="n">_states</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span>   <span class="s1">&#39;   at temperature (soak time has elapsed)&#39;</span><span class="p">,</span>
+               <span class="mi">2</span><span class="p">:</span>   <span class="s1">&#39;   not at temperature&#39;</span><span class="p">,</span>
+               <span class="mi">4</span><span class="p">:</span>   <span class="s1">&#39;   end of test (test time has elapsed&#39;</span><span class="p">,</span>
+               <span class="mi">8</span><span class="p">:</span>   <span class="s1">&#39;   end of one cycle&#39;</span><span class="p">,</span>
+               <span class="mi">16</span><span class="p">:</span>  <span class="s1">&#39;   end of all cycle&#39;</span><span class="p">,</span>
+               <span class="mi">32</span><span class="p">:</span>  <span class="s1">&#39;   stopped cycling (&quot;stop on fail&quot; signal was received&#39;</span><span class="p">,</span>
+               <span class="mi">128</span><span class="p">:</span> <span class="s1">&#39;   datalogging on&#39;</span><span class="p">,</span>
+               <span class="p">}</span>
+
+    <span class="n">interchoices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">gpib</span><span class="p">]</span>
+
+<div class="viewcode-block" id="MPI_TA5K.Flow">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.html#pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.Flow">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Flow</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enum for Flow control.&quot;&quot;&quot;</span>
+
+        <span class="n">off</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;value for flow off&quot;&quot;&quot;</span>
+        <span class="n">on</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;value for flow on&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="MPI_TA5K.Head">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.html#pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.Head">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Head</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enum for Head control.&quot;&quot;&quot;</span>
+
+        <span class="n">up</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;value for head up&quot;&quot;&quot;</span>
+        <span class="n">down</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;value for head down&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="MPI_TA5K.Headlock">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.html#pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.Headlock">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Headlock</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enum for Headlock control.&quot;&quot;&quot;</span>
+
+        <span class="n">off</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">on</span> <span class="o">=</span> <span class="mf">1.0</span></div>
+
+
+<div class="viewcode-block" id="MPI_TA5K.Compressor">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.html#pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.Compressor">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Compressor</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enum for Compressor control.&quot;&quot;&quot;</span>
+
+        <span class="n">off</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">on</span> <span class="o">=</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="MPI_TA5K.__init__">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.html#pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">           addr (int):</span>
+<span class="sd">              interface address</span>
+<span class="sd">           interface (dev_interface.Instrument):</span>
+<span class="sd">              gpib, usbserial</span>
+<span class="sd">           instName (string):</span>
+<span class="sd">              Instance Name from parent.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">           TimeoutError:</span>
+<span class="sd">              timeout after set temp.</span>
+<span class="sd">           InvalidInstrumentConnection:</span>
+<span class="sd">              something is wrong with the connection.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">           &gt;&gt;&gt; # Initialization</span>
+<span class="sd">           &gt;&gt;&gt; thermo = Thermo(addr=1)   # GPIB address</span>
+
+<span class="sd">        more detailed examples:</span>
+<span class="sd">           common for MPI_TA5k.py: :download:`examples/thermostreamer/mpi_ta5k &lt;../../../examples/thermostreamer/mpi_ta5k.py&gt;`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">create_attributes</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="n">addr</span><span class="p">,</span> <span class="s2">&quot;interface&quot;</span><span class="p">:</span> <span class="n">interface</span><span class="p">,</span> <span class="s2">&quot;backend&quot;</span><span class="p">:</span> <span class="n">backend</span><span class="p">,</span> <span class="s2">&quot;identify&quot;</span><span class="p">:</span> <span class="n">identify</span><span class="p">,</span> <span class="s2">&quot;instName&quot;</span><span class="p">:</span> <span class="n">instName</span><span class="p">}</span>
+        <span class="n">Base_Thermostreamer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setdefault</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="MPI_TA5K.setup_inst">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.html#pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.setup_inst">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set for instrument settings.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">createattributes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_inst</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__is_initialized</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="MPI_TA5K.setdefault">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.html#pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.setdefault">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setdefault</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set for default values.&quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> set default values&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+        <span class="c1"># self.head=0                # head sould be hold in it&#39; old position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Flow</span><span class="o">.</span><span class="n">off</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">llim</span> <span class="o">=</span> <span class="o">-</span><span class="mi">85</span>             <span class="c1"># lower temperature limit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ulim</span> <span class="o">=</span> <span class="mi">180</span>             <span class="c1"># upper temperature limit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="mf">1.0</span>           <span class="c1"># temp window: 0.1 .. 9.9</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">soak</span> <span class="o">=</span> <span class="mi">20</span>              <span class="c1"># tsoak time: 0 .. 9999s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flowrate</span> <span class="o">=</span> <span class="mi">10</span>          <span class="c1"># flow rate: 4 .. 18</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dut_mode</span> <span class="o">=</span> <span class="mi">0</span>           <span class="c1"># 0: off (air control)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setpoint</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dutsensortype</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># 0: no dut sensor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span></div>
+
+
+    <span class="c1"># ----------------------------------------------------------</span>
+    <span class="c1"># doc strings for _properties, propertie themselve will create form dictionary _properties</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">airtemp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current air temperture.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compressor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get compressor on/off.</span>
+
+<span class="sd">        | &#39;off&#39;(=0, Compressor.off).</span>
+<span class="sd">        | &#39;on&#39;(=1, Compressor.on)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dutsensortype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get dut sensortype.</span>
+
+<span class="sd">        |  0: no dut sensor</span>
+<span class="sd">        |  1: type T thermocouple</span>
+<span class="sd">        |  2: type K thermocouple</span>
+<span class="sd">        |  3: RTD</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dutmode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get dut mode.</span>
+
+<span class="sd">        | 0: off (air control)</span>
+<span class="sd">        | 1: on (dut control)</span>
+<span class="sd">        | 2: TC Meter mode</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">duttemp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get current dut temperture.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">flow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get flow.</span>
+
+<span class="sd">        | &#39;off&#39;(=0, Flow.off).</span>
+<span class="sd">        | &#39;on&#39;(=1, FLow.on).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">flowrate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get air flow rate.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">head</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get head.</span>
+
+<span class="sd">        | &#39;up&#39;(=0, Head.up)</span>
+<span class="sd">        | &#39;down&#39;(=1, Head.down)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">headlock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get head lock.</span>
+
+<span class="sd">        | &#39;off&#39; (=0, Headlock.off) -&gt; unlock</span>
+<span class="sd">        | &#39;on&#39; (=1, Headlock.on) -&gt; lock</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">llim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get lower limit.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ramp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get ramp rate for the currently selected setpoint.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get setpoint.</span>
+
+<span class="sd">        | set: select a setpoint to the current setpoint</span>
+<span class="sd">        | get: read the current setpoint number</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setupfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get filename for setup file.</span>
+
+<span class="sd">        | get the filename,</span>
+<span class="sd">        | set = load the  test setup file with the filename</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">soak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get soak time for a given setpoint.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get temperature status register.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">Temp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get/set the currently selected setpoint temperatur.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ulim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get upper limit.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">window</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;set/get setpoint temperature window.&quot;&quot;&quot;</span>
+
+    <span class="c1"># end doc strings for _properties</span>
+    <span class="c1"># ----------------------------------------------------------</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compressor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Flow</span><span class="o">.</span><span class="n">off</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_head</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">headlock</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">Headlock</span><span class="o">.</span><span class="n">on</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.Head  is locked! Can not move Head&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ATTR_ERROR</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_wait4flow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="c1"># logging.disable(logging.MEASURE)</span>
+        <span class="c1"># if value==self.flow.on and self.head==self.Head.up: self.head=self.Head.down</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">Flow</span><span class="o">.</span><span class="n">on</span> <span class="ow">and</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;HDLK?&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;HEAD?&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.Head  is up and not locked! Can not set Flow.on&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ATTR_ERROR</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">spinner</span><span class="p">():</span>
+            <span class="k">while</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;FLOW?&#39;</span><span class="p">))</span> <span class="o">!=</span> <span class="n">value</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.Flow  couln&#39;t set flow := </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ATTR_ERROR</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_trstate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">bit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">value</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">bit</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">mask</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_states</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_states</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Query IDN.&quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*IDN?&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MPI_TA5K.get_id">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.html#pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.get_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get identifikation from Thermostreamer.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            string: identifikation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;*IDN?&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">temp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set/get DUT sensor or air temperature.</span>
+
+<span class="sd">        - get temperature</span>
+<span class="sd">        - or set the currently selected setpoint temperatur and wait until temperture is reached.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value (float): set dut sensor or air temperature</span>
+<span class="sd">            timeout (int, optional): timeout time. Defaults to 600s.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float:</span>
+<span class="sd">               * in Air mode: get main air temperature</span>
+<span class="sd">               * in Dut mode: get DUT sensor temperatur</span>
+<span class="sd">               * in TC Meter mode: siehe TEMP? in Manual.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">           &gt;&gt;&gt; thermo.temp = -10, 100   # -&gt; set temperatur=-10 and timeout to 100s (default 600s)</span>
+<span class="sd">           &gt;&gt;&gt; thermo.temp = 80         # -&gt; set temperatur=80 and timeout is default = 600s</span>
+<span class="sd">           &gt;&gt;&gt; print(thermo.temp)      # get temperature</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;TEMP?&#39;</span><span class="p">))</span>
+
+    <span class="nd">@temp</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">temp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="n">timeout</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">newvalue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_temp_set</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.temp == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">newvalue</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setpoint</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_temp_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;get/set the setpoint temperature.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">temp</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;SETP?&#39;</span><span class="p">))</span>
+        <span class="c1"># elif self._setpoint==None or float(temp) != self._setpoint:</span>
+        <span class="k">if</span> <span class="o">-</span><span class="mf">99.9</span> <span class="o">&lt;=</span> <span class="n">temp</span> <span class="o">&lt;=</span> <span class="mf">225.0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;SETP </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fmtstr</span> <span class="o">=</span> <span class="s1">&#39;temp value </span><span class="si">{}</span><span class="s1"> must be in [-99.9, 225.0]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">fmtstr</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">fmtstr</span><span class="p">)</span>
+        <span class="c1"># if int(self.inst.query(&#39;HEAD?&#39;))==self.Head.up.value:</span>
+        <span class="c1">#    fmtstr = &quot;{}.temp: Thermo Stream can set Temperature, if head is &#39;Up&#39;&quot;.format(self.instName)</span>
+        <span class="c1">#    logger.error(fmtstr)</span>
+        <span class="c1">#    raise ValueError(fmtstr)</span>
+        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;FLOW?&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">Flow</span><span class="o">.</span><span class="n">off</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Flow</span><span class="o">.</span><span class="n">on</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.temp := </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">temp</span><span class="p">))</span>
+        <span class="c1"># wait until steady state of desired temperature</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">spinner</span><span class="p">():</span>
+            <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">lifesign</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;TECR?&#39;</span><span class="p">)</span>    <span class="c1"># read temperature event condition register</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="k">if</span> <span class="p">((</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span><span class="p">)</span> <span class="o">%</span> <span class="mi">30</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">  </span><span class="si">{}</span><span class="s1"> not at temperature or soak time not elapsed </span><span class="si">{}</span><span class="s1">°C != </span><span class="si">{}</span><span class="s1">°C, timeout in </span><span class="si">{}</span><span class="s1">s    </span><span class="se">\r</span><span class="s1">&#39;</span>
+                          <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;TEMP?&#39;</span><span class="p">)),</span> <span class="n">temp</span><span class="p">,</span> <span class="n">timeout</span><span class="o">-</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+                    <span class="n">lifesign</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">if</span> <span class="n">timeout</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
+                    <span class="n">fmtstr</span> <span class="o">=</span> <span class="s1">&#39;timeout: T_set = </span><span class="si">{}</span><span class="s1">,  T_meas = </span><span class="si">{}</span><span class="s1">&#39;</span>
+                    <span class="k">raise</span> <span class="ne">TimeoutError</span><span class="p">(</span><span class="n">fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp</span><span class="p">))</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">lifesign</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setpoint</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp</span>
+
+<div class="viewcode-block" id="MPI_TA5K.get_state">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.html#pylab_ml.thermostreamer.mpi_ta5k.MPI_TA5K.get_state">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get actual state and configuration.&quot;&quot;&quot;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Setup File:  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">setupfile</span><span class="p">))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lower temp limit:  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">llim</span><span class="p">))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;upper temp limit:  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ulim</span><span class="p">))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;temp window:       </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;soak time:         </span><span class="si">{}</span><span class="s1">s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">soak</span><span class="p">))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;flow rate:         </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flowrate</span><span class="p">))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;flow:              </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flow</span><span class="p">))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;head:              </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;temp:              </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temp</span><span class="p">))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;temp_set:          </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_temp_set</span><span class="p">()))</span>
+        <span class="n">_dutmode</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;off (air control)&#39;</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;on (dut control)&#39;</span><span class="p">,</span>
+            <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;TC meter mode&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dut_mode</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;dut mode:          </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">_dutmode</span><span class="p">[</span><span class="n">val</span><span class="p">]))</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;dut sensor type:   </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dutsensortype</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lines</span></div>
+</div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logsetup</span>
+
+    <span class="n">logsetup</span><span class="p">()</span>
+    <span class="n">thermo</span> <span class="o">=</span> <span class="n">MPI_TA5K</span><span class="p">(</span><span class="n">addr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="s1">&#39;thermo&#39;</span><span class="p">)</span>
+    <span class="c1"># thermo.setupfile=&#39;GPIB-Config&#39;</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span>
+    <span class="c1"># thermo.headlock                     # for Thermostreamer at 3d-Coil</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="s1">&#39;up&#39;</span>
+
+    <span class="n">thermo</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="s1">&#39;down&#39;</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="s1">&#39;on&#39;</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">flow</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="n">thermo</span><span class="o">.</span><span class="n">Flow</span><span class="o">.</span><span class="n">on</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="s2">&quot;sjflskjf&quot;</span>
+
+    <span class="n">thermo</span><span class="o">.</span><span class="n">state</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">temp</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">state</span>
+
+    <span class="n">thermo</span><span class="o">.</span><span class="n">ulim</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">ulim</span> <span class="o">=</span> <span class="mi">450</span>
+
+    <span class="n">thermo</span><span class="o">.</span><span class="n">llim</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">window</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">soak</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">ramp</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">flow</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">dutsensortype</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">dutmode</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperatur= </span><span class="si">{}</span><span class="s1">°C&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">thermo</span><span class="o">.</span><span class="n">temp</span><span class="p">))</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">temp</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">temp</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="s1">&#39;off&#39;</span>
+    <span class="n">thermo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

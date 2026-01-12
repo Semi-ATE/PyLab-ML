@@ -1,0 +1,6 @@
+pylab\_ml.common.common.set\_logger
+===================================
+
+.. currentmodule:: pylab_ml.common.common
+
+.. autofunction:: set_logger

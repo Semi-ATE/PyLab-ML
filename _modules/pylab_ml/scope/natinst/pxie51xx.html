@@ -1,0 +1,767 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.scope.natinst.pxie51xx &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=e588eae9" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyLab-ML Documentation
+              <img src="../../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyLab-ML Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.scope.natinst.pxie51xx</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.scope.natinst.pxie51xx</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.collate_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interface</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidInstrumentConnection</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.baseclass.base_natinst</span><span class="w"> </span><span class="kn">import</span> <span class="n">NatInst</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hightime</span>
+
+
+<div class="viewcode-block" id="PXIe51xx">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe51xx.html#pylab_ml.scope.natinst.pxie51xx.PXIe51xx">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PXIe51xx</span><span class="p">(</span><span class="n">NatInst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Interface to the Oscilloscopes NI PXIe-51xx (e.q. 5122)</span>
+
+<span class="sd">    until now only initialisation on poor basic functions</span>
+<span class="sd">     for more function see: https://nimi-python.readthedocs.io/en/master/niscope.html</span>
+<span class="sd">         call with:   scope.inst.thefunctionname</span>
+
+<span class="sd">    Initialization arguments:</span>
+<span class="sd">       addr</span>
+<span class="sd">           name from the PXI-Slot e.q. PXI1Slot4</span>
+<span class="sd">       instName</span>
+<span class="sd">           instance Name from top</span>
+
+<span class="sd">    Example: Initialization</span>
+<span class="sd">       &gt;&gt;&gt; scope = PXIe4138(&#39;PXI1Slot4&#39;,instName=&#39;scope&#39;)   # connect and initialize instrument</span>
+
+<span class="sd">       &gt;&gt;&gt; scope.trig_channel = 1</span>
+<span class="sd">       &gt;&gt;&gt; scope.trig_level = 1.5</span>
+<span class="sd">       &gt;&gt;&gt; scope.trig_slope = &quot;POS&quot;</span>
+<span class="sd">       &gt;&gt;&gt; scope.trig_mode = &quot;norm&quot;</span>
+
+<span class="sd">       &gt;&gt;&gt; scope.tdiv = 1e-3</span>
+<span class="sd">       &gt;&gt;&gt; scope.tdelay = -3e-3</span>
+
+<span class="sd">       &gt;&gt;&gt; scope.channel = 1</span>
+<span class="sd">       &gt;&gt;&gt; scope.trace = True</span>
+<span class="sd">       &gt;&gt;&gt; scope.vdiv = 1.0</span>
+<span class="sd">       &gt;&gt;&gt; scope.offs = 0</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        reset()           reset</span>
+<span class="sd">        identify()        instrument message, reflect address &amp; interfade</span>
+<span class="sd">        message(&quot;&quot;)       instrument message (&quot;string&quot;) or ()</span>
+<span class="sd">        close()           terminate interface</span>
+<span class="sd">      missing:  get_waveform(n)   get waveform data from channel n</span>
+<span class="sd">      missing:  trig_oneshot(t)   single measurement trigger to waveform or timeout after t s</span>
+
+<span class="sd">    Properties:</span>
+<span class="sd">     missing:   memsize</span>
+
+<span class="sd">     missing:   tdiv</span>
+<span class="sd">     missing:   tdelay</span>
+<span class="sd">     missing:   trig_mode</span>
+<span class="sd">     missing:   trig_channel</span>
+
+<span class="sd">     missing:   channel</span>
+<span class="sd">     missing:   trace</span>
+<span class="sd">     missing:   vdiv</span>
+<span class="sd">     missing:   offs</span>
+<span class="sd">     missing:   waveform</span>
+
+<span class="sd">    for more properties or functios see:    https://nimi-python.readthedocs.io/en/master/niscope.html</span>
+<span class="sd">        scope.inst.functionname</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">niscope</span>
+
+        <span class="n">has_scope</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">has_scope</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">!=</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;import niscope not found&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;no import niscope can be found on non Windows platforms&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create functions or property and wrap it to the inst.funcname:</span>
+    <span class="c1"># If state != necessary state -&gt; switch to the necessary state</span>
+    <span class="c1"># Property/Function name -&gt; (inst.funcname (get,set), Range, Call_Functions)</span>
+    <span class="c1">#                           inst.funcname (get,set): Available in &#39;https://nimi-python.readthedocs.io/en/master/niscope.html&#39;</span>
+    <span class="c1">#                           Range: None, Enum or Range value</span>
+    <span class="c1">#                           Call_Functions: see help in attributes</span>
+
+    <span class="n">_properties</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="c1"># &#39;aperture_time_units&#39;: (&#39;aperture_time_units&#39;,     &#39;backend.ApertureTimeUnits&#39;,      {&#39;sac&#39;: &#39;checkstate(uncommitted)&#39;}),</span>
+        <span class="s2">&quot;probeAttenuation&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;probe_attenuation&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;couplings&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_coupling&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.VerticalCoupling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;onoff&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;channel_enabled&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;on&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;sampleRate&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;min_sample_rate&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2_000</span><span class="p">,</span> <span class="mi">2_000_000_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfRecords&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_num_records&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1_000_000_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfPoints&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_min_num_pts&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1_000_000_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfSamples&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_sample_rate&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;referencePosition&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_record_ref_position&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;enforceRealtime&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_enforce_realtime&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;on&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerType&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_type&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerType&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerModifier&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_modifier&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerModifier&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerSource&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_source&quot;</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;TRIG&quot;</span><span class="p">:</span> <span class="s2">&quot;TRIG&quot;</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerHysteresis&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_hysteresis&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerLevel&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_level&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerDelay&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_delay_time&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">171.8</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerHoldoff&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_holdoff&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">171.8</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerSlope&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_slope&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerSlope&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerCoupling&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_coupling&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerCoupling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;terminals&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;channel_terminal_configuration&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TerminalConfiguration&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;impedance&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_impedance&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;bandwidth&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;max_input_frequency&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Full&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;Default&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;20MHz&quot;</span><span class="p">:</span> <span class="mf">20_000_000.0</span><span class="p">,</span> <span class="s2">&quot;125MHz&quot;</span><span class="p">:</span> <span class="mf">125_000_000.0</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_range&quot;</span><span class="p">,</span> <span class="p">{</span><span class="mf">0.04</span><span class="p">:</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">:</span> <span class="mf">40.0</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_offset&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="n">interchoices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">pxie</span><span class="p">]</span>
+
+<div class="viewcode-block" id="PXIe51xx.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe51xx.html#pylab_ml.scope.natinst.pxie51xx.PXIe51xx.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_scope</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">PXIe50xx not usable!! missing nidscope</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;for installing niscope:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;    Start anaconda prompt and write: python –m pip install niscope</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;For more infomation see:   http://nimi-python.readthedocs.io</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="n">InvalidInstrumentConnection</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="n">addr</span><span class="p">,</span> <span class="s2">&quot;backend&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">niscope</span><span class="p">,</span> <span class="s2">&quot;identify&quot;</span><span class="p">:</span> <span class="n">identify</span><span class="p">,</span> <span class="s2">&quot;instName&quot;</span><span class="p">:</span> <span class="n">instName</span><span class="p">}</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup_inst</span><span class="p">()</span>
+
+        <span class="n">inputTimeOut</span> <span class="o">=</span> <span class="mi">10</span></div>
+
+        <span class="c1"># minTimeOut = (self.numberOfSamples * (self.numberOfRecords + 1)) / self.sampleRate</span>
+        <span class="c1"># self.timeout = max(inputTimeOut, minTimeOut)</span>
+
+<div class="viewcode-block" id="PXIe51xx.setup_inst">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe51xx.html#pylab_ml.scope.natinst.pxie51xx.PXIe51xx.setup_inst">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup instrument settings&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_inst</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_all</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+
+        <span class="n">channels</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="s2">&quot;0,1&quot;</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
+                <span class="n">channels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">ch</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_create_channelinst</span><span class="p">(</span><span class="n">channels</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">channels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="PXIe51xx.measure">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe51xx.html#pylab_ml.scope.natinst.pxie51xx.PXIe51xx.measure">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">measure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">num_of_record</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start_record</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_of_samples</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start to fetch data from the Scope.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        channel : TYPE, (list or int)</span>
+<span class="sd">            DESCRIPTION. The default is [0, 1] to measure from both the channels. Can also give &#39;0&#39; or &#39;1&#39; to measure from separate channel.</span>
+<span class="sd">        num_of_record : TYPE, int</span>
+<span class="sd">            DESCRIPTION. The default is 1. Number of records to fetch. Use -1 to fetch all configured records.</span>
+<span class="sd">        start_record : TYPE, int</span>
+<span class="sd">            DESCRIPTION. The default is 0. Zero-based index of the first record to fetch.</span>
+<span class="sd">        num_of_samples : TYPE, int</span>
+<span class="sd">            DESCRIPTION. The default is None. The maximum number of samples to fetch for each waveform.</span>
+<span class="sd">            If the acquisition finishes with fewer points than requested, some devices return partial data if the acquisition finished, was aborted.</span>
+<span class="sd">            If it fails to complete within the timeout period, the method raises.</span>
+<span class="sd">        offset : TYPE, int</span>
+<span class="sd">            DESCRIPTION. The default is 0. Offset in samples to start fetching data within each record. The offset can be positive or negative.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        x : list</span>
+<span class="sd">            Contains list of Time values.</span>
+<span class="sd">        y : list</span>
+<span class="sd">            Contains list of Voltage values.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">channel_map</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">channel</span><span class="p">)</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">channel_map</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
+
+        <span class="n">waveforms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">temp</span><span class="p">]</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span>
+            <span class="n">num_samples</span><span class="o">=</span><span class="n">num_of_samples</span><span class="p">,</span> <span class="n">record_number</span><span class="o">=</span><span class="n">start_record</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">,</span> <span class="n">num_records</span><span class="o">=</span><span class="n">num_of_record</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">hightime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">waveforms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">samples</span><span class="p">)):</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">waveforms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">x_increment</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">waveforms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">x1</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">x2</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">waveforms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">samples</span><span class="p">)):</span>
+                <span class="n">temp1</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">waveforms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">x_increment</span>
+                <span class="n">x1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp1</span><span class="p">)</span>
+            <span class="n">y1</span> <span class="o">=</span> <span class="n">waveforms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">waveforms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">samples</span><span class="p">)):</span>
+                <span class="n">temp2</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">waveforms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">x_increment</span>
+                <span class="n">x2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp2</span><span class="p">)</span>
+            <span class="n">y2</span> <span class="o">=</span> <span class="n">waveforms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+            <span class="n">x</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+            <span class="n">y</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span></div>
+
+
+<div class="viewcode-block" id="PXIe51xx.plot_scope_data">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe51xx.html#pylab_ml.scope.natinst.pxie51xx.PXIe51xx.plot_scope_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot_scope_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">voltage</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Plot graph between Time and Voltage.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        time : list</span>
+<span class="sd">            Input a list of Time values for x-axis.</span>
+<span class="sd">        voltage : list</span>
+<span class="sd">            Input a list of Voltage values for y-axis.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">voltage</span><span class="p">):</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.4</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">voltage</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;bo&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Channel 0&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">voltage</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Channel 1&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Scope Measurements&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Voltage (V)&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.4</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="s2">&quot;bo&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Scope Measurements&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Voltage (V)&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="PXIe51xx.reset">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe51xx.html#pylab_ml.scope.natinst.pxie51xx.PXIe51xx.reset">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="PXIe5114">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe5114.html#pylab_ml.scope.natinst.pxie51xx.PXIe5114">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PXIe5114</span><span class="p">(</span><span class="n">PXIe51xx</span><span class="p">):</span>
+
+    <span class="n">_properties</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;sampleRate&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;min_sample_rate&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">200_000_000</span><span class="p">,</span> <span class="mi">200_000_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;bandwidth&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;max_input_frequency&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Full&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;Default&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;20MHz&quot;</span><span class="p">:</span> <span class="mf">20_000_000.0</span><span class="p">,</span> <span class="s2">&quot;125MHz&quot;</span><span class="p">:</span> <span class="mf">125_000_000.0</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_range&quot;</span><span class="p">,</span> <span class="p">{</span><span class="mf">0.04</span><span class="p">:</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">:</span> <span class="mf">40.0</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_offset&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="c1"># Max Offset values for Range values : {0.04: 0.8, 0.1: 0.8, 0.2: 0.8, 0.4: 0.8, 1.0: 8.0, 2.0: 8.0, 4.0: 8.0, 10.0: 30.0, 20.0: 25.0, 40.0: 15.0}</span>
+        <span class="s2">&quot;probeAttenuation&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;probe_attenuation&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;couplings&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_coupling&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.VerticalCoupling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;channel_enabled&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;on&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfRecords&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_num_records&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfPoints&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_min_num_pts&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfSamples&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_sample_rate&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;referencePosition&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_record_ref_position&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;enforceRealtime&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_enforce_realtime&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;on&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerType&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_type&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerType&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerSource&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_source&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;CH1&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;CH2&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;CH3&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;CH4&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerHysteresis&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_hysteresis&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerLevel&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_level&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerDelay&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_delay_time&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">171.8</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerHoldoff&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_holdoff&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">171.8</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerSlope&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_slope&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerSlope&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerCoupling&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_coupling&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerCoupling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;terminals&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;channel_terminal_configuration&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TerminalConfiguration&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;impedance&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_impedance&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="PXIe5114.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe5114.html#pylab_ml.scope.natinst.pxie51xx.PXIe5114.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_scope</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">PXIe51xx not usable!! missing nidscope</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;for installing niscope:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;    Start anaconda prompt and write: python –m pip install niscope</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;For more infomation see:   http://nimi-python.readthedocs.io</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="n">InvalidInstrumentConnection</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">addr</span><span class="o">=</span><span class="n">addr</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="n">identify</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="n">instName</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">200_000_000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="s2">&quot;125MHz&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="PXIe5122">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe5122.html#pylab_ml.scope.natinst.pxie51xx.PXIe5122">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PXIe5122</span><span class="p">(</span><span class="n">PXIe51xx</span><span class="p">):</span>
+
+    <span class="n">_properties</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;sampleRate&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;min_sample_rate&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">100_000_000</span><span class="p">,</span> <span class="mi">100_000_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;bandwidth&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;max_input_frequency&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Full&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;Default&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;20MHz&quot;</span><span class="p">:</span> <span class="mf">20_000_000.0</span><span class="p">,</span> <span class="s2">&quot;100MHz&quot;</span><span class="p">:</span> <span class="mf">100_000_000.0</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_range&quot;</span><span class="p">,</span> <span class="p">{</span><span class="mf">0.2</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_offset&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="c1"># Max Offset values for Range values : {0.2: 0.1, 0.4: 0.2, 1.0: 0.5, 2.0: 1.0, 4.0: 2.0, 10.0: 5.0, 20.0: 0}</span>
+        <span class="s2">&quot;probeAttenuation&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;probe_attenuation&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;couplings&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_coupling&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.VerticalCoupling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;channel_enabled&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;on&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfRecords&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_num_records&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfPoints&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_min_num_pts&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfSamples&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_sample_rate&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;referencePosition&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_record_ref_position&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;enforceRealtime&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_enforce_realtime&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;on&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerType&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_type&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerType&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerSource&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_source&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;CH1&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;CH2&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;CH3&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;CH4&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerHysteresis&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_hysteresis&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerLevel&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_level&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerDelay&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_delay_time&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">171.8</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerHoldoff&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_holdoff&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">171.8</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerSlope&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_slope&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerSlope&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerCoupling&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_coupling&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerCoupling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;terminals&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;channel_terminal_configuration&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TerminalConfiguration&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;impedance&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_impedance&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="PXIe5122.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe5122.html#pylab_ml.scope.natinst.pxie51xx.PXIe5122.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_scope</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">PXIe51xx not usable!! missing nidscope</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;for installing niscope:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;    Start anaconda prompt and write: python –m pip install niscope</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;For more infomation see:   http://nimi-python.readthedocs.io</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="n">InvalidInstrumentConnection</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">addr</span><span class="o">=</span><span class="n">addr</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="n">identify</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="n">instName</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">100_000_000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="s2">&quot;20MHz&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="PXIe5172">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe5172.html#pylab_ml.scope.natinst.pxie51xx.PXIe5172">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PXIe5172</span><span class="p">(</span><span class="n">PXIe51xx</span><span class="p">):</span>
+
+    <span class="n">_properties</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;sampleRate&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;min_sample_rate&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">250_000_000</span><span class="p">,</span> <span class="mi">250_000_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;bandwidth&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;max_input_frequency&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Full&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;Default&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;20MHz&quot;</span><span class="p">:</span> <span class="mf">20_000_000.0</span><span class="p">,</span> <span class="s2">&quot;100MHz&quot;</span><span class="p">:</span> <span class="mf">100_000_000.0</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_range&quot;</span><span class="p">,</span> <span class="p">{</span><span class="mf">0.2</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">:</span> <span class="mf">40.0</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_offset&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="c1"># Max Offset values for Range values : {0.2: 0.5, 0.4: 0.5, 1.0: 0.5, 4.0: 4.5, 10.0: 4.5, 40.0: 20.0}</span>
+        <span class="s2">&quot;probeAttenuation&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;probe_attenuation&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;couplings&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;vertical_coupling&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.VerticalCoupling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;channel_enabled&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;on&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfRecords&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_num_records&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfPoints&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_min_num_pts&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;numberOfSamples&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_sample_rate&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;referencePosition&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_record_ref_position&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;enforceRealtime&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;horz_enforce_realtime&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;on&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerType&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_type&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerType&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerSource&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_source&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;CH1&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;CH2&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;CH3&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;CH4&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">},</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerHysteresis&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_hysteresis&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerLevel&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_level&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerDelay&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_delay_time&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">171.8</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerHoldoff&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_holdoff&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">171.8</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerSlope&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_slope&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerSlope&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;triggerCoupling&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_coupling&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerCoupling&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;terminals&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;channel_terminal_configuration&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TerminalConfiguration&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="s2">&quot;impedance&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_impedance&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">],</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="PXIe5172.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.PXIe5172.html#pylab_ml.scope.natinst.pxie51xx.PXIe5172.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_scope</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">PXIe51xx not usable!! missing nidscope</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;for installing niscope:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;    Start anaconda prompt and write: python –m pip install niscope</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;For more infomation see:   http://nimi-python.readthedocs.io</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="n">InvalidInstrumentConnection</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">addr</span><span class="o">=</span><span class="n">addr</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="n">identify</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="n">instName</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">250_000_000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="s2">&quot;20MHz&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="TestClass">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.natinst.pxie51xx.TestClass.html#pylab_ml.scope.natinst.pxie51xx.TestClass">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TestClass</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_probeAttenuation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">probeAttenuation</span> <span class="o">=</span> <span class="mf">10.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">probeAttenuation</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">probeAttenuation</span> <span class="o">=</span> <span class="mf">101.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">probeAttenuation</span><span class="p">,</span> <span class="mf">101.0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_couplings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">couplings</span> <span class="o">=</span> <span class="s2">&quot;DC&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">couplings</span><span class="p">,</span> <span class="n">scope</span><span class="o">.</span><span class="n">niscope</span><span class="o">.</span><span class="n">VerticalCoupling</span><span class="o">.</span><span class="n">DC</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_onoff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">onoff</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">channel_enabled</span><span class="p">)</span>
+        <span class="n">scope</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">onoff</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">channel_enabled</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_sampleRate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">sampleRate</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_numberOfRecords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">numberOfRecords</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">numberOfRecords</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">numberOfRecords</span> <span class="o">=</span> <span class="mi">100000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">numberOfRecords</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_numberOfPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">numberOfPoints</span> <span class="o">=</span> <span class="mi">100_000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">numberOfPoints</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">numberOfPoints</span> <span class="o">=</span> <span class="mi">100_000_000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">numberOfPoints</span><span class="p">,</span> <span class="mi">100000000</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_referencePosition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">referencePosition</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">referencePosition</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">referencePosition</span> <span class="o">=</span> <span class="mi">101</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">referencePosition</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_enforceRealtime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">enforceRealtime</span> <span class="o">=</span> <span class="s2">&quot;off&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">horz_enforce_realtime</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_triggerType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerType</span> <span class="o">=</span> <span class="s2">&quot;DIGITAL&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerType</span><span class="p">,</span> <span class="n">scope</span><span class="o">.</span><span class="n">niscope</span><span class="o">.</span><span class="n">TriggerType</span><span class="o">.</span><span class="n">DIGITAL</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_triggerSource</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerSource</span> <span class="o">=</span> <span class="s2">&quot;CH3&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerSource</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;CH3&quot;</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_triggerHysteresis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerHysteresis</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerHysteresis</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerHysteresis</span> <span class="o">=</span> <span class="mi">101</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerHysteresis</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_triggerLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerLevel</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerLevel</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerLevel</span> <span class="o">=</span> <span class="mi">101</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerLevel</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_triggerDelay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerDelay</span> <span class="o">=</span> <span class="mi">50</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerDelay</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerDelay</span> <span class="o">=</span> <span class="mi">172</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerDelay</span><span class="p">,</span> <span class="mi">172</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_triggerHoldoff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerHoldoff</span> <span class="o">=</span> <span class="mi">75</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerHoldoff</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerHoldoff</span> <span class="o">=</span> <span class="mi">172</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerHoldoff</span><span class="p">,</span> <span class="mi">172</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_triggerSlope</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerSlope</span> <span class="o">=</span> <span class="s2">&quot;FALLING&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerSlope</span><span class="p">,</span> <span class="n">scope</span><span class="o">.</span><span class="n">niscope</span><span class="o">.</span><span class="n">TriggerSlope</span><span class="o">.</span><span class="n">FALLING</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_triggerCoupling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">triggerCoupling</span> <span class="o">=</span> <span class="s2">&quot;HF_REJECT&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">triggerCoupling</span><span class="p">,</span> <span class="n">scope</span><span class="o">.</span><span class="n">niscope</span><span class="o">.</span><span class="n">TriggerCoupling</span><span class="o">.</span><span class="n">HF_REJECT</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_terminals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">terminals</span> <span class="o">=</span> <span class="s2">&quot;SINGLE_ENDED&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">terminals</span><span class="p">,</span> <span class="n">scope</span><span class="o">.</span><span class="n">niscope</span><span class="o">.</span><span class="n">TerminalConfiguration</span><span class="o">.</span><span class="n">SINGLE_ENDED</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_bandwidth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="s2">&quot;20MHz&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">bandwidth</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;20MHz&quot;</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">range</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="mi">25</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">range</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="mi">50</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">range</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_offset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> <span class="mi">15</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">offset</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> <span class="mi">50</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">offset</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logsetup</span>
+
+    <span class="c1"># import scope</span>
+
+    <span class="n">logsetup</span><span class="p">()</span>
+
+    <span class="n">scope</span> <span class="o">=</span> <span class="n">PXIe51xx</span><span class="p">(</span><span class="s2">&quot;PXI1Slot4&quot;</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="s2">&quot;scope&quot;</span><span class="p">)</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">abort</span><span class="p">()</span>
+
+    <span class="c1"># scope_5114 = PXIe5114(&#39;PXI1Slot4&#39;, instName=&#39;scope_5114&#39;)</span>
+    <span class="c1"># scope_5122 = PXIe5122(&#39;PXI1Slot4&#39;, instName=&#39;scope_5122&#39;)</span>
+    <span class="c1"># scope_5172 = PXIe5172(&#39;PXI1Slot4&#39;, instName=&#39;scope_5172&#39;)</span>
+
+    <span class="n">scope</span><span class="o">.</span><span class="n">onoff</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+
+    <span class="n">scope</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="mf">4.0</span>
+    <span class="n">scope</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="mf">20.0</span>
+
+    <span class="c1"># scope.triggerSource = 0</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="s2">&quot;125MHz&quot;</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">triggerType</span> <span class="o">=</span> <span class="s2">&quot;IMMEDIATE&quot;</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">triggerSlope</span> <span class="o">=</span> <span class="s2">&quot;RISING&quot;</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">triggerLevel</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">triggerCoupling</span> <span class="o">=</span> <span class="s2">&quot;DC&quot;</span>
+
+    <span class="n">scope</span><span class="o">.</span><span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">100_000</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">numberOfPoints</span> <span class="o">=</span> <span class="mi">300_000</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">numberOfRecords</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">scope</span><span class="o">.</span><span class="n">initiate</span><span class="p">()</span>
+    <span class="c1"># time, voltage = scope.measure(1, 5000, num_of_samples=4, filter=&#39;mfilter&#39;)</span>
+    <span class="n">time</span><span class="p">,</span> <span class="n">voltage</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">abort</span><span class="p">()</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">plot_scope_data</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">voltage</span><span class="p">)</span>
+    <span class="c1"># unittest.main()</span>
+
+    <span class="n">scope</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="c1"># scope_5114.close()</span>
+    <span class="c1"># scope_5122.close()</span>
+    <span class="c1"># scope_5172.close()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
