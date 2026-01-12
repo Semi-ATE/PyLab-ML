@@ -91,6 +91,7 @@ jobs:
           pip install sphinx sphinx-rtd-theme myst-parser sphinx-markdown-tables
           pip install --upgrade myst-parser
           pip install check-manifest
+          pip install -e .
           # install spyder and semi-ate
 
       - name: Run Manifest Check
