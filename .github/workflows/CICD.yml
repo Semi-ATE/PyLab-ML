@@ -139,7 +139,7 @@ jobs:
         with:
           name: output
           path: ./output
-          
+
  publish:
     if: ${{ github.event.release.tag_name != '' }}
     needs: generate_artifacts
