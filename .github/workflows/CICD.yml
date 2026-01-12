@@ -101,7 +101,7 @@ jobs:
       - name: Build Sphinx
         run: |
             sphinx-build -b html docs/source/ docs/build/html
-            
+
       - name: Fix output file permissions
         run: |
             sudo chown -R $USER:$USER docs
@@ -122,14 +122,14 @@ jobs:
           folder: ./docs/build/html
           branch: gh-pages
           clean-exclude: pr-preview
-          
+
       - name: Generate distribution sdist files
         run: |
           cd scripts
           python -m pip install build
           python package_tool.py
           cd ..
-          
+
       - name: Check distribution files
         run: |
           twine check output/*
@@ -140,7 +140,7 @@ jobs:
           name: output
           path: ./output
 
- publish:
+  publish:
     if: ${{ github.event.release.tag_name != '' }}
     needs: generate_artifacts
     runs-on: ubuntu-latest
