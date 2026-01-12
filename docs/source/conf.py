@@ -21,7 +21,8 @@ import pylab_ml
 
 # -- Project information -----------------------------------------------------
 
-project = 'PyLab-ML Documentation'
+project = 'PyLab-ML'
+copyright = '2026, Semi-ATE contributors'
 author = 'The Semi-ATE Project Contributors'
 
 
@@ -33,7 +34,7 @@ author = 'The Semi-ATE Project Contributors'
 extensions = [
               'myst_parser',
               'sphinx.ext.autodoc',
-			  'sphinx.ext.autosummary',
+              'sphinx.ext.autosummary',
               'sphinx.ext.extlinks',
               'sphinx.ext.doctest',
               'sphinx.ext.intersphinx',
@@ -42,7 +43,8 @@ extensions = [
               'sphinx.ext.mathjax',
               'sphinx.ext.ifconfig',
               'sphinx.ext.viewcode',
-			  'sphinx.ext.napoleon',
+              'sphinx.ext.napoleon',
+              'sphinx.ext.githubpages',
               ]
 
 # Add source suffix to support extensions with the required parser
@@ -51,7 +53,7 @@ source_suffix = {
     '.md': 'markdown',
     '.txt': 'markdown',
 }
-			  
+
 napoleon_include_init_with_doc = False			  	# False is default
 autosummary_generate = True  						# Turn on sphinx.ext.autosummary
 
@@ -81,7 +83,7 @@ add_function_parentheses = True
 
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
-#add_module_names = True
+# add_module_names = True
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
@@ -120,7 +122,7 @@ html_theme_options = {
     'titles_only': False
 }
 html_title = "PyLab-ML documentation"
-	
+
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
@@ -133,7 +135,7 @@ html_sidebars = {
         'relations.html',  # needs 'show_related': True theme option to display
         'searchbox.html',
     ]
-}	
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -151,7 +153,7 @@ html_favicon = '_static/favicon.ico'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
-#today = ''
+# today = ''
 # Else, today_fmt is used as the format for a strftime call.
 today_fmt = '%B %d, %Y'
 
@@ -165,6 +167,7 @@ add_module_names = False
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
 
 def setup(app):
     app.add_css_file('css/custom.css')  # add custom style sheet

@@ -1,3 +1,16 @@
+# Pylab-ML
+
+
+[![GitHub](https://img.shields.io/github/license/Semi-ATE/PyLab-ML?color=black)](https://github.com/Semi-ATE/PyLab-ML/blob/master/LICENSE.txt)
+[![Supported Python versions](https://img.shields.io/badge/python-%3E%3D3.9-black)](https://www.python.org/downloads/)
+[![CI-CD](https://github.com/Semi-ATE/PyLab-ML/workflows/CI-CD/badge.svg)](https://github.com/Semi-ATE/PyLab-ML/actions/workflows/CICD.yml?query=workflow%3ACD)
+
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Semi-ATE/PyLab-ML?color=blue&label=GitHub&sort=semver)](https://github.com/Semi-ATE/PyLab-ML/releases/latest)
+[![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/Semi-ATE/PyLab-ML/latest)](https://github.com/Semi-ATE/PyLab-ML)
+[![GitHub issues](https://img.shields.io/github/issues/Semi-ATE/PyLab-ML)](https://github.com/Semi-ATE/PyLab-ML/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/Semi-ATE/PyLab-ML)](https://github.com/Semi-ATE/SPyLab-ML/pulls)
+
+
 ## Indroduction
 
 We developed this package to be able to address electronic instruments relatively simply over their different interfaces (e.q. serial, GBIP, PXIe ...).
