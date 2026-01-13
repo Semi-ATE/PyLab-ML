@@ -10,6 +10,8 @@
 [![GitHub issues](https://img.shields.io/github/issues/Semi-ATE/PyLab-ML)](https://github.com/Semi-ATE/PyLab-ML/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/Semi-ATE/PyLab-ML)](https://github.com/Semi-ATE/SPyLab-ML/pulls)
 
+[![PyPI](https://img.shields.io/pypi/v/Pylab-ML?color=blue&label=PyPI)](https://pypi.org/project/Pylab-ML/)
+
 
 ## Indroduction
 
@@ -18,7 +20,10 @@ It was very important for us to be able to switch to other devices from other ma
 
 In conjunction with **[Semi-ATE ](https://github.com/Semi-ATE/Semi-ATE)** you can create your own test machine and then run testflows with different testbenches.
 
-When we started with this package we did not know **[pymeasure ](https://pymeasure.readthedocs.io/en/latest/introduction.html)** yet. Therefore there are some overlaps with this package.
+
+## Documentaion
+
+You can read the Pylab-ML documentation online on [here](https://semi-ate.github.io/PyLab-ML/)
 
 ## Instrument ready
 
@@ -46,4 +51,4 @@ pip install -e .						# install the pylab-ml instrument lib, the spyder plugin f
 										# and the STDF-data widget for spyder
 ```
 
- The detailed description of the different devices with functions and attributes can be found [here](https://semi-ate.github.io/PyLab-ML/)
+When we started with this package we did not know **[pymeasure ](https://pymeasure.readthedocs.io/en/latest/introduction.html)** yet. Therefore there are some overlaps with this package.

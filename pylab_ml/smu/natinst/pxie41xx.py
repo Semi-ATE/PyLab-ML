@@ -22,7 +22,7 @@ class PXIe41xx(NatInst):
     """
     Interface to the Power-Measuremet-Unit (SMU) NI PXIe-41xx (e.q. 4138, 4141).
 
-    .. image:: ../static/pxie_4138.jpg
+    .. image:: ../_static/pxie_4138.jpg
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>

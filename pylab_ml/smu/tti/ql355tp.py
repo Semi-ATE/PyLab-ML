@@ -16,7 +16,7 @@ class QL355TP(TTI):
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
 
-    .. image:: ../static/ql355tp.jpg
+    .. image:: ../_static/ql355tp.jpg
 
     The QL355TP can
         supply two voltage sources and limit its current

@@ -18,7 +18,7 @@ class Keithley2400(Keithley):
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
 
-    .. image:: ../static/kethley2400.jpg
+    .. image:: ../_static/kethley2400.jpg
 
     The Keithley2400 can
     source and sink power in all four voltage/current quadrants and

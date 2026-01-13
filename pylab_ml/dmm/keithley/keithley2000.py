@@ -17,7 +17,7 @@ class Keithley2000(Keithley):
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
 
-    .. image:: ../static/kethley2000.jpg
+    .. image:: ../_static/kethley2000.jpg
 
     """
 

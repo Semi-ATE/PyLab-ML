@@ -34,7 +34,7 @@ class Pickering_40_5xx(Pickering):
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
 
-    .. image:: ../static/pickeringmatrix.jpg
+    .. image:: ../_static/pickeringmatrix.jpg
 
     .. warning::
         | only tested with one table and Matrix Pickering 40-541-021 (66 x 8 Matrix)

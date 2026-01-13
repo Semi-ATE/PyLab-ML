@@ -16,7 +16,7 @@ import hightime
 class PXIe40xx(NatInst):
     """Interface to the Digital Multimeter (DMM) NI PXIe-40xx (e.q. 4081).
 
-    .. image:: ../static/pxie_4081.jpg
+    .. image:: ../_static/pxie_4081.jpg
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>

@@ -21,7 +21,7 @@ class NatInst (create_attributes, Measure):
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
 
-    .. image:: ../static/pxie_.jpg
+    .. image:: ../_static/pxie_.jpg
 
     The NatInst baseclass can connect to National Instruments
     """
