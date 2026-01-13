@@ -19,10 +19,9 @@ from labml_adjutancy.gui.instruments.base_instrument import load_ui
 
 # from SCT8.gui.miniSCT import _properties_ch as proberties
 
-__author__ = "Christian Jung"
-__copyright__ = "Copyright 2022, TDK Micronas"
-__credits__ = ["Christan Jung"]
-__email__ = "christian.jung@tdk.com"
+__author__ = "Zlin526F"
+__credits__ = ["Zlin526F"]
+__email__ = "Zlin526F@github"
 __version__ = "0.0.3"
 
 # TODO:  in docu ch(0) but in python CH(0)

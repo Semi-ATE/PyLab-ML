@@ -2,7 +2,6 @@
 """
 Created on Tue May  4 14:18:05 2021
 
-@author: jung
 """
 import numpy as np
 import ast

@@ -3,7 +3,6 @@ projectsetup.
 
 Created on Thu Jan  7 17:18:03 2021
 
-@author: jung
 """
 import os
 import sys
@@ -20,7 +19,6 @@ from ate_common.logger import (LogLevel)
 
 
 __author__ = "Zlin526F"
-__copyright__ = "Copyright 2021, Lab"
 __credits__ = ["Zlin526F"]
 __email__ = "Zlin526F@github"
 __version__ = '0.0.1'
@@ -729,7 +727,7 @@ class ProjectSetup(object):
 
     def set_configuration_values(self, data):
         """Only empty dummy function."""
-        self.logger.log_message(LogLevel.Warning(), 'TDK Micronas Labor.ProjectSetup: set_configuration_values only dummy function..................')
+        self.logger.log_message(LogLevel.Warning(), 'Semi-ATE Labor.ProjectSetup: set_configuration_values only dummy function..................')
         pass
 
     def do_fetch(self, idnr):
@@ -752,7 +750,7 @@ class ProjectSetup(object):
         if working_dir == '':
             working_dir = str(Path(os.environ['PROJECT_PATH']).parent) + os.sep
         os.environ['WORKING_DIR'] = working_dir
-        self.logger.log_message(LogLevel.Info(), f'TDK Micronas Labor.ProjectSetup: WORKING_DIR = {working_dir}')
+        self.logger.log_message(LogLevel.Info(), f'Semi-ATE Labor.ProjectSetup: WORKING_DIR = {working_dir}')
         self.logger.log_message(LogLevel.Info(), f'$LOGGINGFILENAME$ {project_path}log/;{self.logger.get_log_file_information()["filename"]}')
 
         if 'add path' in config and config['add path'] != '':
@@ -764,7 +762,7 @@ class ProjectSetup(object):
 
         data['Network prefix'] = self.network
         data['working directory'] = working_dir
-        self.logger.log_message(LogLevel.Info(), f'TDK Micronas Labor.ProjectSetup: apply_configuration  {config}')
+        self.logger.log_message(LogLevel.Info(), f'Semi-ATE Labor.ProjectSetup: apply_configuration  {config}')
         setupfile = config['filename'] if 'filename' in config and config['filename'] != '' else None
         readonly = True
 
@@ -782,7 +780,7 @@ class ProjectSetup(object):
         else:
             self.setup = {'Setupfile': None}
             level = LogLevel.Warning() if setupfile is None else LogLevel.Error()
-            self.logger.log_message(level, "TDK Micronas Labor.ProjectSetup: setup file not exist !!")
+            self.logger.log_message(level, "Semi-ATE Labor.ProjectSetup: setup file not exist !!")
             setupfile = None
 
         self.create_dotdic(self.setup, self)

@@ -2,10 +2,9 @@ import os
 from pathlib import Path
 import importlib
 
-__author__ = "Christian Jung"
-__copyright__ = "Copyright 2021, TDK Micronas"
-__credits__ = ["Christan Jung"]
-__email__ = "christian.jung@micronas.com"
+__author__ = "Zlin526F"
+__credits__ = ["Zlin526F"]
+__email__ = "Zlin526F@github"
 
 
 class Functions():
