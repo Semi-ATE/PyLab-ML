@@ -19,6 +19,7 @@ lib64/
 parts/
 sdist/
 output/
+docs/source/_autosummary/
 var/
 wheels/
 pip-wheel-metadata/
