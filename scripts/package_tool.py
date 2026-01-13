@@ -70,7 +70,7 @@ def tag_version(packages: Package, version: str):
     package_list = _compute_package_list(packages, PackageType.InitDirPath)
     for p in package_list:
         path = Path(p, '__init__.py')
-        licence_path = Path(Path(__file__).parent, '../LICENSE.txt')
+        licence_path = Path(Path(__file__).parent, '../LICENSE')
         with path.open('a+') as init_file:
             init_file.write('__license__ = """\n')
             with licence_path.open('r') as license_file:
@@ -128,6 +128,7 @@ def main(argv=None) -> int:
                         help="Pfad zum Projektordner (Standard: parent von diesem Skript / aktuelles working dir parent).")
     parser.add_argument("--outdir", "-o", type=Path, default=None,
                         help="Ausgabeverzeichnis für die distribution (Standard: <project>/dist).")
+    parser.add_argument('--packages', choices=[Package.Distribution(), Package.Test(), Package.All()], help='packages that should be processed')
     parser.add_argument('--tag-version', type=str, help='Version to write into "__init__.py" package files. This option is used during CICD-build')
 
     args = parser.parse_args(argv)
@@ -138,6 +139,7 @@ def main(argv=None) -> int:
 
     if args.tag_version is not None:
         tag_version(packages, args.tag_version)
+        return 0
 
     # Versuch 1: programmgesteuerte API
     rc = build_with_api(project_dir, outdir)

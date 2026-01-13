@@ -84,7 +84,9 @@ jobs:
       - name: Apply version
         run: |
           echo Version is ${{ steps.computed_version.outputs.VERSION }}
-          # TODO apply version....
+          cd scripts
+          python package_tool.py --tag-version ${{ steps.computed_version.outputs.VERSION }}
+          cd ..
           
       - name: Setup environment
         run: |
