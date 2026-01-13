@@ -3,8 +3,8 @@
 Erzeugt ein sdist (.tar.gz) für das Python-Projekt.
 
 Aufruf:
-  python scripts/build_sdist.py            # baut sdist für das Projekt im parent-dir und legt es in <project>/dist/
-  python scripts/build_sdist.py --project-dir /pfad/zum/projekt --outdir /pfad/zu/dist
+  python scripts/build_sdist.py            # baut sdist für das Projekt im parent-dir und legt es in <project>/output/
+  python scripts/build_sdist.py --project-dir /pfad/zum/projekt --outdir /pfad/zu/output
 
 Voraussetzung:
   pip install build
@@ -16,6 +16,68 @@ import argparse
 import subprocess
 import sys
 from pathlib import Path
+from enum import Enum
+from typing import List, Union
+from package_list import distribution_packages, integration_test_packages
+
+
+class Package(Enum):
+    All = 'all'
+    Distribution = 'distribution'
+    Test = 'test'
+
+    def __call__(self):
+        return self.value
+
+
+class PackageType(Enum):
+    Name = 0
+    SetupDirPath = 1
+    InitDirPath = 2
+
+    def __call__(self):
+        return self.value
+
+
+def _compute_package_list(package_type: Package, type: PackageType) -> Union[List[str], List[Path]]:
+    if package_type == Package.Distribution:
+        packages = distribution_packages
+    elif package_type == Package.All:
+        packages = distribution_packages
+        packages.extend(integration_test_packages)
+    else:
+        packages = integration_test_packages
+
+    if type == PackageType.Name:
+        return list(map(lambda entry: entry['name'], packages))
+    elif type == PackageType.SetupDirPath:
+        return list(map(lambda entry: entry['dir'], packages))
+    else:
+        # directory path to __init__.py package file
+        return list(map(lambda entry: Path(entry['dir'], entry['namespace']), packages))
+
+
+def _package_from_string(value: str) -> Package:
+    if value == Package.All():
+        return Package.All
+    elif value == Package.Test():
+        return Package.Test
+    else:
+        return Package.Distribution
+
+
+def tag_version(packages: Package, version: str):
+    package_list = _compute_package_list(packages, PackageType.InitDirPath)
+    for p in package_list:
+        path = Path(p, '__init__.py')
+        licence_path = Path(Path(__file__).parent, '../LICENSE.txt')
+        with path.open('a+') as init_file:
+            init_file.write('__license__ = """\n')
+            with licence_path.open('r') as license_file:
+                for line in license_file:
+                    init_file.write(line)
+            init_file.write('"""\n')
+            init_file.write(f'__version__ = \'{version}\'\n')
 
 
 def build_with_api(project_dir: Path, outdir: Path) -> int:
@@ -66,10 +128,16 @@ def main(argv=None) -> int:
                         help="Pfad zum Projektordner (Standard: parent von diesem Skript / aktuelles working dir parent).")
     parser.add_argument("--outdir", "-o", type=Path, default=None,
                         help="Ausgabeverzeichnis für die distribution (Standard: <project>/dist).")
+    parser.add_argument('--tag-version', type=str, help='Version to write into "__init__.py" package files. This option is used during CICD-build')
+
     args = parser.parse_args(argv)
 
     project_dir = args.project_dir.resolve()
     outdir = (args.outdir.resolve() if args.outdir else project_dir / "output")
+    packages = Package.All if args.packages is None else _package_from_string(args.packages)
+
+    if args.tag_version is not None:
+        tag_version(packages, args.tag_version)
 
     # Versuch 1: programmgesteuerte API
     rc = build_with_api(project_dir, outdir)
