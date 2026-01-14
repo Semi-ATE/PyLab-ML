@@ -20,7 +20,7 @@ def path_insert(self, path, check=True, append=False):
     if append -> insert path in the bottom
     """
     if path is None:
-        self.log_error('labml_adjutancy: setup path==None')
+        self.log_error('pylab_ml: setup path==None')
         return False
     path = os.path.normcase(path)
     found = False
@@ -31,14 +31,14 @@ def path_insert(self, path, check=True, append=False):
         if entry == path:
             found = True
     if not found and check and not os.path.exists(path):
-        self.log_error('labml_adjutancy: setup path {} not exist'.format(path))
+        self.log_error('pylab_ml: setup path {} not exist'.format(path))
         return False                           # not OK
     elif not found and os.path.exists(path):
         if not append:
             sys.path.insert(0, path)
         else:
             sys.path.append(path)
-        self.log_info("labml_adjutancy: add {} {} to Path".format(method, path))
+        self.log_info("pylab_ml: add {} {} to Path".format(method, path))
         return True                            # OK
     elif found and os.path.exists(path):
         # print("   {} already exist in Path".format(path))
@@ -53,7 +53,7 @@ def environ_getpath(self, key):
     '''
     result = os.environ.get(key)
     if result is None:
-        msg = f'labml_adjutancy: key {key} not found in environment'
+        msg = f'pylab_ml: key {key} not found in environment'
         if hasattr(self, "log_error"):
             self.log_error(msg)
         else:
@@ -74,7 +74,7 @@ def checkNetworkPath(name, network=''):
     if name is not None and network != '' and os.name == "nt" and (name.find('/') == 0 or name.find('\\') == 0) and name.find(network) != 0:
         name = network + name
     return name
-    
+
 
 def replaceEnvs(dictionary, network=''):
     """

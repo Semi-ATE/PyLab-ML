@@ -32,9 +32,9 @@ except ImportError:
     from itertools import izip_longest as zip_longest
 from collections import OrderedDict  # , namedtuple
 from ate_common.logger import LogLevel
-from labml_adjutancy.misc.mqtt_client import mqtt_deviceattributes
-from labml_adjutancy.misc import environment
-from labml_adjutancy.misc import common
+from pylab_ml.common.mqtt_client import mqtt_deviceattributes
+from pylab_ml.common import environment
+from pylab_ml.common import common
 
 __copyright__ = "Copyright 2023, Lab"
 __version__ = "0.0.3"
@@ -1171,11 +1171,11 @@ class RegisterMaster(mqtt_deviceattributes):
 
     def __init__(self, logger=None, filename=None, interface=None, instname="regs", read_mod_write=False):
         global mylogger
-        self.gui = "labml_adjutancy.gui.instruments.regs.registermaster"
+        self.gui = "pylab_ml.gui.instruments.regs.registermaster"
         _setattr = object.__setattr__.__get__(self, self.__class__)
         super().__init__()
         self.mqtt_all = ["filename", "use"]
-        filename = os.environ.get("registermaster") if filename is None else filename   #TODO! remove envronment, use setup instead
+        filename = os.environ.get("registermaster") if filename is None else filename   # TODO! remove envronment, use setup instead
         mylogger = logger if logger is not None else Logger()
         _setattr("instName", instname)
         _setattr("filename", filename)
@@ -1505,7 +1505,7 @@ class RegisterMaster(mqtt_deviceattributes):
     def set_configuration_values(self, data):
         """Only empty dummy function."""
         global mylogger
-        mylogger.log_message(LogLevel.Warning(), "labml_adjutancy.RegisterMaster: set_configuration_values only dummy function.....")
+        mylogger.log_message(LogLevel.Warning(), "pylab_ml.RegisterMaster: set_configuration_values only dummy function.....")
         pass
 
     def apply_configuration(self, data):

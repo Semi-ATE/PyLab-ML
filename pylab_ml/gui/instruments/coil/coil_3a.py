@@ -14,8 +14,8 @@ import qdarkstyle
 # import numpy as np
 import os
 from PyQt5 import QtWidgets
-from labml_adjutancy.gui.instruments.base_instrument import Gui as Guibase
-from labml_adjutancy.gui.instruments.base_instrument import load_ui
+from pylab_ml.gui.instruments.base_instrument import Gui as Guibase
+from pylab_ml.gui.instruments.base_instrument import load_ui
 
 __author__ = "Zlin526F"
 __copyright__ = "Copyright 2020, Lab"

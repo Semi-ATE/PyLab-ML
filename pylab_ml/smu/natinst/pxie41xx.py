@@ -160,7 +160,7 @@ class PXIe41xx(NatInst):
             msg = msg + "For more infomation see:   http://nimi-python.readthedocs.io\n"
             raise InvalidInstrumentConnection(msg)
         kwargs = {"addr": addr, "channels": channels, "backend": self.nidcpower, "identify": identify, "instName": instName, "runningmode": runningmode}
-        self.gui = "labml_adjutancy.gui.instruments.smu.smu"
+        self.gui = "pylab_ml.gui.instruments.smu.smu"
         super().__init__(**kwargs)
         logger.debug("Class {}".format(self.__class__.__name__))
         self.msg_row_col = (1, 20)

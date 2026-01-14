@@ -25,8 +25,8 @@ import numpy as np
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.Qt import QLabel
-from labml_adjutancy.gui.instruments.base_instrument import Gui as Guibase
-from labml_adjutancy.gui.instruments.base_instrument import load_ui
+from pylab_ml.gui.instruments.base_instrument import Gui as Guibase
+from pylab_ml.gui.instruments.base_instrument import load_ui
 import functools
 
 __author__ = "Zlin526F"

@@ -14,8 +14,8 @@ import qdarkstyle
 import os
 from PyQt5 import QtWidgets
 import qtawesome as qta
-from labml_adjutancy.gui.instruments.base_instrument import Gui as Guibase
-from labml_adjutancy.gui.instruments.base_instrument import load_ui
+from pylab_ml.gui.instruments.base_instrument import Gui as Guibase
+from pylab_ml.gui.instruments.base_instrument import load_ui
 
 # from SCT8.gui.miniSCT import _properties_ch as proberties
 
@@ -273,7 +273,7 @@ class Gui(Guibase):
 
 
 if __name__ == "__main__":
-    from labml_adjutancy.misc.mqtt_client import mqtt_init
+    from pylab_ml.common.mqtt_client import mqtt_init
 
     # broker = 127.0.0.1'
     mqttclient = mqtt_init()  # prepare mqtt

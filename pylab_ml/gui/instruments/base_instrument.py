@@ -37,9 +37,9 @@ import os
 import qdarkstyle
 from PyQt5 import QtCore, QtWidgets, uic
 import qtawesome as qta
-from labml_adjutancy.misc.iasvg import InteractiveSvgWidget
-from labml_adjutancy.misc.mqtt_client import mylogger
-from labml_adjutancy.misc.common import str2num
+from pylab_ml.misc.iasvg import InteractiveSvgWidget
+from pylab_ml.common.mqtt_client import mylogger
+from pylab_ml.common.data import str2num
 
 __author__ = "Christian Jung"
 __copyright__ = "Copyright 2022, Christian Jung"

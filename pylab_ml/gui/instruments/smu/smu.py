@@ -14,11 +14,10 @@ import qdarkstyle
 # import numpy as np
 import os
 from PyQt5 import QtWidgets
-from labml_adjutancy.gui.instruments.base_instrument import Gui as Guibase
-from labml_adjutancy.gui.instruments.base_instrument import load_ui
+from pylab_ml.gui.instruments.base_instrument import Gui as Guibase
+from pylab_ml.gui.instruments.base_instrument import load_ui
 
 __author__ = "Zlin526F"
-__copyright__ = "Copyright 2020, Lab"
 __credits__ = ["Zlin526F"]
 __email__ = "Zlin526F@github"
 __version__ = "0.0.1"
@@ -244,7 +243,7 @@ class Gui(Guibase):
 
 
 if __name__ == "__main__":
-    # from labml_adjutancy.misc.mqtt_client import mqtt_init
+    # from pylab_ml.common.mqtt_client import mqtt_init
 
     # broker = 127.0.0.1'
     # message_client = 'ate/DT1604092/matrix'

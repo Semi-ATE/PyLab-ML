@@ -17,15 +17,14 @@ import os
 import pathlib
 import qtawesome as qta
 from PyQt5 import QtWidgets
-from labml_adjutancy.gui.instruments.base_instrument import Gui as Guibase
-from labml_adjutancy.gui.instruments.base_instrument import load_ui
-from labml_adjutancy.register.registermaster import RegisterMaster
+from pylab_ml.gui.instruments.base_instrument import Gui as Guibase
+from pylab_ml.gui.instruments.base_instrument import load_ui
+from pylab_ml.register.registermaster import RegisterMaster
 from ate_common.logger import LogLevel
 
-# from labml_adjutancy.misc.common import color
+# from pylab_ml.common.common import color
 
 __author__ = "Zlin526F"
-__copyright__ = "Copyright 2020, Lab"
 __credits__ = ["Zlin526F"]
 __email__ = "Zlin526F@github"
 __version__ = "0.0.3a"
@@ -245,7 +244,7 @@ class Gui(Guibase):
 
 
 if __name__ == "__main__":
-    # from labml_adjutancy.instruments.mqtt_client import mqtt_init
+    # from pylab_ml.common.mqtt_client import mqtt_init
 
     # broker = 127.0.0.1'
     # message_client = 'ate/DT1604092/matrix'

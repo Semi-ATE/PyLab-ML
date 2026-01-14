@@ -17,12 +17,11 @@ import os
 from PyQt5 import QtWidgets, QtGui
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib import pyplot
-from labml_adjutancy.gui.instruments.base_instrument import Gui as Guibase
-from labml_adjutancy.gui.instruments.base_instrument import load_ui
+from pylab_ml.gui.instruments.base_instrument import Gui as Guibase
+from pylab_ml.gui.instruments.base_instrument import load_ui
 import time
 
 __author__ = "Zlin526F"
-__copyright__ = "Copyright 2020, Lab"
 __credits__ = ["Zlin526F"]
 __email__ = "Zlin526F@github"
 __version__ = "0.0.8"
@@ -89,7 +88,7 @@ class Scope(FigureCanvas):
         tmin = self.min_y
         tmax = self.max_y
         diff = tmax - tmin
-        if type(diff) == int and diff < 10:
+        if type(diff) is int and diff < 10:
             diff = 10
         self.ax.set_ylim(tmin - 0.1 * diff, tmax + 0.1 * diff)
         # ax.set_ylim(auto=True)
@@ -260,7 +259,7 @@ class Gui(Guibase):
         if value == 0:
             return
         msg = "chNotFound" if value == "ERROR" else "chFound"
-        channel = value[value.find(".") + 1 :]
+        channel = value[value.find(".") + 1:]
         channel = channel[:-2] if channel[-1] == ")" else channel
         self.logger.debug(f"set channel = {channel} -->")
         self._scopeChannel = channel
@@ -296,7 +295,7 @@ class Gui(Guibase):
 
 
 if __name__ == "__main__":
-    # from labml_adjutancy.misc.mqtt_client import mqtt_init
+    # from pylab_ml.common.mqtt_client import mqtt_init
 
     # broker = 127.0.0.1'
     # message_client = 'ate/DT1604092/matrix'
