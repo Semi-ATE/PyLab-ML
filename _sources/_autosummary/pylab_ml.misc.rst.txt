@@ -28,5 +28,6 @@ pylab\_ml.misc
    :template: custom-module-template.rst
    :recursive:
 
+   iasvg
    registermaster
 

@@ -1,0 +1,39 @@
+pylab\_ml.misc.registermaster.Register
+======================================
+
+.. currentmodule:: pylab_ml.misc.registermaster
+
+.. autoclass:: Register
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Register.__init__
+      ~Register.read
+      ~Register.res
+      ~Register.write
+      ~Register.writebase
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Register.addr
+      ~Register.help
+      ~Register.value
+      ~Register.value_bin
+      ~Register.value_table
+   
+   

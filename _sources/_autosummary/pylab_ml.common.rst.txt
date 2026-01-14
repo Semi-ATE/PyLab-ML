@@ -32,6 +32,7 @@ pylab\_ml.common
    data
    environment
    file_io
+   jsondict
    memorytest
    mqtt_client
    projectsetup

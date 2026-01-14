@@ -31,4 +31,5 @@ pylab\_ml.scope
    base_scope
    lecroy
    natinst
+   softscope
 

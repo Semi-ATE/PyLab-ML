@@ -8,7 +8,7 @@
   <title>pylab_ml.smu.natinst.pxie41xx &mdash; PyLab-ML documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=e588eae9" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=fadf00a0" />
 
   
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
@@ -123,11 +123,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.registermaster.html">pylab_ml.misc.registermaster</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.softscope.html">pylab_ml.scope.softscope</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
@@ -337,7 +341,7 @@
             <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;For more infomation see:   http://nimi-python.readthedocs.io</span><span class="se">\n</span><span class="s2">&quot;</span>
             <span class="k">raise</span> <span class="n">InvalidInstrumentConnection</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
         <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="n">addr</span><span class="p">,</span> <span class="s2">&quot;channels&quot;</span><span class="p">:</span> <span class="n">channels</span><span class="p">,</span> <span class="s2">&quot;backend&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">nidcpower</span><span class="p">,</span> <span class="s2">&quot;identify&quot;</span><span class="p">:</span> <span class="n">identify</span><span class="p">,</span> <span class="s2">&quot;instName&quot;</span><span class="p">:</span> <span class="n">instName</span><span class="p">,</span> <span class="s2">&quot;runningmode&quot;</span><span class="p">:</span> <span class="n">runningmode</span><span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="s2">&quot;labml_adjutancy.gui.instruments.smu.smu&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="s2">&quot;pylab_ml.gui.instruments.smu.smu&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span></div>
