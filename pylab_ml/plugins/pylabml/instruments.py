@@ -26,7 +26,10 @@ from pylab_ml.misc import registermaster
 __author__ = "Zlin526F"
 __credits__ = ["Zlin526F"]
 __email__ = "Zlin526F@github"
-__version__ = '0.4.0'
+__version__ = '0.5.0'
+
+
+NAME = "Pylab_Ml"
 
 
 class Plugin:
@@ -34,7 +37,7 @@ class Plugin:
     @hookimpl
     def get_plugin_identification():
         return {
-            "Name": "Pylab-Ml Reference Plugin",
+            "Name": f"{NAME} Reference Plugin",
             "Version": __version__
         }
 
@@ -43,28 +46,28 @@ class Plugin:
         return [
             {"display_name": "Dummy Importer",
              "version": "0.0",
-             "name": "Pylab-Ml.DummyImporter"}]
+             "name": f"{NAME}.DummyImporter"}]
 
     @hookimpl
     def get_exporter_names():
         return [
             {"display_name": "Dummy Exporter",
              "version": "0.0",
-             "name": "Pylab-Ml.DummyExporter"}]
+             "name": f"{NAME}.DummyExporter"}]
 
     @hookimpl
     def get_equipment_names():
         return [
             {"display_name": "Dummy Equipment",
              "version": "0.0",
-             "name": "Pylab-Ml.DummyEquipment"}]
+             "name": f"{NAME}.DummyEquipment"}]
 
     @hookimpl
     def get_devicepin_importer_names():
         return [
             {"display_name": "Dummy Pinimport",
              "version": "0.0",
-             "name": "Pylab-Ml.DummyPinimport"}]
+             "name": f"{NAME}.DummyPinimport"}]
 
     @hookimpl
     def get_instrument_names():
@@ -72,7 +75,7 @@ class Plugin:
             {"display_name": "Labor Instruments V" + __version__,
              "version": __version__,
              "manufacturer": "Semi-ATE Labor",
-             "name": "Pylab-Ml.Instruments"}]
+             "name": f"{NAME}.Instruments"}]
 
 #    @hookimpl
 #    def get_tester_names():
@@ -80,7 +83,7 @@ class Plugin:
 #            {"display_name": "NI PXIe",
 #             "version": "0.0",
 #            "manufacturer": "TCC Micronas Labor",
-#             "name": "Pylab-Ml.NIPXIe"}]
+#             "name": f"{NAME}.NIPXIe"}]
 
     @hookimpl
     def get_general_purpose_function_names():
@@ -88,67 +91,67 @@ class Plugin:
             {"display_name": "Project Setup",
              "version": projectsetup.__version__,
              "manufacturer": "Semi-ATE Labor",
-             "name": "Pylab-Ml.Setup"},
+             "name": f"{NAME}.Setup"},
             {"display_name": "Registermaster",
              "version": registermaster.__version__,
              "manufacturer": "Semi-ATE Labor",
-             "name": "Pylab-Ml.Registermaster"}
+             "name": f"{NAME}.Registermaster"}
             ]
 
     @hookimpl
     def get_importer(importer_name):
-        if "Pylab-Ml." in importer_name:
-            print('Pylab-Ml.get_importer')
+        if f"{NAME}." in importer_name:
+            print(f'{NAME}.get_importer')
             return Instruments()
 
     @hookimpl
     def get_exporter(exporter_name):
-        if "Pylab-Ml." in exporter_name:
-            print('Pylab-Ml.get_exporter')
+        if f"{NAME}." in exporter_name:
+            print(f'{NAME}.get_exporter')
             return Instruments()
 
     @hookimpl
     def get_equipment(equipment_name):
-        if "Pylab-Ml." in equipment_name:
-            print('Pylab-Ml.get_equipment')
+        if f"{NAME}." in equipment_name:
+            print(f'{NAME}.get_equipment')
             return Instruments()
 
     @hookimpl
     def get_devicepin_importer(importer_name):
-        if "Pylab-Ml." in importer_name:
-            print('Pylab-Ml.get_equipment')
+        if f"{NAME}." in importer_name:
+            print(f'{NAME}.get_equipment')
             return Instruments()
 
     @hookimpl
     def get_instrument(instrument_name: str, logger):
-        if instrument_name == "Pylab-Ml.Instruments":
+        if instrument_name == f"{NAME}.Instruments":
             return Instruments(logger)
 
     @hookimpl
     def get_instrument_proxy(instrument_name):
-        if "Pylab-Ml." in instrument_name:
-            print('Pylab-Ml.get_instrument_proxy')
+        if f"{NAME}." in instrument_name:
+            print(f'{NAME}.get_instrument_proxy')
             return Instruments()
 
 #    @hookimpl
 #    def get_tester(tester_name: str):
-#        if tester_name == "Pylab-Ml.NIPXIe":
+#        if tester_name == f"{NAME}.NIPXIe":
 #            return NIPXIe.NIPXIe()
 
     @hookimpl
     def get_general_purpose_function(func_name: str, logger):
-        if func_name == "Pylab-Ml.Setup":
+        if func_name == f"{NAME}.Setup":
             return projectsetup.ProjectSetup(logger)
-        elif func_name == "Pylab-Ml.Registermaster":
+        elif func_name == f"{NAME}.Registermaster":
             return registermaster.RegisterMaster(logger)
 
     @hookimpl
     def get_configuration_options(object_name):
-        if object_name == "Pylab-Ml.Instruments":
+        if object_name == f"{NAME}.Instruments":
             return ["Network prefix", "working directory", "add path"]
-        elif object_name == "Pylab-Ml.Setup":
+        elif object_name == f"{NAME}.Setup":
             return ["Network prefix", "working directory", "add path", 'instance name', 'filename']
-        elif object_name == "Pylab-Ml.Registermaster":
+        elif object_name == f"{NAME}.Registermaster":
             return ['instance name', 'filename', 'read mod write', 'reset value']
 
 
@@ -218,27 +221,27 @@ class Instruments:
 
     def do_import(self):
         """Only empty dummy function."""
-        self.log_warning('Pylab-Ml.Instruments: do_import only dummy function')
+        self.log_warning(f'{NAME}.Instruments: do_import only dummy function')
         return False
 
     def do_export(self):
         """Only empty dummy function."""
-        self.log_warning('Pylab-Ml.Instruments: do_export only dummy function')
+        self.log_warning(f'{NAME}.Instruments: do_export only dummy function')
         return False
 
     def get_abort_reason(self):
         """Only empty dummy function."""
-        self.log_warning('Pylab-Ml.Instruments: get_abort_reason only dummy function')
+        self.log_warning(f'{NAME}.Instruments: get_abort_reason only dummy function')
         return self.errormsg
 
     def set_mqtt_client(self, mqtt):
         """Only empty dummy function."""
-        self.log_warning('Pylab-Ml.Instruments: set_mqtt_client only dummy function')
+        self.log_warning(f'{NAME}.Instruments: set_mqtt_client only dummy function')
         pass
 
     def set_configuration_values(self, data):
         """Only empty dummy function."""
-        self.log_warning('Pylab-Ml.Instruments: set_configuration_values only dummy function')
+        self.log_warning(f'{NAME}.Instruments: set_configuration_values only dummy function')
         pass
 
     def apply_configuration(self, data):
@@ -259,7 +262,7 @@ class Instruments:
                     working_dir = path
             os.environ['WORKING_DIR'] = working_dir
             if working_dir != '':
-                self.log_info(f'Pylab-Ml.Instruments: get WORKING_DIR from the Plugin parameter-file = {working_dir}')
+                self.log_info(f'{NAME}.Instruments: get WORKING_DIR from the Plugin parameter-file = {working_dir}')
         if 'add path' in config and config['add path'] != '':
             harness = config['add path']
         self.log_info('$LOGGINGFILENAME$ {};{}'.format(project_path, self.logger.get_log_file_information()['filename']))
@@ -281,7 +284,7 @@ class Instruments:
             f.write('"""\n')
             f.write("import sys\n")
             f.write("logger = sys.argv[2]\n")
-        self.log_info('Pylab-Ml.Instruments use:')
+        self.log_info(f'{NAME}.Instruments use:')
         found = []
         for filename in (self.INSTRUMENT_INIT, self.INSTRUMENT_CONFIG):
             if Path(mypath + 'my' + self.INSTRUMENT_CONFIG).is_file():                        # first search in your directory
@@ -297,7 +300,7 @@ class Instruments:
                 elif found != []:
                     continue
             else:
-                self.log_warning('Pylab-Ml.Instruments:  - no first initialisation found !')
+                self.log_warning(f'{NAME}.Instruments:  - no first initialisation found !')
                 continue
             self.log_info('                - {}'.format(str(Path(source))))
             with open(mypath+myfile, 'a') as dest:
@@ -314,4 +317,4 @@ class Instruments:
             instruments = importlib.import_module(pythonPath + os.path.splitext(myfile)[0])
         self.path_prefix = path_prefix
         self.instruments = instruments
-        self.log_info("Pylab-Ml.Instruments: apply_configuration()")
+        self.log_info(f"{NAME}.Instruments: apply_configuration()")

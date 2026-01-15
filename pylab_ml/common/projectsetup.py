@@ -220,7 +220,7 @@ class ProjectSetup(object):
         self.running = True
         # TODO!: call runmacro and merge missing function
         if not hasattr(self, 'init'):
-            self.logger.log_message(LogLevel.Warning(), f'no instrument init found in actual initialsation: {self.setup.Setupfile}')
+            self.logger.log_message(LogLevel.Warning(), f"no instrument init found in actual initialsation: {self.setup['Setupfile']}")
             return
         for instrument in self.init:                # initialise the instances to their values in self.init
             items = self.init[instrument]
@@ -368,7 +368,6 @@ class ProjectSetup(object):
         self.setup.USER = os.environ.get('USER') if os.environ.get('USER') is not None else getpass.getuser()
         self.setup.WORKAREA = os.environ.get('WORKAREA')
         self.setup.COMPUTERNAME = os.environ.get('COMPUTERNAME')
-        self.setup.TCC_PYTHONPATH = os.environ.get('TCC_PYTHONPATH')
         self.setup.Setupfile = self._setupfile
         self.setup.Registermaster = self._registermaster if hasattr(self, '_registermaster') else os.environ.get('Registermaster')
         # self.setup.conda = check_output('conda -V', shell=True)[:-2].decode('utf-8')    with maxiconda doesnt' running anymore!?
