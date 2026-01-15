@@ -342,7 +342,7 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
             timeout = value[1]
             value = value[0]
         newvalue = self._temp_set(value, timeout)
-        logger.measure("{}.temp == {}".format(self.instName, newvalue))
+        logger.measure(f"{self.instName}.temp == {newvalue}")
         self._setpoint = float(value)
 
     def _temp_set(self, temp=None, timeout=600):
@@ -351,9 +351,9 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
             return float(self.inst.query('SETP?'))
         # elif self._setpoint==None or float(temp) != self._setpoint:
         if -99.9 <= temp <= 225.0:
-            self.inst.write('SETP {}'.format(temp))
+            self.inst.write(f'SETP {temp}')
         else:
-            fmtstr = 'temp value {} must be in [-99.9, 225.0]'.format(temp)
+            fmtstr = f'temp value {temp} must be in [-99.9, 225.0]'
             logger.error(fmtstr)
             raise ValueError(fmtstr)
         # if int(self.inst.query('HEAD?'))==self.Head.up.value:

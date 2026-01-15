@@ -136,9 +136,13 @@ class Dummy(object):
             logger.error(kwargs['message'])
         else:
             logger.warning('Use Dummy Thermostreamer')
+        self.parent = parent
         self._lastcmd = ''
         self.flow = 0
         self.head = 0
+        self.HDLK = '0'
+        self.HEAD = '1'
+        self.TEMP = 25          # default is RT = 25
 
     def query(self, cmd):
         if cmd == '*IDN?':
@@ -161,6 +165,8 @@ class Dummy(object):
         cmd = cmd.split(' ')
         if len(cmd) > 1:
             object.__setattr__(self, cmd[0], cmd[1])
+            if cmd[0] == 'SETP':
+                self.TEMP = cmd[1]
         logger.debug(f'Dummy Thermostreamer write {cmd}')
 
     def read(self):
@@ -168,9 +174,11 @@ class Dummy(object):
         value = 0xdeadbeef
         if self._lastcmd in ('SOAK', 'FLWM', 'DSNS'):
             value = 1
-        elif self._lastcmd in ('FLOW', 'HEAD'):
-            value = 0
-        logger.debug('Dummy Thermostreamer read 0x{hex(value)}')
+        elif self._lastcmd in ('TECR'):
+            value = '1'
+        elif self._lastcmd in ('SETP', 'FLOW', 'HEAD', 'TEMP'):
+            value = super(__class__, self).__getattribute__(self._lastcmd)
+        logger.debug(f'Dummy Thermostreamer read 0x{int(value):0x}')
         return value
 
     def flush(self, arg=None):
