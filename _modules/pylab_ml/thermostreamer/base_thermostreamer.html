@@ -347,9 +347,13 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Use Dummy Thermostreamer&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_lastcmd</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">flow</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="mi">0</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">HDLK</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">HEAD</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">TEMP</span> <span class="o">=</span> <span class="mi">25</span>          <span class="c1"># default is RT = 25</span></div>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
@@ -373,6 +377,8 @@
         <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;SETP&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">TEMP</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Dummy Thermostreamer write </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -380,9 +386,11 @@
         <span class="n">value</span> <span class="o">=</span> <span class="mh">0xdeadbeef</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lastcmd</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;SOAK&#39;</span><span class="p">,</span> <span class="s1">&#39;FLWM&#39;</span><span class="p">,</span> <span class="s1">&#39;DSNS&#39;</span><span class="p">):</span>
             <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lastcmd</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;FLOW&#39;</span><span class="p">,</span> <span class="s1">&#39;HEAD&#39;</span><span class="p">):</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Dummy Thermostreamer read 0x{hex(value)}&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lastcmd</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;TECR&#39;</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lastcmd</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;SETP&#39;</span><span class="p">,</span> <span class="s1">&#39;FLOW&#39;</span><span class="p">,</span> <span class="s1">&#39;HEAD&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_lastcmd</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Dummy Thermostreamer read 0x</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">:</span><span class="s1">0x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">flush</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
