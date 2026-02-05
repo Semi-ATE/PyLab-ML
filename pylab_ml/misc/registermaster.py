@@ -565,8 +565,8 @@ class Register:
         value = (value & mask) >> lsb
         return value
 
-    def _set_slice(self, name, value):
-        if "W" not in self._slices[name]["dir"].upper():
+    def _set_slice(self, name, value, force=False):
+        if not force and "W" not in self._slices[name]["dir"].upper():
             msg = "can't write slice {!r}, it's not writeable"
             msg = msg.format(name)
             raise ValueError(msg)
@@ -601,8 +601,11 @@ class Register:
         else:
             self._cache = current
 
-    def _use_reset(self, default=None):
+    def _use_reset(self, default=None, force=False):
         """Copy reset values from all bit-slices into _cache.
+
+        if force == false -> Only a writable slice sees a reset.
+                 == true  -> readable and writable slice sees a reset.
 
         Note: All bit-slices must have a reset value otherwise an error occurs."""
         cache_old = self.__cache__
@@ -618,7 +621,7 @@ class Register:
                 msg = "WARNING: register {!r} [{!r}:{!r}] has no reset value, set to default={!r}"
                 print(msg.format(name, slice["msb"], slice["lsb"], default))
                 pass
-            self._set_slice(name, valres)
+            self._set_slice(name, valres, force)
 
     @property
     def __has_reset(self):
@@ -1477,14 +1480,29 @@ class RegisterMaster(mqtt_deviceattributes):
         for reg in self:
             object.__setattr__(reg, "__cache__", None)
 
-    def reset_regs(self, default=None):
+    def reset_regs(self, default=None, force=False):
+        """
+        Reset the slices to the reset value
+
+        Parameters
+        ----------
+        default : set the register to the default value
+            if None, default values 0 will be used
+        force :  False -> Only a writable slice sees a reset.
+                 True  -> readable and writable slice sees a reset.
+
+        Returns
+        -------
+        None.
+
+        """
         global mylogger
         for regname in self:
             try:
                 # print (regname)
                 for slices in regname._slices:
-                    if "W" in regname._slices[slices]["dir"]:
-                        regname._use_reset(default)
+                    if "W" in regname._slices[slices]["dir"] or force:
+                        regname._use_reset(default, force)
             except Exception:
                 mylogger.log_message(LogLevel.Warning(), f"Error in {regname._name} with resetvalues -> Check your Registermaster")
                 pass
