@@ -243,8 +243,8 @@ atomic:     enables read-modify-write behavoiur of bit-slices</p>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_internal</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_regs</span></code>([default])</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.misc.registermaster.RegisterMaster.reset_regs" title="pylab_ml.misc.registermaster.RegisterMaster.reset_regs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_regs</span></code></a>([default, force])</p></td>
+<td><p>Reset the slices to the reset value</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.misc.registermaster.RegisterMaster.set_bank" title="pylab_ml.misc.registermaster.RegisterMaster.set_bank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_bank</span></code></a>(adr)</p></td>
 <td><p>Set the bank from a giving adr and recalculate adr.</p></td>
@@ -366,6 +366,23 @@ Normally you have not to use this function, only base_instrument use it.</p>
 1 = error</p></li>
 </ul>
 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.misc.registermaster.RegisterMaster.reset_regs">
+<span class="sig-name descname"><span class="pre">reset_regs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/misc/registermaster.html#RegisterMaster.reset_regs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.misc.registermaster.RegisterMaster.reset_regs" title="Link to this definition"></a></dt>
+<dd><p>Reset the slices to the reset value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>default</strong> (<em>set the register to the default value</em>) – if None, default values 0 will be used</p></li>
+<li><p><strong>force</strong> (<em>False -&gt; Only a writable slice sees a reset.</em>) – True  -&gt; readable and writable slice sees a reset.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
 </dd>
 </dl>
 </dd></dl>
