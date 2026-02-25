@@ -19,7 +19,7 @@ import qtawesome as qta
 from PyQt5 import QtWidgets
 from pylab_ml.gui.instruments.base_instrument import Gui as Guibase
 from pylab_ml.gui.instruments.base_instrument import load_ui
-from pylab_ml.register.registermaster import RegisterMaster
+from pylab_ml.misc.registermaster import RegisterMaster
 from ate_common.logger import LogLevel
 
 # from pylab_ml.common.common import color
