@@ -21,6 +21,9 @@ bitslice is descripted by the following items:
 """
 
 import re
+import fnmatch
+import ast
+from typing import Iterable, List, Union
 import sys
 import os
 import pandas as pd
@@ -1303,12 +1306,15 @@ class RegisterMaster(mqtt_deviceattributes):
             pass
         object.__setattr__(self, "mapping", {})
         object.__setattr__(self, "_len_slices", None)
+        object.__setattr__(self, "banks", {})
         self.register = self.__dict__.copy()  # create attribute register with all registernames
         for reg in self.__dict__:
             if reg != "register" and not hasattr(self.register[reg], "_Register__has_reset"):
                 self.register.pop(reg, None)
             elif reg != "register":
                 bank = self.register[reg]._bank
+                if bank is not None and (bank not in self.banks or self.banks[bank] < self.register[reg].addr):
+                    self.banks[bank] = self.register[reg].addr
                 if bank is not None and bank != "":
                     self.mapping[bank] = self.register[reg]._len_slices()
         self.mqtt_list = list(self.register) + self.mqtt_all
@@ -1339,6 +1345,11 @@ class RegisterMaster(mqtt_deviceattributes):
         if attr in self.mqtt_all:
             return value
         return "nomqtt"
+
+    def _register_to_list(patterns: Union[str, Iterable[str]]) ->List[str]:
+        if isinstance(patterns, str):
+            return[patterns]
+        return list(patterns)
 
     def close(self):
         pass
@@ -1383,19 +1394,68 @@ class RegisterMaster(mqtt_deviceattributes):
         -------
           adr.
         """
+        if self.banks:
+            for bank in self.banks.keys():
+                if adr <= self.banks[bank]:
+                    self._bank = bank
+                    break
         if self.mapping != {}:
             mybank = 0
             for bank in self.mapping:
                 mybank = bank if adr >= bank else mybank
-            self._bank = mybank
+            # self._bank = mybank
             self._len_slices = self.mapping[mybank]
-            adr = adr - mybank
+            # adr = adr - mybank   # TODO: cj 7.2.2026 das ist doch falsch, überprüfen mit HATC!!!!
         else:
             self._bank = None
             self._len_slices = None
         return adr
 
+    def _call_from_string(self, adr, callstr):
+        regs = self._register_to_list()
+        call = ast.parse(callstr, mode='eval').body
+        args = [ast.literal_eval(a) for a in call.args]
+        kwargs = {kw.arg:ast.literal_eval(kw.value) for kw in call.keywords}
+        index = 0
+        dat = args[0]
+        result = 0 if type(dat) == list else []
+        for reg in regs:
+            if fnmatch.fnmatchcase(reg._name, adr):
+                function = getattr(getattr(self, reg._name), call.func.id)
+                if type(dat) == list:
+                    args[0] = dat[index]
+                resu = function(*args, **kwargs)
+                if type(dat) == list:
+                    result += resu
+                else:
+                    result.append(resu)
+                index += 1
+        return result
+
     def readreg(self, adr, bank=None, compare=None, onlycheck=True, tolerance=0, mask=None):
+        if type(adr) is str:
+           if len(adr) == 0:
+               mylogger.log_message(LogLevel.Error(), 'readreg: adr is empty')
+               return
+           elif adr[0].isdigit():
+               adr = list(common.arange(adr))
+           else:
+               return self._call_from_string(adr, f"read({compare}, {onlycheck}, {tolerance}, {mask})")
+        if type(adr) is  list:
+            result = [] if compare is None else 0
+            index = 0
+            for a in adr:
+                comp = compare[index] if type(compare) is list else compare
+                resu = self._readreg(a, bank, comp, onlycheck, tolerance, mask)
+                if compare is None:
+                    result.append(resu)
+                else:
+                    result += resu
+                index += 1
+            return result
+        return self._readreg(adr, bank, compare, onlycheck, tolerance, mask)
+
+    def _readreg(self, adr, bank=None, compare=None, onlycheck=True, tolerance=0, mask=None):
         """
         Read Register with selected protokoll.
 
@@ -1417,6 +1477,7 @@ class RegisterMaster(mqtt_deviceattributes):
             0 = ok
             1 = error
         """
+        hadr = adr
         if bank is not None:
             self._bank = bank
         else:
@@ -1424,6 +1485,8 @@ class RegisterMaster(mqtt_deviceattributes):
         if self._bank is not None and self._bank != "":
             self._protocol.writebase(self._bank)
         value = self._protocol.readreg(adr, compare=compare, tolerance=tolerance, mask=mask)
+        mylogger.log_message(LogLevel.Measure(), f"readreg(0x{hadr:02x}) == {hex(value)}")
+        self.publish_set(f"readreg({hadr}:02x)", value)
         if self._len_slices is not None:
             value &= 2**self._len_slices - 1
         if compare is not None:
@@ -1439,6 +1502,24 @@ class RegisterMaster(mqtt_deviceattributes):
         return value
 
     def writereg(self, adr, dat, bank=None):
+        if type(adr) is str:
+            if len(adr) == 0:
+                mylogger.log_message(LogLevel.Error(), 'writereg: adr is empty')
+                return
+            elif adr[0].isdigit():
+                adr = list(common.arange(adr))
+            else:
+                return self._call_from_string(adr, f"write({dat})")
+        if type(adr) is list:
+            index = 0
+            for a in adr:
+                d = dat[index] if type(dat) is list else dat
+                self._writereg(a, d, bank)
+                index += 1
+            return
+        self._writereg(adr, dat, bank)
+
+    def _writereg(self, adr, dat, bank=None):
         """
         Write Register with selected protokoll.
 
@@ -1456,6 +1537,7 @@ class RegisterMaster(mqtt_deviceattributes):
         None.
 
         """
+        hadr = adr
         if bank is not None:
             self._bank = bank
         else:
@@ -1463,6 +1545,9 @@ class RegisterMaster(mqtt_deviceattributes):
         if self._bank is not None and self._bank != "":
             self._protocol.writebase(self._bank)
         self._protocol.writereg(adr, dat)
+        msg = f"writereg(0x{hadr:02x}) := {hex(dat)}"
+        mylogger.log_message(LogLevel.Measure(), msg)
+        self.publish_set(f"writereg({hadr})", dat)
 
     def reset(self):
         self._protocol.reset()

@@ -65,10 +65,16 @@ def complement(value, bits):
     bvalue = formatstring.format(value)
     return int(''.join({'0': '1', '1': '0'}[x] for x in bvalue), 2)
 
+def complement2(value, bits):
+    """2's complement representation from a value with number of bits."""
+    if value >= 2**(bits-1):
+        raise ValueError(f"complement2 value must be < {2**(bits-1)}")
+    result = value if value >=0 else complement(-value, bits)+1
+    return result & (2**bits -1)
 
 def crc4(data):             # width
     """
-    Calculate 4-bit crc from a data with widht bits.
+    Calculate 4-bit crc from a data with width bits.
 
     polynomial = X4+X+1
 
