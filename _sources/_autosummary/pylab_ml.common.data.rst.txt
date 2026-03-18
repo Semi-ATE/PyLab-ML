@@ -18,6 +18,7 @@ pylab\_ml.common.data
       byte2uint
       byte2word
       complement
+      complement2
       crc16
       crc4
       datetime

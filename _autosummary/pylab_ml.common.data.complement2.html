@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pylab_ml.dummy &mdash; PyLab-ML documentation</title>
+  <title>pylab_ml.common.data.complement2 &mdash; PyLab-ML documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fadf00a0" />
@@ -21,8 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pylab_ml.dummy.Dummy" href="pylab_ml.dummy.Dummy.html" />
-    <link rel="prev" title="pylab_ml.dmm.natinst.pxie40xx.PXIe40xx" href="pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.html" /> 
+    <link rel="next" title="pylab_ml.common.data.crc16" href="pylab_ml.common.data.crc16.html" />
+    <link rel="prev" title="pylab_ml.common.data.complement" href="pylab_ml.common.data.complement.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -84,9 +84,9 @@
 <li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="pylab_ml.common.html">pylab_ml.common</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.common.html">pylab_ml.common.common</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="pylab_ml.common.data.html">pylab_ml.common.data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
@@ -101,7 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">pylab_ml.dummy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
 </ul>
 </li>
@@ -168,9 +168,11 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="pylab_ml.html">pylab_ml</a></li>
-      <li class="breadcrumb-item active">pylab_ml.dummy</li>
+          <li class="breadcrumb-item"><a href="pylab_ml.common.html">pylab_ml.common</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+      <li class="breadcrumb-item active">pylab_ml.common.data.complement2</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/pylab_ml.dummy.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/pylab_ml.common.data.complement2.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -178,33 +180,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-pylab_ml.dummy">
-<span id="pylab-ml-dummy"></span><h1>pylab_ml.dummy<a class="headerlink" href="#module-pylab_ml.dummy" title="Link to this heading"></a></h1>
-<p>Basic Dummy class for instance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Date<span class="colon">:</span></dt>
-<dd class="field-odd"><p>March 18, 2026</p>
-</dd>
-<dt class="field-even">Author<span class="colon">:</span></dt>
-<dd class="field-even"><p>Semi-ATE &lt;<a class="reference external" href="mailto:info&#37;&#52;&#48;Semi-ATE&#46;org">info<span>&#64;</span>Semi-ATE<span>&#46;</span>org</a>&gt;</p>
-</dd>
-</dl>
-<p class="rubric">Classes</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="pylab_ml.dummy.Dummy.html#pylab_ml.dummy.Dummy" title="pylab_ml.dummy.Dummy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dummy</span></code></a>(parent, logger, **kwargs)</p></td>
-<td><p>Dummy object  for an communication-instance .</p></td>
-</tr>
-</tbody>
-</table>
+  <section id="pylab-ml-common-data-complement2">
+<h1>pylab_ml.common.data.complement2<a class="headerlink" href="#pylab-ml-common-data-complement2" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="pylab_ml.common.data.complement2">
+<span class="sig-name descname"><span class="pre">complement2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/common/data.html#complement2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.common.data.complement2" title="Link to this definition"></a></dt>
+<dd><p>2’s complement representation from a value with number of bits.</p>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.html" class="btn btn-neutral float-left" title="pylab_ml.dmm.natinst.pxie40xx.PXIe40xx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pylab_ml.dummy.Dummy.html" class="btn btn-neutral float-right" title="pylab_ml.dummy.Dummy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pylab_ml.common.data.complement.html" class="btn btn-neutral float-left" title="pylab_ml.common.data.complement" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pylab_ml.common.data.crc16.html" class="btn btn-neutral float-right" title="pylab_ml.common.data.crc16" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

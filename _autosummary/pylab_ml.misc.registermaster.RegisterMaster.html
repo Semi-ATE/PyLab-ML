@@ -234,8 +234,8 @@ atomic:     enables read-modify-write behavoiur of bit-slices</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.misc.registermaster.RegisterMaster.publish_set" title="pylab_ml.misc.registermaster.RegisterMaster.publish_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish_set</span></code></a>(function_name, value)</p></td>
 <td><p>Publish function_name as type='set' with paylad=value.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.misc.registermaster.RegisterMaster.readreg" title="pylab_ml.misc.registermaster.RegisterMaster.readreg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readreg</span></code></a>(adr[, bank, compare, onlycheck, ...])</p></td>
-<td><p>Read Register with selected protokoll.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">readreg</span></code>(adr[, bank, compare, onlycheck, ...])</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code>()</p></td>
 <td><p></p></td>
@@ -252,8 +252,8 @@ atomic:     enables read-modify-write behavoiur of bit-slices</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.misc.registermaster.RegisterMaster.set_configuration_values" title="pylab_ml.misc.registermaster.RegisterMaster.set_configuration_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_configuration_values</span></code></a>(data)</p></td>
 <td><p>Only empty dummy function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.misc.registermaster.RegisterMaster.writereg" title="pylab_ml.misc.registermaster.RegisterMaster.writereg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writereg</span></code></a>(adr, dat[, bank])</p></td>
-<td><p>Write Register with selected protokoll.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">writereg</span></code>(adr, dat[, bank])</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -347,30 +347,6 @@ Normally you have not to use this function, only base_instrument use it.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pylab_ml.misc.registermaster.RegisterMaster.readreg">
-<span class="sig-name descname"><span class="pre">readreg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compare</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onlycheck</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/misc/registermaster.html#RegisterMaster.readreg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.misc.registermaster.RegisterMaster.readreg" title="Link to this definition"></a></dt>
-<dd><p>Read Register with selected protokoll.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>adr</strong> (<em>integer</em>) – address.</p></li>
-<li><p><strong>bank</strong> (<em>integer</em>) – bank adress</p></li>
-<li><p><strong>compare</strong> (<em>integer</em>) – compare value, if None than no compare</p></li>
-<li><p><strong>tolerance</strong> (<em>integer</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>dat</strong> (<em>integer</em>) – data.</p></li>
-<li><p><strong>check</strong> (<em>if compare defined this is the compare result:</em>) – 0 = ok
-1 = error</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="pylab_ml.misc.registermaster.RegisterMaster.reset_regs">
 <span class="sig-name descname"><span class="pre">reset_regs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/misc/registermaster.html#RegisterMaster.reset_regs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.misc.registermaster.RegisterMaster.reset_regs" title="Link to this definition"></a></dt>
 <dd><p>Reset the slices to the reset value</p>
@@ -405,24 +381,6 @@ Normally you have not to use this function, only base_instrument use it.</p>
 <dt class="sig sig-object py" id="pylab_ml.misc.registermaster.RegisterMaster.set_configuration_values">
 <span class="sig-name descname"><span class="pre">set_configuration_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/misc/registermaster.html#RegisterMaster.set_configuration_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.misc.registermaster.RegisterMaster.set_configuration_values" title="Link to this definition"></a></dt>
 <dd><p>Only empty dummy function.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pylab_ml.misc.registermaster.RegisterMaster.writereg">
-<span class="sig-name descname"><span class="pre">writereg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/misc/registermaster.html#RegisterMaster.writereg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.misc.registermaster.RegisterMaster.writereg" title="Link to this definition"></a></dt>
-<dd><p>Write Register with selected protokoll.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>adr</strong> (<em>integer</em>) – address.</p></li>
-<li><p><strong>bank</strong> (<em>integer</em>) – bank adress</p></li>
-<li><p><strong>dat</strong> (<em>integer</em>) – data.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None.</p>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
