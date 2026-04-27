@@ -29,5 +29,6 @@ pylab\_ml.misc
    :recursive:
 
    iasvg
+   project_info
    registermaster
 
