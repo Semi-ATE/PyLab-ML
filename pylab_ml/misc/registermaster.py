@@ -1490,7 +1490,7 @@ class RegisterMaster(mqtt_deviceattributes):
             self._protocol.writebase(self._bank)
         value = self._protocol.readreg(adr, compare=compare, tolerance=tolerance, mask=mask)
         mylogger.log_message(LogLevel.Measure(), f"readreg(0x{hadr:02x}) == {hex(value)}")
-        self.publish_set(f"readreg({hadr}:02x)", value)
+        self.publish_set(f"readreg(0x{hadr:02x})", value)
         if self._len_slices is not None:
             value &= 2**self._len_slices - 1
         if compare is not None:
@@ -1631,7 +1631,6 @@ class RegisterMaster(mqtt_deviceattributes):
         None.
 
         """
-        breakpoint()
         _setattr = object.__setattr__.__get__(self, self.__class__)
         config = environment.replaceEnvs(data)
         filename = config["filename"] if "filename" in config and config["filename"] != "" else self.filename

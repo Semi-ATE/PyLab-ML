@@ -26,7 +26,7 @@ from pylab_ml.misc import registermaster
 __author__ = "Zlin526F"
 __credits__ = ["Zlin526F"]
 __email__ = "Zlin526F@github"
-__version__ = '0.5.0'
+__version__ = '0.6.0'
 
 
 NAME = "Pylab_Ml"
@@ -72,9 +72,9 @@ class Plugin:
     @hookimpl
     def get_instrument_names():
         return [
-            {"display_name": "Labor Instruments V" + __version__,
+            {"display_name": "PyLab-ML Instruments V" + __version__,
              "version": __version__,
-             "manufacturer": "Semi-ATE Labor",
+             "manufacturer": "PyLab-ML Labor",
              "name": f"{NAME}.Instruments"}]
 
 #    @hookimpl
@@ -90,11 +90,11 @@ class Plugin:
         return [
             {"display_name": "Project Setup",
              "version": projectsetup.__version__,
-             "manufacturer": "Semi-ATE Labor",
+             "manufacturer": "PyLab-ML Labor",
              "name": f"{NAME}.Setup"},
             {"display_name": "Registermaster",
              "version": registermaster.__version__,
-             "manufacturer": "Semi-ATE Labor",
+             "manufacturer": "PyLab-ML Labor",
              "name": f"{NAME}.Registermaster"}
             ]
 

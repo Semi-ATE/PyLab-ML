@@ -95,7 +95,12 @@ class Gui(Guibase):
         # if you change a widget with the mqtt command, you have to use the widget.blockSignals(True/False)
         if "cmd" in tuple(msg.keys()) and "payload" in tuple(msg.keys()):
             mycmd = msg["cmd"].split(".")
-            if len(mycmd) == 2 and mycmd[1] in ["read", "write"]:  # special handling from mqtt commands
+            if len(mycmd) == 1 and mycmd[0].split('(')[0]  in ["readreg", "writereg"]:
+                mycmd = mycmd[0].split('(')
+                adr = int(mycmd[1][:-1], 16)
+                print(f"read/writereg: {adr}, {mycmd}")
+                self.memoryframe(int(mycmd[1][:-1],16), msg["payload"])
+            elif len(mycmd) == 2 and mycmd[1] in ["read", "write"]:  # special handling from mqtt commands
                 self.regstatus(" ")
                 if mycmd[0] in dir(self.regs):
                     self.registerframe(self.regs.__dict__[mycmd[0]], msg["payload"])
@@ -107,8 +112,6 @@ class Gui(Guibase):
     def registerframe(self, register, value):
         # self.logger.log_message(LogLevel.Debug(), f"      call registerframe with {register} {value}")
         register._cache = value
-        table = register.value_table
-        width = register._len_slices()
         myregister = None
         myregisters = self.show_regs.copy()
         hl = ""
@@ -142,6 +145,8 @@ class Gui(Guibase):
         # <font color="orange"></font>
         myregister.name = register._name
         myregister.value = value
+        table = register.value_table
+        width = register._len_slices()
         myregister.Name.setTitle(f"{register._name} = {value}(d)    = 0x{value:0{width//4}x}    = b{value:0{width}b}")
         bits = bitname = "    "
         rw = "dir"
@@ -162,6 +167,19 @@ class Gui(Guibase):
         myregister.Lres.setText(res)
         myregister.Lbitname.setToolTip(register.__doc__)
         # _len_slices()
+
+    def memoryframe(self, adr, value):
+        for name in self.regs.__dict__:                 # search for address, perhaps it is a register
+            register = self.regs.__dict__[name]
+            if hasattr(register, "_cpuaddr"):
+                if register._cpuaddr == adr:
+                    print(f"found {name}")
+                    self.regstatus(" ")
+                    self.registerframe(self.regs.__dict__[name], value)
+                    return
+        # it is memory
+        print('it is memory....')
+
 
     # ======================================================================================
     # definitions from complex mqtt commands, if you need only a connection between the mqtt-command and a widget, start the name of your widget with MQTT_
