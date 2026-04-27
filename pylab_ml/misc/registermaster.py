@@ -1412,6 +1412,7 @@ class RegisterMaster(mqtt_deviceattributes):
         return adr
 
     def _call_from_string(self, adr, callstr):
+        result = []
         regs = self._register_to_list()
         call = ast.parse(callstr, mode='eval').body
         args = [ast.literal_eval(a) for a in call.args]
@@ -1429,6 +1430,7 @@ class RegisterMaster(mqtt_deviceattributes):
                     result += resu
                 else:
                     result.append(resu)
+                result.append(function(*args, **kwargs))
                 index += 1
         return result
 
@@ -1442,6 +1444,8 @@ class RegisterMaster(mqtt_deviceattributes):
            else:
                return self._call_from_string(adr, f"read({compare}, {onlycheck}, {tolerance}, {mask})")
         if type(adr) is  list:
+            return self._call_from_string(adr, f"read({compare}, {onlycheck}, {tolerance}, {mask})")
+        elif type(adr) is  list:
             result = [] if compare is None else 0
             index = 0
             for a in adr:
@@ -1511,6 +1515,8 @@ class RegisterMaster(mqtt_deviceattributes):
             else:
                 return self._call_from_string(adr, f"write({dat})")
         if type(adr) is list:
+            return self._call_from_string(adr, f"write({dat})")
+        elif type(adr) is  list:
             index = 0
             for a in adr:
                 d = dat[index] if type(dat) is list else dat
@@ -1625,6 +1631,7 @@ class RegisterMaster(mqtt_deviceattributes):
         None.
 
         """
+        breakpoint()
         _setattr = object.__setattr__.__get__(self, self.__class__)
         config = environment.replaceEnvs(data)
         filename = config["filename"] if "filename" in config and config["filename"] != "" else self.filename

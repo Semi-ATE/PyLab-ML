@@ -59,6 +59,7 @@ dependencies = [
 	"pyvisa-py",
 	"regex",
     "semi-ate-common",
+    "yaml",
 ]
 
 [project.optional-dependencies]
@@ -80,3 +81,6 @@ test = [
 
 [project.entry-points."ate.org"]
     pylabml = "pylab_ml.plugins.pylabml.instruments:Plugin"
+    
+[project.scripts]
+    enter_semiate = "pylab_ml.scripts.enter_semiate:main"

@@ -21,6 +21,7 @@ sdist/
 output/
 docs/source/_autosummary/
 var/
+pylab_ml/scripts/*.yaml
 wheels/
 pip-wheel-metadata/
 share/python-wheels/
