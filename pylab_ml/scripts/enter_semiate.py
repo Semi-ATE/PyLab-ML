@@ -3,10 +3,9 @@
 semi-ate
 
 Usage:
-  semi-ate project version [-w name] 
+  semi-ate project version [-w name]
 
 """
-import shlex
 from pathlib import Path
 import yaml
 import argparse
@@ -31,17 +30,18 @@ class SemiAte:
         else:
             with open(optionfile, 'r', encoding='utf-8') as file:
                 path = yaml.safe_load(file)
-                
+
         self._validate_version(args.version)
-        
-        if not os.path.isdir(os.path.join(path, args.project)):
-            print(f'project {args.project} not found')
+
+        project = args.project if args.use is None else args.use
+        if not os.path.isdir(os.path.join(path, project)):
+            print(f'project {project} not found')
             return
-        path = os.path.join(path, args.project)
+        path = os.path.join(path, project)
         if not os.path.isdir(os.path.join(path, "harness")):
             os.makedirs(os.path.join(path, "harness"))
         project_file = os.path.join(path, "harness", "project_info.yaml")
-        
+
         if  os.path.isfile(project_file):
             with open(project_file, 'r', encoding='utf-8') as file:
                 project_info = yaml.safe_load(file)
@@ -49,14 +49,14 @@ class SemiAte:
             project_info = {"PROJECT": args.project,
                             "VERSION": args.version,
                             "USER": args.who}
-            
+
         project_info["PROJECT"] = args.project
         project_info["VERSION"] = args.version
         project_info["USER"] = args.who
-        
+
         with open(project_file, 'w', encoding='utf-8') as file:
             yaml.safe_dump(project_info, file, sort_keys=False, allow_unicode=True)
-            
+
         print(project_info)
 
         # self.start_spyder_in_env("", args.project.upper(), args.version.upper(), args.who)
@@ -140,7 +140,8 @@ def main():
     parser = argparse.ArgumentParser(prog="semi-ate", description="Wähle conda-env basierend auf project+version und starte Spyder.")
     parser.add_argument("project", nargs="?", help="Projektname (oder leer, wenn -e/-m benutzt wird)")
     parser.add_argument("version", nargs="?", help="Version als 4-stellige Zahl, z.B. 0001 (oder leer, wenn -e/-m benutzt wird)")
-    parser.add_argument("-w", "--who", metavar="name", help="optional: USER=name setzen")
+    parser.add_argument("-w", "--who", metavar="name", help="optional: USER= set name")
+    parser.add_argument("-u", "--use", metavar="project", help="optional: USE= use database from project")
     parser.add_argument("-e", "--edit", action="store_true", help="optional: edit path to Projects")
     args = parser.parse_args()
 
@@ -149,7 +150,7 @@ def main():
         parser.print_usage()
         print("\nError: project and version are required.", file=sys.stderr)
         sys.exit(1)
-        
+
     sa = SemiAte(args)
 
     if args.who:
