@@ -59,7 +59,7 @@ dependencies = [
 	"pyvisa-py",
 	"regex",
     "semi-ate-common",
-    "yaml",
+    "pyyaml",
 ]
 
 [project.optional-dependencies]
