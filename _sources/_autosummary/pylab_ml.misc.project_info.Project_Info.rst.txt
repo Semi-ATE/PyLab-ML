@@ -17,6 +17,7 @@ pylab\_ml.misc.project\_info.Project\_Info
    .. autosummary::
    
       ~Project_Info.__init__
+      ~Project_Info.replace_variables
    
    
 

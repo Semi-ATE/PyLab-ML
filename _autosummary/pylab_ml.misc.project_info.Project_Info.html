@@ -185,11 +185,11 @@
 <h1>pylab_ml.misc.project_info.Project_Info<a class="headerlink" href="#pylab-ml-misc-project-info-project-info" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pylab_ml.misc.project_info.Project_Info">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Project_Info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/misc/project_info.html#Project_Info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.misc.project_info.Project_Info" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Project_Info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'harness/project_info.yaml'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/misc/project_info.html#Project_Info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.misc.project_info.Project_Info" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylab_ml.misc.project_info.Project_Info.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/misc/project_info.html#Project_Info.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.misc.project_info.Project_Info.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'harness/project_info.yaml'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/misc/project_info.html#Project_Info.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.misc.project_info.Project_Info.__init__" title="Link to this definition"></a></dt>
 <dd><p>Get project infos from the harness/project_info.yaml file.</p>
 <p>and set the environment variable.</p>
 </dd></dl>
@@ -197,11 +197,21 @@
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.misc.project_info.Project_Info.__init__" title="pylab_ml.misc.project_info.Project_Info.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(filename)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.misc.project_info.Project_Info.__init__" title="pylab_ml.misc.project_info.Project_Info.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(filename, logger[, path])</p></td>
 <td><p>Get project infos from the harness/project_info.yaml file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.misc.project_info.Project_Info.replace_variables" title="pylab_ml.misc.project_info.Project_Info.replace_variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_variables</span></code></a>(value)</p></td>
+<td><p>Check if valuestr has environment-variables starts with $, or valuestr has path-value like './'.</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.misc.project_info.Project_Info.replace_variables">
+<span class="sig-name descname"><span class="pre">replace_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/misc/project_info.html#Project_Info.replace_variables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.misc.project_info.Project_Info.replace_variables" title="Link to this definition"></a></dt>
+<dd><p>Check if valuestr has environment-variables starts with $, or valuestr has path-value like ‘./’.</p>
+<p>If yes than replace environment-variables with its value,</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
