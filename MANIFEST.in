@@ -1,0 +1,18 @@
+include requirements/run.txt
+recursive-include pylab_ml *.md
+recursive-include pylab_ml *.ui
+recursive-include pylab_ml *.svg
+recursive-include pylab_ml *.txt
+recursive-include pylab_ml *.c
+recursive-include pylab_ml *.cpp
+recursive-include pylab_ml *.ino
+recursive-include pylab_ml *.h
+recursive-include pylab_ml *.cat
+recursive-include pylab_ml *.inf
+recursive-include pylab_ml *.lib
+recursive-include pylab_ml *.dll
+recursive-include pylab_ml *.sys
+recursive-include pylab_ml *.exe
+recursive-include pylab_ml *.pdf
+recursive-include pylab_ml *.py
+exclude requirements/test.txt
