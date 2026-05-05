@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.smu.tti.base_tti &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="../../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.registermaster.html">pylab_ml.misc.registermaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.softscope.html">pylab_ml.scope.softscope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.smu.tti.base_tti</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.smu.tti.base_tti</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Baseclass Interfaces to the TTI Power Supply Instruments.</span>
+
+<span class="sd">:Date: |today|</span>
+<span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidInstrumentConnection</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.collate_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interface</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.baseclass.base_measurement</span><span class="w"> </span><span class="kn">import</span> <span class="n">Measure</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.attributes</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_attributes</span>
+
+
+<div class="viewcode-block" id="TTI">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TTI</span> <span class="p">(</span><span class="n">create_attributes</span><span class="p">,</span> <span class="n">Measure</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Baseclass Interface to the TTI Power Supply Instruments.</span>
+
+<span class="sd">    The TTI baseclass can connect to TTI Power Supply instruments</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        ask=inst.query(&#39;:READ?&#39;)</span>
+<span class="sd">            write and read the answer</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># create functions or proberty and call inst.write) or inst.read():</span>
+    <span class="c1"># if state != necessary state -&gt; switch to the necessary state</span>
+    <span class="c1">#  proberty/function name -&gt; inst.funcname (get,set)    , range,    call functions</span>
+    <span class="c1">#                                                         range : None, Enum or range value</span>
+    <span class="c1">#                                                         call functions: see help in attributes</span>
+    <span class="c1"># in function self.write() replace $ with channel</span>
+    <span class="n">_properties</span> <span class="o">=</span> <span class="p">{</span>
+                  <span class="s1">&#39;current&#39;</span><span class="p">:</span>   <span class="p">((</span><span class="s1">&#39;I$O?&#39;</span><span class="p">,</span>     <span class="kc">None</span><span class="p">),</span>       <span class="kc">None</span><span class="p">,</span>      <span class="p">{</span><span class="s1">&#39;ga&#39;</span><span class="p">:</span> <span class="s1">&#39;_tr2number(value, A, 20)&#39;</span><span class="p">}),</span>
+                  <span class="s1">&#39;i_clamp&#39;</span><span class="p">:</span>   <span class="p">((</span><span class="s1">&#39;I$?&#39;</span><span class="p">,</span>      <span class="s1">&#39;I$ &#39;</span><span class="p">),</span>      <span class="kc">None</span><span class="p">,</span>      <span class="p">{</span><span class="s1">&#39;ga&#39;</span><span class="p">:</span> <span class="s1">&#39;_tr2number(value, I$, 1)&#39;</span><span class="p">,</span> <span class="s1">&#39;sa&#39;</span><span class="p">:</span> <span class="s1">&#39;errmsg()&#39;</span><span class="p">}),</span>
+                  <span class="s1">&#39;onoff&#39;</span><span class="p">:</span>     <span class="p">((</span><span class="kc">None</span><span class="p">,</span>       <span class="s1">&#39;OP$ &#39;</span><span class="p">),</span>     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>    <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;ocp&#39;</span><span class="p">:</span>       <span class="p">((</span><span class="s1">&#39;OCP$?&#39;</span><span class="p">,</span>    <span class="s1">&#39;OCP$ &#39;</span><span class="p">),</span>    <span class="kc">None</span><span class="p">,</span>      <span class="p">{</span><span class="s1">&#39;ga&#39;</span><span class="p">:</span> <span class="s1">&#39;_tr2number(value, CP$, 1)&#39;</span><span class="p">,</span> <span class="s1">&#39;sa&#39;</span><span class="p">:</span> <span class="s1">&#39;errmsg()&#39;</span><span class="p">}),</span>
+                  <span class="s1">&#39;ovp&#39;</span><span class="p">:</span>       <span class="p">((</span><span class="s1">&#39;OVP$?&#39;</span><span class="p">,</span>    <span class="s1">&#39;OVP$ &#39;</span><span class="p">),</span>    <span class="kc">None</span><span class="p">,</span>      <span class="p">{</span><span class="s1">&#39;ga&#39;</span><span class="p">:</span> <span class="s1">&#39;_tr2number(value, VP$, 1)&#39;</span><span class="p">,</span> <span class="s1">&#39;sa&#39;</span><span class="p">:</span> <span class="s1">&#39;errmsg()&#39;</span><span class="p">}),</span>
+                  <span class="s1">&#39;sense&#39;</span><span class="p">:</span>     <span class="p">((</span><span class="kc">None</span><span class="p">,</span>       <span class="s1">&#39;SENSE$ &#39;</span><span class="p">),</span>  <span class="s1">&#39;Sense&#39;</span><span class="p">,</span>   <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;state&#39;</span><span class="p">:</span>     <span class="p">((</span><span class="s1">&#39;*ESE?&#39;</span><span class="p">,</span>    <span class="s1">&#39;*ESE &#39;</span><span class="p">),</span>    <span class="kc">None</span><span class="p">,</span>      <span class="kc">None</span><span class="p">),</span>
+                  <span class="s1">&#39;voltage&#39;</span><span class="p">:</span>   <span class="p">((</span><span class="s1">&#39;V$?&#39;</span><span class="p">,</span>      <span class="s1">&#39;V$ &#39;</span><span class="p">),</span>      <span class="kc">None</span><span class="p">,</span>      <span class="p">{</span><span class="s1">&#39;ga&#39;</span><span class="p">:</span> <span class="s1">&#39;_tr2number(value, V$, 1)&#39;</span><span class="p">,</span> <span class="s1">&#39;sa&#39;</span><span class="p">:</span> <span class="s1">&#39;errmsg()&#39;</span><span class="p">}),</span>
+                  <span class="s1">&#39;v_range&#39;</span><span class="p">:</span>   <span class="p">((</span><span class="s1">&#39;RANGE$?&#39;</span><span class="p">,</span>  <span class="s1">&#39;RANGE$ &#39;</span><span class="p">),</span>  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>    <span class="p">{</span><span class="s1">&#39;ga&#39;</span><span class="p">:</span> <span class="s1">&#39;_tr2number(value, R$, 11)&#39;</span><span class="p">}),</span>
+                  <span class="p">}</span>
+
+<div class="viewcode-block" id="TTI.Sense">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.Sense">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Sense</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enum for Sense control.&quot;&quot;&quot;</span>
+
+        <span class="n">local</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;value for sense mode = local&quot;&quot;&quot;</span>
+        <span class="n">remote</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;value for sense mode = remote&quot;&quot;&quot;</span></div>
+
+
+    <span class="n">_eer_states</span> <span class="o">=</span> <span class="p">{</span>
+               <span class="mi">1</span><span class="p">:</span>   <span class="s1">&#39;   Indicates a hardware error has been encountered.&#39;</span><span class="p">,</span>          <span class="c1"># 1-99</span>
+               <span class="mi">116</span><span class="p">:</span> <span class="s1">&#39;   A recall of set up data has been requested but the store specified does not contain any data.&#39;</span><span class="p">,</span>
+               <span class="mi">117</span><span class="p">:</span> <span class="s1">&#39;   A recall of set up data has been requested but the store specified contains corrupted data. This indicates either a hardware fault or a temporary data corruption which can be corrected by writing data to the store again.&#39;</span><span class="p">,</span>
+               <span class="mi">120</span><span class="p">:</span> <span class="s1">&#39;   The numerical value sent with the command was too big or too small. Includes negative numbers where only positive numbers are accepted.&#39;</span><span class="p">,</span>
+               <span class="mi">123</span><span class="p">:</span> <span class="s1">&#39;   A recall/store of set up data has been requested from/to an illegal store number.&#39;</span><span class="p">,</span>
+               <span class="mi">124</span><span class="p">:</span> <span class="s1">&#39;   A range change has been requested but the current psu settings make it illegal – see manual operation instructions for details.&#39;</span><span class="p">,</span>
+               <span class="mi">255</span><span class="p">:</span> <span class="s1">&#39;   unknown error&#39;</span>
+               <span class="p">}</span>
+
+<div class="viewcode-block" id="TTI.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Connect and initialize.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">           addr (int):</span>
+<span class="sd">              interface address</span>
+
+<span class="sd">           interface (Interface):</span>
+<span class="sd">              gpib, usbserial</span>
+
+<span class="sd">           backend (str):</span>
+<span class="sd">              visa backend is either &#39;@ni&#39; for NI-Library or</span>
+<span class="sd">              &#39;@py&#39; for pure python pyvisa-py backend.</span>
+<span class="sd">              On default it uses &#39;@ni&#39; on win32 and &#39;@py&#39; on</span>
+<span class="sd">              other platforms.</span>
+
+<span class="sd">        Example: Initialization</span>
+<span class="sd">           &gt;&gt;&gt; instrument = TTI(addr=24)   # GPIB or USB address</span>
+<span class="sd">           &gt;&gt;&gt; instrument.init()           # connect and initialize instrument</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TTI.setup_inst">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.setup_inst">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start setup instrument settings, called from class instruments.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_inst</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interface</span> <span class="o">==</span> <span class="n">Interface</span><span class="o">.</span><span class="n">gpib</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read_termination</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="c1"># self.inst.read_termination = &#39;\r&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write_termination</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;iso8859&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">baud_rate</span> <span class="o">=</span> <span class="mi">19200</span>                  <span class="c1"># in USB-Mode: 19200</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read_termination</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>            <span class="c1"># LF (=10d)</span>
+                <span class="c1"># self.inst.write_termination = &#39;\r\n&#39;       # CR (=13d), LF</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_endstring</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>                         <span class="c1"># string include \r as last character, to ignore this use -1 else 0</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write_termination</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;iso8859&#39;</span>
+                <span class="c1"># self.inst.write(&#39;\x04&#39;)                      # lock normal RS232-Mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">createattributes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TTI.init">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.init">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Connect to TTI instrument and initialize.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">identify</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TTI.reset">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.reset">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset and switch beep off.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;*RST&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span>                    <span class="c1"># reset shadow-values from _properties</span>
+            <span class="bp">self</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="o">.</span><span class="n">_onoff</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="o">.</span><span class="n">_local</span> <span class="o">=</span> <span class="s1">&#39;local&#39;</span></div>
+
+
+<div class="viewcode-block" id="TTI.clear">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.clear">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear error status.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="TTI.message">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.message">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Device has no display, message display to logger.info.&quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Query IDN.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># value = self.inst.query(&#39;*IDN?&#39;).split(&#39;,&#39;)[1]</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*IDN?&#39;</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;no answer&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.id: The connected Device has wrong Model-No, readed Model is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="n">InvalidInstrumentConnection</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="TTI.local">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.local">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">local</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Switch back to local instrument control.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;LOCAL&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="TTI.write">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.write">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Write direct to instrument.</span>
+
+<span class="sd">        Example: send command reset :</span>
+<span class="sd">           &gt;&gt;&gt; inst.write(&#39;*RST&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TTI.read">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.read">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Read the instruent directly.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="TTI.errmsg">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.base_tti.TTI.html#pylab_ml.smu.tti.base_tti.TTI.errmsg">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">errmsg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Read Execution Error Register.&quot;&quot;&quot;</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;EER?&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">error</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="mi">99</span><span class="p">:</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">error</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eer_states</span><span class="p">:</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="mi">255</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_eer_states</span><span class="p">[</span><span class="n">error</span><span class="p">])</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_tr2number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Translate answer from device to float or integer.</span>
+
+<span class="sd">        index depence from the function call, see _properties</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">%</span> <span class="mi">10</span>
+        <span class="n">convert</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>                <span class="c1"># 0= float, 1= integer, 2 = A</span>
+        <span class="n">verify_target</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">verify_answ</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">convert</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">convert</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">convert</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">verify_answ</span> <span class="o">=</span> <span class="n">verify_answ</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_endstring</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">_endstring</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">verify_answ</span> <span class="o">!=</span> <span class="n">verify_target</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Unexpected Answer from Device! (got:</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="c1"># ----------------------------------------------------------</span>
+    <span class="c1"># doc strings for _properties, propertie themselve will create form dictionary _properties</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">current</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Measure DC current of actual Channel.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">i_clamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the current clamping (A) of actual Channel.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">onoff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get/Set the Output-State of actual Channel.</span>
+
+<span class="sd">        |  0 = Output off</span>
+<span class="sd">        |  1 = Output on</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ocp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get/Set over current protection trip point at x Amps.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ovp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get/Set over voltage protection trip point at x Volts.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sense</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get/Set sense.</span>
+
+<span class="sd">        |  &#39;local&#39;  = Local sensing (2-Wire)</span>
+<span class="sd">        |  &#39;remote&#39; = Remote sensing (4-Wire)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get/Set Standard Event Status Enable Register.</span>
+
+<span class="sd">        see QL355T Instruction Manual for more details</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get/Set voltage.&quot;&quot;&quot;</span></div>
+
+
+    <span class="c1"># end doc strings for _properties</span>
+    <span class="c1"># ----------------------------------------------------------</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

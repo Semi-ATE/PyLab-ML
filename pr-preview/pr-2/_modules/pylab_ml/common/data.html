@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.common.data &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.registermaster.html">pylab_ml.misc.registermaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.softscope.html">pylab_ml.scope.softscope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.common.data</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.common.data</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Data manipulation functions.&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dt</span>
+
+
+<div class="viewcode-block" id="unsigned_data">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.unsigned_data.html#pylab_ml.common.data.unsigned_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">unsigned_data</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert to 16-bit unsigned_data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    f : 16-bit value</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    unsigned 16-bit value</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">f</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">+=</span> <span class="mf">65536.0</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="signed_data">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.signed_data.html#pylab_ml.common.data.signed_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">signed_data</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bitwidth</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert to signed_data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    f : default 16-bit value or define bitwidht</span>
+<span class="sd">    bitwidth: bit width</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    signed value</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">f</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">bitwidth</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">-=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">bitwidth</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="byte2word">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.byte2word.html#pylab_ml.common.data.byte2word">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">byte2word</span><span class="p">(</span><span class="n">list8</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a list with 16-bit data from a imput list with 8-bit data.&quot;&quot;&quot;</span>
+    <span class="n">list16</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">list8</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">list16</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">list16</span></div>
+
+
+
+<div class="viewcode-block" id="byte2uint">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.byte2uint.html#pylab_ml.common.data.byte2uint">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">byte2uint</span><span class="p">(</span><span class="n">list8</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a list with 32-bit data from a imput list with 8-bit data.&quot;&quot;&quot;</span>
+    <span class="n">list32</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">list8</span><span class="p">),</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="n">list32</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">list32</span></div>
+
+
+
+<div class="viewcode-block" id="complement">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.complement.html#pylab_ml.common.data.complement">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">complement</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">bits</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Binary complement from a positive value with number of bits.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;complement value must be an positive integer, not </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">formatstring</span> <span class="o">=</span> <span class="s1">&#39;{:0</span><span class="si">%i</span><span class="s1">b}&#39;</span> <span class="o">%</span> <span class="n">bits</span>
+    <span class="n">bvalue</span> <span class="o">=</span> <span class="n">formatstring</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">({</span><span class="s1">&#39;0&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">}[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bvalue</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="complement2">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.complement2.html#pylab_ml.common.data.complement2">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">complement2</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">bits</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;2&#39;s complement representation from a value with number of bits.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">bits</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;complement2 value must be &lt; </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">bits</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">value</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="k">else</span> <span class="n">complement</span><span class="p">(</span><span class="o">-</span><span class="n">value</span><span class="p">,</span> <span class="n">bits</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">result</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">bits</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="crc4">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.crc4.html#pylab_ml.common.data.crc4">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">crc4</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>             <span class="c1"># width</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate 4-bit crc from a data with width bits.</span>
+
+<span class="sd">    polynomial = X4+X+1</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data</span><span class="si">:</span><span class="s1">0b</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">crcdat</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">bit</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">doinvert</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="n">crcdat</span> <span class="o">&amp;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">)</span>      <span class="c1"># DoInvert = (&#39;1&#39;==BitString[i]) ^ CRC[3];</span>
+        <span class="n">crc</span> <span class="o">=</span> <span class="p">(</span><span class="n">crcdat</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xc</span>                      <span class="c1"># CRC[3] = CRC[2]; CRC[2] = CRC[1];</span>
+        <span class="n">crc</span> <span class="o">|=</span> <span class="p">((</span><span class="n">crcdat</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">^</span> <span class="n">doinvert</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>          <span class="c1"># CRC[1] = CRC[0] ^ DoInvert;</span>
+        <span class="n">crc</span> <span class="o">|=</span> <span class="n">doinvert</span>                                <span class="c1"># CRC[0] = DoInvert;</span>
+        <span class="n">crcdat</span> <span class="o">=</span> <span class="n">crc</span>
+    <span class="k">return</span> <span class="n">crc</span></div>
+
+
+
+<div class="viewcode-block" id="crc16">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.crc16.html#pylab_ml.common.data.crc16">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">crc16</span><span class="p">(</span><span class="n">word_array</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate CRC-16 on array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    word_array : 16-bit word array</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    CRC-16</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">crctable</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x0000</span><span class="p">,</span> <span class="mh">0x1021</span><span class="p">,</span> <span class="mh">0x2042</span><span class="p">,</span> <span class="mh">0x3063</span><span class="p">,</span> <span class="mh">0x4084</span><span class="p">,</span> <span class="mh">0x50A5</span><span class="p">,</span> <span class="mh">0x60C6</span><span class="p">,</span> <span class="mh">0x70E7</span><span class="p">,</span>
+                <span class="mh">0x8108</span><span class="p">,</span> <span class="mh">0x9129</span><span class="p">,</span> <span class="mh">0xA14A</span><span class="p">,</span> <span class="mh">0xB16B</span><span class="p">,</span> <span class="mh">0xC18C</span><span class="p">,</span> <span class="mh">0xD1AD</span><span class="p">,</span> <span class="mh">0xE1CE</span><span class="p">,</span> <span class="mh">0xF1EF</span><span class="p">,</span>
+                <span class="mh">0x1231</span><span class="p">,</span> <span class="mh">0x0210</span><span class="p">,</span> <span class="mh">0x3273</span><span class="p">,</span> <span class="mh">0x2252</span><span class="p">,</span> <span class="mh">0x52B5</span><span class="p">,</span> <span class="mh">0x4294</span><span class="p">,</span> <span class="mh">0x72F7</span><span class="p">,</span> <span class="mh">0x62D6</span><span class="p">,</span>
+                <span class="mh">0x9339</span><span class="p">,</span> <span class="mh">0x8318</span><span class="p">,</span> <span class="mh">0xB37B</span><span class="p">,</span> <span class="mh">0xA35A</span><span class="p">,</span> <span class="mh">0xD3BD</span><span class="p">,</span> <span class="mh">0xC39C</span><span class="p">,</span> <span class="mh">0xF3FF</span><span class="p">,</span> <span class="mh">0xE3DE</span><span class="p">,</span>
+                <span class="mh">0x2462</span><span class="p">,</span> <span class="mh">0x3443</span><span class="p">,</span> <span class="mh">0x0420</span><span class="p">,</span> <span class="mh">0x1401</span><span class="p">,</span> <span class="mh">0x64E6</span><span class="p">,</span> <span class="mh">0x74C7</span><span class="p">,</span> <span class="mh">0x44A4</span><span class="p">,</span> <span class="mh">0x5485</span><span class="p">,</span>
+                <span class="mh">0xA56A</span><span class="p">,</span> <span class="mh">0xB54B</span><span class="p">,</span> <span class="mh">0x8528</span><span class="p">,</span> <span class="mh">0x9509</span><span class="p">,</span> <span class="mh">0xE5EE</span><span class="p">,</span> <span class="mh">0xF5CF</span><span class="p">,</span> <span class="mh">0xC5AC</span><span class="p">,</span> <span class="mh">0xD58D</span><span class="p">,</span>
+                <span class="mh">0x3653</span><span class="p">,</span> <span class="mh">0x2672</span><span class="p">,</span> <span class="mh">0x1611</span><span class="p">,</span> <span class="mh">0x0630</span><span class="p">,</span> <span class="mh">0x76D7</span><span class="p">,</span> <span class="mh">0x66F6</span><span class="p">,</span> <span class="mh">0x5695</span><span class="p">,</span> <span class="mh">0x46B4</span><span class="p">,</span>
+                <span class="mh">0xB75B</span><span class="p">,</span> <span class="mh">0xA77A</span><span class="p">,</span> <span class="mh">0x9719</span><span class="p">,</span> <span class="mh">0x8738</span><span class="p">,</span> <span class="mh">0xF7DF</span><span class="p">,</span> <span class="mh">0xE7FE</span><span class="p">,</span> <span class="mh">0xD79D</span><span class="p">,</span> <span class="mh">0xC7BC</span><span class="p">,</span>
+                <span class="mh">0x48C4</span><span class="p">,</span> <span class="mh">0x58E5</span><span class="p">,</span> <span class="mh">0x6886</span><span class="p">,</span> <span class="mh">0x78A7</span><span class="p">,</span> <span class="mh">0x0840</span><span class="p">,</span> <span class="mh">0x1861</span><span class="p">,</span> <span class="mh">0x2802</span><span class="p">,</span> <span class="mh">0x3823</span><span class="p">,</span>
+                <span class="mh">0xC9CC</span><span class="p">,</span> <span class="mh">0xD9ED</span><span class="p">,</span> <span class="mh">0xE98E</span><span class="p">,</span> <span class="mh">0xF9AF</span><span class="p">,</span> <span class="mh">0x8948</span><span class="p">,</span> <span class="mh">0x9969</span><span class="p">,</span> <span class="mh">0xA90A</span><span class="p">,</span> <span class="mh">0xB92B</span><span class="p">,</span>
+                <span class="mh">0x5AF5</span><span class="p">,</span> <span class="mh">0x4AD4</span><span class="p">,</span> <span class="mh">0x7AB7</span><span class="p">,</span> <span class="mh">0x6A96</span><span class="p">,</span> <span class="mh">0x1A71</span><span class="p">,</span> <span class="mh">0x0A50</span><span class="p">,</span> <span class="mh">0x3A33</span><span class="p">,</span> <span class="mh">0x2A12</span><span class="p">,</span>
+                <span class="mh">0xDBFD</span><span class="p">,</span> <span class="mh">0xCBDC</span><span class="p">,</span> <span class="mh">0xFBBF</span><span class="p">,</span> <span class="mh">0xEB9E</span><span class="p">,</span> <span class="mh">0x9B79</span><span class="p">,</span> <span class="mh">0x8B58</span><span class="p">,</span> <span class="mh">0xBB3B</span><span class="p">,</span> <span class="mh">0xAB1A</span><span class="p">,</span>
+                <span class="mh">0x6CA6</span><span class="p">,</span> <span class="mh">0x7C87</span><span class="p">,</span> <span class="mh">0x4CE4</span><span class="p">,</span> <span class="mh">0x5CC5</span><span class="p">,</span> <span class="mh">0x2C22</span><span class="p">,</span> <span class="mh">0x3C03</span><span class="p">,</span> <span class="mh">0x0C60</span><span class="p">,</span> <span class="mh">0x1C41</span><span class="p">,</span>
+                <span class="mh">0xEDAE</span><span class="p">,</span> <span class="mh">0xFD8F</span><span class="p">,</span> <span class="mh">0xCDEC</span><span class="p">,</span> <span class="mh">0xDDCD</span><span class="p">,</span> <span class="mh">0xAD2A</span><span class="p">,</span> <span class="mh">0xBD0B</span><span class="p">,</span> <span class="mh">0x8D68</span><span class="p">,</span> <span class="mh">0x9D49</span><span class="p">,</span>
+                <span class="mh">0x7E97</span><span class="p">,</span> <span class="mh">0x6EB6</span><span class="p">,</span> <span class="mh">0x5ED5</span><span class="p">,</span> <span class="mh">0x4EF4</span><span class="p">,</span> <span class="mh">0x3E13</span><span class="p">,</span> <span class="mh">0x2E32</span><span class="p">,</span> <span class="mh">0x1E51</span><span class="p">,</span> <span class="mh">0x0E70</span><span class="p">,</span>
+                <span class="mh">0xFF9F</span><span class="p">,</span> <span class="mh">0xEFBE</span><span class="p">,</span> <span class="mh">0xDFDD</span><span class="p">,</span> <span class="mh">0xCFFC</span><span class="p">,</span> <span class="mh">0xBF1B</span><span class="p">,</span> <span class="mh">0xAF3A</span><span class="p">,</span> <span class="mh">0x9F59</span><span class="p">,</span> <span class="mh">0x8F78</span><span class="p">,</span>
+                <span class="mh">0x9188</span><span class="p">,</span> <span class="mh">0x81A9</span><span class="p">,</span> <span class="mh">0xB1CA</span><span class="p">,</span> <span class="mh">0xA1EB</span><span class="p">,</span> <span class="mh">0xD10C</span><span class="p">,</span> <span class="mh">0xC12D</span><span class="p">,</span> <span class="mh">0xF14E</span><span class="p">,</span> <span class="mh">0xE16F</span><span class="p">,</span>
+                <span class="mh">0x1080</span><span class="p">,</span> <span class="mh">0x00A1</span><span class="p">,</span> <span class="mh">0x30C2</span><span class="p">,</span> <span class="mh">0x20E3</span><span class="p">,</span> <span class="mh">0x5004</span><span class="p">,</span> <span class="mh">0x4025</span><span class="p">,</span> <span class="mh">0x7046</span><span class="p">,</span> <span class="mh">0x6067</span><span class="p">,</span>
+                <span class="mh">0x83B9</span><span class="p">,</span> <span class="mh">0x9398</span><span class="p">,</span> <span class="mh">0xA3FB</span><span class="p">,</span> <span class="mh">0xB3DA</span><span class="p">,</span> <span class="mh">0xC33D</span><span class="p">,</span> <span class="mh">0xD31C</span><span class="p">,</span> <span class="mh">0xE37F</span><span class="p">,</span> <span class="mh">0xF35E</span><span class="p">,</span>
+                <span class="mh">0x02B1</span><span class="p">,</span> <span class="mh">0x1290</span><span class="p">,</span> <span class="mh">0x22F3</span><span class="p">,</span> <span class="mh">0x32D2</span><span class="p">,</span> <span class="mh">0x4235</span><span class="p">,</span> <span class="mh">0x5214</span><span class="p">,</span> <span class="mh">0x6277</span><span class="p">,</span> <span class="mh">0x7256</span><span class="p">,</span>
+                <span class="mh">0xB5EA</span><span class="p">,</span> <span class="mh">0xA5CB</span><span class="p">,</span> <span class="mh">0x95A8</span><span class="p">,</span> <span class="mh">0x8589</span><span class="p">,</span> <span class="mh">0xF56E</span><span class="p">,</span> <span class="mh">0xE54F</span><span class="p">,</span> <span class="mh">0xD52C</span><span class="p">,</span> <span class="mh">0xC50D</span><span class="p">,</span>
+                <span class="mh">0x34E2</span><span class="p">,</span> <span class="mh">0x24C3</span><span class="p">,</span> <span class="mh">0x14A0</span><span class="p">,</span> <span class="mh">0x0481</span><span class="p">,</span> <span class="mh">0x7466</span><span class="p">,</span> <span class="mh">0x6447</span><span class="p">,</span> <span class="mh">0x5424</span><span class="p">,</span> <span class="mh">0x4405</span><span class="p">,</span>
+                <span class="mh">0xA7DB</span><span class="p">,</span> <span class="mh">0xB7FA</span><span class="p">,</span> <span class="mh">0x8799</span><span class="p">,</span> <span class="mh">0x97B8</span><span class="p">,</span> <span class="mh">0xE75F</span><span class="p">,</span> <span class="mh">0xF77E</span><span class="p">,</span> <span class="mh">0xC71D</span><span class="p">,</span> <span class="mh">0xD73C</span><span class="p">,</span>
+                <span class="mh">0x26D3</span><span class="p">,</span> <span class="mh">0x36F2</span><span class="p">,</span> <span class="mh">0x0691</span><span class="p">,</span> <span class="mh">0x16B0</span><span class="p">,</span> <span class="mh">0x6657</span><span class="p">,</span> <span class="mh">0x7676</span><span class="p">,</span> <span class="mh">0x4615</span><span class="p">,</span> <span class="mh">0x5634</span><span class="p">,</span>
+                <span class="mh">0xD94C</span><span class="p">,</span> <span class="mh">0xC96D</span><span class="p">,</span> <span class="mh">0xF90E</span><span class="p">,</span> <span class="mh">0xE92F</span><span class="p">,</span> <span class="mh">0x99C8</span><span class="p">,</span> <span class="mh">0x89E9</span><span class="p">,</span> <span class="mh">0xB98A</span><span class="p">,</span> <span class="mh">0xA9AB</span><span class="p">,</span>
+                <span class="mh">0x5844</span><span class="p">,</span> <span class="mh">0x4865</span><span class="p">,</span> <span class="mh">0x7806</span><span class="p">,</span> <span class="mh">0x6827</span><span class="p">,</span> <span class="mh">0x18C0</span><span class="p">,</span> <span class="mh">0x08E1</span><span class="p">,</span> <span class="mh">0x3882</span><span class="p">,</span> <span class="mh">0x28A3</span><span class="p">,</span>
+                <span class="mh">0xCB7D</span><span class="p">,</span> <span class="mh">0xDB5C</span><span class="p">,</span> <span class="mh">0xEB3F</span><span class="p">,</span> <span class="mh">0xFB1E</span><span class="p">,</span> <span class="mh">0x8BF9</span><span class="p">,</span> <span class="mh">0x9BD8</span><span class="p">,</span> <span class="mh">0xABBB</span><span class="p">,</span> <span class="mh">0xBB9A</span><span class="p">,</span>
+                <span class="mh">0x4A75</span><span class="p">,</span> <span class="mh">0x5A54</span><span class="p">,</span> <span class="mh">0x6A37</span><span class="p">,</span> <span class="mh">0x7A16</span><span class="p">,</span> <span class="mh">0x0AF1</span><span class="p">,</span> <span class="mh">0x1AD0</span><span class="p">,</span> <span class="mh">0x2AB3</span><span class="p">,</span> <span class="mh">0x3A92</span><span class="p">,</span>
+                <span class="mh">0xFD2E</span><span class="p">,</span> <span class="mh">0xED0F</span><span class="p">,</span> <span class="mh">0xDD6C</span><span class="p">,</span> <span class="mh">0xCD4D</span><span class="p">,</span> <span class="mh">0xBDAA</span><span class="p">,</span> <span class="mh">0xAD8B</span><span class="p">,</span> <span class="mh">0x9DE8</span><span class="p">,</span> <span class="mh">0x8DC9</span><span class="p">,</span>
+                <span class="mh">0x7C26</span><span class="p">,</span> <span class="mh">0x6C07</span><span class="p">,</span> <span class="mh">0x5C64</span><span class="p">,</span> <span class="mh">0x4C45</span><span class="p">,</span> <span class="mh">0x3CA2</span><span class="p">,</span> <span class="mh">0x2C83</span><span class="p">,</span> <span class="mh">0x1CE0</span><span class="p">,</span> <span class="mh">0x0CC1</span><span class="p">,</span>
+                <span class="mh">0xEF1F</span><span class="p">,</span> <span class="mh">0xFF3E</span><span class="p">,</span> <span class="mh">0xCF5D</span><span class="p">,</span> <span class="mh">0xDF7C</span><span class="p">,</span> <span class="mh">0xAF9B</span><span class="p">,</span> <span class="mh">0xBFBA</span><span class="p">,</span> <span class="mh">0x8FD9</span><span class="p">,</span> <span class="mh">0x9FF8</span><span class="p">,</span>
+                <span class="mh">0x6E17</span><span class="p">,</span> <span class="mh">0x7E36</span><span class="p">,</span> <span class="mh">0x4E55</span><span class="p">,</span> <span class="mh">0x5E74</span><span class="p">,</span> <span class="mh">0x2E93</span><span class="p">,</span> <span class="mh">0x3EB2</span><span class="p">,</span> <span class="mh">0x0ED1</span><span class="p">,</span> <span class="mh">0x1EF0</span><span class="p">]</span>
+
+    <span class="n">crc</span> <span class="o">=</span> <span class="mh">0xFFFF</span>
+
+    <span class="k">for</span> <span class="n">currWord</span> <span class="ow">in</span> <span class="n">word_array</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">currByte</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)(</span><span class="n">currWord</span> <span class="o">&amp;</span> <span class="mh">0x00FF</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">currByte</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)((</span><span class="n">currWord</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x00FF</span><span class="p">)</span>
+            <span class="n">crc</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)((</span><span class="n">crc</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span><span class="p">)</span> <span class="o">^</span> <span class="n">crctable</span><span class="p">[((</span><span class="n">crc</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="n">currByte</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x00FF</span><span class="p">]</span>
+    <span class="n">crc_low</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)(</span><span class="n">crc</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="n">crc_high</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)(</span><span class="n">crc</span><span class="p">)</span>
+    <span class="n">crc_swap</span> <span class="o">=</span> <span class="n">crc_low</span> <span class="o">|</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">(</span><span class="n">crc_high</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">crc_swap</span></div>
+
+
+
+<div class="viewcode-block" id="j1850_crc">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.j1850_crc.html#pylab_ml.common.data.j1850_crc">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">j1850_crc</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;J1850 CRC-Calculation.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    buffer : arry of byte</span>
+<span class="sd">        DESCRIPTION.</span>
+<span class="sd">    length : integer value</span>
+<span class="sd">        frame length</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">       crc result</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">length</span>
+    <span class="n">crc_reg</span> <span class="o">=</span> <span class="mh">0xff</span>
+
+    <span class="k">for</span> <span class="n">byte_count</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+        <span class="n">bit_point</span> <span class="o">=</span> <span class="mh">0x80</span>
+        <span class="k">for</span> <span class="n">bit_count</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">bit_point</span> <span class="o">&amp;</span> <span class="n">buffer</span><span class="p">[</span><span class="n">byte_count</span><span class="p">]:</span>                 <span class="c1"># case for new bit = 1</span>
+                <span class="n">poly</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">crc_reg</span> <span class="o">&amp;</span> <span class="mh">0x80</span> <span class="k">else</span> <span class="mh">0x1c</span>           <span class="c1"># define the polynomial</span>
+                <span class="n">crc_reg</span> <span class="o">=</span> <span class="p">((</span><span class="n">crc_reg</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff</span> <span class="o">|</span> <span class="mi">1</span><span class="p">)</span> <span class="o">^</span> <span class="n">poly</span>
+            <span class="k">else</span><span class="p">:</span>                                              <span class="c1"># case for new bit = 0</span>
+                <span class="n">poly</span> <span class="o">=</span> <span class="mh">0x1d</span> <span class="k">if</span> <span class="n">crc_reg</span> <span class="o">&amp;</span> <span class="mh">0x80</span> <span class="k">else</span> <span class="mi">0</span>
+                <span class="n">crc_reg</span> <span class="o">=</span> <span class="p">((</span><span class="n">crc_reg</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">)</span> <span class="o">^</span> <span class="n">poly</span>
+            <span class="n">bit_point</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">complement</span><span class="p">(</span><span class="n">crc_reg</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>                            <span class="c1"># Return CRC</span></div>
+
+
+
+<div class="viewcode-block" id="Parity">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.Parity.html#pylab_ml.common.data.Parity">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">Parity</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">even</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the parity-bit from the data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : int</span>
+<span class="sd">    even : selection parity, even or odd</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">      1 if data is even numbers of &quot;1&quot;</span>
+<span class="sd">      0 if data is odd numbers of &quot;1&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">parity</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">even</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="n">parity</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">parity</span> <span class="o">%</span> <span class="mi">2</span></div>
+
+
+
+<div class="viewcode-block" id="datetime">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.datetime.html#pylab_ml.common.data.datetime">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">datetime</span><span class="p">(</span><span class="n">typ</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the acual time as a string (year, month, day, _, hour, min, sec).&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">typ</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_year</span><span class="si">:</span><span class="s1">04d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_mon</span><span class="si">:</span><span class="s1">02d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_mday</span><span class="si">:</span><span class="s1">02d</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_hour</span><span class="si">:</span><span class="s1">02d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_min</span><span class="si">:</span><span class="s1">02d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_sec</span><span class="si">:</span><span class="s1">02d</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;str&quot;&quot;&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y/%m/</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="str2num">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.str2num.html#pylab_ml.common.data.str2num">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">str2num</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;translate str to numeric value.</span>
+
+<span class="sd">    if value start with 0x than it is a hex number.</span>
+<span class="sd">    if value start with 0b than it is a binary number.</span>
+<span class="sd">    if value = &#39;&#39; -&gt; set to default value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#    if type(value) in [bool, int, float, np.int32, np.float64]:</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">default</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;0x&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="mi">16</span>
+    <span class="k">elif</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;0b&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">value</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

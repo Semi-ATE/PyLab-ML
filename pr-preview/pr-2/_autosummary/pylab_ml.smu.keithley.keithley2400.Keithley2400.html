@@ -1,0 +1,768 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.smu.keithley.keithley2400.Keithley2400 &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pylab_ml.smu.keithley.keithley2602" href="pylab_ml.smu.keithley.keithley2602.html" />
+    <link rel="prev" title="pylab_ml.smu.keithley.keithley2400" href="pylab_ml.smu.keithley.keithley2400.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="pylab_ml.html">pylab_ml</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.misc.registermaster.html">pylab_ml.misc.registermaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.softscope.html">pylab_ml.scope.softscope</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="pylab_ml.smu.html">pylab_ml.smu</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.html">pylab_ml</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.smu.html">pylab_ml.smu</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.smu.keithley.keithley2400.html">pylab_ml.smu.keithley.keithley2400</a></li>
+      <li class="breadcrumb-item active">pylab_ml.smu.keithley.keithley2400.Keithley2400</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pylab_ml.smu.keithley.keithley2400.Keithley2400.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pylab-ml-smu-keithley-keithley2400-keithley2400">
+<h1>pylab_ml.smu.keithley.keithley2400.Keithley2400<a class="headerlink" href="#pylab-ml-smu-keithley-keithley2400-keithley2400" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Keithley2400</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/keithley/keithley2400.html#Keithley2400"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pylab_ml.smu.keithley.base_keithley.Keithley.html#pylab_ml.smu.keithley.base_keithley.Keithley" title="pylab_ml.smu.keithley.base_keithley.Keithley"><code class="xref py py-class docutils literal notranslate"><span class="pre">Keithley</span></code></a></p>
+<p>Interface to the Power-Measuremet-Unit (SMU) Keithley2400.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>May 05, 2026</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Semi-ATE &lt;<a class="reference external" href="mailto:info&#37;&#52;&#48;Semi-ATE&#46;org">info<span>&#64;</span>Semi-ATE<span>&#46;</span>org</a>&gt;</p>
+</dd>
+</dl>
+<img alt="../_images/kethley2400.jpg" src="../_images/kethley2400.jpg" />
+<p>The Keithley2400 can
+source and sink power in all four voltage/current quadrants and
+measure voltage and current precisely</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/keithley/keithley2400.html#Keithley2400.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.__init__" title="Link to this definition"></a></dt>
+<dd><p>Connect and initialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>addr</strong> (<em>int</em>) – interface address</p></li>
+<li><p><strong>interface</strong> (<a class="reference internal" href="pylab_ml.collate_instrument.Interface.html#pylab_ml.collate_instrument.Interface" title="pylab_ml.collate_instrument.Interface"><em>Interface</em></a>) – gpib, usbserial</p></li>
+<li><p><strong>backend</strong> (<em>str</em>) – visa backend is either <a class="reference external" href="mailto:'&#37;&#52;&#48;ni">‘<span>&#64;</span>ni</a>’ for NI-Library or
+<a class="reference external" href="mailto:'&#37;&#52;&#48;py">‘<span>&#64;</span>py</a>’ for pure python pyvisa-py backend.
+On default it uses <a class="reference external" href="mailto:'&#37;&#52;&#48;ni">‘<span>&#64;</span>ni</a>’ on win32 and <a class="reference external" href="mailto:'&#37;&#52;&#48;py">‘<span>&#64;</span>py</a>’ on
+other platforms.</p></li>
+<li><p><strong>instName</strong> (<em>string</em>) – Instance Name from parent.</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Example: Initialization</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span> <span class="o">=</span> <span class="n">Keithley2400</span><span class="p">(</span><span class="n">addr</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>  <span class="c1"># GPIB or USB address</span>
+<span class="gp">&gt;&gt;&gt; </span>                             <span class="c1">#  validate displayed message Id on device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>                   <span class="c1"># connect and initialize instrument</span>
+</pre></div>
+</div>
+</dd>
+<dt>Example: Voltage source</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="o">.</span><span class="n">i_clamp</span> <span class="o">=</span> <span class="mf">0.01</span>           <span class="c1"># current protection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="o">.</span><span class="n">voltage</span> <span class="o">=</span> <span class="mf">3.3</span>            <span class="c1"># set output voltage</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">vdd</span><span class="o">.</span><span class="n">current</span>              <span class="c1"># measure (supply) current</span>
+</pre></div>
+</div>
+</dd>
+<dt>Example: Current source</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="o">.</span><span class="n">v_clamp</span> <span class="o">=</span> <span class="mi">5</span>              <span class="c1"># voltage protection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mf">0.1</span>            <span class="c1"># set output current_range</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">vdd</span><span class="o">.</span><span class="n">voltage</span>              <span class="c1"># measure voltage</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.__init__" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([addr, interface, backend, ...])</p></td>
+<td><p>Connect and initialize.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.clear" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<td><p>Clear error status.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.close" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code></a>([force])</p></td>
+<td><p>Close connection to instrument.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.com_recover" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.com_recover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">com_recover</span></code></a>([fix])</p></td>
+<td><p>Detect &amp; attempt to recover out of step communication (maybe after timeout).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.error_list" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.error_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">error_list</span></code></a>()</p></td>
+<td><p>List of instrument errors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.find_names" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.find_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_names</span></code></a>()</p></td>
+<td><p>find_names() returns list of identifiers strings, lhs of = assignments</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.get_values" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.get_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_values</span></code></a>([typ])</p></td>
+<td><p>Transfer last requested measurement sweep results.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">help</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.identify" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.identify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identify</span></code></a>([showInstName])</p></td>
+<td><p>Identify message.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.init" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init</span></code></a>([identify])</p></td>
+<td><p>Connect to Keithley instrument and initialize.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.local" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.local"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local</span></code></a>()</p></td>
+<td><p>Switch back to local instrument control.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.message" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.message"><code class="xref py py-obj docutils literal notranslate"><span class="pre">message</span></code></a>([message])</p></td>
+<td><p>Message display.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mfilter</span></code>(input)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_add" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_add</span></code></a>(client, instrument[, liste, qos])</p></td>
+<td><p>Add the instrument to mqtt.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_disconnect" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_disconnect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_disconnect</span></code></a>()</p></td>
+<td><p>Remove the instrument from mqtt.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.off" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.off"><code class="xref py py-obj docutils literal notranslate"><span class="pre">off</span></code></a>()</p></td>
+<td><p>Deactivate outputs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.on" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on</span></code></a>()</p></td>
+<td><p>Reactivate outputs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.publish" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.publish"><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish</span></code></a>(topic, value)</p></td>
+<td><p>Publish topic as type='cmd' with paylad=value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.publish_get" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.publish_get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish_get</span></code></a>(function_name, value)</p></td>
+<td><p>Publish function_name as type='get' with paylad=value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.publish_set" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.publish_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish_set</span></code></a>(function_name, value)</p></td>
+<td><p>Publish function_name as type='set' with paylad=value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.reset" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
+<td><p>Reset and switch beep off.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.setup_inst" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.setup_inst"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_inst</span></code></a>()</p></td>
+<td><p>Start setup instrument settings, called from class instruments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_sweep" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_sweep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stair_sweep</span></code></a>(start, stop, dstep[, stime, ...])</p></td>
+<td><p>Sweep V or I, measure v,i,r at time t with state s, change by dstep, steptime stime, wait for response.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.I_autorange" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.I_autorange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">I_autorange</span></code></a></p></td>
+<td><p>Autorange drive current on or off.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.I_range" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.I_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">I_range</span></code></a></p></td>
+<td><p>Set the current drive range (A).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.V_autorange" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.V_autorange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">V_autorange</span></code></a></p></td>
+<td><p>Autorange drive voltage on or off.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.V_range" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.V_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">V_range</span></code></a></p></td>
+<td><p>Set the voltage drive range (V).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.Voltage" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.Voltage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Voltage</span></code></a></p></td>
+<td><p>Get driver Voltage.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.channel" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.channel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">channel</span></code></a></p></td>
+<td><p>Set/get channel number if the instrument have more than one channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">command</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.current" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.current"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current</span></code></a></p></td>
+<td><p>Get or set output current.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.i_autorange" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.i_autorange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">i_autorange</span></code></a></p></td>
+<td><p>Autorange current measurement on or off.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.i_clamp" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.i_clamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">i_clamp</span></code></a></p></td>
+<td><p>Set the current clamping (A), will adjust current measurement range.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.i_range" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.i_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">i_range</span></code></a></p></td>
+<td><p>Set the current measurement range (A), will adjust current clamping.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.id" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">id</span></code></a></p></td>
+<td><p>Query IDN.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.instName" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.instName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">instName</span></code></a></p></td>
+<td><p>Return with instname or instname[ch] if it has channels.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">interchoices</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.measure" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.measure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure</span></code></a></p></td>
+<td><p>Get or set measure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.measurecnt" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.measurecnt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measurecnt</span></code></a></p></td>
+<td><p>Set/get the number of measurement to be carried out in a loop.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_enable</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_list</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_status" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_status</span></code></a></p></td>
+<td><p>Getter for the mqtt_status.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.nplc" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.nplc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nplc</span></code></a></p></td>
+<td><p>Set the conversion number of power line cycles accuracy, for all converters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.onoff" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.onoff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">onoff</span></code></a></p></td>
+<td><p>Set/get on state (True).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">output_function</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_slope" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_slope"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stair_slope</span></code></a></p></td>
+<td><p>Set incremental ramp to target or (target,slopetime).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_step" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stair_step</span></code></a></p></td>
+<td><p>Set incremental ramp to target or (target,dstep) or (target,dstep,stime).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.v_autorange" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.v_autorange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_autorange</span></code></a></p></td>
+<td><p>Autorange voltage measurement on or off.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.v_clamp" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.v_clamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_clamp</span></code></a></p></td>
+<td><p>Set the voltage clamping (V), will adjust voltage measurement range.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.v_protection" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.v_protection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_protection</span></code></a></p></td>
+<td><p>Set the voltage protection limit|default|min|max, get 4 value tuple.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.v_range" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.v_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">v_range</span></code></a></p></td>
+<td><p>Set the voltage measurement range, will adjust voltage clamping.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.voltage" title="pylab_ml.smu.keithley.keithley2400.Keithley2400.voltage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">voltage</span></code></a></p></td>
+<td><p>Get or set output voltage.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.I_autorange">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">I_autorange</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.I_autorange" title="Link to this definition"></a></dt>
+<dd><p>Autorange drive current on or off.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.I_range">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">I_range</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.I_range" title="Link to this definition"></a></dt>
+<dd><p>Set the current drive range (A).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.V_autorange">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">V_autorange</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.V_autorange" title="Link to this definition"></a></dt>
+<dd><p>Autorange drive voltage on or off.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.V_range">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">V_range</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.V_range" title="Link to this definition"></a></dt>
+<dd><p>Set the voltage drive range (V).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.Voltage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Voltage</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.Voltage" title="Link to this definition"></a></dt>
+<dd><p>Get driver Voltage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>driver Voltage (in V).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>value(float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.channel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channel</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.channel" title="Link to this definition"></a></dt>
+<dd><p>Set/get channel number if the instrument have more than one channel.</p>
+<dl>
+<dt>you can also use:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span> <span class="o">=</span> <span class="mi">5</span>           <span class="c1"># set voltage from channel 0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vdd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mf">0.1</span>         <span class="c1"># set current from channel 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">vdd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span>           <span class="c1"># measure voltage from channel 1</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.clear" title="Link to this definition"></a></dt>
+<dd><p>Clear error status.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.close" title="Link to this definition"></a></dt>
+<dd><p>Close connection to instrument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.com_recover">
+<span class="sig-name descname"><span class="pre">com_recover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.com_recover" title="Link to this definition"></a></dt>
+<dd><p>Detect &amp; attempt to recover out of step communication (maybe after timeout).</p>
+<p>Can lose coherency between read request and data, usually because of Timeout
+this routine can diagnose such loss of coherency and attempt to fix it, when fix=True</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.current">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.current" title="Link to this definition"></a></dt>
+<dd><p>Get or set output current.</p>
+<p>If the current is set the output is switched on immediately.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.error_list">
+<span class="sig-name descname"><span class="pre">error_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.error_list" title="Link to this definition"></a></dt>
+<dd><p>List of instrument errors.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.find_names">
+<span class="sig-name descname"><span class="pre">find_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.find_names" title="Link to this definition"></a></dt>
+<dd><p>find_names() returns list of identifiers strings, lhs of = assignments</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.get_values">
+<span class="sig-name descname"><span class="pre">get_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/keithley/keithley2400.html#Keithley2400.get_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.get_values" title="Link to this definition"></a></dt>
+<dd><p>Transfer last requested measurement sweep results.</p>
+<p>get response of previous stair_sweep(), choosing result rows from previous request typ</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.i_autorange">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">i_autorange</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.i_autorange" title="Link to this definition"></a></dt>
+<dd><p>Autorange current measurement on or off.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.i_clamp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">i_clamp</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.i_clamp" title="Link to this definition"></a></dt>
+<dd><p>Set the current clamping (A), will adjust current measurement range.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.i_range">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">i_range</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.i_range" title="Link to this definition"></a></dt>
+<dd><p>Set the current measurement range (A), will adjust current clamping.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.id" title="Link to this definition"></a></dt>
+<dd><p>Query IDN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.identify">
+<span class="sig-name descname"><span class="pre">identify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">showInstName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.identify" title="Link to this definition"></a></dt>
+<dd><p>Identify message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.init" title="Link to this definition"></a></dt>
+<dd><p>Connect to Keithley instrument and initialize.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.instName">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instName</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.instName" title="Link to this definition"></a></dt>
+<dd><p>Return with instname or instname[ch] if it has channels.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.json">
+<span class="sig-name descname"><span class="pre">json</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;module</span> <span class="pre">'json'</span> <span class="pre">from</span> <span class="pre">'/home/runner/miniconda3/envs/test/lib/python3.9/json/__init__.py'&gt;</span></em><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.json" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.local">
+<span class="sig-name descname"><span class="pre">local</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.local" title="Link to this definition"></a></dt>
+<dd><p>Switch back to local instrument control.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.measure">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">measure</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.measure" title="Link to this definition"></a></dt>
+<dd><p>Get or set measure.</p>
+<p>where the measurements are defined by “vir” flags (VOLTAGE,CURRENT,RESISTANCE)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.measurecnt">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">measurecnt</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.measurecnt" title="Link to this definition"></a></dt>
+<dd><p>Set/get the number of measurement to be carried out in a loop.</p>
+<p>TODO: this function is not running yet, it is only a dummy</p>
+<p>if the result == None than this function not implemented.
+The return value for the measurement is calculated togetheer with the mfilter setting.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.message">
+<span class="sig-name descname"><span class="pre">message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.message" title="Link to this definition"></a></dt>
+<dd><p>Message display.</p>
+<p>instrument message (“string”) or ()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_add">
+<span class="sig-name descname"><span class="pre">mqtt_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liste</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_add" title="Link to this definition"></a></dt>
+<dd><p>Add the instrument to mqtt.</p>
+<p>calling from base_instrument, after the instrument (device) has been create.
+Normally you have not to use this function, only base_instrument use it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_disconnect">
+<span class="sig-name descname"><span class="pre">mqtt_disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_disconnect" title="Link to this definition"></a></dt>
+<dd><p>Remove the instrument from mqtt.</p>
+<p>calling from base_instrument, if the instrument are closing.
+Normally you have not to use this function, only base_instrument use it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mqtt_status</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.mqtt_status" title="Link to this definition"></a></dt>
+<dd><p>Getter for the mqtt_status.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.nplc">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nplc</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.nplc" title="Link to this definition"></a></dt>
+<dd><p>Set the conversion number of power line cycles accuracy, for all converters.</p>
+<p>for a plc of 1.0, conversion rate is 1/50s = 20ms. Accuracy max 10, min 0.01</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.off">
+<span class="sig-name descname"><span class="pre">off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/keithley/keithley2400.html#Keithley2400.off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.off" title="Link to this definition"></a></dt>
+<dd><p>Deactivate outputs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.on">
+<span class="sig-name descname"><span class="pre">on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/keithley/keithley2400.html#Keithley2400.on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.on" title="Link to this definition"></a></dt>
+<dd><p>Reactivate outputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.onoff">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">onoff</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.onoff" title="Link to this definition"></a></dt>
+<dd><p>Set/get on state (True).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.publish">
+<span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.publish" title="Link to this definition"></a></dt>
+<dd><p>Publish topic as type=’cmd’ with paylad=value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.publish_get">
+<span class="sig-name descname"><span class="pre">publish_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.publish_get" title="Link to this definition"></a></dt>
+<dd><p>Publish function_name as type=’get’ with paylad=value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.publish_set">
+<span class="sig-name descname"><span class="pre">publish_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.publish_set" title="Link to this definition"></a></dt>
+<dd><p>Publish function_name as type=’set’ with paylad=value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.reset" title="Link to this definition"></a></dt>
+<dd><p>Reset and switch beep off.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.setup_inst">
+<span class="sig-name descname"><span class="pre">setup_inst</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/keithley/keithley2400.html#Keithley2400.setup_inst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.setup_inst" title="Link to this definition"></a></dt>
+<dd><p>Start setup instrument settings, called from class instruments.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_slope">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stair_slope</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_slope" title="Link to this definition"></a></dt>
+<dd><p>Set incremental ramp to target or (target,slopetime).</p>
+<p>Stair_slope to target or target,slope_time using previous stair_sweep() parameters.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_step">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stair_step</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_step" title="Link to this definition"></a></dt>
+<dd><p>Set incremental ramp to target or (target,dstep) or (target,dstep,stime).</p>
+<p>Stair_step to target or target,dstep or target,dstep,stime, using previous stair_sweep() parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_sweep">
+<span class="sig-name descname"><span class="pre">stair_sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dstep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'V'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stair</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Lin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/smu/keithley/keithley2400.html#Keithley2400.stair_sweep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.stair_sweep" title="Link to this definition"></a></dt>
+<dd><p>Sweep V or I, measure v,i,r at time t with state s, change by dstep, steptime stime, wait for response.</p>
+<p>if dstep is None then stime is slopetime (&gt;1ms) &amp; nplc is min : 0.01</p>
+<blockquote>
+<div><dl class="simple">
+<dt>typ:    ‘Vvirts-’, ‘Ivirts-’  = Voltage / Current sourced, ‘-’ changes direction,</dt><dd><p>volts, amps, ohms, timestamp, status are sensed</p>
+</dd>
+</dl>
+<p>start:  Start value in volts or amps, None implies incremental
+stop:   Stop value in volts or amps
+dstep:  Delta amplitude for Lin, Points to interpolate for Log, stime is slope time for None (&gt;1ms)
+stime:  Delay between steps or slope time if dstep == None
+stair:  (‘Lin’,’Log) = linear or log source</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.v_autorange">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v_autorange</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.v_autorange" title="Link to this definition"></a></dt>
+<dd><p>Autorange voltage measurement on or off.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.v_clamp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v_clamp</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.v_clamp" title="Link to this definition"></a></dt>
+<dd><p>Set the voltage clamping (V), will adjust voltage measurement range.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.v_protection">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v_protection</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.v_protection" title="Link to this definition"></a></dt>
+<dd><p>Set the voltage protection limit|default|min|max, get 4 value tuple.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.v_range">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v_range</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.v_range" title="Link to this definition"></a></dt>
+<dd><p>Set the voltage measurement range, will adjust voltage clamping.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.smu.keithley.keithley2400.Keithley2400.voltage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">voltage</span></span><a class="headerlink" href="#pylab_ml.smu.keithley.keithley2400.Keithley2400.voltage" title="Link to this definition"></a></dt>
+<dd><p>Get or set output voltage.</p>
+<p>If the voltage is set the output is switched on immediately.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pylab_ml.smu.keithley.keithley2400.html" class="btn btn-neutral float-left" title="pylab_ml.smu.keithley.keithley2400" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pylab_ml.smu.keithley.keithley2602.html" class="btn btn-neutral float-right" title="pylab_ml.smu.keithley.keithley2602" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
