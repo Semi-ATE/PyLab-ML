@@ -1405,7 +1405,7 @@ class RegisterMaster(mqtt_deviceattributes):
                 mybank = bank if adr >= bank else mybank
             # self._bank = mybank
             self._len_slices = self.mapping[mybank]
-            # adr = adr - mybank   # TODO: cj 7.2.2026 das ist doch falsch, überprüfen mit HATC!!!!
+            # adr = adr - mybank   # TODO: cj 7.2.2026 das ist doch falsch, check it with a real project
         else:
             self._bank = None
             self._len_slices = None
@@ -1416,17 +1416,17 @@ class RegisterMaster(mqtt_deviceattributes):
         regs = self._register_to_list()
         call = ast.parse(callstr, mode='eval').body
         args = [ast.literal_eval(a) for a in call.args]
-        kwargs = {kw.arg:ast.literal_eval(kw.value) for kw in call.keywords}
+        kwargs = {kw.arg: ast.literal_eval(kw.value) for kw in call.keywords}
         index = 0
         dat = args[0]
-        result = 0 if type(dat) == list else []
+        result = 0 if type(dat) is list else []
         for reg in regs:
             if fnmatch.fnmatchcase(reg._name, adr):
                 function = getattr(getattr(self, reg._name), call.func.id)
-                if type(dat) == list:
+                if type(dat) is list:
                     args[0] = dat[index]
                 resu = function(*args, **kwargs)
-                if type(dat) == list:
+                if type(dat) is list:
                     result += resu
                 else:
                     result.append(resu)
@@ -1436,16 +1436,14 @@ class RegisterMaster(mqtt_deviceattributes):
 
     def readreg(self, adr, bank=None, compare=None, onlycheck=True, tolerance=0, mask=None):
         if type(adr) is str:
-           if len(adr) == 0:
-               mylogger.log_message(LogLevel.Error(), 'readreg: adr is empty')
-               return
-           elif adr[0].isdigit():
-               adr = list(common.arange(adr))
-           else:
-               return self._call_from_string(adr, f"read({compare}, {onlycheck}, {tolerance}, {mask})")
-        if type(adr) is  list:
-            return self._call_from_string(adr, f"read({compare}, {onlycheck}, {tolerance}, {mask})")
-        elif type(adr) is  list:
+            if len(adr) == 0:
+                mylogger.log_message(LogLevel.Error(), 'readreg: adr is empty')
+                return
+            elif adr[0].isdigit():
+                adr = list(common.arange(adr))
+            else:
+                return self._call_from_string(adr, f"read({compare}, {onlycheck}, {tolerance}, {mask})")
+        if type(adr) is list:
             result = [] if compare is None else 0
             index = 0
             for a in adr:
@@ -1515,8 +1513,6 @@ class RegisterMaster(mqtt_deviceattributes):
             else:
                 return self._call_from_string(adr, f"write({dat})")
         if type(adr) is list:
-            return self._call_from_string(adr, f"write({dat})")
-        elif type(adr) is  list:
             index = 0
             for a in adr:
                 d = dat[index] if type(dat) is list else dat
