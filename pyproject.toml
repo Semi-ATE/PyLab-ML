@@ -52,7 +52,6 @@ dependencies = [
     "paho-mqtt",
     "pandas",
 	"psutil",
-	"PyQt5",
 	"pythonnet",
 	"pyserial",
 	"pyvisa",
