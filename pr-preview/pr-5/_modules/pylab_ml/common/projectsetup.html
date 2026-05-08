@@ -1,0 +1,1052 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.common.projectsetup &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.common.projectsetup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.common.projectsetup</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">projectsetup.</span>
+
+<span class="sd">Created on Thu Jan  7 17:18:03 2021</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">inspect</span><span class="w"> </span><span class="kn">import</span> <span class="n">isclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">environment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">common</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">file_io</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ate_common.logger</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">LogLevel</span><span class="p">)</span>
+
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Zlin526F&quot;</span>
+<span class="n">__credits__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Zlin526F&quot;</span><span class="p">]</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;Zlin526F@github&quot;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;0.0.1&#39;</span>
+
+<span class="n">mylogger</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="JsonDecoder">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.JsonDecoder.html#pylab_ml.common.projectsetup.JsonDecoder">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">JsonDecoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONDecoder</span><span class="p">):</span>
+
+<div class="viewcode-block" id="JsonDecoder.decode">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.JsonDecoder.html#pylab_ml.common.projectsetup.JsonDecoder.decode">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="c1"># TODO: implementend parser for hexnumbers and other special formats....</span>
+        <span class="c1"># or better use YAML-files.....</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecoder</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="diclist">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.diclist.html#pylab_ml.common.projectsetup.diclist">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">diclist</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Dictionary list.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="diclist.__init__">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.diclist.html#pylab_ml.common.projectsetup.diclist.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">myparent</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">myparent</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+            <span class="k">del</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="nb">list</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+            <span class="nb">list</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">diclist</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">keys</span><span class="p">(</span><span class="n">mylist</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<div class="viewcode-block" id="diclist.values">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.diclist.html#pylab_ml.common.projectsetup.diclist.values">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">values</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the value(s) from the key found in mylist.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">diclist</span><span class="o">.</span><span class="n">keys</span><span class="p">(</span><span class="n">mylist</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">mylist</span><span class="p">[</span><span class="n">diclist</span><span class="o">.</span><span class="n">keys</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">str2num</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="diclist.run">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.diclist.html#pylab_ml.common.projectsetup.diclist.run">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Call the runmacro from the parent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">myparent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">myparent</span><span class="p">,</span> <span class="s1">&#39;runmacro&#39;</span><span class="p">):</span>
+            <span class="n">mylogger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Debug</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;run macro </span><span class="si">{</span><span class="n">myparent</span><span class="o">.</span><span class="n">mylastdotdic</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">mylist</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">myparent</span><span class="o">.</span><span class="n">runmacro</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mylogger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;No instruction how to should interprete the list: </span><span class="si">{</span><span class="n">mylist</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="setupstr">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.setupstr.html#pylab_ml.common.projectsetup.setupstr">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">setupstr</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">arange</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">items</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">items</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">end</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">items</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="dotdict">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.dotdict.html#pylab_ml.common.projectsetup.dotdict">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">dotdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;dot.notation access to dictionary attributes.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">myget</span><span class="p">(</span><span class="n">keyname</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">keyname</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">]:</span>
+            <span class="n">myparent</span><span class="o">.</span><span class="n">mylastdotdic</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="c1"># print(f&#39;keyname: {keyname},\nvalue: {value},\nresult: {result},\n&#39;)</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># self.logger.log_message(LogLevel.Warning(), f&quot;&#39;dotdict&#39; has no attribute {value} -&gt; result is None&quot;)</span>
+                <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;dotdict&#39; has no attribute </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="fm">__getattr__</span> <span class="o">=</span> <span class="n">myget</span>                   <span class="c1"># __getattr__ = dict.get</span>
+    <span class="fm">__setattr__</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="fm">__setitem__</span>
+    <span class="fm">__delattr__</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="fm">__delitem__</span></div>
+
+
+
+<div class="viewcode-block" id="ProjectSetup">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProjectSetup</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for the Setup from your project.</span>
+
+<span class="sd">    read the tb_projectsetup.json file in the directory ..../projec/version/workarea/..../harness</span>
+
+<span class="sd">    and create instance slicing</span>
+<span class="sd">    with init.&#39;yourpath&#39;  you have access to the initialisation setup, which is defined in the tb_projectsetup.json</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">       &quot;instruments&quot;: {</span>
+<span class="sd">          &quot;smu&quot; : [</span>
+<span class="sd">              {&quot;voltage&quot;: 0},</span>
+<span class="sd">              {&quot;i_clamp&quot;: 0.2}</span>
+<span class="sd">              ]</span>
+<span class="sd">        }</span>
+<span class="sd">    ==&gt; create dictionary self.init.instruments.smu = [{&#39;voltage&#39;: 0}, {&#39;i_clamp&#39;: 0.2}]</span>
+
+<span class="sd">    TODO: possibility to overwrite the values in tb_projectsetup.json with the file in tb_ate/src/&#39;Hardware&#39;/&#39;Base&#39;/tb_projectsetup.json</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_RESULT</span> <span class="o">=</span> <span class="s1">&#39;result_projectsetup.json&#39;</span>
+    <span class="n">_SETUPFILE</span> <span class="o">=</span> <span class="s1">&#39;tb_projectsetup.json&#39;</span>
+    <span class="n">_MYCLASS</span> <span class="o">=</span> <span class="s1">&#39;myclass&#39;</span>
+
+<div class="viewcode-block" id="ProjectSetup.__init__">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise and save setup configuration to the setup-dictionary.</span>
+
+<span class="sd">        read the setup-file tb_projectsetup.json</span>
+<span class="sd">          and create all values in self.init.......</span>
+
+<span class="sd">        Args: None</span>
+
+<span class="sd">        *Examples:*</span>
+<span class="sd">           * Initialization</span>
+<span class="sd">              &gt;&gt;&gt; setup = ProjectSetup()</span>
+
+<span class="sd">           * Append some setup information:</span>
+<span class="sd">              &gt;&gt;&gt; tcc.setup.append(&#39;instruments.matrix&#39;, &#39;port&#39;, &#39;pxie6&#39;)</span>
+<span class="sd">              &gt;&gt;&gt; tcc.setup.append(&#39;instruments.smu&#39;, &#39;voltage&#39;, 5)</span>
+<span class="sd">              &gt;&gt;&gt; tcc.setup.append(&#39;instruments.smu&#39;, &#39;limit&#39;, 0.1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">mylogger</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s1">&#39;__main__&#39;</span><span class="p">]</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PROJECT_PATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">main_path</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NETWORK&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NETWORK&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span>
+        <span class="n">mylogger</span> <span class="o">=</span> <span class="n">logger</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instName</span> <span class="o">=</span> <span class="s1">&#39;setup&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mylastdotdic</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lastresult</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lastmacro</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setupfile</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">testbench_name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">apply_configuration</span><span class="p">({</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">filename</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="ProjectSetup.create_dotdic">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup.create_dotdic">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_dotdic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dic</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Make from a dictionary a dot-dictionary with diclist.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">mydic</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">mydic</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_dotdic</span><span class="p">(</span><span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">]))</span>
+                <span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_dotdic</span><span class="p">(</span><span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">]</span> <span class="o">=</span> <span class="n">diclist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span> <span class="ow">and</span> <span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>          <span class="c1"># found an arange-function -&gt; change to setupstr</span>
+                <span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">]</span> <span class="o">=</span> <span class="n">setupstr</span><span class="p">(</span><span class="n">dic</span><span class="p">[</span><span class="n">mydic</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">dotdict</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProjectSetup.initialization">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup.initialization">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">initialization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the instruments with the specified instname to its setup values in self.init.instruments.</span>
+
+<span class="sd">        and save information (if instname exist!) from the instruments to result.instruments:</span>
+<span class="sd">            - used class, version, id</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">instName</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">parent</span><span class="p">):</span>                  <span class="c1"># add information from each instrument to result.instruments</span>
+                <span class="k">if</span> <span class="n">instName</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">instrument</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">instName</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">isclass</span><span class="p">(</span><span class="n">instrument</span><span class="p">):</span>         <span class="c1"># filter out the class-definitions</span>
+                    <span class="k">if</span> <span class="n">instrument</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;RegisterMaster&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_registermaster</span> <span class="o">=</span> <span class="n">instrument</span><span class="o">.</span><span class="n">filename</span>
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">instrument</span><span class="p">,</span> <span class="s1">&#39;instName&#39;</span><span class="p">):</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">instrument</span><span class="o">.</span><span class="n">instName</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">instrument</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Logger&#39;</span><span class="p">,</span> <span class="s1">&#39;module&#39;</span><span class="p">,</span> <span class="s1">&#39;function&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">instName</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;do&#39;</span><span class="p">,</span> <span class="s1">&#39;hardware&#39;</span><span class="p">,</span> <span class="s1">&#39;sbins&#39;</span><span class="p">]:</span>
+                            <span class="k">continue</span>
+                    <span class="c1"># self.write(&#39;instruments&#39;, name, instrument.__class__)   # default is &#39;self.result.instruments&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;instruments&#39;</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>   <span class="c1"># default is &#39;self.result.instruments&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># TODO!: call runmacro and merge missing function</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;init&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Warning</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;no instrument init found in actual initialsation: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="p">[</span><span class="s1">&#39;Setupfile&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">instrument</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="p">:</span>                <span class="c1"># initialise the instances to their values in self.init</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="p">[</span><span class="n">instrument</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_instrument</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">instrument</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="s2">.init: set instruments to its setup values, defined in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">Setupfile</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_instrument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">instrument</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="ow">is</span> <span class="n">dotdict</span> <span class="ow">and</span> <span class="nb">list</span><span class="p">(</span><span class="n">items</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_MYCLASS</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">myclass</span> <span class="ow">in</span> <span class="n">items</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_MYCLASS</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">instrument</span><span class="p">)</span> <span class="ow">and</span> <span class="n">myclass</span> <span class="o">==</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">instrument</span><span class="p">)</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">init_instrument</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">instrument</span><span class="p">,</span> <span class="n">items</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_MYCLASS</span><span class="p">][</span><span class="n">myclass</span><span class="p">])</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">instrument</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">parent</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">Setupfile</span><span class="si">}</span><span class="s2">: Instrument &#39;</span><span class="si">{</span><span class="n">instrument</span><span class="si">}</span><span class="s2">&#39; not found in your Hardware configuration -&gt; do nothing&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="ow">is</span> <span class="n">dotdict</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">init_instrument</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">instrument</span><span class="p">),</span> <span class="n">item</span><span class="p">,</span> <span class="n">items</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">cpitem</span> <span class="o">=</span> <span class="n">item</span>
+            <span class="n">mypath</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">instrument</span><span class="p">)</span>        <span class="c1"># set mypath to the instrument</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">items</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">getattribute</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="n">item</span>
+                <span class="n">getattribute</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">cmd</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">split</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;parent&#39;</span><span class="p">:</span>
+                    <span class="n">mypath</span> <span class="o">=</span> <span class="n">parent</span>
+                    <span class="n">split</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">split</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">mypath</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">split</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+                    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">Setupfile</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">instrument</span><span class="si">}</span><span class="s1"> path from </span><span class="si">{</span><span class="n">cpitem</span><span class="si">}</span><span class="s1"> not found --&gt; do nothing&#39;</span><span class="p">)</span>
+                        <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="n">split</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">getattribute</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">instrument</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1"> == </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">cmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="nb">setattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>                                               <span class="c1"># it is a function call</span>
+                    <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">cmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)]</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="kc">None</span><span class="p">)(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">error</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;setup.instruments.</span><span class="si">{</span><span class="n">instrument</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">Setupfile</span><span class="si">}</span><span class="s1">:  </span><span class="si">{</span><span class="n">instrument</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">cpitem</span><span class="si">}</span><span class="s1"> not found --&gt; do nothing&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_replaceSomeThing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jsontable</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if jsontable has environment-variables starts with $, or jsontable has path-value.</span>
+
+<span class="sd">        if yes than replace environment-variables with its value,</span>
+<span class="sd">        if it a path-value than add //samba</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">jsontable</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">jsontable</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">jsontable</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">key</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_replaceSomeThing</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>   <span class="c1"># find environment variables inside the value?</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+                <span class="n">nvalue</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">tmp</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">env</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                        <span class="n">s</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;environment </span><span class="si">{</span><span class="n">env</span><span class="si">}</span><span class="s1"> not defined&#39;</span><span class="p">)</span>
+                        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                    <span class="n">nvalue</span> <span class="o">+=</span> <span class="n">s</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+                <span class="k">if</span> <span class="n">nvalue</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">jsontable</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+                        <span class="n">jsontable</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">nvalue</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">jsontable</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">nvalue</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;nt&quot;</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">jsontable</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+                    <span class="n">jsontable</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">+</span> <span class="n">value</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">jsontable</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">+</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="ProjectSetup.write">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup.write">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write path to the dictionary in my class ProjectSetup.</span>
+
+<span class="sd">        Path must be a string like &#39;instruments.smu&#39;</span>
+<span class="sd">        normaly append this path to result</span>
+<span class="sd">        if path start with setup than write to setup.path</span>
+
+<span class="sd">        e.q. write(&#39;instruments.smu&#39;, &#39;port&#39;, &#39;pxie5&#39;)</span>
+<span class="sd">             write(&#39;setup.HostName&#39;, os.environ.get(&#39;COMPUTERNAME&#39;))</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="n">lastindex</span> <span class="o">=</span> <span class="s1">&#39;result&#39;</span>
+        <span class="k">if</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;setup&#39;</span><span class="p">:</span>
+            <span class="n">lastindex</span> <span class="o">=</span> <span class="s1">&#39;setup&#39;</span>
+            <span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">mydic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">lastindex</span><span class="p">]</span>
+        <span class="n">lastdic</span> <span class="o">=</span> <span class="n">mydic</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mydic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>              <span class="c1"># than create new dictionary</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">mydic</span><span class="p">)</span> <span class="ow">is</span> <span class="n">diclist</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">mydic</span> <span class="o">==</span> <span class="p">[]:</span>
+                        <span class="n">lastdic</span><span class="p">[</span><span class="n">lastindex</span><span class="p">]</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">({</span><span class="n">index</span><span class="p">:</span> <span class="n">diclist</span><span class="p">(</span><span class="bp">self</span><span class="p">)})</span>
+                        <span class="n">mydic</span> <span class="o">=</span> <span class="n">lastdic</span><span class="p">[</span><span class="n">lastindex</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">mydic</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dotdict</span><span class="p">({</span><span class="n">index</span><span class="p">:</span> <span class="n">diclist</span><span class="p">(</span><span class="bp">self</span><span class="p">)}))</span>
+                        <span class="n">mydic</span> <span class="o">=</span> <span class="n">lastdic</span><span class="p">[</span><span class="n">lastindex</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">mydic</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">diclist</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">lastdic</span> <span class="o">=</span> <span class="n">mydic</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">mydic</span><span class="p">)</span> <span class="ow">is</span> <span class="n">diclist</span><span class="p">:</span>
+                <span class="n">mydic</span> <span class="o">=</span> <span class="n">mydic</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">mydic</span> <span class="o">=</span> <span class="n">mydic</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="n">lastindex</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">mydic</span> <span class="o">+=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mydic</span> <span class="o">+=</span> <span class="p">[{</span><span class="n">name</span><span class="p">:</span> <span class="n">value</span><span class="p">}]</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_configsave2setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">Date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y/%m/</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">Timestamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">PROJECT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PROJECT&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">VERSION</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;VERSION&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">USER</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;USER&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;USER&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">WORKAREA</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;WORKAREA&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">COMPUTERNAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;COMPUTERNAME&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">Setupfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_setupfile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">Registermaster</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_registermaster</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_registermaster&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Registermaster&#39;</span><span class="p">)</span>
+        <span class="c1"># self.setup.conda = check_output(&#39;conda -V&#39;, shell=True)[:-2].decode(&#39;utf-8&#39;)    with maxiconda doesnt&#39; running anymore!?</span>
+        <span class="c1"># self.setup.python = check_output(&#39;python -V&#39;, shell=True)[:-2].decode(&#39;utf-8&#39;)</span>
+
+<div class="viewcode-block" id="ProjectSetup.runmacro">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup.runmacro">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">runmacro</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmdlist</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute commands in the cmdlist.</span>
+
+<span class="sd">        kwargs: &#39;wr2setup&#39; : write result to the setup.result json file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">wr2setup</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="s1">&#39;output&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">wr2setup</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;wr2setup&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">macro</span> <span class="o">=</span> <span class="n">myparent</span><span class="o">.</span><span class="n">mylastdotdic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lastmacro</span> <span class="o">=</span> <span class="n">macro</span>
+        <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">cmdlist</span><span class="p">:</span>
+            <span class="n">myresult</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">myresult</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">myresult</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lastresult</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="k">if</span> <span class="n">wr2setup</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">macro</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">myresult</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lastresult</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="k">if</span> <span class="n">cmdlist</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Warning</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;Macro </span><span class="si">{</span><span class="n">macro</span><span class="si">}</span><span class="s1"> not defined in setup&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">wr2setup</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;macro&#39;</span><span class="p">,</span> <span class="n">macro</span><span class="p">,</span> <span class="s1">&#39;not defined in setup&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mycmd</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">senderror</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>              <span class="c1"># TODO! : replace call with common.strcall()</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">mycmd</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">mycmd</span> <span class="o">=</span> <span class="n">mycmd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">mycmd</span><span class="p">:</span>
+            <span class="n">cmdsplit</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="n">cmdsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;tcc&#39;</span><span class="p">:</span>
+                <span class="n">cmdsplit</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;instruments&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">cmdsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">elif</span> <span class="n">cmdsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">senderror</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cmdsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> not found in instrumentlist or in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1"> not performed&#39;</span><span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="n">mypath</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">cmdsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">cmdsplit</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmdsplit</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cmdsplit</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">mypath</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">cmdsplit</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">cmdsplit</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">cmdsplit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">myresult</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">command</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">myresult</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">myresult</span> <span class="o">=</span> <span class="nb">setattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>                                               <span class="c1"># it is a function call</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">command</span><span class="p">[</span><span class="n">command</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">command</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">)]</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">command</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)]</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;call error: &#39;</span><span class="si">{</span><span class="n">mypath</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">&#39; has no attribute &#39;</span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">None</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                    <span class="n">myresult</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="kc">None</span><span class="p">)()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">str2num</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+                        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[:</span><span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)]</span>
+                    <span class="c1"># else:</span>
+                    <span class="c1">#    logger.error(&#39;macro: variable not supported yet&#39;)</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">mydic</span> <span class="o">=</span> <span class="p">{}</span>
+                        <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+                            <span class="n">tr2dic</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+                            <span class="n">mydic</span><span class="p">[</span><span class="n">tr2dic</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">str2num</span><span class="p">(</span><span class="n">tr2dic</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                        <span class="n">myresult</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="kc">None</span><span class="p">)(</span><span class="o">**</span><span class="n">mydic</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">myresult</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="kc">None</span><span class="p">)(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">myresult</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">myresult</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<div class="viewcode-block" id="ProjectSetup.regDump">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup.regDump">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">regDump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">liste</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">invert</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bwidth</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Read values from Register and return with a list of their values.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">           liste :</span>
+<span class="sd">              * &#39;default&#39; :  if define setup.reg.nodump -&gt; read register without the registers which are defined in setup.reg.nodump</span>
+<span class="sd">                             if define setup.reg.dump   -&gt; read register which are defined in setup.reg.dump</span>
+<span class="sd">              * &#39;all&#39;     :  read all register</span>
+<span class="sd">              *  type(liste) == list : use liste as a list</span>
+
+<span class="sd">           invert :</span>
+<span class="sd">              * True : use reg that are not in the list</span>
+<span class="sd">              * False : use reg that are in the list</span>
+
+<span class="sd">           output :</span>
+<span class="sd">              = None       : return with a list of all registers (or adresses) and their values</span>
+<span class="sd">              = &#39;wr2setup&#39; : write return with a list of all registers and their values to setup.result.regs.regDump</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">knownParameter</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;wr2setup&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">output</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">knownParameter</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;output = </span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s1"> not found as parameter&#39;</span><span class="p">)</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">allregs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">allregs</span> <span class="o">=</span> <span class="n">diclist</span><span class="p">()</span>
+        <span class="n">memdump</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">dumplist</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">mylist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">register</span>
+        <span class="n">invert</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">dumplist</span> <span class="o">=</span> <span class="n">liste</span>
+
+        <span class="k">if</span> <span class="n">liste</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="p">,</span> <span class="s1">&#39;dump&#39;</span><span class="p">):</span>
+            <span class="n">dumplist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">dump</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span> <span class="ow">is</span> <span class="n">dotdict</span><span class="p">:</span>
+            <span class="n">dumplist</span> <span class="o">=</span> <span class="n">liste</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="p">,</span> <span class="s1">&#39;nodump&#39;</span><span class="p">):</span>
+            <span class="n">dumplist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">nodump</span>
+            <span class="n">invert</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">liste</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+            <span class="n">dumplist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">register</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dumplist</span> <span class="o">=</span> <span class="n">liste</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">dumplist</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">foundtcc</span> <span class="o">=</span> <span class="n">dumplist</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;self.&#39;</span><span class="p">)</span>
+            <span class="n">dumplist</span> <span class="o">=</span> <span class="n">dumplist</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span> <span class="k">if</span> <span class="n">foundtcc</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">dumplist</span>
+            <span class="n">dump</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">dumplist</span><span class="p">,</span> <span class="n">senderror</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dump</span> <span class="o">=</span> <span class="n">dumplist</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">dump</span><span class="p">)</span> <span class="ow">is</span> <span class="n">dotdict</span><span class="p">:</span>                           <span class="c1"># if it&#39;s a memorymap with different addr for the protocoll?</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">dump</span> <span class="o">=</span> <span class="n">dump</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">use</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;   regDump: read </span><span class="si">{</span><span class="n">dump</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">dump</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">setupstr</span><span class="p">]</span> <span class="ow">and</span> <span class="n">dump</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dump</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">dump</span><span class="p">)</span>
+            <span class="n">mylist</span> <span class="o">=</span> <span class="n">dump</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">regname</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">invert</span> <span class="ow">and</span> <span class="n">regname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dump</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">invert</span> <span class="ow">and</span> <span class="n">regname</span> <span class="ow">in</span> <span class="n">dump</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">regname</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+                    <span class="n">addr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">register</span><span class="p">[</span><span class="n">regname</span><span class="p">]</span><span class="o">.</span><span class="n">addr</span>
+                    <span class="n">bank</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">register</span><span class="p">[</span><span class="n">regname</span><span class="p">]</span><span class="o">.</span><span class="n">_bank</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">register</span><span class="p">[</span><span class="n">regname</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                    <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">register</span><span class="p">[</span><span class="n">regname</span><span class="p">]</span><span class="o">.</span><span class="n">_len_slices</span><span class="p">()</span> <span class="o">//</span> <span class="mi">4</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">addr</span> <span class="o">=</span> <span class="n">regname</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">readreg</span><span class="p">(</span><span class="n">regname</span><span class="p">)</span>
+                    <span class="n">bank</span> <span class="o">=</span> <span class="mi">0</span>                                    <span class="c1"># self.parent.regs._bank</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">_len_slices</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">_len_slices</span> <span class="o">//</span> <span class="mi">4</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">width</span> <span class="o">=</span> <span class="n">bwidth</span> <span class="o">//</span> <span class="mi">4</span>
+                    <span class="n">regname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">regname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">regname</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dumplist</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
+                <span class="n">error</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">error</span>
+                <span class="k">if</span> <span class="n">output</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">&#39;wr2setup&#39;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+                    <span class="n">bank</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">bank</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">bank</span>
+                    <span class="n">addr</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">addr</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">addr</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">testbench_name</span><span class="si">}</span><span class="s1">.regDump&#39;</span><span class="p">,</span> <span class="n">regname</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;0x</span><span class="si">{</span><span class="n">bank</span><span class="o">+</span><span class="n">addr</span><span class="si">:</span><span class="s1">03x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;0x</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">0</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s1">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">])</span>
+                <span class="n">allregs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;0x</span><span class="si">{</span><span class="n">bank</span><span class="o">+</span><span class="n">addr</span><span class="si">:</span><span class="s1">03x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;0x</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">0</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s1">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">])</span>
+                <span class="n">memdump</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">testbench_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dumpname</span> <span class="o">=</span> <span class="n">liste</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span> <span class="k">else</span> <span class="s1">&#39;dump&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">testbench_name</span><span class="si">}</span><span class="s1">.regDumpDat&#39;</span><span class="p">,</span> <span class="n">dumpname</span><span class="p">,</span> <span class="n">memdump</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="s1">&#39;testbench name not defined, could not write regDumpDat to </span><span class="si">{self._SETUPFILE}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">error</span><span class="p">,</span> <span class="n">memdump</span><span class="p">,</span> <span class="n">allregs</span></div>
+
+
+<div class="viewcode-block" id="ProjectSetup.regDumpSave2DUT">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup.regDumpSave2DUT">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">regDumpSave2DUT</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">compare</span><span class="o">=</span><span class="s1">&#39;cache&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write the register with values to the device.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">           mode :</span>
+<span class="sd">              * &#39;default&#39;  use the values from parent.setup.result.regs.dump</span>
+<span class="sd">              * type(mode) == list : use mode as a list  (not yet implemented)</span>
+
+<span class="sd">           compare :</span>
+<span class="sd">              * &#39;cache&#39; : compare with the Register cache value and write if orginal different from last cache value (faster as to read the register value)</span>
+<span class="sd">              * True : write only if value different from actual values</span>
+<span class="sd">              * False : write always</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;parent&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;result&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;regs&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Warning</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="s2">.regDumpSave2DUT: no setup.result.regs found, could&#39;nt write back the original register values&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">dump</span> <span class="o">=</span> <span class="n">mode</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span> <span class="ow">and</span> <span class="s1">&#39;dump&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="p">:</span>
+            <span class="n">dump</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">dump</span>
+            <span class="c1"># dump = self.result.regs.dump.keys()               # TODO: bei hana überpruefen, so war es bei HANA!!</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span> <span class="ow">and</span> <span class="s1">&#39;dump&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">dump</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">dump</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s1">&#39;addr&#39;</span><span class="p">)</span>
+            <span class="n">dump</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">dump</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1">.reg_dump_load: mode == </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s1"> is not available&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">reg</span> <span class="ow">in</span> <span class="n">dump</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">reg</span> <span class="ow">is</span> <span class="nb">str</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">register</span><span class="p">[</span><span class="n">reg</span><span class="p">]</span><span class="o">.</span><span class="n">_rw</span><span class="p">:</span>     <span class="c1"># TODO: check rw if a real rw-information</span>
+                <span class="k">continue</span>
+            <span class="n">addr</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">reg</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">reg</span><span class="p">)</span> <span class="ow">is</span> <span class="n">dotdict</span><span class="p">:</span>
+                    <span class="n">originial</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">str2num</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;dat&#39;</span><span class="p">])</span>
+                    <span class="n">addr</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">str2num</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;addr&#39;</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">originial</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">str2num</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">dump</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">reg</span><span class="p">)[</span><span class="s1">&#39;dat&#39;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="s1">&#39;</span><span class="si">{self.instName}</span><span class="s1">.regDumpSave2DUT: sorry this mode is not implemented yet, please investigate&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">compare</span> <span class="o">==</span> <span class="s1">&#39;cache&#39;</span> <span class="ow">and</span> <span class="n">addr</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">actual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">register</span><span class="p">[</span><span class="n">reg</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+            <span class="k">elif</span> <span class="n">addr</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">actual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">register</span><span class="p">[</span><span class="n">reg</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>                                               <span class="c1"># no cache available... have to be read to get the value</span>
+                <span class="n">actual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">readreg</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">compare</span> <span class="ow">or</span> <span class="n">actual</span> <span class="o">!=</span> <span class="n">originial</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">start</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1">.regDumpSave2DUT: some values have been changed in the tests:&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;      write back originial register values </span><span class="si">{</span><span class="n">reg</span><span class="si">}</span><span class="s1"> actual=</span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">if</span> <span class="n">addr</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">register</span><span class="p">[</span><span class="n">reg</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">originial</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">writereg</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">originial</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">start</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1">.regDumpSave2DUT: no register values changed in the tests&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ProjectSetup.close">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write EEPROM/NVRAM with the rescue values and close all instruments.</span>
+
+<span class="sd">        Close all instruments and write the dictionary to the log-file.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>        <span class="c1"># nothing to do, already closed</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;regs&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="p">,</span> <span class="s1">&#39;wrbackdump&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">wrbackdump</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">regDumpSave2DUT</span><span class="p">()</span>          <span class="c1"># write the orginal data to the device only if cache value different</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="s2">&quot;setup.close(): Couln&#39;t execute reg_dump_load&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="s2">&quot;setup closed&quot;</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write the dictionary to the logfile.&quot;&quot;&quot;</span>
+        <span class="c1"># self.__dict__.pop(&#39;init&#39;)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;PROJECT_PATH&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;output&quot;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_RESULT</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;{&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">jsondump</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="p">)</span>
+            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;    ,</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">jsondump</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;result&#39;</span><span class="p">)</span>
+            <span class="c1"># json.dump(self.setup, outfile, indent=2)            # json.dump(self.result, outfile, indent=2)     # sort_keys=True</span>
+            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">}&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;write results to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_RESULT</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ProjectSetup.jsondump">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup.jsondump">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">jsondump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">,</span> <span class="n">ident</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;dump the dictionary to json-format</span>
+
+<span class="sd">        you can also use json.dump but I think this generated output-format is better for easy reading</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">space</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span> <span class="n">lenght</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">lenght</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">ident</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="k">return</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ident</span><span class="p">):</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+        <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">spara</span> <span class="o">=</span> <span class="s1">&#39;{&#39;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">space</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">dictionary</span><span class="si">}</span><span class="s1">&quot;: </span><span class="si">{</span><span class="n">spara</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">dictionary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">dictionary</span><span class="p">]</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;}&#39;</span>
+            <span class="n">ident</span> <span class="o">=</span> <span class="mi">8</span>
+            <span class="n">space</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">more</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+        <span class="n">cr</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">if</span> <span class="n">length</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">ident</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">cr</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cr</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="n">length</span><span class="p">:</span>
+                <span class="n">more</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">dotdict</span><span class="p">]:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">spara</span> <span class="o">=</span> <span class="s1">&#39;{&#39;</span>
+            <span class="n">epara</span> <span class="o">=</span> <span class="s1">&#39;}&#39;</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="n">diclist</span><span class="p">]:</span>
+                <span class="n">spara</span> <span class="o">=</span> <span class="s1">&#39;[&#39;</span>
+                <span class="n">epara</span> <span class="o">=</span> <span class="s1">&#39;]&#39;</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">dotdict</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">diclist</span><span class="p">]:</span>
+                <span class="n">space</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="n">value</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>                   <span class="c1"># is it a list with dictionaries</span>
+                        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+                        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">more</span><span class="si">}{</span><span class="n">cr</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>                                        <span class="c1"># it is a list with dotdictionaries</span>
+                        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">spara</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">jsondump</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ident</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span>
+                        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">epara</span><span class="si">}{</span><span class="n">more</span><span class="si">}{</span><span class="n">cr</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>                               <span class="c1"># it is dict or dotdict</span>
+                        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1">&quot;: </span><span class="si">{</span><span class="n">spara</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">jsondump</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ident</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span>
+                        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">epara</span><span class="si">}{</span><span class="n">more</span><span class="si">}{</span><span class="n">cr</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR!!!: coudn&#39;t write </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2"> as json dump </span><span class="si">{</span><span class="n">more</span><span class="si">}{</span><span class="n">cr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&quot;&#39;</span>
+                <span class="n">space</span><span class="p">(</span><span class="n">ident</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">item</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1">&quot;: </span><span class="si">{</span><span class="n">value</span><span class="si">}{</span><span class="n">more</span><span class="si">}{</span><span class="n">cr</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}{</span><span class="n">more</span><span class="si">}{</span><span class="n">cr</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cr</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">space</span><span class="p">(</span><span class="n">ident</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<div class="viewcode-block" id="ProjectSetup.set_configuration_values">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.projectsetup.ProjectSetup.html#pylab_ml.common.projectsetup.ProjectSetup.set_configuration_values">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_configuration_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Only empty dummy function.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Warning</span><span class="p">(),</span> <span class="s1">&#39;Semi-ATE Labor.ProjectSetup: set_configuration_values only dummy function..................&#39;</span><span class="p">)</span>
+        <span class="k">pass</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idnr</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">idnr</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;The projectsetup modul supports only one id, but get id number=</span><span class="si">{</span><span class="n">idnr</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;Network prefix&#39;</span> <span class="ow">in</span> <span class="n">data</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Network prefix&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Network prefix&#39;</span><span class="p">]</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NETWORK&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">replaceEnvs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">project_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PROJECT_PATH&#39;</span><span class="p">]</span>
+        <span class="n">harness</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">if</span> <span class="s1">&#39;working directory&#39;</span> <span class="ow">in</span> <span class="n">config</span> <span class="ow">and</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;working directory&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;working directory&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                    <span class="n">working_dir</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="k">if</span> <span class="n">working_dir</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">working_dir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PROJECT_PATH&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;WORKING_DIR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">working_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;Semi-ATE Labor.ProjectSetup: WORKING_DIR = </span><span class="si">{</span><span class="n">working_dir</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;$LOGGINGFILENAME$ </span><span class="si">{</span><span class="n">project_path</span><span class="si">}</span><span class="s1">log/;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">get_log_file_information</span><span class="p">()[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;add path&#39;</span> <span class="ow">in</span> <span class="n">config</span> <span class="ow">and</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;add path&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">harness</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;add path&#39;</span><span class="p">]</span>
+        <span class="n">environment</span><span class="o">.</span><span class="n">environ_getpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;registermaster&#39;</span><span class="p">)</span>      <span class="c1"># replace environment for registermaster if os=&#39;nt&#39;</span>
+        <span class="n">harness</span> <span class="o">=</span> <span class="n">working_dir</span> <span class="o">+</span> <span class="n">harness</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">working_dir</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HARNESS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">harness</span>
+
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Network prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;working directory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">working_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="sa">f</span><span class="s1">&#39;Semi-ATE Labor.ProjectSetup: apply_configuration  </span><span class="si">{</span><span class="n">config</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">setupfile</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;filename&#39;</span> <span class="ow">in</span> <span class="n">config</span> <span class="ow">and</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">readonly</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">setupfile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">setupfile</span> <span class="o">=</span> <span class="n">file_io</span><span class="o">.</span><span class="n">replaceFilename</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$HARNESS/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SETUPFILE</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">readonly</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">setupfile</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">file_io</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">setupfile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">setup</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">JsonDecoder</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">: syntax error in </span><span class="si">{</span><span class="n">setupfile</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>      <span class="c1"># TODO!: add json validator: pip install jsonschema</span>
+                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_replaceSomeThing</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="p">)</span>        <span class="c1"># replace path-variables if windows, replace env-variable with their values</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setup</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Setupfile&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+            <span class="n">level</span> <span class="o">=</span> <span class="n">LogLevel</span><span class="o">.</span><span class="n">Warning</span><span class="p">()</span> <span class="k">if</span> <span class="n">setupfile</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="s2">&quot;Semi-ATE Labor.ProjectSetup: setup file not exist !!&quot;</span><span class="p">)</span>
+            <span class="n">setupfile</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_dotdic</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">({})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setupfile</span> <span class="o">=</span> <span class="n">setupfile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mylastdotdic</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lastresult</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lastmacro</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># if not readonly:</span>
+        <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_configsave2setup</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">([])</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">ATE.common.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logger</span>
+
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">)</span>
+    <span class="n">jsonSetupFile</span> <span class="o">=</span> <span class="s1">&#39;your_setup_json_file.json&#39;</span>
+    <span class="n">setup</span> <span class="o">=</span> <span class="n">ProjectSetup</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="n">jsonSetupFile</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">setup</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">dump</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="n">setup</span><span class="o">.</span><span class="n">initialization</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">setup</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">smu</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">setup</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
+
+    <span class="n">setup</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;regs&#39;</span><span class="p">,</span> <span class="s1">&#39;EEPROM1&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">setup</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;regs&#39;</span><span class="p">,</span> <span class="s1">&#39;EEPROM2&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">setup</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;Idontknow&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">setup</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">instruments</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">setup</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">setup</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">setup</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">setup</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;EEPROM2&#39;</span><span class="p">)</span>
+    <span class="n">setup</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;Mytest&#39;</span><span class="p">)</span>
+    <span class="n">setup</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+    <span class="n">setup</span><span class="o">.</span><span class="n">macro</span><span class="o">.</span><span class="n">hwid</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+    <span class="n">setup</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
