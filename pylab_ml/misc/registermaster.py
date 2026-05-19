@@ -1181,7 +1181,7 @@ class RegisterMaster(mqtt_deviceattributes):
         _setattr = object.__setattr__.__get__(self, self.__class__)
         super().__init__()
         self.mqtt_all = ["filename", "use"]
-        filename = os.environ.get("registermaster") if filename is None else filename   # TODO! remove envronment, use setup instead
+        filename = os.environ.get("REGISTERMASTER") if filename is None else filename
         mylogger = logger if logger is not None else Logger()
         _setattr("instName", instname)
         _setattr("filename", filename)
