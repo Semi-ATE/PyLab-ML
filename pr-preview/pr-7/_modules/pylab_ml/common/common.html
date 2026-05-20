@@ -1,0 +1,616 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.common.common &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.common.common</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.common.common</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on Tue May  4 14:18:05 2021</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">str2num</span>
+
+<span class="n">mylogger</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="set_logger">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.set_logger.html#pylab_ml.common.common.set_logger">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">mylogger</span>
+    <span class="n">mylogger</span> <span class="o">=</span> <span class="n">logger</span></div>
+
+
+
+<div class="viewcode-block" id="kill_proc_tree">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.kill_proc_tree.html#pylab_ml.common.common.kill_proc_tree">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">kill_proc_tree</span><span class="p">(</span><span class="n">pid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">including_parent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pid</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="n">pid</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">instance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pid</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">pid</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span>
+    <span class="n">children</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">children</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">children</span><span class="p">:</span>
+        <span class="n">child</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+    <span class="n">gone</span><span class="p">,</span> <span class="n">still_alive</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">wait_procs</span><span class="p">(</span><span class="n">children</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">including_parent</span><span class="p">:</span>
+        <span class="n">parent</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+        <span class="n">parent</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">instance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+        <span class="k">del</span> <span class="p">(</span><span class="n">instance</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="multistrcall">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.multistrcall.html#pylab_ml.common.common.multistrcall">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">multistrcall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commandlist</span><span class="p">):</span>
+    <span class="c1">#    if type(command) == str:</span>
+    <span class="c1">#        command = command.split(&#39;,&#39;)</span>
+    <span class="c1">#        result = []</span>
+    <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">commandlist</span><span class="p">:</span>
+        <span class="n">strcall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">commandlist</span><span class="p">[</span><span class="n">cmd</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="strcall">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.strcall.html#pylab_ml.common.common.strcall">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">strcall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mqttcheck</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    make a call from the command:</span>
+<span class="sd">        result = common.strcall(tcc, &#39;regs.HW_ID.read()&#39;)</span>
+<span class="sd">        result = common.strcall(self, &#39;smu.voltage=5.3&#39; , mqttcheck=True)&#39;</span>
+<span class="sd">        result = common.strcall(self, &#39;smu.blabla()&#39;, 4.7, mqttcheck=True)&#39;</span>
+<span class="sd">    needs the the logger from self</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    command : string</span>
+
+<span class="sd">    value : int/float/list, optional</span>
+<span class="sd">        DESCRIPTION. The default is None.</span>
+<span class="sd">    typ : None/&#39;set&#39;/&#39;get&#39;</span>
+<span class="sd">        DESCRIPTION. If the command an mqtt-command, than you have coice if it is settable or gettable</span>
+<span class="sd">    mqttcheck : True/False, optional</span>
+<span class="sd">        DESCRIPTION. The default is False. Check if the command is in the mqtt_list. If not, the command will not be execute</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    myresult : the result from the call</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="bp">self</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;strcall: initialise missing, self is None -&gt; do nothing&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span>
+    <span class="n">instname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instName</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;instName&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">mqttcmd</span> <span class="o">=</span> <span class="n">command</span>
+    <span class="k">if</span> <span class="n">mqttcmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">mqttcmd</span> <span class="o">=</span> <span class="n">mqttcmd</span><span class="p">[:</span> <span class="n">mqttcmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+        <span class="n">typ</span> <span class="o">=</span> <span class="s2">&quot;func&quot;</span>
+    <span class="k">elif</span> <span class="n">typ</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">mqttcmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">typ</span> <span class="o">=</span> <span class="s2">&quot;get&quot;</span>
+    <span class="k">if</span> <span class="n">mqttcheck</span> <span class="ow">and</span> <span class="n">mqttcmd</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mqtt_status&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">parent</span><span class="o">.</span><span class="n">mqtt_list</span><span class="p">:</span>
+        <span class="n">instname</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">instName</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;instName&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="n">parent</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Warning strcall: </span><span class="si">{</span><span class="n">instname</span><span class="si">}</span><span class="s2"> get </span><span class="si">{</span><span class="n">mqttcmd</span><span class="si">}</span><span class="s2">, but it is not in the mqtt_list&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;ERROR&quot;</span>
+    <span class="k">if</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;set&quot;</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span> <span class="k">else</span> <span class="n">str2num</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">evalue</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&quot;&#39;</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">value</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;self.</span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">evalue</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   self.</span><span class="si">{</span><span class="n">instname</span><span class="si">}{</span><span class="n">command</span><span class="si">}</span><span class="s2"> := </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   strcall error: &#39;self.</span><span class="si">{</span><span class="n">instname</span><span class="si">}{</span><span class="n">command</span><span class="si">}</span><span class="s2"> := </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&#39; get an exception: </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;ERROR&quot;</span>
+    <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;get&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;self.</span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   self.</span><span class="si">{</span><span class="n">instname</span><span class="si">}{</span><span class="n">command</span><span class="si">}</span><span class="s2"> == </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">value</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   strcall get error: &#39;self.</span><span class="si">{</span><span class="n">instname</span><span class="si">}{</span><span class="n">command</span><span class="si">}</span><span class="s2">&#39; get an exception: </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;ERROR&quot;</span>
+    <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;func&quot;</span><span class="p">:</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="p">[:</span> <span class="n">command</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">)]</span>
+        <span class="n">para</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">para</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s2">&#39;,&quot;</span>
+            <span class="n">para</span> <span class="o">=</span> <span class="n">para</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">para</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="k">elif</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">para</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;self.</span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">para</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   self.</span><span class="si">{</span><span class="n">instname</span><span class="si">}{</span><span class="n">command</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">para</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   strcall error func: self.</span><span class="si">{</span><span class="n">instname</span><span class="si">}{</span><span class="n">command</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">para</span><span class="si">}</span><span class="s2">), get an exception: </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s1">&#39;ERROR&#39;</span></div>
+
+
+
+<div class="viewcode-block" id="convertExpr2Expression">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.convertExpr2Expression.html#pylab_ml.common.common.convertExpr2Expression">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">convertExpr2Expression</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="n">Expr</span><span class="o">.</span><span class="n">lineno</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Expr</span><span class="o">.</span><span class="n">col_offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">Expression</span><span class="p">(</span><span class="n">Expr</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">lineno</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">col_offset</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+<div class="viewcode-block" id="exec_with_return">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.exec_with_return.html#pylab_ml.common.common.exec_with_return">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">exec_with_return</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Exec with return</span>
+
+<span class="sd">    implement from https://stackoverflow.com/questions/33409207/how-to-return-value-from-exec-in-function</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    code : TYPE</span>
+<span class="sd">        DESCRIPTION.</span>
+<span class="sd">    parent : TYPE, optional</span>
+<span class="sd">        DESCRIPTION. The default is None.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TYPE</span>
+<span class="sd">        DESCRIPTION.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">code_ast</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+
+    <span class="n">init_ast</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">code_ast</span><span class="p">)</span>
+    <span class="n">init_ast</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">code_ast</span><span class="o">.</span><span class="n">body</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">last_ast</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">code_ast</span><span class="p">)</span>
+    <span class="n">last_ast</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">code_ast</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="n">init_ast</span><span class="p">,</span> <span class="s2">&quot;&lt;ast&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;exec&quot;</span><span class="p">),</span> <span class="nb">globals</span><span class="p">())</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">last_ast</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="n">ast</span><span class="o">.</span><span class="n">Expr</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="n">convertExpr2Expression</span><span class="p">(</span><span class="n">last_ast</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">&quot;&lt;ast&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;eval&quot;</span><span class="p">),</span> <span class="nb">globals</span><span class="p">(),</span> <span class="p">{</span><span class="s2">&quot;self&quot;</span><span class="p">:</span> <span class="n">parent</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="n">last_ast</span><span class="p">,</span> <span class="s2">&quot;&lt;ast&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;exec&quot;</span><span class="p">),</span> <span class="nb">globals</span><span class="p">(),</span> <span class="p">{</span><span class="s2">&quot;self&quot;</span><span class="p">:</span> <span class="n">parent</span><span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="arange">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.arange.html#pylab_ml.common.common.arange">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">arange</span><span class="p">(</span><span class="n">myitems</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;create from &#39;myitems&#39; an array like in matlab.</span>
+
+<span class="sd">    e.q. &quot;18:-1:6:&quot;</span>
+<span class="sd">    &quot;18:-1:6, 5.9:-0.1:4.1&quot;</span>
+<span class="sd">    &quot;18:-1:6, 5.9:-0.1:4.1, 7, 9&quot;</span>
+
+<span class="sd">    also possible: &quot;18:6:-1&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">myitems</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span>
+    <span class="k">elif</span> <span class="n">myitems</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">myitems</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">delimiter</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">):</span>
+            <span class="n">split</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">split</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">split</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">myresult</span> <span class="o">=</span> <span class="n">start</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">split</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">inc</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="n">stop</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">split</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">stop</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">split</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">inc</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">split</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">str2num</span><span class="p">(</span><span class="n">split</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">inc</span> <span class="o">&gt;</span> <span class="n">stop</span><span class="p">:</span>
+                    <span class="n">temp</span> <span class="o">=</span> <span class="n">inc</span>
+                    <span class="n">inc</span> <span class="o">=</span> <span class="n">stop</span>
+                    <span class="n">stop</span> <span class="o">=</span> <span class="n">temp</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">split</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">stop</span><span class="p">:</span>
+                    <span class="n">inc</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">correctur</span> <span class="o">=</span> <span class="n">inc</span>  <span class="c1"># to calculate like matlab 3:6:1 -&gt; 3,4,5,6  normaly in python 3,4,5</span>
+                    <span class="n">myresult</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">+</span> <span class="n">correctur</span><span class="p">,</span> <span class="n">inc</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="n">myresult</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Syntax error in </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">myresult</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">myresult</span> <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">myresult</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+<div class="viewcode-block" id="choice">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.choice.html#pylab_ml.common.common.choice">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">choice</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">myargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    check if arg in myargs</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    arg : string</span>
+<span class="sd">        DESCRIPTION.</span>
+<span class="sd">    myargs : array of strings</span>
+<span class="sd">        DESCRIPTION.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        True/False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">arg</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">myargs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;checkargs: attribute </span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2"> not valid&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span></div>
+
+
+
+<div class="viewcode-block" id="checkargs">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.checkargs.html#pylab_ml.common.common.checkargs">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">checkargs</span><span class="p">(</span><span class="n">myargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">arg</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">myargs</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;checkargs: attribute </span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2"> not valid&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="check">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.check.html#pylab_ml.common.common.check">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compare target with the acutal value.</span>
+
+<span class="sd">     Parameters</span>
+<span class="sd">     ----------</span>
+<span class="sd">     msg : TYPE</span>
+<span class="sd">         DESCRIPTION.</span>
+<span class="sd">     target : TYPE</span>
+<span class="sd">         the target value</span>
+<span class="sd">             if str and start with 0x than each X is a 4bit mask</span>
+<span class="sd">             if str and start with 0b than each x is a 1bit mask</span>
+<span class="sd">     actual : TYPE</span>
+<span class="sd">         the actual value.</span>
+<span class="sd">     tolerance : float or integer, optional</span>
+<span class="sd">         DESCRIPTION. The default is 0.</span>
+<span class="sd">     mask : Integer or None(default)</span>
+
+<span class="sd">     Returns</span>
+<span class="sd">     -------</span>
+<span class="sd">     error : bool</span>
+<span class="sd">         True : target = actual value</span>
+<span class="sd">         False : target != actual value.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">target</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>  <span class="c1"># it is a hex number with mask information</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)):</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">mask</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">15</span> <span class="k">if</span> <span class="n">target</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;X&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)))</span>
+        <span class="k">elif</span> <span class="n">target</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span>  <span class="c1"># it is a bin number with mask information</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)):</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">mask</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">target</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;x&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">  different type: target= </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">target</span><span class="p">)</span><span class="si">}</span><span class="s2">) &lt;-&gt; actual= </span><span class="si">{</span><span class="n">actual</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span><span class="si">}</span><span class="s2">) -&gt; couldn&#39;t check&#39;)&quot;</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">actual</span><span class="p">):</span>
+            <span class="n">logprint</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;: check len() from target list (=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">)</span><span class="si">}</span><span class="s2">) &lt;-&gt; actual list (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span><span class="si">}</span><span class="s2">), are different!!!!&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">actual</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">actual</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">!=</span> <span class="n">target</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span>
+                <span class="n">logprint</span><span class="p">(</span><span class="s2">&quot;ERROR&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Wrong value at adr 0x</span><span class="si">{</span><span class="n">index</span><span class="si">:</span><span class="s2">2x</span><span class="si">}</span><span class="s2">, read 0x</span><span class="si">{</span><span class="n">actual</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2">, expected 0x</span><span class="si">{</span><span class="n">target</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">error</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span><span class="si">}</span><span class="s2"> Word checked -&gt;&quot;</span>
+        <span class="k">if</span> <span class="n">error</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2"> OK&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2"> Errors&quot;</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">actual</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">target</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="p">):</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">  target: 0x</span><span class="si">{</span><span class="n">target</span><span class="o">&amp;</span><span class="n">mask</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2"> != actual: 0x</span><span class="si">{</span><span class="n">actual</span><span class="o">&amp;</span><span class="n">mask</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">elif</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">target</span> <span class="o">-</span> <span class="n">tolerance</span> <span class="o">&lt;=</span> <span class="n">actual</span> <span class="o">&lt;=</span> <span class="n">target</span> <span class="o">+</span> <span class="n">tolerance</span><span class="p">):</span>    <span class="c1"># actual != target:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">  target: 0x</span><span class="si">{</span><span class="n">target</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2"> != actual: 0x</span><span class="si">{</span><span class="n">actual</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">tolerance</span> <span class="o">==</span> <span class="mi">0</span> \
+                <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">: 0x</span><span class="si">{</span><span class="n">target</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2"> +- 0x</span><span class="si">{</span><span class="n">tolerance</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2"> &lt;&gt; 0x</span><span class="si">{</span><span class="n">actual</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2"> == 0x</span><span class="si">{</span><span class="n">actual</span><span class="si">:</span><span class="s2">2x</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">target</span> <span class="o">!=</span> <span class="n">actual</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">  target: </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> != actual: </span><span class="si">{</span><span class="n">actual</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{msg}</span><span class="s2"> = </span><span class="si">{actual}</span><span class="s2">&quot;</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">float</span><span class="p">:</span>  <span class="c1"># float checked with tolerance</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">actual</span> <span class="o">-</span> <span class="n">tolerance</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="n">target</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">actual</span> <span class="o">+</span> <span class="n">tolerance</span><span class="p">)):</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">:  expected </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> +- </span><span class="si">{</span><span class="n">tolerance</span><span class="si">}</span><span class="s2"> &lt;&gt;</span><span class="si">{</span><span class="n">actual</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">:  expected </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> +- </span><span class="si">{</span><span class="n">tolerance</span><span class="si">}</span><span class="s2"> == </span><span class="si">{</span><span class="n">actual</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logprint</span><span class="p">(</span><span class="s2">&quot;ERROR&quot;</span><span class="p">,</span> <span class="s2">&quot;pylab_ml.common.check: type {type(actual)} not yet implant !&quot;</span><span class="p">)</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">logprint</span><span class="p">(</span><span class="s2">&quot;ERROR&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logprint</span><span class="p">(</span><span class="s2">&quot;MEASURE&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">error</span></div>
+
+
+
+<div class="viewcode-block" id="color">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.color.html#pylab_ml.common.common.color">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;bold&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;faint&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;italic&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;underline&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;blink_slow&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">&quot;blink_fast&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="s2">&quot;negative&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="s2">&quot;conceal&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="s2">&quot;strike_th&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+        <span class="s2">&quot;ack&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="s2">&quot;red&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+        <span class="s2">&quot;green&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+        <span class="s2">&quot;yellow&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>
+        <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>
+        <span class="s2">&quot;magenda&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
+        <span class="s2">&quot;cyan&quot;</span><span class="p">:</span> <span class="mi">36</span><span class="p">,</span>
+        <span class="s2">&quot;white&quot;</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span>
+        <span class="s2">&quot;black&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+        <span class="s2">&quot;b_red&quot;</span><span class="p">:</span> <span class="mi">41</span><span class="p">,</span>
+        <span class="s2">&quot;b_green&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+        <span class="s2">&quot;b_yellow&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span>
+        <span class="s2">&quot;b_blue&quot;</span><span class="p">:</span> <span class="mi">44</span><span class="p">,</span>
+        <span class="s2">&quot;b_magenda&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+        <span class="s2">&quot;b_cyan&quot;</span><span class="p">:</span> <span class="mi">46</span><span class="p">,</span>
+        <span class="s2">&quot;b_white&quot;</span><span class="p">:</span> <span class="mi">47</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">code</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[&quot;</span> <span class="o">+</span> <span class="n">num</span> <span class="o">+</span> <span class="s2">&quot;m&quot;</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="logprint">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.common.logprint.html#pylab_ml.common.common.logprint">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">logprint</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">mylogger</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">:</span>
+            <span class="n">mylogger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="s2">&quot;MEASURE&quot;</span><span class="p">:</span>
+            <span class="n">mylogger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="s2">&quot;INFO&quot;</span><span class="p">:</span>
+            <span class="n">mylogger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="s2">&quot;WARNING&quot;</span><span class="p">:</span>
+            <span class="n">mylogger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">:</span>
+            <span class="n">mylogger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">test</span><span class="p">:</span>
+
+        <span class="n">mqtt_list</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;CH0.connect()&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CH0.drv.vdl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CH0.drv.vdh&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CH0.disconnect()&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CH1.connect()&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CH1.drv.vdl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CH1.drv.vdh&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CH1.disconnect()&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CH2.connect()&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">strcall_test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">strcall</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span>
+                <span class="s1">&#39;CH0.disconnect(&quot;PBUS_F&quot;)&#39;</span><span class="p">,</span>
+                <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">typ</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">mqttcheck</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="s2">&quot;18:5:-1&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="s2">&quot;6:4:-1&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="s2">&quot;6:4:-0.1&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="s2">&quot;-6:-4:0.1&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="s2">&quot;18:5:-1, 5.9:4.1:-0.1, 4:-18:-1, -18:5:1, 4.1:5.9:0.1, 6:19:1&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="s2">&quot;18:5:-1, 5.9:4.1:-0.1, 5, 8&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="s2">&quot;18:5:-1,  4, 8&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="s2">&quot;18:5:-1   6, 9&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="s2">&quot;18:5&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="s2">&quot;5:5&quot;</span><span class="p">))</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

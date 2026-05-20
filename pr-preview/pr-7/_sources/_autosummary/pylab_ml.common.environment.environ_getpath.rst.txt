@@ -1,0 +1,6 @@
+pylab\_ml.common.environment.environ\_getpath
+=============================================
+
+.. currentmodule:: pylab_ml.common.environment
+
+.. autofunction:: environ_getpath

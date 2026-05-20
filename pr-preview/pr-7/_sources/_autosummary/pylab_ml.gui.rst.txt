@@ -1,0 +1,32 @@
+pylab\_ml.gui
+=============
+
+.. automodule:: pylab_ml.gui
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   instruments
+

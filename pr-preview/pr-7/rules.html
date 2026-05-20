@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rules, Tips and Tricks &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Rules, Tips and Tricks</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/rules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <img alt="_images/tips.jpg" src="_images/tips.jpg" />
+<p>Last change: May 20, 2026</p>
+<p>All contributors are welcome, but please adhere to the following rules :</p>
+<section id="rules-tips-and-tricks">
+<h1>Rules, Tips and Tricks<a class="headerlink" href="#rules-tips-and-tricks" title="Link to this heading"></a></h1>
+<p>Here you will find rules, but also tips and tricks on how to create the documentation and how you should configure Spyder.</p>
+<p>The documentation itself is based on <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>  and the doc-strings inside the source code.
+For Sphinx use <a class="reference external" href="https://devguide.python.org/documenting/">reStructuredText</a> as its markup language.
+This <a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html">quickreference</a> can help you for beginning.</p>
+<p>this documentation is automatically generated as soon as a push is executed in github. If you want to generate it by hand:</p>
+<blockquote>
+<div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">conda</span> <span class="n">activate</span> <span class="s1">&#39;your environment&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mamba</span> <span class="n">install</span> <span class="n">sphinx</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">theme</span> <span class="n">myst</span><span class="o">-</span><span class="n">parser</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">markdown</span><span class="o">-</span><span class="n">tables</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cd</span> <span class="n">docs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">./</span><span class="n">make</span> <span class="n">clean</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">./</span><span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>all import modules have to be in the sys.path from the file conf.py .
+Otherwise you get a WARNING like :</p>
+<ul class="simple">
+<li><p>WARNING: [autosummary] failed to import ‘instruments.attributes’: no module named instruments.attributes</p></li>
+</ul>
+<p>and the module doesn’t compile.</p>
+</div></blockquote>
+<section id="spyder-preferences">
+<h2>Spyder Preferences<a class="headerlink" href="#spyder-preferences" title="Link to this heading"></a></h2>
+<p>For the python code themselves, we use PEP8 as an uniform code styling.
+In the Spyder Framework, you have to enable the code style linting (the images show Spyder V4.0.x preferences):</p>
+<a class="hover150 reference internal image-reference" href="_images/Spyder_enable_codestyle.png"><img alt="Spyder_enable_codestyle" class="hover150" src="_images/Spyder_enable_codestyle.png" style="width: 400px;" />
+</a>
+<p>and you have to enable the docstring style linting</p>
+<a class="hover150 reference internal image-reference" href="_images/Spyder_enable_docstyle.png"><img alt="Spyder_enable_docstyle" class="hover150" src="_images/Spyder_enable_docstyle.png" style="width: 400px;" />
+</a>
+<p>If you think all the code styling is too much work and you don’t have time to learn it, then you can also use the <a class="reference external" href="https://github.com/psf/black">Black</a> program.
+For installing, open  Maxiconda Powershell, go to your current TCC workarea and write:</p>
+<blockquote>
+<div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mamba</span> <span class="n">install</span> <span class="n">black</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cd</span> <span class="o">/</span><span class="n">instruments</span><span class="o">/</span><span class="n">your_path</span><span class="o">/....</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">black</span> <span class="n">your_file</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>look on the code now(attention, the file is overwritten), it’s now PEP8 style. However, the docstrings are not processed. You have to do it yourself…..</p>
+</div></blockquote>
+</section>
+<section id="rules-for-writing-tests">
+<h2>Rules for writing Tests<a class="headerlink" href="#rules-for-writing-tests" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>For file- and directory name use only lower case. Windows does not handle capitalized files correctly. In linux is ‘test.py’ and ‘Test.py’ two different file, but not in windows!</p></li>
+<li><p>Use short function name. E.q. ‘off()’ and not ‘dmm_switch_off()’</p></li>
+<li><p>Code is your enemy.</p></li>
+<li><p>Avoid copy and paste.</p></li>
+<li><p>IF you write new functions or libraries: Someone in the world may have already solved the same problem. Google is your friend!
+For libraries start your search e.q. at <a class="reference external" href="https://pypi.org/">https://pypi.org/</a> and <a class="reference external" href="https://anaconda.org/">https://anaconda.org/</a></p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
