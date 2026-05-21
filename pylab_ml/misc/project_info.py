@@ -20,7 +20,7 @@ class Project_Info:
         and set the environment variable.
         """
         self.logger = logger
-        self.hpath = os.path.join(str(Path(filename).parent.parent.parent.parent), os.path.dirname(path))
+        self.hpath = os.path.join(str(Path(filename).parent.parent.parent.parent), os.path.dirname(path)) + os.sep
         project_file = os.path.join(self.hpath, os.path.basename(path))
 
         project_info = ""
@@ -40,8 +40,8 @@ class Project_Info:
             if value is not None:
                 os.environ[name] = value
             setattr(self, name, value)
-            
-            
+
+
     def replace_variables(self, value):
         """
         Check if valuestr has environment-variables starts with $, or valuestr has path-value like './'.
