@@ -13,16 +13,15 @@ from pylab_ml.attributes import create_attributes
 
 
 class TTI (create_attributes, Measure):
-    """Baseclass Interface to the TTI Power Supply Instruments.
+    """
+    Baseclass Interface to the TTI Power Supply Instruments.
 
     The TTI baseclass can connect to TTI Power Supply instruments
 
     Methods:
         ask=inst.query(':READ?')
-            write and read the answer
-
+        Write and read the answer
     """
-
     # create functions or proberty and call inst.write) or inst.read():
     # if state != necessary state -> switch to the necessary state
     #  proberty/function name -> inst.funcname (get,set)    , range,    call functions
@@ -60,25 +59,25 @@ class TTI (create_attributes, Measure):
                }
 
     def __init__(self, **kwargs):
-        """Connect and initialize.
+        """
+        Connect and initialize TTI instrument.
 
         Args:
-           addr (int):
-              interface address
+            addr (int):
+                Interface address
 
            interface (Interface):
-              gpib, usbserial
+                GPIB, USBSerial
 
            backend (str):
-              visa backend is either '@ni' for NI-Library or
-              '@py' for pure python pyvisa-py backend.
-              On default it uses '@ni' on win32 and '@py' on
-              other platforms.
+                VISA backend is either '@ni' for NI-Library or
+                '@py' for pure python pyvisa-py backend.
+                On default it uses '@ni' on win32 and '@py' on
+                other platforms.
 
         Example: Initialization
-           >>> instrument = TTI(addr=24)   # GPIB or USB address
-           >>> instrument.init()           # connect and initialize instrument
-
+            >>> instrument = TTI(addr=24)   # GPIB or USB address
+            >>> instrument.init()           # connect and initialize instrument
         """
         self.is_local = False
         super().__init__(**kwargs)
@@ -106,7 +105,14 @@ class TTI (create_attributes, Measure):
         self.createattributes(self._properties)
 
     def init(self, identify=False):
-        """Connect to TTI instrument and initialize."""
+        """
+        Connect to TTI instrument and initialize.
+        
+        Parameters
+        ----------
+            identify : bool, optional
+                Whether to identify the instrument. The default is False.
+        """
         super().init(identify)
 
     def reset(self):
@@ -155,7 +161,12 @@ class TTI (create_attributes, Measure):
         Write direct to instrument.
 
         Example: send command reset :
-           >>> inst.write('*RST')
+            >>> inst.write('*RST')
+            
+        Parameters
+        ----------
+            cmd : str
+                Command to send to instrument, use $ for channel number.
         """
         if cmd.find('$') > -1:
             cmd = cmd.replace('$', str(self.channel+1))
@@ -178,7 +189,17 @@ class TTI (create_attributes, Measure):
     def _tr2number(self, value):
         """Translate answer from device to float or integer.
 
-        index depence from the function call, see _properties
+        Index depend from the function call, see _properties
+        
+        Parameters
+        ----------
+            value : str
+                Answer from device, for example 'V1 12.34' or 'I1 0.1234A'
+                
+        Returns
+        -------
+            result : float or int
+                The numerical value extracted from the device response.
         """
         value = value.split(',')
         index = int(value[2]) % 10
@@ -238,7 +259,7 @@ class TTI (create_attributes, Measure):
         """
         Get/Set Standard Event Status Enable Register.
 
-        see QL355T Instruction Manual for more details
+        See QL355T Instruction Manual for more details
         """
 
     @property

@@ -5,7 +5,7 @@ import numpy as np
 
 
 class Measure(Instrument):
-    """Basic Measurement class."""
+    """ Base class for measurement instruments, e.g. SMU, DMM, Scope etc."""
 
     def __init__(self, **kwargs):
         """Initialize the smu class."""
@@ -74,7 +74,7 @@ class Measure(Instrument):
         """
         Set/get channel number if the instrument have more than one channel.
 
-         you can also use:
+        One can also use:
             >>> vdd[0].voltage = 5           # set voltage from channel 0
             >>> vdd[1].current = 0.1         # set current from channel 1
             >>> v = vdd[1].voltage           # measure voltage from channel 1
@@ -83,6 +83,18 @@ class Measure(Instrument):
 
     @channel.setter
     def channel(self, value):
+        """ 
+        Set/get channel number if the instrument have more than one channel.
+        
+        Parameters:
+        ---------
+        value: int
+            channel number to be set, must be in self.channels list.
+            
+        Returns:
+        --------
+            None
+        """
         if value not in self.channels:
             logger.error('{!r}.channel := {} not initialise in channels list == {}\n   use last channel := {} !'.format(self.instName, value, self.channels, self.channel))
             return
@@ -114,24 +126,24 @@ class Measure(Instrument):
         return self
 
     def __iter__(self):
-        """For interations."""
+        """ For iterating over channels """
         self._chiter = iter(self.channels)
         return self
 
     def __next__(self):
-        """For interations."""
+        """ For iterating over channels """
         self.channel = next(self._chiter)
         return self
 
     def __contains__(self, key):
-        """For interations."""
+        """ Return True if key in channels list, else False. """
         if key in self.channels:
             return True
         else:
             return False
 
     def __len__(self):
-        """Return with count of channels."""
+        """Return the number of channels."""
         if hasattr(self, '_channel'):
             return len(self.channels)
         else:

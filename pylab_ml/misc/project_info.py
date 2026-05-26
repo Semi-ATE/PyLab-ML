@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 """
-get project infos from the harness/project_info.yaml file
+Get project infos from the harness/project_info.yaml file
 and set the environment variable.
-
-
 """
 import os
 from pathlib import Path
@@ -12,12 +10,20 @@ from ate_common.logger import (LogLevel)
 
 
 class Project_Info:
+    """ Class to get project infos from the harness/project_info.yaml file and set the environment variable. """
 
     def __init__(self, filename, logger, path= "harness/project_info.yaml" ):
         """
-        Get project infos from the harness/project_info.yaml file.
-
-        and set the environment variable.
+        Get project infos from the harness/project_info.yaml file and set the environment variable.
+        
+        Parameters
+        ----------
+            filename : str
+                The filename of the project_info.yaml file.
+            logger : Logger
+                The logger to log messages.
+            path : str, optional
+                The path to the project_info.yaml file, by default "harness/project_info.yaml".
         """
         self.logger = logger
         self.hpath = os.path.join(str(Path(filename).parent.parent.parent.parent), os.path.dirname(path))
@@ -45,9 +51,19 @@ class Project_Info:
     def replace_variables(self, value):
         """
         Check if valuestr has environment-variables starts with $, or valuestr has path-value like './'.
+        If yes than replace environment-variables with its value.
+        
+        eg. if value is '$HOME/dir', then it will replace $HOME with the value of the HOME environment variable and return the resulting string.
+        
+        Parameters
+        ----------
+            value : str
+                The value to check for environment variables and path values.
 
-        If yes than replace environment-variables with its value,
-
+        Returns
+        -------
+            valuestr : str
+                The value with environment variables and path values replaced.
         """
         valuestr = value
         if type(value) is str and value.find('$') > -1:   # find environment variables inside the value?

@@ -1,26 +1,32 @@
+""" This script provides the base class for Rohde & Schwarz instruments.
 
+:Date: |today|
+:Author: Semi-ATE <info@Semi-ATE.org>
+
+"""
 from pylab_ml.base_instrument import logger
 from pylab_ml.collate_instrument import Interface
 from pylab_ml.baseclass.base_measurement import Measure
 
 
 class Rohde_Schwarz(Measure):
-    """Interface to the Keithley SMU Instruments.
+    """
+    Interface to the Keithley SMU Instruments.
 
     The Keithley baseclass can connect to Keithley SMU instruments
 
     Initialization arguments:
         addr (int):
-                        interface address
+            interface address
 
         interface (dev_interface.Instrument):
-                        gpib, usbserial
+            GPIB, USBSerial
 
         backend (str):
-                        visa backend is either '@ni' for NI-Library or
-                        '@py' for pure python pyvisa-py backend.
-                        On default it uses '@ni' on win32 and '@py' on
-                        other platforms.
+            VISA backend is either '@ni' for NI-Library or
+            '@py' for pure python pyvisa-py backend.
+            On default it uses '@ni' on win32 and '@py' on
+            other platforms.
 
     Example: Initialization
         >>> instrument = Keithley(addr=24)   # GPIB or USB address
@@ -49,7 +55,7 @@ class Rohde_Schwarz(Measure):
             write and read the answer
 
     Properties:
-        id          get IDN string
+        id : Get IDN string
     """
 
     interchoices = [Interface.gpib]
@@ -78,7 +84,14 @@ class Rohde_Schwarz(Measure):
         self.inst.clear()
 
     def error_list(self):
-        """List of outstanding errors."""
+        """
+        List of outstanding errors.
+        
+        Returns
+        -------
+            errorlist : list of tuples
+                list of outstanding errors, each tuple is (code, message)
+        """
         self.budget.set_slack(self)
         errormsgs = self.inst.query(':SYST:ERR:ALL?')
         errors = errormsgs.split(",")[1::2]
@@ -121,6 +134,17 @@ class Rohde_Schwarz(Measure):
         Can lose coherency between read request and data, usually because of Timeout.
 
         This routine can diagnose such loss of coherency and attempt to fix it, when fix=True
+        
+        Parameters
+        ----------
+            fix : bool
+                If True, attempt to fix the loss of coherency by consuming the next few lines of data, 
+                which should be the data that was expected from the previous read request.
+                
+        Returns
+        -------
+            bool
+                True if coherency is restored, False otherwise.
         """
         self.budget.set_slack(self)
         ires = None

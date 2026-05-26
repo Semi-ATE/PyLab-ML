@@ -29,7 +29,8 @@ from pylab_ml.base_instrument import logger
 
 
 class Pickering_40_5xx(Pickering):
-    """Interface to the Matrix Pickering 40-541-021 (66x8 Matrix, 69x16).
+    """
+    Interface to the Matrix Pickering 40-541-021 (66x8 Matrix, 69x16).
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
@@ -42,12 +43,12 @@ class Pickering_40_5xx(Pickering):
         | matlab.m files as table will not supported any more
 
     todo:
-       | SwitchOver not tested!!
-       | only one device allowed
-       | ScenariosSet not implemented
-       | Auswertung protected=0/1 für Category fehlt
-       | stackable testen
-       | wie ist switchover in neuem setup-file von Matlab implementiert
+        | SwitchOver not tested!!
+        | only one device allowed
+        | ScenariosSet not implemented
+        | Auswertung protected=0/1 für Category fehlt
+        | stackable testen
+        | wie ist switchover in neuem setup-file von Matlab implementiert
 
     """
 
@@ -76,38 +77,37 @@ class Pickering_40_5xx(Pickering):
     interchoices = [Interface.generic]
 
     def __init__(self, addr=None, connectionTableName=None, identify=False, instName=None, emulator=False):
-        """Initialise the instrument.
+        """
+        Initialise the instrument and load the connectionTable if connectionTableName is given.
 
         Parameters
         ----------
-        addr : str, optional
-           address Name from NIMax,
-           or None, but than it is time-killing (only works ith one Pickering Matrix at PCIe ). The default is None.
-        connectionTableName : str, optional
-            filename from setup- or matlab-file with connection definition. The default is $WORKAREA/harness/matrix*.setup
-        instName : str, optional
-            instance Name from top
-        emulator : bool, optional
-            if True than emulate only a Matrix. No real hardware. The default is False.
-
+            addr : str, optional
+                Address Name from NIMax,
+                or None, but than it is time-killing (only works ith one Pickering Matrix at PCIe ). The default is None.
+            connectionTableName : str, optional
+                Filename from setup- or matlab-file with connection definition. The default is $WORKAREA/harness/matrix*.setup
+            instName : str, optional
+                Instance Name from top
+            emulator : bool, optional
+                If True than emulate only a Matrix. No real hardware. The default is False.
 
         Example: Initialization
-           >>> tablename = 'matrix_messplatz.setup'
-           >>> matrix = Pickering_40_5xx(addr='Switch', tablename, instName='matrix')
-           >>> matrix.set('Position2','close')              # need connectionTable
-           >>> matrix.set('Oszi','close')
-           >>> matrix.set('APB_Vsup','close')
-           >>> matrix.set('APB_Vsup','open')
-           >>> matrix.set('SMU_Vsup','close')
-           >>> matrix.set('SMU_Vsup')                       # default = open
-           >>> matrix.set('APB_Vsup','close',SwitchOver=True)
-           >>> matrix.display('nodes')
-           >>> matrix.display('state')
-           >>> matrix.connect('1,1,1;1,2,3;1,3,5','close')  # if connectionTable not loaded
+            >>> tablename = 'matrix_messplatz.setup'
+            >>> matrix = Pickering_40_5xx(addr='Switch', tablename, instName='matrix')
+            >>> matrix.set('Position2','close')              # need connectionTable
+            >>> matrix.set('Oszi','close')
+            >>> matrix.set('APB_Vsup','close')
+            >>> matrix.set('APB_Vsup','open')
+            >>> matrix.set('SMU_Vsup','close')
+            >>> matrix.set('SMU_Vsup')                       # default = open
+            >>> matrix.set('APB_Vsup','close',SwitchOver=True)
+            >>> matrix.display('nodes')
+            >>> matrix.display('state')
+            >>> matrix.connect('1,1,1;1,2,3;1,3,5','close')  # if connectionTable not loaded
 
-        detailed example of usage:
+        Detailed example of usage:
            * :download:`examples/pickeringmatrix/matrix_40_541_201.py <../../../examples/pickeringmatrix/matrix_40_541_201.py>`
-
         """
         # self.mqtt_debug = True
         self.connectionTableName = connectionTableName
@@ -206,10 +206,10 @@ class Pickering_40_5xx(Pickering):
         """
         Display state, nodes or connection in ASCII-String.
 
-           | mode==None or 'state'  display actual state
-           | mode=='nodes'  display connected nodes
-           | mode=='connection' display available codes for connections
-           | mode==someone else  display help
+            | mode==None or 'state'  display actual state
+            | mode=='nodes'  display connected nodes
+            | mode=='connection' display available codes for connections
+            | mode==someone else  display help
         """
         if mode is None or mode == "state":
             if self.connectionTable is None:
@@ -259,18 +259,22 @@ class Pickering_40_5xx(Pickering):
         self.publish_set("clear", 0)
 
     def set(self, connection, state="open", SwitchOver=False):
-        """Set categories or scenarios to state 'open' or 'close'.
+        """
+        Set categories or scenarios to state 'open' or 'close'.
 
-        Args:
-            connection (str):  categories or scenarios.
-            state (str, optional):  'open' or 'close'. Defaults to 'open'.
-            SwitchOver (TYPE, optional):
-               | True : connection will be open AFTER the new one was set,
-               | False : default -> first: open last connection, than: close new connection
+        Parameters
+        ----------
+            connection : str
+                Categories or scenarios.
+            state : str, optional
+                'open' or 'close'. Defaults to 'open'.
+            SwitchOver : bool, optional
+                | True : Connection will be open AFTER the new one was set,
+                | False : default -> first: Open last connection, than: close new connection
 
-        Returns:
+        Returns
+        -------
             None
-
         """
         if self.connectionTable is None:
             logger.warning("set({},{}) not possible: connectionTable not loaded".format(connection, state))
@@ -344,9 +348,14 @@ class Pickering_40_5xx(Pickering):
         return
 
     def load_connectionTable(self, connectionTableName=None):
-        """Load matlab(.m) or setup-file(.setup) with definition from connections.
-
-        create constantsTable and connectionTable
+        """
+        Load matlab(.m) or setup-file(.setup) with definition from connections.
+        Create constantsTable and connectionTable
+        
+        Parameters
+        ----------
+            connectionTableName : str, optional
+                Filename from setup- or matlab-file with connection definition. The default is $WORKAREA/harness/matrix*.setup
         """
         self.id
         if connectionTableName is None:
@@ -375,15 +384,22 @@ class Pickering_40_5xx(Pickering):
         """
         Load filename  and create dictionary constants and contab.
 
-        Args:
-            filename (TYPE):  filename *.setup
+        Parameters
+        ----------
+            filename : str
+                Filename *.setup
 
-        Raises:
-            Exception: IOError.
+        Returns
+        -------
+            dic_constantsTable : dict
+                Dictionary with constants from the setup file.
+            contab : dict
+                Dictionary with connection table from the setup file.
 
-        Returns:
-            constants (dic)  contab.
-
+        Raises
+        ------
+            Exception: IOError
+                When file not found or file doesn't contain necessary information.
         """
         if not os.path.isfile(filename):
             raise Exception(" couldn't find {}".format(filename))
@@ -417,14 +433,18 @@ class Pickering_40_5xx(Pickering):
         return (dic_constantsTable, contab)
 
     def _struc2dic(self, key):
-        """Convert string struct from matlab to dictonary.
+        """
+        Convert string struct from matlab to dictonary.
 
-        Args:
-            key (str): string struct in matlab syntax
+        Parameters
+        ----------
+            key : str
+                String struct in matlab syntax
 
-        Returns:
-            dic (dic): python dictonary from the key.
-
+        Returns
+        -------
+            dic : dict
+                Python dictionary from the key.
         """
         dic = {}
         if key.find("struc") == 0:
@@ -459,12 +479,14 @@ class Pickering_40_5xx(Pickering):
         """
         Load connection Table from matlab sources.
 
-        Args:
-            table_filename (str): filename von matlab Table file.
+        Parameters
+        ----------
+            table_filename : str
+                Filename of the matlab Table file.
 
-        Returns:
+        Returns
+        -------
             None.
-
         """
         contab = {}
         constants = {}
@@ -527,20 +549,25 @@ class Pickering_40_5xx(Pickering):
         return (constants, contab)
 
     def connect(self, crosspointtable, state):
-        """Set state from crosspoint.
+        """
+        Set state from crosspoint.
 
-        Args:
-            crosspointtable (str): stringlist with nodes ('1,3,4;1,5,6;1,2,14')  card, row, col.
-            state (str): 'open' or 'close'.
+        Parameters
+        ----------
+            crosspointtable : str
+                String list with nodes ('1,3,4;1,5,6;1,2,14')  card, row, col.
+            state : str
+                'open' or 'close'.
 
-        Raises:
-            Exception: when more than one card use.
-
-        Returns:
+        Returns
+        -------
             bool:
-               | True : etablish state
-               | False : error
+                | True : Establish state
+                | False : Error
 
+        Raises
+        ------
+            Exception: When more than one card use.
         """
         if state == "close":
             state = 1
@@ -571,6 +598,18 @@ class Pickering_40_5xx(Pickering):
         return True
 
     def _GetCrosspointState(self, cardnr):
+        """
+        Get the state of all crosspoints and display it in a ASCII-String.
+        
+        Parameters
+        ----------
+            cardnr : int
+                Card number, only 1 supported.
+        
+        Returns
+        -------
+            None.
+        """
         msg = "\n    {} = {}  {}x{}\n      ".format(self.instName, self.type, self.cols, self.rows)
         for cols in range(1, int(self.cols / 10) + 1):
             msg = msg + ("         {}".format(cols))
@@ -630,19 +669,30 @@ class Pickering_40_5xx(Pickering):
 
 
 class Pickering_Emulator(object):
-    """Emulator from a  Matrix Pickering.
+    """
+    Emulator from a  Matrix Pickering.
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
 
     Usable if you have no real Matrix as instance
-
     """
 
     import numpy as np
 
     def __init__(self, addr=None, x=66, y=8):
-        """Initialise."""
+        """
+        Initialise the emulator.
+        
+        Parameters
+        ----------
+            addr : str, optional
+                Address Name from NIMax, only for logging. The default is None.
+            x : int, optional
+                Number of columns. The default is 66.
+            y : int, optional
+                Number of rows. The default is 8.
+        """
         self.addr = addr
         self.y_max = y
         self.x_max = x
@@ -652,7 +702,7 @@ class Pickering_Emulator(object):
         self.clear()
 
     def clear(self):
-        """Clear all connections (opem)."""
+        """Clear all connections (open)."""
         self.ClearCard()
 
     def Close(self):
@@ -666,13 +716,52 @@ class Pickering_Emulator(object):
         self.matrix_array = self.np.zeros((self.y_max, self.x_max))
 
     def SetCrosspointState(self, cardnr, row, col, state):
+        """
+        Set state from crosspoint.
+        
+        Parameters
+        ----------
+            cardnr : int
+                Card number.
+            row : int
+                Row number.
+            col : int
+                Column number.
+            state : int
+                State to set.
+                
+        Returns
+        -------
+            int
+                0 for success.
+        """
         self.matrix_array[row - 1][col - 1] = state
         return 0
 
     def GetCrosspointState(self, cardnr, rows, cols):
+        """
+        Get state from crosspoint.
+        
+        Parameters
+        ----------
+            cardnr : int
+                Card number.
+            row : int
+                Row number.
+            col : int
+                Column number.
+                
+        Returns
+        -------
+            int
+                0 for success.
+            int
+                State of the crosspoint.
+        """
         return 0, self.matrix_array[rows - 1][cols - 1]
 
     def ErrorMessage(self, err):
+        """ Get error message from emulator. """
         msg = "Emulator.matrix:  something goes wrong, error = {}".format(err)
         raise Exception(msg)
 
@@ -682,13 +771,16 @@ class Pickering_Emulator(object):
             logger.debug(message)
 
     def GetCardId(self):
+        """ Get card ID from emulator. """
         return 0, "Pickering Emulator Matrix"
 
     def Diagnostic(self):
+        """ Perform diagnostic on emulator. """
         value = 0
         return [value]
 
     def SubInfo(self, cardnr, unknown):
+        """ Get sub-unit information from emulator. """
         return 0, 100, self.y_max, self.x_max
 
 

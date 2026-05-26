@@ -1,3 +1,9 @@
+""" This script provides the interface to the Rohde & Schwarz HMP4040 Power-Measurement-Unit (SMU).
+
+:Date: |today|
+:Author: Semi-ATE <info@Semi-ATE.org>
+
+"""
 import re
 import numpy as np
 import math
@@ -9,39 +15,39 @@ from pylab_ml.smu.rohde_schwarz.base_rohde_schwarz import Rohde_Schwarz
 
 class HMP4040(Rohde_Schwarz):
     """
-    Interface to the Power-Measuremet-Unit (SMU) HMP4040.
+    Interface to the Power-Measurement-Unit (SMU) HMP4040.
 
-    The HMP4040 can
-    source and sink power in all four voltage/current quadrants and
-    measure voltage and current precisely
+    The HMP4040 can source and sink power in all four voltage/current quadrants and
+    measure voltage and current precisely.
 
     Initialization arguments:
-        addr (int):     interface address
+        addr (int):     
+            Interface address
 
         interface (Instrument):
-                        gpib, usbserial
+            GPIB, USBSerial
 
         backend (str):
-                        visa backend is either '@ni' for NI-Library or
-                        '@py' for pure python pyvisa-py backend.
-                        By default it uses '@ni' on win32 and '@py' on
-                        other platforms.
+            VISA backend is either '@ni' for NI-Library or
+            '@py' for pure python pyvisa-py backend.
+            By default it uses '@ni' on win32 and '@py' on
+            other platforms.
 
     Example: Initialization
-        >>> vdd = HMP4040(addr=24)  # GPIB or USB address
-                                         #  validate displayed message Id on device
-        >>> vdd.init()                   # connect and initialize instrument
+        >>> vdd = HMP4040(addr=24)      # GPIB or USB address
+                                        # Validate displayed message Id on device
+        >>> vdd.init()                  # Connect and initialize instrument
 
 
     Example: Voltage source
-        >>> vdd.i_clamp = 0.01           # current protection
-        >>> vdd.voltage = 3.3            # set output voltage
-        >>> i = vdd.current              # measure (supply) current
+        >>> vdd.i_clamp = 0.01           # Current protection
+        >>> vdd.voltage = 3.3            # Set output voltage
+        >>> i = vdd.current              # Measure (supply) current
 
     Example: Current source
-        >>> vdd.v_clamp = 5              # voltage protection
-        >>> vdd.current = 0.1            # set output current_range
-        >>> v = vdd.voltage              # measure voltage
+        >>> vdd.v_clamp = 5              # Voltage protection
+        >>> vdd.current = 0.1            # Set output current_range
+        >>> v = vdd.voltage              # Measure voltage
 
 
     Methods:
@@ -128,6 +134,22 @@ class HMP4040(Rohde_Schwarz):
     interchoices = [Interface.usbserial, Interface.gpib]
 
     def __init__(self, addr=None, interface=None, backend=None, identify=True, instName=None):
+        """ 
+        Initialize the Rohde & Schwarz HMP4040 SMU.
+        
+        Parameters
+        ----------
+            addr (int): 
+                GPIB or USB address of the instrument.
+            interface (Interface): 
+                Interface type (USB, GPIB, etc.).
+            backend (str): 
+                Backend to use for communication.
+            identify (bool): 
+                If True, identify the instrument during initialization.
+            instName (str): 
+                Optional instrument name.
+        """
         kwargs = {"addr": addr, "interface": interface, "backend": backend, "identify": identify, "instName": instName}
         super().__init__(**kwargs)
         logger.debug("Class {}".format(self.__class__.__name__))
@@ -160,6 +182,7 @@ class HMP4040(Rohde_Schwarz):
 
     @property
     def onoff(self):
+        """ Get or set output on/off state. Setting onoff to True will switch on the output, False will switch it off."""
         self.budget.set_slack(self)
         result = int(self.inst.query(':OUTPUT:STATE?')) == 1
         return (result)
@@ -172,9 +195,18 @@ class HMP4040(Rohde_Schwarz):
             self.off()
 
     def query_onoff(self):
+        """" Query the output on/off state. Returns True if output is on, False if output is off. """
         self.onoff
 
     def query_output_function(self):
+        """
+        Query the output function, return 'DC_VOLTAGE', 'DC_CURRENT' or 'RESISTANCE' depending on the source function, 
+        or the source function name if it is not voltage or current.
+        
+        Returns
+        -------
+            str: 'DC_VOLTAGE', 'DC_CURRENT', 'RESISTANCE' or source function name
+        """
         self.budget.set_slack(self)
         if self.inst.query(':SOURce:FUNCtion:MODE?') == 'VOLT':
             return 'DC_VOLTAGE'
@@ -200,7 +232,7 @@ class HMP4040(Rohde_Schwarz):
     def measure(self):
         """Get or set measure.
 
-        where the measurements are defined by "vir" flags (VOLTAGE,CURRENT,RESISTANCE)
+        Where the measurements are defined by "vir" flags (VOLTAGE,CURRENT,RESISTANCE)
         """
         if not self.onoff:
             return
@@ -318,7 +350,12 @@ class HMP4040(Rohde_Schwarz):
         """
         Set the conversion number of power line cycles accuracy, for all converters.
 
-        for a plc of 1.0, conversion rate is 1/50s = 20ms. Accuracy max 10, min 0.01
+        For a plc of 1.0, conversion rate is 1/50s = 20ms. Accuracy max 10, min 0.
+        
+        Returns
+        -------
+            float
+                Number of power line cycles for conversion, between 0.01 and 10.
         """
         self.budget.set_slack(self)
         val = self.inst.query(':SENS:VOLT:NPLC?')
@@ -553,15 +590,21 @@ class HMP4040(Rohde_Schwarz):
 
     def stair_sweep(self, start, stop, dstep, stime=0, typ='V', stair='Lin', wait=False):
         """
-        Make a stair sweep.
-
-        typ:    'Vvirts-', 'Ivirts-'  = Voltage / Current sourced, '-' changes direction.
-                   volts, amps, ohms, timestamp, status are sensed
-        start:  Start value in volts or amps, None implies incremental
-        stop:   Stop value in volts or amps
-        dstep:  Delta amplitude for Lin, Points to interpolate for Log, stime is slope time for None (>1ms)
-        stime:  Delay between steps or slope time if dstep == None
-        stair:  ('Lin','Log) = linear or log source
+        Make a stair sweep from start to stop with step dstep and delay stime, measure according to typ.
+        
+        Parameters
+        ----------
+            typ:    'Vvirts-', 'Ivirts-'  = Voltage / Current sourced, '-' changes direction.
+                    volts, amps, ohms, timestamp, status are sensed
+            start:  Start value in volts or amps, None implies incremental
+            stop:   Stop value in volts or amps
+            dstep:  Delta amplitude for Lin, Points to interpolate for Log, stime is slope time for None (>1ms)
+            stime:  Delay between steps or slope time if dstep == None
+            stair:  ('Lin','Log) = linear or log source
+            
+        Returns
+        -------
+            List of measured values according to typ, with each value a list of the form [voltage, current, resistance, timestamp, status] depending on the flags in typ.
         """
         args = [None, stop, dstep]
         kwargs = {'stime': stime, 'typ': typ, 'stair': stair}
@@ -787,7 +830,17 @@ class HMP4040(Rohde_Schwarz):
                 self.inst.write(':SENS:CURR:NPLC {}'.format(self._nplc))
 
     def get_values(self, typ=''):
-        """Transfer last requested measurement sweep results."""
+        """
+        Transfer last requested measurement sweep results.
+        
+        Parameters
+        ----------
+            typ: 'Vvirts-', 'Ivirts-'  = Voltage / Current sourced, '-' changes direction.
+                 volts, amps, ohms, timestamp, status are sensed
+        Returns
+        -------
+            List of measured values according to typ, with each value a list of the form [voltage, current, resistance, timestamp, status] depending on the flags in typ.
+        """
         if not typ or typ == '':
             typ = self.stair_measure
         unknown_measure = [tm for tm in typ if not tm in "VI" + self.stair_measure]

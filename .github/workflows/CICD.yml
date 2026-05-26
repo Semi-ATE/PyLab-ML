@@ -110,7 +110,7 @@ jobs:
             sudo chown -R $USER:$USER docs
 
       - name: Upload docs to Github artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           path: docs/build/html/*
           name: docs-output

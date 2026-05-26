@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Simple basci gui for the registermaster.
+Simple basic GUI for the registermaster.
+This GUI allows users to interact with the registermaster, send MQTT commands, and receive updates.
+The class inherits from a base instrument GUI class and implements specific functionality for the registermaster.
 
 Created on Mon Jan  3 09:19:17 2022
 @author: C. Jung
@@ -31,9 +33,9 @@ __version__ = "0.0.3a"
 
 
 class Gui(Guibase):
-    """Simple basci gui for the registermaster.
+    """Simple basic GUI for the Registermaster.
 
-    inherited from base_instrument
+    Inherited from base_instrument
        status
 
     """
@@ -46,6 +48,20 @@ class Gui(Guibase):
     }
 
     def __init__(self, parent=None, name="reg", parentwindow=None, channel=None):
+        """
+        Initialize the GUI for the registermaster.
+        
+        Parameters
+        ----------
+            parent: QWidget, optional
+                The parent widget of the GUI.
+            name: str, optional
+                The name of the GUI instance.
+            parentwindow: QWidget, optional
+                The parent window of the GUI.
+            channel: int, optional
+                The channel number for the registermaster.
+        """
         super().__init__(grandparent=parent, name=name, parentwindow=parentwindow)
         self.myframe = load_ui(self.gui.myframe, __file__)
         # bgcolor = self.gui.palette().color(QtGui.QPalette.Background).name()    # getRgb()
@@ -58,6 +74,7 @@ class Gui(Guibase):
         self.show_regs = []
 
     def myadjustUI(self):
+        """Adjust the GUI elements for the registermaster."""
         # set icons:
         self.gui.runToolBar.setVisible(False)
         # self.add_menuicon('onoff')                              # add existing icon and connection from the base-instrument
@@ -82,13 +99,23 @@ class Gui(Guibase):
         self.myframe.setGeometry(geometry.x(), geometry.y(), wh.width() + 100, wh.height() + 250)
 
     def regstatus(self, msg):
+        """Update the status label in the GUI with the given message."""
         self.myframe.Lstatus.setText(msg)
         self.myframe.Lstatus.setStyleSheet("color: rgb(255, 0, 0)")
 
     # ======================================================
     # attributes which connect to an extern call (mqtt-command)
     def mqttreceive(self, instName, msg):
-        """common mqtt receive messages, get raw mqtt-Data for more information"""
+        """
+        Common MQTT receive messages, get raw MQTT data for more information.
+        
+        Parameters
+        ----------
+            instName: str
+                The name of the instrument instance.
+            msg: dict
+                The MQTT message received.
+        """
         if super().mqttreceive(instName, msg):
             return
 #        self.logger.log_message(LogLevel.Debug(), f"{instName}.mqttreceive: {msg} ")  # e.q. msg={'type': 'set', 'cmd': 'TEST7.read', 'payload': 1608}
@@ -110,6 +137,16 @@ class Gui(Guibase):
                 self.logger.log_message(LogLevel.Warning(), f"{instName} {msg['cmd']} not found -> do nothing")
 
     def registerframe(self, register, value):
+        """
+        Update the register frame in the GUI with the given register and value.
+        
+        Parameters
+        ----------
+            register: Register
+                The register object to update.
+            value: int
+                The value to set for the register.
+        """
         # self.logger.log_message(LogLevel.Debug(), f"      call registerframe with {register} {value}")
         register._cache = value
         myregister = None
@@ -169,6 +206,16 @@ class Gui(Guibase):
         # _len_slices()
 
     def memoryframe(self, adr, value):
+        """
+        Update the memory frame in the GUI with the given address and value.
+
+        Parameters
+        ----------
+            adr: int
+                The address of the memory location.
+            value: int
+                The value to set for the memory location.
+        """
         for name in self.regs.__dict__:                 # search for address, perhaps it is a register
             register = self.regs.__dict__[name]
             if hasattr(register, "_cpuaddr"):
@@ -186,6 +233,7 @@ class Gui(Guibase):
 
     @property
     def filename(self):
+        """Get the current filename."""
         return self._filename
 
     @filename.setter
@@ -219,6 +267,7 @@ class Gui(Guibase):
         print(f"registermaster.filename set to {self._filename}")
 
     def showdoc(self, action, label):
+        """Show or hide the documentation for a given label based on the state of the corresponding action."""
         if not action.isChecked():
             label.hide()
         else:
@@ -231,21 +280,25 @@ class Gui(Guibase):
     #
 
     def close(self, event=None):
+        """Handle the close event for the GUI by publishing an 'off' command and then calling the base class's close method."""
         super().close()
 
     def openexcel(self):
+        """Open the current Excel file."""
         filename = pathlib.Path(self.filename)
         msg = f"start excel {filename}"
         self.logger.log_message(LogLevel.Info(), msg)
         os.system(msg)
 
     def toggleBhold(self, hold):
+        """Toggle the state of the hold button and update its icon accordingly."""
         if hold.isChecked():
             hold.setIcon(qta.icon("fa5s.thumbtack", color="orange", scale_factor=1.0, color_active="white"))
         else:
             hold.setIcon(qta.icon("fa5s.thumbtack", color="white", scale_factor=1.0, color_active="orange"))
 
     def showregdoc(self):
+        """Show or hide the documentation for all registers based on the state of the corresponding actions."""
         if not hasattr(self, "show_regs"):
             return
         for myregister in self.show_regs:
@@ -257,6 +310,7 @@ class Gui(Guibase):
             myregister.show()
 
     def readreg(self, regname):
+        """Read the value of a register."""
         self.logger.log_message(LogLevel.Error(), f" readreg {regname} ")
         self.publish(f"{regname}.read")
 

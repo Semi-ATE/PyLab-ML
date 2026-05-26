@@ -1,4 +1,7 @@
-"""Data manipulation functions."""
+"""
+This script contains functions for data manipulation and processing, such as converting between signed and unsigned data, calculating CRC checksums, and parsing strings to numeric values. 
+These functions are commonly used in data processing tasks, especially when dealing with binary data or communication protocols.
+"""
 import time
 import numpy as np
 import datetime as dt
@@ -7,14 +10,19 @@ import datetime as dt
 def unsigned_data(f):
     """
     Convert to 16-bit unsigned_data.
+    
+    eg. unsigned_data(-1) -> 65535
+        unsigned_data(-33) -> 65503
+        unsigned_data(50) -> 50
 
     Parameters
     ----------
-    f : 16-bit value
+        f : 16-bit value
 
     Returns
     -------
-    unsigned 16-bit value
+        int
+            unsigned 16-bit value
 
     """
     if f < 0.0:
@@ -25,16 +33,22 @@ def unsigned_data(f):
 def signed_data(f, bitwidth=16):
     """
     Convert to signed_data.
+    
+    eg. signed_data(65535) -> -1
+        signed_data(65503) -> -33
+        signed_data(50) -> 50
 
     Parameters
     ----------
-    f : default 16-bit value or define bitwidht
-    bitwidth: bit width
+        f : int
+            default 16-bit value or define bitwidth
+        bitwidth : int
+            bit width
 
     Returns
     -------
-    signed value
-
+        int
+            signed value
     """
     if f > (1 << bitwidth-1)-1:
         f -= (1 << bitwidth)
@@ -42,7 +56,19 @@ def signed_data(f, bitwidth=16):
 
 
 def byte2word(list8):
-    """Return a list with 16-bit data from a imput list with 8-bit data."""
+    """
+    Return a list with 16-bit data from a imput list with 8-bit data.
+    
+    eg. byte2word([0x01, 0x02, 0x03, 0x04]) -> [0x0201, 0x0403]
+    
+    Parameters
+    ----------
+        list8 : list of 8-bit values
+
+    Returns
+    -------
+        list16 : list of 16-bit values
+    """
     list16 = []
     for index in range(0, len(list8), 2):
         list16.append(list8[index] + (list8[index+1] << 8))
@@ -50,7 +76,20 @@ def byte2word(list8):
 
 
 def byte2uint(list8):
-    """Return a list with 32-bit data from a imput list with 8-bit data."""
+    """
+    Return a list with 32-bit data from a imput list with 8-bit data.
+    
+    eg. byte2uint([0x01, 0x02, 0x03, 0x04]) -> [0x04030201]
+        byte2uint([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08]) -> [0x04030201, 0x08070605]
+    
+    Parameters
+    ----------
+        list8 : list of 8-bit values
+
+    Returns
+    -------
+        list32 : list of 32-bit values
+    """
     list32 = []
     for index in range(0, len(list8), 4):
         list32.append(list8[index] + (list8[index+1] << 8) + (list8[index+2] << 16) + (list8[index+3] << 24))
@@ -58,7 +97,26 @@ def byte2uint(list8):
 
 
 def complement(value, bits):
-    """Binary complement from a positive value with number of bits."""
+    """
+    Binary complement from a positive value with number of bits.
+    
+    eg. complement(0, 8) -> 255
+        complement(1, 8) -> 254
+        complement(255, 8) -> 0
+        complement(1, 16) -> 65534
+        
+    Parameters
+    ----------
+        value : int
+            Positive integer value to be complemented.
+        bits : int
+            Number of bits for the complement.
+
+    Returns
+    -------
+        int
+            Complemented value.
+    """
     if value < 0:
         raise ValueError(f"complement value must be an positive integer, not {value}")
     formatstring = '{:0%ib}' % bits
@@ -66,7 +124,26 @@ def complement(value, bits):
     return int(''.join({'0': '1', '1': '0'}[x] for x in bvalue), 2)
 
 def complement2(value, bits):
-    """2's complement representation from a value with number of bits."""
+    """
+    2's complement representation from a value with number of bits.
+    
+    eg. complement2(0, 8) -> 0
+        complement2(1, 8) -> 1
+        complement2(-1, 8) -> 255
+        complement2(33, 16) -> 223
+
+    Parameters
+    ----------
+        value : int
+            Integer value to be converted to 2's complement.
+        bits : int
+            Number of bits for the 2's complement representation.
+
+    Returns
+    -------
+        int
+            2's complement representation of the value.
+    """
     if value >= 2**(bits-1):
         raise ValueError(f"complement2 value must be < {2**(bits-1)}")
     result = value if value >=0 else complement(-value, bits)+1
@@ -77,7 +154,20 @@ def crc4(data):             # width
     Calculate 4-bit crc from a data with width bits.
 
     polynomial = X4+X+1
-
+    
+    eg. crc4(0b1011) -> 0b1110
+        crc4(0b1101) -> 0b0110
+        crc4(0b1111) -> 0b0000
+        
+    Parameters
+    ----------
+        data : int
+            Input data for which the CRC is to be calculated. The data should be a non-negative integer.
+            
+    Returns
+    -------
+        int
+            The calculated 4-bit CRC value as an integer.
     """
     data = f'{data:0b}'
     crcdat = 0
@@ -93,15 +183,20 @@ def crc4(data):             # width
 def crc16(word_array):
     """
     Calculate CRC-16 on array.
+    
+    eg. crc16([0x0201, 0x0403]) -> 0x29B1
+        crc16([0x1234, 0x5678]) -> 0xE5CC
+        crc16([0xABCD, 0xEF01]) -> 0xD64E
 
     Parameters
     ----------
-    word_array : 16-bit word array
+        word_array : list of int
+            Array of 16-bit words for which the CRC is to be calculated.
 
     Returns
     -------
-    CRC-16
-
+        crc : int
+            16-bit CRC value.
     """
     crctable = [0x0000, 0x1021, 0x2042, 0x3063, 0x4084, 0x50A5, 0x60C6, 0x70E7,
                 0x8108, 0x9129, 0xA14A, 0xB16B, 0xC18C, 0xD1AD, 0xE1CE, 0xF1EF,
@@ -154,17 +249,23 @@ def crc16(word_array):
 def j1850_crc(buffer, length=None):
     """J1850 CRC-Calculation.
 
+    eg. j1850_crc([0x01, 0x02, 0x03, 0x04]) -> 0x1D
+        j1850_crc([0xAB, 0xCD, 0xEF]) -> 0x4B
+        j1850_crc([0x00, 0xFF, 0x55]) -> 0xA2
 
     Parameters
     ----------
-    buffer : arry of byte
-        DESCRIPTION.
-    length : integer value
-        frame length
+        buffer : list of int
+            Input data for which the J1850 CRC is to be calculated. 
+            The data should be a list of integers representing bytes (0-255).
+        length : int, optional
+            Number of bytes to consider from the buffer for CRC calculation. 
+            If None, the entire buffer will be used. Default is None.
 
     Returns
     -------
-       crc result
+        int
+            The calculated J1850 CRC value as an integer.
     """
     length = len(buffer) if length is None else length
     crc_reg = 0xff
@@ -185,16 +286,23 @@ def j1850_crc(buffer, length=None):
 def Parity(data, even=True):
     """
     Return the parity-bit from the data.
+    
+    eg. Parity(0b1011, even=True) -> 1
+        Parity(0b1011, even=False) -> 0
+        Parity(0b1101, even=True) -> 0
 
     Parameters
     ----------
-    data : int
-    even : selection parity, even or odd
+        data : int
+            Input data for which the parity bit is to be calculated. The data should be a non
+            negative integer.
+        even : bool, optional
+            If True, calculate even parity; if False, calculate odd parity. Default is True.
 
     Returns
     -------
-      1 if data is even numbers of "1"
-      0 if data is odd numbers of "1"
+        int
+            Parity bit (0 or 1) based on the input data and parity type (even or odd).
     """
     data = bin(data)
     parity = 1 if even else 0
@@ -204,7 +312,22 @@ def Parity(data, even=True):
 
 
 def datetime(typ=None):
-    """Return the acual time as a string (year, month, day, _, hour, min, sec)."""
+    """
+    Return the acual time as a string (year, month, day, _, hour, min, sec).
+    
+    eg. datetime() -> '20240615_123456'
+        datetime(typ="str") -> '2024/06/15 12:34:56'
+        
+    Parameters
+    ----------
+        typ : str, optional
+            If None, return the datetime in the format 'YYYYMMDD_HHMMSS'.
+            
+    Returns
+    -------
+        str
+            The current date and time as a string in the specified format.
+    """
     if typ is None:
         date = time.localtime(time.time())
         return f'{date.tm_year:04d}{date.tm_mon:02d}{date.tm_mday:02d}_{date.tm_hour:02d}{date.tm_min:02d}{date.tm_sec:02d}'
@@ -213,11 +336,28 @@ def datetime(typ=None):
 
 
 def str2num(value, base=10, default=""):
-    """translate str to numeric value.
-
-    if value start with 0x than it is a hex number.
-    if value start with 0b than it is a binary number.
-    if value = '' -> set to default value
+    """
+    Translate str to numeric value.
+    
+    eg. str2num("0x1A") -> 26
+        str2num("0b1010") -> 10
+        str2num("") -> default value (empty string)
+        str2num("3.14") -> 3.14
+        str2num("Hello") -> "Hello"
+        
+    Parameters
+    ----------
+        value : str
+            The string to be converted to a numeric value. The function will attempt to parse the string as an integer or a float, and will return the original string if it cannot be parsed as a number.
+        base : int, optional
+            The base to use for parsing integers. Default is 10. If the string starts with "0x" or "0b", the base will be automatically set to 16 or 2, respectively.
+        default : any, optional
+            The default value to return if the input string is empty or None. Default is an empty string.
+            
+    Returns
+    -------
+        int, float, or str
+            The parsed numeric value if the string can be converted to an integer or a float, or the original string if it cannot be parsed as a number. If the input string is empty or None, the specified default value will be returned.
     """
     #    if type(value) in [bool, int, float, np.int32, np.float64]:
     if type(value) is not str:

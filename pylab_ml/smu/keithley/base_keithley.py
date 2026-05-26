@@ -10,7 +10,8 @@ from pylab_ml.baseclass.base_measurement import Measure
 
 
 class Keithley (Measure):
-    """Baseclass Interface to the Keithley SMU Instruments.
+    """
+    Baseclass Interface to the Keithley SMU Instruments.
 
     The Keithley baseclass can connect to Keithley SMU instruments
 
@@ -19,31 +20,30 @@ class Keithley (Measure):
             write direct to instrument
         ask=inst.query(':READ?')
             write and read the answer
-
     """
 
     interchoices = [Interface.usbserial, Interface.gpib]
 
     def __init__(self, **kwargs):
-        """Connect and initialize.
+        """
+        Connect and initialize Keithley instrument.
 
         Args:
-           addr (int):
-              interface address
+            addr (int):
+                Interface address
 
-           interface (Interface):
-              gpib, usbserial
+            interface (Interface):
+                GPIB, USB
 
-           backend (str):
-              visa backend is either '@ivi' (or '@ni') for NI-Library or
-              '@py' for pure python pyvisa-py backend.
-              On default it uses '@ivi' (or '@ni') on win32 and '@py' on
-              other platforms.
+            backend (str):
+                VISA backend is either '@ivi' (or '@ni') for NI-Library or
+                '@py' for pure python pyvisa-py backend.
+                On default it uses '@ivi' (or '@ni') on win32 and '@py' on
+                other platforms.
 
         Example: Initialization
-           >>> instrument = Keithley(addr=24)   # GPIB or USB address
-           >>> instrument.init()                # connect and initialize instrument
-
+            >>> instrument = Keithley(addr=24)   # GPIB or USB address
+            >>> instrument.init()                # connect and initialize instrument
         """
         self.is_local = False
         super().__init__(**kwargs)
@@ -51,7 +51,14 @@ class Keithley (Measure):
         self.com._init(self)
 
     def init(self, identify=False):
-        """Connect to Keithley instrument and initialize."""
+        """
+        Connect to Keithley instrument and initialize.
+        
+        Parameters
+        ----------
+            identify : bool
+                If True, query the instrument ID and print it to the log.
+        """
         super().init(identify)
 
     def reset(self):
@@ -80,9 +87,16 @@ class Keithley (Measure):
         return errorlist
 
     def message(self, message=None):
-        """Message display.
-
-        instrument message ("string") or ()
+        """
+        Message display about Keithley instrument.
+        Instrument message ("string") or ()
+        
+        If message is None, the display is cleared, otherwise the message is shown on the display.
+        
+        Parameters
+        ----------
+            message : str or None
+                Message to be displayed on the instrument. If None, the display is cleared.
         """
         self.budget.set_slack(self)
         if message is None:
@@ -110,10 +124,21 @@ class Keithley (Measure):
         self.is_local = True
 
     def com_recover(self, fix=False):
-        """Detect & attempt to recover out of step communication (maybe after timeout).
+        """
+        Detect & attempt to recover out of step communication (maybe after timeout).
 
         Can lose coherency between read request and data, usually because of Timeout
         this routine can diagnose such loss of coherency and attempt to fix it, when fix=True
+        
+        Parameters
+        ----------
+            fix : bool
+                If True, attempt to fix out of step communication by consuming extra data from the instrument.
+                
+        Returns
+        -------
+            bool
+                True if communication is coherent, False otherwise.
         """
         self.budget.set_slack(self)
         ires = None

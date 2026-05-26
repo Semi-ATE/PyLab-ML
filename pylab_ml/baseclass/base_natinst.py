@@ -230,6 +230,7 @@ class NatInst (create_attributes, Measure):
         self._create_channelinst(channels)
 
     def _create_channelinst(self, channels):
+        """ Create channel instances for each channel in session. """
         self.ch = []
         i = 0
         if isinstance(channels, int) or len(channels) == 1:     # session has only one channel
@@ -280,6 +281,7 @@ class NatInst (create_attributes, Measure):
         self.is_local = False
 
     def _call_instance(self, function, rw, value=None):
+        """ Call the function for the current channel instance. """
         # func_for_channel_switch = ['channel_enabled', 'vertical_coupling', 'vertical_range', 'vertical_offset']
         if rw == "wr":
             # if function not in func_for_channel_switch:
@@ -298,11 +300,15 @@ class NatInst (create_attributes, Measure):
         """
         Set/get state, only set state if necessary.
 
-        Args:
-           newstate (State): mod:`State`.
-
+        Parameters:
+        -----------
+            newstate: str or State
+                state to be set, must be in self.State list.
+            
         Returns:
-            (State)
+        --------
+            state: State
+                current state of the instrument.
         """
         return self._state
 

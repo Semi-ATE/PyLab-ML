@@ -4,22 +4,23 @@ from pylab_ml.example.base_example import Example
 
 
 class EG_Generic (Example):
-    """Interface to the Keithley SMU Instruments.
+    """
+    Interface to the Keithley SMU Instruments.
 
     The Keithley baseclass can connect to Keithley SMU instruments
 
     Initialization arguments:
         addr (int):
-                        interface address
+            Interface address
 
         interface (dev_interface.Instrument):
-                        gpib, usbserial
+            GPIB, USB serial
 
         backend (str):
-                        visa backend is either '@ni' for NI-Library or
-                        '@py' for pure python pyvisa-py backend.
-                        On default it uses '@ni' on win32 and '@py' on
-                        other platforms.
+            VISA backend is either '@ni' for NI-Library or
+            '@py' for pure python pyvisa-py backend.
+            On default it uses '@ni' on win32 and '@py' on
+            other platforms.
 
     Example: Initialization
         >>> instrument = Keithley(addr=24)   # GPIB or USB address
@@ -126,8 +127,21 @@ class EG_Generic (Example):
         self.is_local = True
 
     def com_recover(self, fix=False):
-        """can lose coherency between read request and data, usually because of Timeout
-        this routine can diagnose such loss of coherency and attempt to fix it, when fix=True"""
+        """
+        Can lose coherency between read request and data, usually because of Timeout.
+        This routine can diagnose such loss of coherency and attempt to fix it, when fix=True
+        
+        Parameters
+        ----------
+        fix (bool):
+            If True, attempt to fix the loss of coherency by consuming extra data from the instrument until it is back in sync.
+            If False, only diagnose the loss of coherency without attempting to fix it.
+        
+        Returns
+        -------
+            bool
+                True if the instrument is back in sync, False otherwise.
+        """
         ires = None
         for i in range(1, 10):
             self.inst.write(':DISP:TEXT:DATA \"{}\"'.format(i))

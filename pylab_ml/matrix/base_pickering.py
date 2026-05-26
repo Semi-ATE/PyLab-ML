@@ -1,4 +1,5 @@
-"""Base Class, Interface to the Pickering Matrix Card.
+"""
+Base Class, Interface to the Pickering Matrix Card.
 
 :Date: |today|
 :Author: Semi-ATE <info@Semi-ATE.org>
@@ -12,14 +13,14 @@ from pylab_ml.matrix import Pipx40
 
 
 def findcard():
-    """Find address for Pickering Card.
+    """
+    Find address for Pickering Card.
 
     Returns:
-       int:
-          | -1 if no card found
-          | addr if card found
-          | -1 and display addr if more than 1 card found.
-
+        int:
+            | -1 if no card found
+            | addr if card found
+            | -1 and display addr if more than 1 card found.
     """
     base = Pipx40.pipx40_base()                   # Initialising Base Class
     CountFreeCards = base.CountFreeCards()        # search for available cards
@@ -41,7 +42,8 @@ def findcard():
 
 
 class Pickering (Instrument):
-    """Base Class, Interface to the Pickering Matrix Card.
+    """
+    Base Class, Interface to the Pickering Matrix Card.
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
@@ -51,19 +53,17 @@ class Pickering (Instrument):
     """
 
     def __init__(self, **kwargs):
-        """Initialise.
+        """Initialise the Pickering Matrix Card.
 
         Initialization arguments:
-           addr (int):
-              interface PXIslot address
-        interface (dev_interface.Instrument):
-           pxie
-
+            addr : int
+                interface PXIslot address
+            interface : dev_interface.Instrument
+                pxie
 
         Example: Initialization
-           >>> instrument = NatInst(addr=3)     # PXIe slot address
-           >>> instrument.init()                # connect and initialize instrument
-
+            >>> instrument = NatInst(addr=3)     # PXIe slot address
+            >>> instrument.init()                # connect and initialize instrument
         """
         if not hasattr(self, 'interchoices'):
             self.interchoices = [Interface.pxie]
@@ -73,13 +73,14 @@ class Pickering (Instrument):
         self.com._init(self)
 
     def findcard(self):
-        """Find address for Pickering Card.
+        """
+        Find address for Pickering Card.
 
         Returns:
-           int:
-              | -1 if no card found
-              | addr if card found
-              | -1 and display addr if more than 1 card found.
+            int:
+                | -1 if no card found
+                | addr if card found
+                | -1 and display addr if more than 1 card found.
         """
         self.base = Pipx40.pipx40_base()                  # Initialising Base Class
         CountFreeCards = self.base.CountFreeCards()       # search for available cards

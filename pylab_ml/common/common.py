@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue May  4 14:18:05 2021
+Created on Tue May 4 14:18:05 2021
 
+This script is part of the pylab_ml package and contains common utility functions that can be used across the package. 
+These functions include logging, process management, string command execution, array creation from string input, argument checking, value comparison, and terminal string coloring. 
+The functions are designed to facilitate various tasks such as executing commands dynamically, checking values against targets with optional tolerance, and managing subprocesses.
 """
+
 import numpy as np
 import ast
 import copy
@@ -13,11 +17,37 @@ mylogger = None
 
 
 def set_logger(logger):
+    """
+    Set the logger for the package.
+    
+    Parameters
+    ----------
+        logger: A logger object that will be used for logging messages in the package.
+
+    Returns
+    -------
+        None.
+    """
+    
     global mylogger
     mylogger = logger
 
 
 def kill_proc_tree(pid=None, instance=None, including_parent=False):
+    """
+    Kill a process and all its children.
+    
+    Parameters
+    ----------
+        pid: The process ID of the parent process to kill. If None, it will be determined from the instance.
+        instance: An optional instance that has a pid attribute. If provided, its pid will be used if pid is None.
+        including_parent: A boolean indicating whether to also kill the parent process. Default is False.
+
+    Returns
+    -------
+        None.
+    """
+    
     if pid is None and instance is None:
         return
     if pid is None and instance is not None:
@@ -36,6 +66,18 @@ def kill_proc_tree(pid=None, instance=None, including_parent=False):
 
 
 def multistrcall(self, commandlist):
+    """
+    Execute multiple commands given in a dictionary format, where keys are command strings and values are the corresponding values to use in the command.
+    
+    Parameters
+    ----------
+        commandlist: A dictionary where keys are command strings to execute and values are the corresponding values to use in the command.
+        eg: {'smu.voltage': 5.3, 'smu.current': 0.001}
+        
+    Returns
+        None.
+    """
+    
     #    if type(command) == str:
     #        command = command.split(',')
     #        result = []
@@ -45,7 +87,7 @@ def multistrcall(self, commandlist):
 
 def strcall(self, command, value=None, typ=None, mqttcheck=False):
     """
-    make a call from the command:
+    Make a call from the command:
         result = common.strcall(tcc, 'regs.HW_ID.read()')
         result = common.strcall(self, 'smu.voltage=5.3' , mqttcheck=True)'
         result = common.strcall(self, 'smu.blabla()', 4.7, mqttcheck=True)'
@@ -53,18 +95,14 @@ def strcall(self, command, value=None, typ=None, mqttcheck=False):
 
     Parameters
     ----------
-    command : string
-
-    value : int/float/list, optional
-        DESCRIPTION. The default is None.
-    typ : None/'set'/'get'
-        DESCRIPTION. If the command an mqtt-command, than you have coice if it is settable or gettable
-    mqttcheck : True/False, optional
-        DESCRIPTION. The default is False. Check if the command is in the mqtt_list. If not, the command will not be execute
+        command: Command string to execute, e.g. 'regs.HW_ID.read()', 'smu.voltage'
+        value: The value to set or to use as parameter for the command, e.g. 5.3 for 'smu.voltage=5.3' or 30 for 'regs.ACL_OSC.write(30)'
+        typ: If the command an mqtt-command, than you have coice if it is settable or gettable
+        mqttcheck: Check if the command is in the mqtt_list. If not, the command will not be executed
 
     Returns
     -------
-    myresult : the result from the call
+        The result of the command execution, or "ERROR" if there was an error during execution.
     """
     if self is None:
         print("strcall: initialise missing, self is None -> do nothing")
@@ -119,7 +157,7 @@ def strcall(self, command, value=None, typ=None, mqttcheck=False):
             return 'ERROR'
 
 
-def convertExpr2Expression(Expr):
+def convertExpr2Expression(Expr):    
     Expr.lineno = 0
     Expr.col_offset = 0
     result = ast.Expression(Expr.value, lineno=0, col_offset=0)
@@ -128,22 +166,20 @@ def convertExpr2Expression(Expr):
 
 def exec_with_return(code, parent=None):
     """
-    Exec with return
-
-    implement from https://stackoverflow.com/questions/33409207/how-to-return-value-from-exec-in-function
+    This function executes the given code and returns the result of the last expression in the code.
+    Implemented from https://stackoverflow.com/questions/33409207/how-to-return-value-from-exec-in-function
 
     Parameters
     ----------
-    code : TYPE
-        DESCRIPTION.
-    parent : TYPE, optional
-        DESCRIPTION. The default is None.
-
+        code: TYPE
+            DESCRIPTION.
+            
+        parent: TYPE, optional
+            DESCRIPTION. The default is None.
+    
     Returns
     -------
-    TYPE
-        DESCRIPTION.
-
+        None
     """
     code_ast = ast.parse(code)
 
@@ -161,13 +197,23 @@ def exec_with_return(code, parent=None):
 
 
 def arange(myitems):
-    """create from 'myitems' an array like in matlab.
+    """
+    Create an array from a string in a format similar to Matlab,
 
     e.q. "18:-1:6:"
     "18:-1:6, 5.9:-0.1:4.1"
     "18:-1:6, 5.9:-0.1:4.1, 7, 9"
 
     also possible: "18:6:-1"
+    
+    Parameters
+    ----------
+        myitems: A string containing the items to create the array from, in a format similar to Matlab.
+        eg. "18:-1:6, 5.9:-0.1:4.1, 7, 9"
+    
+    Returns
+    -------
+        result: An array created from the input string.
     """
     result = None
     if myitems.find(",") > 0:
@@ -208,19 +254,17 @@ def arange(myitems):
 
 def choice(arg, myargs):
     """
-    check if arg in myargs
+    Check if the argument is in the list of valid arguments.
 
     Parameters
     ----------
-    arg : string
-        DESCRIPTION.
-    myargs : array of strings
-        DESCRIPTION.
+        arg: The argument to check. (string)
+        myargs: The list of valid arguments. (string or list of strings)
 
     Returns
     -------
-    bool
-        True/False
+        bool
+            True if the argument is in the list of valid arguments, False otherwise.
     """
     if arg not in myargs:
         print(f"checkargs: attribute {arg} not valid")
@@ -229,6 +273,18 @@ def choice(arg, myargs):
 
 
 def checkargs(myargs, **kwargs):
+    """
+    Check if the given arguments are valid.
+    
+    Parameters
+    ----------
+        myargs: The list of valid arguments. (string or list of strings)
+        **kwargs: The arguments to check.
+
+    Returns
+    -------
+        None.
+    """
     for arg in kwargs:
         if arg not in myargs:
             print(f"checkargs: attribute {arg} not valid")
@@ -236,28 +292,24 @@ def checkargs(myargs, **kwargs):
 
 def check(msg, target, actual, tolerance=0, mask=None):
     """
-    Compare target with the acutal value.
+    Compare target with the acutal value with optional tolerance and mask. 
+    The target can be a string with mask information, e.g. "0x1X3" or "0b1x0", where 'X' or 'x' indicates a masked bit that will not be compared.
 
-     Parameters
-     ----------
-     msg : TYPE
-         DESCRIPTION.
-     target : TYPE
-         the target value
-             if str and start with 0x than each X is a 4bit mask
-             if str and start with 0b than each x is a 1bit mask
-     actual : TYPE
-         the actual value.
-     tolerance : float or integer, optional
-         DESCRIPTION. The default is 0.
-     mask : Integer or None(default)
+    Parameters
+    ----------
+        msg: A message to display with the comparison result.
+        target: The target value:
+                    if str and start with 0x than each X is a 4bit mask.
+                    if str and start with 0b than each x is a 1bit mask.
+        actual: The actual value to compare with the target.
+        tolerance: The tolerance for comparing the target and actual values. Default is 0, which means an exact match is required.
+        mask: An optional mask to apply to the target and actual values before comparing. If provided, the comparison will only consider the bits where the mask has a value of 1.
 
-     Returns
-     -------
-     error : bool
-         True : target = actual value
-         False : target != actual value.
-
+    Returns
+    -------
+        error: bool
+            True: target = actual value.
+            False: target != actual value.
     """
     error = 0
     if type(target) is str and len(target) > 3:
@@ -321,6 +373,21 @@ def check(msg, target, actual, tolerance=0, mask=None):
 
 
 def color(n, s):
+    """
+    Color a string for terminal output.
+    
+    Parameters
+    ----------
+        n: The name of the color or style to apply to the string.
+        s: The string to color.
+        
+        eg. n = "red", s = "This is a red string"
+        
+    Returns
+    -------
+        value: The input string s wrapped in terminal color codes corresponding to the color or style n. 
+        If n is not a valid color or style, the original string s is returned without modification.
+    """
     code = {
         "bold": 1,
         "faint": 2,
@@ -357,6 +424,19 @@ def color(n, s):
 
 
 def logprint(level, msg):
+    """
+    Print a message with a given log level, using the logger if set.
+    
+    Parameters
+    ----------
+        level: The log level of the message, e.g. "DEBUG", "INFO", "WARNING", "ERROR", "MEASURE".
+        msg: The message to print.
+        
+    Returns
+    -------
+        None.
+    """
+    
     if mylogger is None:
         print(f"{level}: {msg}")
     else:

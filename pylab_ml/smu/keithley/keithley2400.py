@@ -13,7 +13,8 @@ from pylab_ml.smu.keithley.base_keithley import Keithley
 
 
 class Keithley2400(Keithley):
-    """Interface to the Power-Measuremet-Unit (SMU) Keithley2400.
+    """
+    Interface to the Power-Measuremet-Unit (SMU) Keithley2400.
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
@@ -23,32 +24,33 @@ class Keithley2400(Keithley):
     The Keithley2400 can
     source and sink power in all four voltage/current quadrants and
     measure voltage and current precisely
-
     """
 
     interchoices = [Interface.usbserial, Interface.gpib]
 
     def __init__(self, addr=None, interface=None, backend=None, identify=True, instName=None):
-        """Connect and initialize.
+        """
+        Connect and initialize Keithley2400 instrument.
 
         Args:
-           addr (int):
-              interface address
-           interface (Interface):
-              gpib, usbserial
-
-           backend (str):
-              visa backend is either '@ni' for NI-Library or
-              '@py' for pure python pyvisa-py backend.
-              On default it uses '@ni' on win32 and '@py' on
-              other platforms.
-           instName (string):
-              Instance Name from parent.
+            addr (int):
+                Interface address
+            interface (Interface):
+                GPIB, USBSerial
+            backend (str):
+                VISA backend is either '@ni' for NI-Library or
+                '@py' for pure python pyvisa-py backend.
+                On default it uses '@ni' on win32 and '@py' on
+                other platforms.
+            identify (bool):
+                If True, query the instrument ID and print it to the log.
+            instName (string):
+                Instance Name from parent.
 
         Example: Initialization
-           >>> vdd = Keithley2400(addr=24)  # GPIB or USB address
-           >>>                              #  validate displayed message Id on device
-           >>> vdd.init()                   # connect and initialize instrument
+            >>> vdd = Keithley2400(addr=24)  # GPIB or USB address
+            >>>                              #  validate displayed message Id on device
+            >>> vdd.init()                   # connect and initialize instrument
 
         Example: Voltage source
             >>> vdd.i_clamp = 0.01           # current protection
@@ -59,7 +61,6 @@ class Keithley2400(Keithley):
             >>> vdd.v_clamp = 5              # voltage protection
             >>> vdd.current = 0.1            # set output current_range
             >>> v = vdd.voltage              # measure voltage
-
         """
         kwargs = {"addr": addr, "interface": interface, "backend": backend, "identify": identify, "instName": instName}
         super().__init__(**kwargs)
@@ -115,6 +116,7 @@ class Keithley2400(Keithley):
 
     @property
     def output_function(self):
+        """Get or set output function (VOLT or CURR)."""
         self.budget.set_slack(self)
         if self.inst.query(':SOURce:FUNCtion:MODE?') == 'VOLT':
             return 'DC_VOLTAGE'
@@ -125,10 +127,22 @@ class Keithley2400(Keithley):
 
     @property
     def measure(self):
-        """Get or set measure.
-
-        where the measurements are defined by "vir" flags (VOLTAGE,CURRENT,RESISTANCE)
-
+        """
+        Get or set measure.
+        Where the measurements are defined by "vir" flags (VOLTAGE,CURRENT,RESISTANCE)
+        
+        eg. "v" for voltage, "i" for current, "r" for resistance, "vi" for voltage and current, etc.
+        
+        PARAMETERS
+        ----------
+            typ : str
+                String with "vir" flags (VOLTAGE,CURRENT,RESISTANCE) defining the measurements to be made.
+                 For example, "v" for voltage, "i" for current, "r" for resistance, "vi" for voltage and current, etc.
+                 
+        RETURNS
+        -------
+            list
+                List of measured values corresponding to the "vir" flags.
         """
         if not self.onoff:
             return
@@ -194,6 +208,10 @@ class Keithley2400(Keithley):
         """Get or set output voltage.
 
         If the voltage is set the output is switched on immediately.
+        
+        Returns
+        -------
+            value(float) : output voltage (in V).
         """
         self.budget.set_slack(self)
         if not self.onoff:
@@ -220,12 +238,11 @@ class Keithley2400(Keithley):
 
     @property
     def Voltage(self):
-        """
-        Get driver Voltage.
+        """Get driver Voltage.
 
-        Returns:
+        Returns
+        -------
            value(float) : driver Voltage (in V).
-
         """
         value = self._Voltage
         return value
@@ -233,8 +250,11 @@ class Keithley2400(Keithley):
     @property
     def current(self):
         """Get or set output current.
-
         If the current is set the output is switched on immediately.
+        
+        Returns
+        -------
+            value(float) : output current (in A).
         """
         self.budget.set_slack(self)
         if not self.onoff:
@@ -261,8 +281,11 @@ class Keithley2400(Keithley):
     @property
     def nplc(self):
         """Set the conversion number of power line cycles accuracy, for all converters.
-
-        for a plc of 1.0, conversion rate is 1/50s = 20ms. Accuracy max 10, min 0.01
+        For a plc of 1.0, conversion rate is 1/50s = 20ms. Accuracy max 10, min 0.01.
+        
+        Returns
+        -------
+            value(float) : number of power line cycles for conversion.
         """
         self.budget.set_slack(self)
         val = self.inst.query(':SENS:VOLT:NPLC?')
@@ -496,18 +519,23 @@ class Keithley2400(Keithley):
         self.inst.write(':SOUR:VOLT:PROT:LEV {}'.format(lim))
 
     def stair_sweep(self, start, stop, dstep, stime=0, typ='V', stair='Lin', wait=False):
-        """Sweep V or I, measure v,i,r at time t with state s, change by dstep, steptime stime, wait for response.
-
-        if dstep is None then stime is slopetime (>1ms) & nplc is min : 0.01
-
-           typ:    'Vvirts-', 'Ivirts-'  = Voltage / Current sourced, '-' changes direction,
-                   volts, amps, ohms, timestamp, status are sensed
-           start:  Start value in volts or amps, None implies incremental
-           stop:   Stop value in volts or amps
-           dstep:  Delta amplitude for Lin, Points to interpolate for Log, stime is slope time for None (>1ms)
-           stime:  Delay between steps or slope time if dstep == None
-           stair:  ('Lin','Log) = linear or log source
-
+        """
+        Sweep V or I, measure v,i,r at time t with state s, change by dstep, steptime stime, wait for response.
+        If dstep is None then stime is slopetime (>1ms) & nplc is min : 0.01.
+        
+        Parameters
+        ----------
+            start : Start value in volts or amps, None implies incremental
+            stop  : Stop value in volts or amps
+            dstep : Delta amplitude for Lin, Points to interpolate for Log, stime is slope time for None (>1ms)
+            stime : Delay between steps or slope time if dstep == None
+            typ   : 'Vvirts-', 'Ivirts-'  = Voltage / Current sourced, '-' changes direction,
+                    volts, amps, ohms, timestamp, status are sensed
+            stair : ('Lin','Log) = linear or log source
+            
+        Returns
+        -------
+            None
         """
         args = [None, stop, dstep]
         kwargs = {'stime': stime, 'typ': typ, 'stair': stair}
@@ -733,9 +761,21 @@ class Keithley2400(Keithley):
                 self.inst.write(':SENS:CURR:NPLC {}'.format(self._nplc))
 
     def get_values(self, typ=''):
-        """Transfer last requested measurement sweep results.
-
-        get response of previous stair_sweep(), choosing result rows from previous request typ
+        """
+        Transfer last requested measurement sweep results.
+        Get response of previous stair_sweep(), choosing result rows from previous request typ.
+        
+        Parameters
+        ----------
+            typ : str
+                String with "vir" flags (VOLTAGE,CURRENT,RESISTANCE) defining the measurements to be returned.
+                For example, "v" for voltage, "i" for current, "r" for resistance, "vi" for voltage and current, etc.
+                 
+        Returns
+        -------
+            np.array
+                Numpy array of measured values corresponding to the "vir" flags in typ, with shape (len(typ), number of steps).
+                For example, if typ is "vi", the returned array will have two rows: the first row for voltage measurements and the second row for current measurements, with columns corresponding to each step in the previous stair_sweep().
         """
         if not typ or typ == '':
             typ = self.stair_measure
@@ -768,7 +808,7 @@ class Keithley2400(Keithley):
     @property
     def stair_step(self):
         """Set incremental ramp to target or (target,dstep) or (target,dstep,stime).
-
+        
         Stair_step to target or target,dstep or target,dstep,stime, using previous stair_sweep() parameters.
         """
         return (self.stair_step_get)

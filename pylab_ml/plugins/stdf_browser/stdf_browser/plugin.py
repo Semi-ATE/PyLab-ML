@@ -21,9 +21,7 @@ _ = get_translation("spyder")
 
 
 class StdfBrowser(SpyderDockablePlugin):        # ShellConnectMixin
-    """
-    Stdf-Browser plugin.
-    """
+    """Stdf-Browser plugin."""
 
     NAME = "Stdf"
     WIDGET_CLASS = StdfWidget
@@ -62,12 +60,14 @@ class StdfBrowser(SpyderDockablePlugin):        # ShellConnectMixin
 
     @on_plugin_available(plugin=ATE.NAME)
     def on_ate_available(self):
+        """ Connect to ATE plugin when it becomes available and set up the STDF widget with the project information from ATE. """
         widget: StdfWidget = self.get_widget()
         ate: ATE = self.get_plugin(ATE.NAME)
         ate.sig_ate_project_loaded.connect(self._setup_stdf_widget)
         ate.sig_ate_progname.connect(self.runflow_changed)
 
     def _setup_stdf_widget(self):
+        """ Set up the STDF widget with the project information from ATE when a new project is loaded. """
         widget: StdfWidget = self.get_widget()
         ate: ATE = self.get_plugin(ATE.NAME)
         project_info = ate.get_project_navigation()
@@ -87,6 +87,7 @@ class StdfBrowser(SpyderDockablePlugin):        # ShellConnectMixin
     #     self.ateToolbar = ateToolbar
 
     def runflow_changed(self, progname: str):
+        """ Update the STDF widget with the new program name when the runflow changes in ATE. """
         widget: StdfWidget = self.get_widget()
         print('StdfBrowser.runflow_changed()')
         #path = f"{self.ateToolbar.project_info.project_directory}/src/{self.ateToolbar.project_info.active_hardware}/{self.ateToolbar.project_info.active_base}"
@@ -94,6 +95,7 @@ class StdfBrowser(SpyderDockablePlugin):        # ShellConnectMixin
         #widget.set_filename(path, filename)
 
     def externalcallback(self, filename):
+        """ Update the STDF widget with the new filename when the external signal is emitted from the ATE toolbar. """
         path = f"{self.ateToolbar.project_info.project_directory}/src/{self.ateToolbar.project_info.active_hardware}/{self.ateToolbar.project_info.active_base}"
         print(f'stdf-broser.externalcallback {path} {filename}')
         #self.get_widget().set_filename(path, filename)

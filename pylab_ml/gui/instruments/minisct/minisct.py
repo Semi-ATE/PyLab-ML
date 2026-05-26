@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-miniSCT.
+This script defines a GUI class for the MiniSCT instrument, which is part of the PyLab-ML project. 
+The GUI allows users to interact with the MiniSCT instrument, send MQTT commands, and receive updates. 
+The class inherits from a base instrument GUI class and implements specific functionality for the MiniSCT instrument.
 
 Created on Mon Jan  3 09:19:17 2022
 @author: C. Jung
@@ -74,9 +76,10 @@ mqttcmds = {
 
 
 class Gui(Guibase):
-    """MinSCT  Gui.
+    """
+    MiniSCT Gui.
 
-    inherited from base_instrument
+    Inherited from base_instrument
        status
     """
 
@@ -98,9 +101,21 @@ class Gui(Guibase):
     _maxTabs = 9
     mqtt_cmds = []
 
-    def __init__(
-        self, parent, name="miniSCT", parentwindow=None, channel=None
-    ):
+    def __init__(self, parent, name="miniSCT", parentwindow=None, channel=None):
+        """
+        Initialize the GUI for the MiniSCT instrument.
+        
+        Parameters
+        ----------
+            parent: object
+                The parent widget for this GUI.
+            name: str, optional
+                The name of the instrument. Default is "miniSCT".
+            parentwindow: object, optional
+                The parent window for this GUI. Default is None.
+            channel: int, optional
+                The channel number. Default is None.
+        """
         super().__init__(
             grandparent=parent, name=name, parentwindow=parentwindow
         )
@@ -116,6 +131,7 @@ class Gui(Guibase):
         # self.gui.myframe.setEnabled(True)
 
     def myadjustUI(self):
+        """Adjust the GUI elements for the MiniSCT instrument."""
         # self.myframe.QTab.setMovable(True)
         # self.myframe.QTab.setTabsClosable(True)
         svgfiles = {"CH": ("sct8_v7_pdc", 2), "dps": ("sct8_v7_dps", 1)}
@@ -200,7 +216,16 @@ class Gui(Guibase):
     # ======================================================
     # attributes which connect to an extern call (mqtt-command)
     def mqttreceive(self, instName, msg):
-        """common mqtt receive messages, get raw mqtt-Data for more information"""
+        """
+        Common MQTT receive messages, get raw MQTT data for more information.
+        
+        Parameters
+        ----------
+            instName: str
+                The name of the instrument instance.
+            msg: dict
+                The MQTT message received.
+        """
         check = True
         if "cmd" in tuple(msg.keys()) and msg["cmd"] in self.mqtt2svgelement:   # translate mqtt command to real svg-name
             oldcmd = msg["cmd"].split('.')
@@ -237,6 +262,7 @@ class Gui(Guibase):
 
     @property
     def channel(self):
+        """Get the channel number."""
         return self.id
 
     @channel.setter
@@ -244,9 +270,16 @@ class Gui(Guibase):
         self.id = msg
 
     def svg2mqtt(self, name, value):
-        """Overwrite from the base_instrument.svg2mqtt.
-
-        translate svg-names to his mqtt command.
+        """
+        Overwrite from the base_instrument.svg2mqtt.
+        Translate svg-names to his mqtt command.
+        
+        Parameters
+        ----------
+            name: str
+                The name of the SVG element that triggered the event.
+            value: any
+                The value associated with the event, which may be used to determine the MQTT command to publish.
         """
         rawname = name[name.find(".") + 1:]
         if name in self.mqtt_cmds:
@@ -268,6 +301,7 @@ class Gui(Guibase):
     #
 
     def close(self, event=None):
+        """Handle the close event for the GUI by publishing an 'off' command and then calling the base class's close method."""
         self.publish("off()")
         super().close(event)
 

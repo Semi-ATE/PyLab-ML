@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 """
+This script contains a MQTT client class that can be used to communicate with a MQTT broker.
+The MQTT client class uses the paho-mqtt library to handle the communication.
+
 Created on Tue Feb 18 09:52:09 2020
 
 @author: Zlin526F
@@ -36,33 +39,54 @@ TOPIC_INSTNAME = "tcc"
 
 
 class mylogger(object):
+    """ Class for logging messages. """
+
     def __init__(self, output=None, enable=False, parent=None):
         self.output = output
         self.enable = enable
         self.parent = parent
 
     def debug(self, msg):
+        """ Log a debug message. """
         if not self.enable:
             return
         self.display("DEBUG", msg)
 
     def info(self, msg):
+        """ Log an info message. """
         if not self.enable:
             return
         self.display("INFO", msg)
 
     def measure(self, msg):
+        """ Log a measure message. """
         if not self.enable:
             return
         self.display("MEASURE", msg)
 
     def warning(self, msg):
+        """ Log a warning message. """
         self.display("WARNING", msg)
 
     def error(self, msg):
+        """ Log an error message. """
         self.display("ERROR", msg)
 
     def display(self, typ, msg):
+        """ 
+        Display a message with a specific type. 
+        
+        Parameters
+        ----------
+            typ : str
+                The type of the message (e.g., "DEBUG", "INFO", "WARNING", "ERROR").
+            msg : str
+                The message to be displayed.
+        
+        Returns
+        -------
+            None
+        """
         msg = f"{self.parent} {typ} | {msg}"
         if self.output is None:
             print(msg)
@@ -70,20 +94,47 @@ class mylogger(object):
             self.output.append(msg)
 
     def log_message(self, level, msg):
+        """ Log a message with a specific level. """
         self.display(level, msg)
 
 
 class mqtt_init(object, metaclass=Singleton):
-    """Initialise the mqtt connection and provide functions for the communication."""
+    """ Initialise the mqtt connection and provide functions for the communication. """
 
     def __init__(self, typ="control", logger=None):
-        """Initialise the class mqtt_init.
+        """
+        Initialise the class mqtt_init.
 
-        typ = 'instrument' for instruments
-            = 'control' for guis or extern controlling (default)
+        Parameters
+        ----------
+            typ : str
+                'instrument' for instruments
+                'control' for guis or extern controlling (default)
+                
+            logger : mylogger or None
+                Logger instance for logging messages. If None, no logging is performed.
         """
 
         def on_connect(client, userdata, flags, rc):
+            """
+            Callback function for when the client receives a CONNACK response from the server.
+
+            Parameters
+            ----------
+                client : paho.mqtt.client.Client
+                    The client instance for this callback.
+                userdata : any
+                    The private user data as set in Client() or userdata_set().
+                flags : dict
+                    Response flags sent by the broker.
+                rc : int
+                    The connection result.
+                    
+            Returns
+            -------
+                None
+            """
+            
             if rc == 0:
                 msg = f"MQTT Broker {self.broker}, user {self.username} connected"
                 self.logger.info(msg)
@@ -95,6 +146,22 @@ class mqtt_init(object, metaclass=Singleton):
                 self.logger.error(msg)
 
         def on_disconnect(client, userdata, rc):
+            """
+            Callback function for when the client disconnects from the broker.
+
+            Parameters
+            ----------
+                client : paho.mqtt.client.Client
+                    The client instance for this callback.
+                userdata : any
+                    The private user data as set in Client() or userdata_set().
+                rc : int
+                    The disconnection result.
+
+            Returns
+            -------
+                None
+            """
             msg = "MQTT Broker {} user {} disconnected".format(
                 self.broker, self.username
             )
@@ -132,9 +199,29 @@ class mqtt_init(object, metaclass=Singleton):
     ):
         """
         Normally call from plugin semi-control, you have not to call this function, if you use semi-control.
-
-        message_client = None if client the instrument, like e.q. smu, digital-multimeter or thermostreamer.
-                       = e.q. 'DT1604092' if control and you want connect from an extern computer to DT1604092 (but is not checked until now!!)
+        
+        Parameters
+        ----------
+            broker : str
+                The address of the MQTT broker (default: "127.0.0.1")
+            port : int
+                The port of the MQTT broker (default: 1883)
+            message_client : str or None
+                None if client the instrument, like e.q. smu, digital-multimeter or thermostreamer.
+                eg. 'DT1604092' if control and you want connect from an extern computer to DT1604092 (but is not checked until now!!)
+            username : str
+                The username for MQTT authentication (default: "")
+            userpasswd : str
+                The password for MQTT authentication (default: "")
+            qos : int
+                The Quality of Service level for MQTT messages (default: 0)
+            retain : bool
+                Whether to retain MQTT messages (default: False)
+                
+        Returns
+        -------
+            bool
+                True if the MQTT client was successfully initialized and connected to the broker, False otherwise.
         """
         import socket
 
@@ -173,8 +260,16 @@ class mqtt_init(object, metaclass=Singleton):
         """
         Add first callback to get mqtt-commands from control, and append instrument to instruments-list.
 
-        Returns:
-            None.
+        Parameters
+        ----------
+            instrument : object
+                The instrument to be added to the MQTT client.
+            hostname : str or None
+                The hostname for the MQTT topic. If None, the client's hostname will be used (default: None).
+                
+        Returns
+        -------
+            None
         """
         if not hasattr(self, "hostname"):
             return
@@ -198,8 +293,16 @@ class mqtt_init(object, metaclass=Singleton):
         """
         Remove instrument from the instruments-list, if instruments-list is empty than remove callback.
 
-        Returns:
-            None.
+        Parameters
+        ----------
+            instrument : object or None
+                The instrument to be removed from the MQTT client. If None, no instrument will be removed (default: None).
+            hostname : str or None
+                The hostname for the MQTT topic. If None, the client's hostname will be used (default: None).
+
+        Returns
+        -------
+            None
         """
         if hostname is None:
             if not hasattr(self, "hostname"):
@@ -217,9 +320,21 @@ class mqtt_init(object, metaclass=Singleton):
     def _mqtt_message(self, client, userdata, message):
         """
         Automatically call, if message received from broker.
-
-          if message from an instrument than send it via channel to mqtt_receive in your application
-          else if message from control than call functions/attribute from the instrument
+        If message from an instrument than send it via channel to mqtt_receive in your application,
+        else if message from control than call functions/attribute from the instrument.
+        
+        Parameters
+        ----------
+            client : object
+                The MQTT client instance.
+            userdata : object
+                The private user data as set in Client() or userdata_set().
+            message : object
+                An instance of MQTTMessage, which contains topic, payload, qos, retain.
+                
+        Returns
+        -------
+            None
         """
         # if self.mqtt_debug: print('{}.mqtt_message value/payload:  {} = {}'.format(self.__class__.__name__,message.topic,value))
         msg = message.payload.decode("utf-8", "ignore")
@@ -273,7 +388,24 @@ class mqtt_init(object, metaclass=Singleton):
             )
 
     def publish(self, attr, value, qos=None, retain=None):
-        """Send message to broker."""
+        """ 
+        Publish a message to the MQTT broker.
+        
+        Parameters
+        ----------
+            attr : str
+                The topic attribute to publish.
+            value : any
+                The value to publish. This will be converted to a JSON string before publishing.
+            qos : int or None
+                The Quality of Service level for the MQTT message. If None, the default QoS level of the client will be used (default: None).
+            retain : bool or None
+                 Whether to retain the MQTT message. If None, the default retain flag of the client will be used (default: None).
+                 
+        Returns
+        -------
+            None
+        """
         if qos is None:
             qos = self.qos
         if retain is None:
@@ -290,13 +422,24 @@ class mqtt_init(object, metaclass=Singleton):
         )  # payload must be string,bytearray,int,float or None
 
     def clearpublish(self, attr):
-        """Remove retained publish message from broker."""
+        """
+        Remove retained publish message from broker
+        
+        Parameters
+        ----------
+            attr : str
+                The topic attribute for which the retained message should be removed.
+                
+        Returns
+        -------
+            None
+        """
         self.client.publish(
             attr, "", 0, True
         )  # send 0 message to remove retained flag
 
     def close(self):
-        """Disconnect from broker."""
+        """ Close the MQTT client connection and clean up resources. """
         if hasattr(self, "broker") and self.broker is not None:
             self.client.loop_stop()
             self.client.disconnect()
@@ -304,6 +447,7 @@ class mqtt_init(object, metaclass=Singleton):
             self.client.on_disconnect = None
 
     def __del__(self):
+        """ Ensure that the MQTT client connection is closed when the instance is deleted. """
         self.close()
 
     @abstractmethod
@@ -313,14 +457,14 @@ class mqtt_init(object, metaclass=Singleton):
 
 class mqtt_deviceattributes(object):
     """
-    Handle mqqt messages for the instrument (=devices is 'transmitter').
+    Handle MQTT messages for the instrument (=devices is 'transmitter').
 
     - topic for the device:
         f'{TOPIC_PREFIX}/'Hostname'/{TOPIC_INSTRUMENT}
     - payload:
         {"instrumentname": {"type": "set/get", "cmd": "function/attributename", "payload": yourvalues}}
 
-      mqtt_all will be overwriten, to uncover attributes for sending mqqt-messages
+      mqtt_all will be overwriten, to uncover attributes for sending mqtt-messages
 
     - if you define the function '_mqtt2json(value, attributename)' in your device, than this function will be call if a mqtt message should be send
       With this function you can translate the value, or it the result 'nomqtt' than the message will not be send.
@@ -352,12 +496,23 @@ class mqtt_deviceattributes(object):
     def mqtt_add(self, client, instrument, liste="#", qos=0):
         """
         Add the instrument to mqtt.
-
-        calling from base_instrument, after the instrument (device) has been create.
+        Calling from base_instrument, after the instrument (device) has been create.
         Normally you have not to use this function, only base_instrument use it.
+        
+        Parameters
+        ----------
+            client : mqtt_init
+                The MQTT client instance to which the instrument should be added.
+            instrument : object
+                The instrument to be added to the MQTT client.
+            liste : list or str
+                A list of attributes for which MQTT messages should be sent. If set to "#", all attributes will be included (default: "#").
+            qos : int
+                The Quality of Service level for MQTT messages (default: 0).
 
-        Returns:
-            None.
+        Returns
+        -------
+            None
         """
         self._mqttclient = client
         if liste == "#":
@@ -389,12 +544,8 @@ class mqtt_deviceattributes(object):
     def mqtt_disconnect(self):
         """
         Remove the instrument from mqtt.
-
-        calling from base_instrument, if the instrument are closing.
+        Calling from base_instrument, if the instrument are closing.
         Normally you have not to use this function, only base_instrument use it.
-
-        Returns:
-            None.
         """
         if hasattr(self, "_mqttclient") and self._mqttclient is not None:
             self.publish_set("mqtt_status", "disconnect")
@@ -405,9 +556,19 @@ class mqtt_deviceattributes(object):
     def __setattr__(self, attr, value):
         """
         Publish attribute and value, if attribute was set and it is in mqtt_list.
-
-        pulish mean: send 'hostname/instName/attibute/set value' to the broker
-        This function will call from _mqtt_message, normally you have not to use this function.
+        Publish means: send 'hostname/instName/attribute/set value' to the broker.
+        This function will be called from _mqtt_message, normally you have not to use this function.
+        
+        Parameters
+        ----------
+            attr : str
+                The name of the attribute being set.
+            value : any
+                The value being assigned to the attribute.
+                
+        Returns
+        -------
+            None
         """
         object.__setattr__(self, attr, value)
         if (
@@ -434,9 +595,20 @@ class mqtt_deviceattributes(object):
     def __getattribute__(self, attr, *values):
         """
         Publish attribute and value, if attribute was get and it is in mqtt_list.
-
-        pulish mean: send 'hostname/instName/attibute/set value' to the broker
-        This function will call from _mqtt_message, normally you have not to use this function.
+        Publish means: send 'hostname/instName/attribute/set value' to the broker.
+        This function will be called from _mqtt_message, normally you have not to use this function.
+        
+        Parameters
+        ----------
+            attr : str
+                The name of the attribute being accessed.
+            *values : tuple
+                Additional values that may be used for function calls (not implemented in this version).
+                
+        Returns
+        -------
+            any
+                The value of the attribute being accessed.
         """
         value = super(__class__, self).__getattribute__(attr)
         if attr == "mqtt_enable":
@@ -489,7 +661,20 @@ class mqtt_deviceattributes(object):
         return value
 
     def publish(self, topic, value):
-        """Publish topic as type='cmd' with paylad=value."""
+        """ 
+        Publish topic as type='cmd' with payload=value. 
+        
+        Parameters
+        ----------
+            topic : str
+                The name of the topic to publish.
+            value : any
+                The value to be published.
+                
+        Returns
+        -------
+            None
+        """
         # function_name=inspect.stack()[1][3]
         payload = {
             f"{self.instName}": {"type": "cmd", "cmd": topic, "payload": value}
@@ -502,7 +687,20 @@ class mqtt_deviceattributes(object):
             self._mqttclient.publish(self.topic, payload)
 
     def publish_get(self, function_name, value):
-        """Publish function_name as type='get' with paylad=value."""
+        """
+        Publish function_name as type='get' with paylad=value.
+        
+        Parameters
+        ----------
+            function_name : str
+                The name of the function to be published as a 'get' command.
+            value : any
+                The value to be published as the payload of the 'get' command.
+                
+        Returns
+        -------
+            None
+        """
         # function_name=inspect.stack()[1][3]
         if self.mqtt_enable:
             payload = {
@@ -520,7 +718,20 @@ class mqtt_deviceattributes(object):
                 self._mqttclient.publish(self.topic, payload)
 
     def publish_set(self, function_name, value):
-        """Publish function_name as type='set' with paylad=value."""
+        """
+        Publish function_name as type='set' with paylad=value.
+        
+        Parameters
+        ----------
+            function_name : str
+                The name of the function to be published as a 'set' command.
+            value : any
+                The value to be published as the payload of the 'set' command.
+                
+        Returns
+        -------
+            None
+        """
         # function_name=inspect.stack()[1][3]
         if self.mqtt_enable:
             payload = {
@@ -539,7 +750,7 @@ class mqtt_deviceattributes(object):
 
     @property
     def mqtt_status(self):
-        """Getter for the mqtt_status."""
+        """ Getter for the mqtt_status. """
         if self.mqtt_debug:
             print(f"{self.instName}.mqtt_status == {self._mqtt_status}")
         return self._mqtt_status
@@ -572,7 +783,7 @@ class mqtt_signal(QtCore.QObject):
 
 class mqtt_displayattributes(object):
     """
-    mqtt messages for display and controlling (='receiver').
+    MQTT messages for display and controlling (='receiver').
 
     docu muss überarbeitet werden:
 
@@ -581,12 +792,22 @@ class mqtt_displayattributes(object):
             f'{TOPIC_PREFIX}/'Hostname'/{TOPIC_CONTROL}
        - payload:
            f'{"instrumentname": {"type": "set/get", "cmd": "function/attributename", "payload": yourvalues}}'
-
     """
 
     import json
 
     def __init__(self, client, message_client, mqtt_receive=None):
+        """ Initialize the MQTT display attributes. 
+        
+        Parameters
+        ----------
+            client : mqtt_init
+                The MQTT client instance to be used for communication.
+            message_client : str
+                The name of the message client, used for constructing the MQTT topic.
+            mqtt_receive : function or None
+                A custom function to handle received MQTT messages. If None, the default mqtt_receive method will be used (default: None).
+        """
         self.mqtt_debug = False
         self.mqttclient = client
         self.instName = message_client
@@ -597,11 +818,37 @@ class mqtt_displayattributes(object):
         self.topic = f"{message_client}/{platform.node()}/{TOPIC_CONTROL}"
 
     def publish(self, attr, value):
-        """Send message to broker."""
+        """ Send message to broker. 
+        
+        Parameters
+        ----------
+            attr : str
+                The attribute name to be published.
+            value : any
+                The value to be published.
+                
+        Returns
+        -------
+            None
+        """
         self.mqttclient.publish(attr, value)
 
     def publish_set(self, instName, function_name, value):
-        """Publish attribute with value as set."""
+        """ Publish attribute with value as set. 
+        
+        Parameters
+        ----------
+            instName : str
+                The name of the instrument for which the command is being published.
+            function_name : str
+                The name of the function or attribute to be set.
+            value : any
+                The value to be set for the specified function or attribute.
+                
+        Returns
+        -------
+            None
+        """
         # function_name=inspect.stack()[1][3]
         payload = {
             f"{instName}": {
@@ -617,7 +864,19 @@ class mqtt_displayattributes(object):
         self.mqttclient.publish(self.topic, payload)
 
     def publish_get(self, instName, function_name):
-        """Publish attribute with value as get."""
+        """ Publish attribute with value as get. 
+        
+        Parameters
+        ----------
+            instName : str
+                The name of the instrument for which the command is being published.
+            function_name : str
+                The name of the function or attribute to be retrieved.
+                
+        Returns
+        -------
+            None
+        """
         # function_name=inspect.stack()[1][3]
         payload = {
             f"{instName}": {"type": "get", "cmd": function_name, "payload": ""}
@@ -629,11 +888,11 @@ class mqtt_displayattributes(object):
         self.mqttclient.publish(self.topic, payload)
 
     def mqtt_add(self):
-        """Add the modul as member for the mqtt communication."""
+        """ Add the module as member for the mqtt communication. """
         self.mqttclient.mqtt_add(self, "")
 
     def mqtt_disconnect(self):
-        """Remove the modul as member for the mqtt communication."""
+        """ Remove the module as member for the mqtt communication. """
         self.mqttclient.client.message_callback_remove(
             self.instName + "/#"
         )  # remove subscribe for this client

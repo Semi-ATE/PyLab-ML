@@ -1,23 +1,23 @@
 # $Id: $
-"""User interface to the register master excel file.
+"""
+User interface to the register master excel file.
 
 This excel file descibes all registers of a sensor. For each register
 the following items are mentioned:
-    name
-    address
-    bank        (optional)
-    description
-    bitslices
+    - name
+    - address
+    - bank        (optional)
+    - description
+    - bitslices
 
 A bitslice is a range of one or more consecutive bits in a register. Each
 bitslice is descripted by the following items:
-    name
-    index_startbit
-    index_stopbit
-    read/write direction
-    reset value
-    description
-
+    - name
+    - index_startbit
+    - index_stopbit
+    - read/write direction
+    - reset value
+    - description
 """
 
 import re
@@ -55,7 +55,17 @@ class Logger():
 
 
 class RegDB(object):
+    """ Class to read the register master excel file and to build a database of registers. """
+
     def __init__(self, filename=""):
+        """ 
+        Initialize the class by reading the excel file and building the database.
+        
+        Parameters
+        ----------
+            filename : str
+                The path to the register master excel file.
+        """
         import xlrd
 
         self.bk = xlrd.open_workbook(filename)
@@ -63,7 +73,25 @@ class RegDB(object):
         self.database = []
 
     def get_row_data(self, bk, sh, rowx, colrange):
-        """Utility function to extract a single row out of an Excel sheet"""
+        """
+        Utility function to extract a single row out of an Excel sheet
+        
+        Parameters
+        ----------
+            bk : xlrd.Book
+                The workbook object.
+            sh : xlrd.Sheet
+                The sheet object.
+            rowx : int
+                The index of the row to extract.
+            colrange : range
+                The range of column indices to extract.
+                
+        Returns
+        -------
+            result : list
+                A list of tuples containing the column index, cell type, cell value, and cell formatting index.
+        """
         import xlrd
 
         result = []
@@ -94,7 +122,24 @@ class RegDB(object):
         return result
 
     def build_database(self):
-        """Fill database with register master fields"""
+        """ Fill database with register master fields by iterating through all sheets and rows of the excel file. 
+        
+        The database is a list of dictionaries, each dictionary represents a register block and contains the following keys:
+            - name: The name of the register block.
+            - id: The row index of the block definition in the excel sheet.
+            - cells: A dictionary mapping column indices to cell names (e.g., 'blk', 'pos', etc.).
+            - types: A dictionary mapping cell names to type conversion definitions (e.g., 'int', 'hex', etc.).
+            - checks: A dictionary mapping cell names to check definitions (e.g., 'hu', 'bu', etc.).
+            - registers: A list of dictionaries, each representing a register defined in the block, containing the following keys:
+                - blk: The name of the register block.
+                - pos: The position of the register within the block.
+                - slices: A list of dictionaries, each representing a bitslice defined for the register, containing the following keys:
+                    - posmin: The starting bit index of the bitslice.
+                    - posmax: The ending bit index of the bitslice.
+                    - poswidth: The width of the bitslice (posmax - posmin + 1).
+                    - posmask: A bitmask corresponding to the bitslice (e.g., for bits 3:1, posmask would be 0b1110).
+                    - other fields as defined in the excel sheet (e.g., type conversions, checks, etc.).
+        """
         shxrange = range(self.bk.nsheets)
         #
         #  Iterating over all sheets of the file
@@ -452,14 +497,45 @@ class RegDB(object):
 
 
 class Register:
+    """ Class to represent a register defined in the register master excel file. """
+
     # read-only attributes
     def __setattr__(self, name, value):
+        """ 
+        Set attribute value, but only for a predefined set of attributes. 
+        (e.g., '_cache', 'value', 'read', 'write', etc.) and the bit-slice names defined in the register master excel file.
+        
+        Parameters
+        ----------
+            name : str
+                The name of the attribute to set.
+            value : any
+                The value to set for the attribute.
+        
+        Raises
+        ------
+            AttributeError
+                If the attribute name is not valid.
+        """
         valid = "__cache__", "_cache", "_debug", "value", "value_bin", "read", "write", "res"
         if name not in valid and name not in self._slices:
             raise AttributeError("can't set attribute {}".format(repr(name)))
         object.__setattr__(self, name, value)
 
     def _get_addr(self):
+        """
+        Get the register address based on the current protocol type and the defined addresses in the register master excel file.
+        
+        Returns
+        -------
+            paddr : int
+                The register address to access.
+        Raises
+        ------
+            ValueError
+                If the interface is in a mode that does not allow access to the register. 
+                (e.g., if the protocol type is 'tin' but the CPU address is not defined).
+        """
         paddr = self._addr  # set to default
         if self._rm._protocol_typ == "tin":
             paddr = self._cpuaddr
@@ -469,11 +545,39 @@ class Register:
         return paddr
 
     def writebase(self, bank):
+        """
+        Write the bank address to the interface if the current bank is different from the given bank or if the forcebank flag is set.
+        
+        Parameters
+        ----------
+            bank : int
+                The bank address to write to the interface.
+        """        
         if self._rm._forcebank or (bank != self._rm._bank):
             self._rm._protocol.writebase(bank)
             self._rm._bank = bank
 
     def __init__(self, cpuaddr, addr, bank=0, name="", slices={}, description="", rm=None):
+        """ 
+        Initialize the Register object with the given parameters and set up the necessary attributes.
+        
+        Parameters
+        ----------
+            cpuaddr : int
+                The CPU address of the register.
+            addr : int
+                The address of the register.
+            bank : int, optional
+                The bank address of the register (default is 0).
+            name : str, optional
+                The name of the register (default is "").
+            slices : dict, optional
+                The bit-slices of the register (default is {}).
+            description : str, optional
+                The description of the register (default is "").
+            rm : RegisterMaster, optional
+                The RegisterMaster instance (default is None).
+        """
         global mylogger
         _setattr = object.__setattr__.__get__(self, self.__class__)
         if bank == "":
@@ -492,6 +596,26 @@ class Register:
         _setattr("mqtt_list", ["read", "write"])
 
     def _validate(self, value, length):
+        """ 
+        Validate the given value against the specified length (number of bits) and ensure it is a non-negative integer that fits within the allowed range for the register.
+        
+        Parameters
+        ----------
+            value : any
+                The value to validate.
+            length : int
+                The number of bits for the register (used to determine the valid range for the value).
+        
+        Returns
+        -------
+            value : int
+                The validated value if it is valid.
+                
+        Raises
+        ------
+            ValueError
+                If the value is not an integer, is negative, or exceeds the maximum allowed value for the specified length.
+        """
         if isinstance(value, int):
             if value > 2**length - 1:
                 msg = "{!r} too big for {} bits".format(value, length)
@@ -506,6 +630,15 @@ class Register:
 
     @property
     def _cache(self):
+        """ 
+        Get the cached value of the register if it is available and valid, 
+        otherwise raise an error if the register is in non-atomic mode and the cache is empty.
+        
+        Returns
+        -------
+            __cache__ : int or None
+                The cached value of the register if it is available and valid, or None if the cache is empty.
+        """
         if not self._rm._atomic and self.__cache__ is None:
             msg = "cache is empty\n"
             msg += "use either _cache = <value>, _use_reset(), "
@@ -523,9 +656,14 @@ class Register:
 
     @property
     def value(self):
-        """bit-slice over full register
-
-        shadow register, read/write the true regiser only if None"""
+        """
+        Bit-slice over full register,shadow register, read/write the true regiser only if None
+        
+        Returns
+        -------
+            value : int
+                The value of the register, either from the cache or by reading from the hardware if the cache is empty and the register is in atomic mode.
+        """
         if self._rm._atomic and self.__cache__ is None:
             if self._bank is not None and self._bank != "":
                 self.writebase(self._bank)
@@ -549,10 +687,38 @@ class Register:
 
     @property
     def addr(self):
-        """returns the register address"""
+        """
+        Returns the register address
+        
+        Returns
+        -------
+            int
+                The address of the register to access, determined by the current protocol type and
+                the defined addresses in the register master excel file.
+        """
         return self._get_addr()
 
     def _get_slice(self, name):
+        """ 
+        Get the value of a specific bit-slice of the register by applying the appropriate bitmask and
+        shift operations to either the cached value or by reading from the hardware if the cache is empty and
+        the register is in atomic mode.
+        
+        Parameters
+        ----------
+            name : str
+                The name of the bit-slice to retrieve.
+        
+        Returns
+        -------
+            int
+                The value of the specified bit-slice.
+        
+        Raises
+        ------
+            ValueError
+                If the specified bit-slice is not readable or if there is an error while reading from the hardware.
+        """
         lsb = self._slices[name]["lsb"]
         msb = self._slices[name]["msb"]
         length = msb - lsb + 1
@@ -569,6 +735,29 @@ class Register:
         return value
 
     def _set_slice(self, name, value, force=False):
+        """ 
+        Set the value of a specific bit-slice of the register by applying the appropriate bitmask and
+        shift operations to either the cached value or by writing to the hardware if the cache is empty and
+        the register is in atomic mode.
+        
+        Parameters
+        ----------
+            name : str
+                The name of the bit-slice to set.
+            value : int
+                The value to set for the specified bit-slice.
+            force : bool, optional
+                If True, allows setting the value of a bit-slice even if it is not marked as writable (default is False).
+                
+        Returns
+        -------
+            None
+                
+        Raises
+        ------
+            ValueError
+                If the specified bit-slice is not writable and force is False, or if there is an error while writing to the hardware.
+        """
         if not force and "W" not in self._slices[name]["dir"].upper():
             msg = "can't write slice {!r}, it's not writeable"
             msg = msg.format(name)
@@ -605,12 +794,27 @@ class Register:
             self._cache = current
 
     def _use_reset(self, default=None, force=False):
-        """Copy reset values from all bit-slices into _cache.
+        """
+        Copy reset values from all bit-slices into _cache.
 
-        if force == false -> Only a writable slice sees a reset.
-                 == true  -> readable and writable slice sees a reset.
+        If force == False -> Only a writable slice sees a reset.
+                 == True  -> readable and writable slice sees a reset.
 
-        Note: All bit-slices must have a reset value otherwise an error occurs."""
+        Note: All bit-slices must have a reset value otherwise an error occurs.
+        
+        Parameters
+        ----------
+            default : int, optional
+                The default reset value to use for bit-slices that do not have a defined reset value (default is None).
+                If None, an error will be raised for bit-slices without a reset value.
+            force : bool, optional
+                If True, applies the reset value to all bit-slices regardless of their writability (default is False).
+                If False, only writable bit-slices will have their reset values applied.
+                
+        Returns
+        -------
+            None
+        """
         cache_old = self.__cache__
         self._cache = 0
         for name, slice in self._slices.items():
@@ -628,6 +832,14 @@ class Register:
 
     @property
     def __has_reset(self):
+        """ 
+        Check if all bit-slices of the register have a defined reset value. 
+        
+        Returns
+        -------
+            bool
+                True if all bit-slices have a defined reset value, False otherwise.
+        """
         for name, slice in self._slices.items():
             valres = slice["res"]
             if valres is None:
@@ -635,6 +847,14 @@ class Register:
         return True
 
     def __slices2attr(self):
+        """
+        Dynamically create properties for each bit-slice defined in the register master excel file, allowing access to the bit-slices as attributes of the Register object.
+        
+        Returns
+        -------
+            new_reg : Register
+                A new Register object with properties for each bit-slice defined in the register master excel file.
+        """
         _setattr = object.__setattr__.__get__(self, self.__class__)
         dct = {}
         for name, slice in self._slices.items():
@@ -658,6 +878,16 @@ class Register:
 
     @property
     def value_bin(self):
+        """
+        Get the binary representation of the register value.
+        
+        eg. for a 16-bit register with value 0xABCD, the binary representation would be "1010 1011 1100 1101".
+
+        Returns
+        -------
+            str
+                Binary representation of the register value, grouped in 4-bit segments.
+        """
         fmt = "{{:0{}b}}".format(len(self))
         groups = self.__grouper(fmt.format(self.value), 4)
         return " ".join(groups)
@@ -668,24 +898,28 @@ class Register:
 
     def read(self, compare=None, onlycheck=True, tolerance=0, mask=None):
         """
-        read from the Register with selected protokoll
+        Read from the Register with selected protocol.
 
         Parameters
         ----------
-        compare : integer
-            compare value, if None than no compare
-        onlycheck: boolean
-            True (default) result is the compare value 0 or 1
-            False result is compare value and the read value
-        tolerance : integer
+            compare : int or None
+                compare value, if None than no compare
+            onlycheck: bool
+                True (default) result is the compare value 0 or 1
+                False result is compare value and the read value
+            tolerance : int
+                tolerance for compare, default is 0
+            mask : int or None
+                mask for compare, default is None (no mask)
 
         Returns
         -------
-        dat : integer
-            data.
-        check : if compare defined this is the compare result:
-            0 = ok
-            1 = error
+            error : int
+                0 if compare is successful, 1 if compare fails, or the value read from the register if onlycheck is False.
+            value : int
+                The value read from the register (only returned if onlycheck is False).
+            -1 : int
+                If the protocol is not defined or if there is an error while reading from the hardware.
         """
         global mylogger
         if self._rm._protocol is None:
@@ -704,6 +938,19 @@ class Register:
         return value
 
     def write(self, value=None):
+        """
+        Write to the Register with selected protocol.
+        
+        Parameters
+        ----------
+            value : int or None
+                The value to write to the register. If None, the method will attempt to write the cached value of the register.
+                
+        Returns
+        -------
+            result : int
+                The result of the write operation. Returns -1 if the protocol is not defined.
+        """
         global mylogger
         if self._rm._protocol is None:
             mylogger.log_message(LogLevel.Error(), f"{self.__class__.__name__} protocol not defined!!")
@@ -716,11 +963,34 @@ class Register:
         return result
 
     def res(self):
+        """
+        Get the reset value of the register by checking the reset values of all bit-slices defined in the register master excel file.
+        
+        Returns
+        -------
+            valres : int or str
+                The reset value of the register if all bit-slices have a defined reset value, 
+                or a string indicating that the reset value is not defined if any bit-slice does not have a defined reset value.
+        """
         for name, slice in self._slices.items():
             valres = slice["res"]
         return valres
 
     def _read(self, protocol=None):
+        """
+        Read the value of the register from the hardware using the selected protocol,
+        and update the cache with the read value if the read operation is successful and the register is in atomic mode.
+        
+        Parameters
+        ----------
+            protocol : any, optional
+                The protocol to use for reading the register (default is None, which means using the current protocol defined in the RegisterMaster instance).
+                
+        Returns
+        -------
+            value : int or None
+                The value read from the register, or None if the read operation failed.
+        """
         if self._bank is not None and self._bank != "":
             self.writebase(self._bank)
         value = self._rm._protocol.readreg(self._get_addr())
@@ -732,6 +1002,25 @@ class Register:
         return value
 
     def _write(self, value=None, protocol=None, verify=False):
+        """
+        Write the given value to the register using the selected protocol, or write the cached value if no value is provided.
+        
+        Parameters
+        ----------
+            value : int or None
+                The value to write to the register. 
+                If None, the method will attempt to write the cached value of the register (default is None).
+            protocol : any, optional
+                The protocol to use for writing to the register. 
+                (default is None, which means using the current protocol defined in the RegisterMaster instance).
+            verify : bool, optional
+                If True, the method will read back the value after writing and verify that it was written correctly (default is False).
+                
+        Returns
+        -------
+            _value : int or None
+                The value that was written to the register, or None if the write operation failed.
+        """
         if value is None:
             _value = self._cache
         else:
@@ -751,12 +1040,20 @@ class Register:
         return _value
 
     def _check_r_err(self):
+        """ 
+        Check for errors after reading from the hardware and handle any errors that occur by 
+        raising an exception with an appropriate error message.
+        """
         if self._rm._protocol.board.error is True:
             msg = "can't read from interface - {!r}"
             msg = msg.format(self._rm._protocol.board.errortext)
             self._rm.handle_exception(msg, ValueError, self._name)
 
     def _check_w_err(self):
+        """ 
+        Check for errors after writing to the hardware and handle any errors that occur by 
+        raising an exception with an appropriate error message.
+        """
         if self._rm._protocol.board.error is True:
             msg = "can't write to interface - {!r}"
             msg = msg.format(self._rm._protocol.board.errortext)
@@ -764,6 +1061,16 @@ class Register:
 
     @property
     def value_table(self):
+        """
+        Generate a table of the bit-slices of the register, including their names, directions, 
+        values in decimal, hexadecimal, and binary formats, and reset values.
+        
+        Returns
+        -------
+            df : pandas.DataFrame
+                A DataFrame containing the bit-slice information for the register, with columns for
+                location, name, direction, decimal value, hexadecimal value, binary value, and reset value.
+        """
         cache_old = self._cache
         self._cache = self.value
         slices = []
@@ -799,10 +1106,19 @@ class Register:
 
     @property
     def help(self):
+        """ Print the documentation for the register. """
         print(self.__doc__)
 
     @property
     def __doc__(self):
+        """ 
+        Generate a documentation string for the register, including its description and information about its bit-slices.
+        
+        Returns
+        -------
+            str
+                A formatted string containing the documentation for the register, including its description and information about its bit-slices such as their names, locations, directions, and reset values.
+        """
         lines = [self._desc, ""]
         width_left = 0
         for name, s in self._slices.items():
@@ -836,12 +1152,40 @@ class Register:
         return "\n".join(lines)
 
     def _len_slices(self):
+        """ 
+        Calculate the total number of bits covered by all bit-slices defined in the register master excel file by summing the lengths of each bit-slice.
+        
+        eg. if there are two bit-slices defined as [7:4] and [3:0], the total number of bits covered would be (7 - 4 + 1) + (3 - 0 + 1) = 4 + 4 = 8 bits.
+        
+        Returns
+        -------
+            int
+                The total number of bits covered by all bit-slices defined in the register master excel file.
+        """
         return sum(s["msb"] - s["lsb"] + 1 for s in self._slices.values())
 
     def __len__(self):
+        """
+        Return the length of the register in bits, which is determined by the total number of bits covered by all bit-slices defined in the register master excel file.
+        
+        eg. if there are two bit-slices defined as [7:4] and [3:0], the length of the register would be 8 bits.
+        
+        Returns
+        -------
+            int
+                The length of the register in bits.
+        """
         return self._rm._len_reg
 
     def __repr__(self):
+        """
+        Return a string representation of the Register object, including its class name and key attributes such as CPU address, register address, bank, and name.
+        
+        Returns
+        -------
+            str
+                A string representation of the Register object, including its class name and key attributes.
+        """
         args = ["cpuaddr=0x{:x}".format(self._cpuaddr)]
         args.append("addr=0x{:x}".format(self._addr))
         args.append("bank={}".format(self._bank))
@@ -850,12 +1194,45 @@ class Register:
 
     @staticmethod
     def __grouper(seq, n):
-        """grouper('ABCDEFG', 3) --> A BCD EFG"""
+        """ 
+        Group a sequence into chunks of a specified size and reverse the order of the groups while keeping the order of characters within each group intact.
+        
+        eg. grouper('ABCDEFG', 3) --> A BCD EFG 
+        
+        Parameters
+        ----------
+            seq : str
+                The sequence to be grouped.
+            n : int
+                The size of each group.
+
+        Returns
+        -------
+            list
+                A list of grouped sequences.
+        """
         rseq = seq[::-1]
         return [rseq[i : i + n][::-1] for i in range(0, len(seq), n)][::-1]
 
     @staticmethod
     def __int2dec(value, length=None):
+        """
+        Convert an integer value to a decimal string representation, grouped in segments of three digits for better readability.
+        
+        eg. int2dec(1234567) --> "1 234 567
+        
+        Parameters
+        ----------
+            value : int
+                The integer value to be converted to a decimal string representation.
+            length : int, optional
+                The number of bits for the register (used for validation, default is None).
+
+        Returns
+        -------
+            value : str
+                The decimal string representation of the integer value.
+        """
         try:
             groups = Register.__grouper("{}".format(value), 3)
             return " ".join(groups)
@@ -864,6 +1241,24 @@ class Register:
 
     @staticmethod
     def __int2hex(value, length):
+        """
+        Convert an integer value to a hexadecimal string representation, grouped in segments of four bits for better readability.
+        
+        eg. int2hex(12000, 16) --> "0x 2e e0"
+            int2hex(333, 32) --> "0x 00 00 01 4d"
+        
+        Parameters
+        ----------
+            value : int
+                The integer value to be converted to a hexadecimal string representation.
+            length : int
+                The number of bits for the register.
+
+        Returns
+        -------
+            value : str
+                The hexadecimal string representation of the integer value.
+        """
         try:
             fmt = "{{:0{}X}}".format(length // 4 + (1 if length % 4 else 0))
             groups = Register.__grouper(fmt.format(value), 2)
@@ -873,6 +1268,24 @@ class Register:
 
     @staticmethod
     def __int2bin(value, length):
+        """
+        Convert an integer value to a binary string representation, grouped in segments of four bits for better readability.
+        
+        eg. int2bin(10, 8) --> "0b 0000 1010
+            int2bin(255, 16) --> "0b 0000 0000 1111 1111
+            
+        Parameters
+        ----------
+            value : int
+                The integer value to be converted to a binary string representation.
+            length : int
+                The number of bits for the register.
+
+        Returns
+        -------
+            value : str
+                The binary string representation of the integer value.
+        """
         try:
             fmt = "{{:0{}b}}".format(length)
             groups = Register.__grouper(fmt.format(value), 4)
@@ -881,6 +1294,14 @@ class Register:
             return value
 
     def _calc(self):
+        """
+        Calculate the value of the register and its bit-slices, and generate a visual representation of the register using ipywidgets, including fields for the CPU address, register address, bank, name, reset value, decimal value, hexadecimal value, binary value, and description.
+        
+        Returns
+        -------
+            widgets.VBox
+                A VBox widget containing the visual representation of the register, including its fields and values.
+        """
         names = OrderedDict()
         names["cpuaddr"] = dict(width=50)
         names["addr"] = dict(width=50)
@@ -955,6 +1376,32 @@ class Register:
         reg_line.layout.margin = "0px 0px 10px 0px"
 
         def dec2other(obj, length=len(self), fdec=fdec, fhex=fhex, fbin=fbin):
+            """
+            Convert the decimal value entered in the text field to other representations (hexadecimal and binary)
+            and update the corresponding text fields.
+
+            Parameters
+            ----------
+                obj : widget
+                    The widget that triggered the event.
+                length : int
+                    The number of bits for the register.
+                fdec : widget
+                    The decimal text field.
+                fhex : widget
+                    The hexadecimal text field.
+                fbin : widget
+                    The binary text field.
+                    
+            Returns
+            -------
+                None
+                
+            Raises
+            ------
+                ValueError
+                    If the input value is not a valid integer.
+            """
             try:
                 value = int(fdec.value.replace(" ", ""))
                 self._cache = value
@@ -974,6 +1421,32 @@ class Register:
         fdec.on_submit(dec2other)
 
         def hex2other(obj, length=len(self), fdec=fdec, fhex=fhex, fbin=fbin):
+            """
+            Convert the hexadecimal value entered in the text field to other representations (decimal and binary)
+            and update the corresponding text fields.
+            
+            Parameters
+            ----------
+                obj : widget
+                    The widget that triggered the event.
+                length : int
+                    The number of bits for the register.
+                fdec : widget
+                    The decimal text field.
+                fhex : widget
+                    The hexadecimal text field.
+                fbin : widget
+                    The binary text field.
+                
+            Returns
+            -------
+                None
+                
+            Raises
+            ------
+                ValueError
+                    If the input value is not a valid hexadecimal integer.
+            """
             try:
                 value = int(fhex.value.replace(" ", ""), 16)
                 self._cache = value
@@ -993,6 +1466,32 @@ class Register:
         fhex.on_submit(hex2other)
 
         def bin2other(obj, length=len(self), fdec=fdec, fhex=fhex, fbin=fbin):
+            """
+            Convert the binary value entered in the text field to other representations (decimal and hexadecimal)
+            and update the corresponding text fields.
+            
+            Parameters
+            ----------
+                obj : widget
+                    The widget that triggered the event.
+                length : int
+                    The number of bits for the register.
+                fdec : widget
+                    The decimal text field.
+                fhex : widget
+                    The hexadecimal text field.
+                fbin : widget
+                    The binary text field.
+                    
+            Returns
+            -------
+                None
+                
+            Raises
+            ------
+                ValueError
+                    If the input value is not a valid binary integer.
+            """
             try:
                 value = int(fbin.value.replace(" ", ""), base=2)
                 self._cache = value
@@ -1072,6 +1571,36 @@ class Register:
             line.append(field)
 
             def dec2other(obj, self=self, name=name, length=length, fdec=fdec, fhex=fhex, fbin=fbin):
+                """
+                Convert the decimal value entered in the text field to other representations (hexadecimal and binary)
+                and update the corresponding text fields for the specific bit-slice.
+                
+                Parameters
+                ----------
+                    obj : widget
+                        The widget that triggered the event.
+                    self : Register
+                        The Register instance that contains the bit-slice.
+                    name : str
+                        The name of the bit-slice.
+                    length : int
+                        The number of bits for the bit-slice.
+                    fdec : widget
+                        The decimal text field for the bit-slice.
+                    fhex : widget
+                        The hexadecimal text field for the bit-slice.
+                    fbin : widget
+                        The binary text field for the bit-slice.
+                        
+                Returns
+                -------
+                    None
+                    
+                Raises
+                ------
+                    ValueError
+                        If the input value is not a valid integer.    
+                """
                 old = self._get_slice(name)
                 try:
                     value = int(fdec.value.replace(" ", ""))
@@ -1092,6 +1621,36 @@ class Register:
             fdec.on_submit(dec2other)
 
             def hex2other(obj, self=self, name=name, length=length, fdec=fdec, fhex=fhex, fbin=fbin):
+                """
+                Convert the hexadecimal value entered in the text field to other representations (decimal and binary)
+                and update the corresponding text fields for the specific bit-slice.
+                
+                Parameters
+                ----------
+                    obj : widget
+                        The widget that triggered the event.
+                    self : Register
+                        The Register instance that contains the bit-slice.
+                    name : str
+                        The name of the bit-slice.
+                    length : int
+                        The number of bits for the bit-slice.
+                    fdec : widget
+                        The decimal text field for the bit-slice.
+                    fhex : widget
+                        The hexadecimal text field for the bit-slice.
+                    fbin : widget
+                        The binary text field for the bit-slice.
+                        
+                Returns
+                -------
+                    None
+                    
+                Raises
+                ------
+                    ValueError
+                        If the input value is not a valid integer.    
+                """
                 old = self._get_slice(name)
                 try:
                     value = int(fhex.value.replace(" ", ""), 16)
@@ -1111,6 +1670,36 @@ class Register:
             fhex.on_submit(hex2other)
 
             def bin2other(obj, self=self, name=name, length=length, fdec=fdec, fhex=fhex, fbin=fbin):
+                """
+                Convert the binary value entered in the text field to other representations (decimal and hexadecimal)
+                and update the corresponding text fields for the specific bit-slice.
+                
+                Parameters
+                ----------
+                    obj : widget
+                        The widget that triggered the event.
+                    self : Register
+                        The Register instance that contains the bit-slice.
+                    name : str
+                        The name of the bit-slice.
+                    length : int
+                        The number of bits for the bit-slice.
+                    fdec : widget
+                        The decimal text field for the bit-slice.
+                    fhex : widget
+                        The hexadecimal text field for the bit-slice.
+                    fbin : widget
+                        The binary text field for the bit-slice.
+                        
+                Returns
+                -------
+                    None
+                    
+                Raises
+                ------
+                    ValueError
+                        If the input value is not a valid integer.    
+                """
                 old = self._get_slice(name)
                 try:
                     value = int(fbin.value.replace(" ", ""), base=2)
@@ -1138,16 +1727,33 @@ class Register:
 
 
 class RegisterMaster(mqtt_deviceattributes):
-    """Returns a container object for registers imported from registermaster.
+    """
+    Returns a container object for registers imported from registermaster.
 
-    filename:   name of registermaster (excel file), default from ENV:registermaster
-    atomic:     enables read-modify-write behavoiur of bit-slices
-                (reset: False)
-    interface:  hardware object for STI/BiPhase protocol
+        filename:   name of registermaster (excel file), default from ENV:registermaster
+        atomic:     enables read-modify-write behavoiur of bit-slices
+                    (reset: False)
+        interface:  hardware object for STI/BiPhase protocol
     """
 
     # read-only attributes
     def __setattr__(self, name, value):
+        """
+        Set the value of an attribute for the RegisterMaster instance, while ensuring that only valid attributes
+        can be set and that any changes to attributes that are part of the MQTT publishing mechanism trigger the appropriate MQTT updates.
+        
+        Parameters
+        ----------
+            name : str
+                The name of the attribute to be set.
+            value : any
+                The value to be assigned to the attribute.
+                    
+        Raises
+        ------
+            AttributeError
+                If the attribute name is not valid.
+        """
         valid = (
             "__class__",
             "_cached",
@@ -1176,6 +1782,23 @@ class RegisterMaster(mqtt_deviceattributes):
             self.publish_set(name, value)
 
     def __init__(self, logger=None, filename=None, interface=None, instname="regs", read_mod_write=False):
+        """ 
+        Initialize a RegisterMaster instance, which serves as a container for registers imported from a register master excel file. 
+        The initialization process includes setting up attributes for caching, debugging, hardware interface, protocol, atomic operations, bank management, and MQTT publishing.
+        
+        Parameters
+        ----------
+            logger : Logger, optional
+                A Logger instance for logging messages (default is None, which creates a new Logger).
+            filename : str, optional
+                The name of the register master excel file (default is None, which uses the environment variable "registermaster").
+            interface : object, optional
+                The hardware interface object for STI/BiPhase protocol (default is None).
+            instname : str, optional
+                The instance name for the RegisterMaster (default is "regs").
+            read_mod_write : bool, optional
+                Enables read-modify-write behavior for bit-slices (default is False).
+        """
         global mylogger
         self.gui = "pylab_ml.gui.instruments.regs.registermaster"
         _setattr = object.__setattr__.__get__(self, self.__class__)
@@ -1199,6 +1822,15 @@ class RegisterMaster(mqtt_deviceattributes):
         _setattr("_len_reg", 0)
 
     def __repr__(self):
+        """
+        Return a string representation of the RegisterMaster instance, including its class name and key attributes such as the 
+        filename, hardware interface, and read-modify-write behavior.
+        
+        Returns
+        -------
+            str
+                A string representation of the RegisterMaster instance, including its class name and key attributes.
+        """
         args = ["{!r}".format(self.filename)]
         if self._interface is not None:
             args.append("interface={!r}".format(self._interface))
@@ -1206,6 +1838,10 @@ class RegisterMaster(mqtt_deviceattributes):
         return "{classname}({args})".format(classname=self.__class__.__name__, args=", ".join(args))
 
     def init(self):
+        """ 
+        Initialize the RegisterMaster instance by loading the register definitions from the specified register master excel file,
+        building the register database, and creating Register objects for each register defined in the database.
+        """
         try:
             from labml_adjutancy.ctrl.labctrl import mqttc
         except Exception:
@@ -1321,6 +1957,11 @@ class RegisterMaster(mqtt_deviceattributes):
         return self
 
     def __iter__(self):
+        """
+        Iterate over the registers in the RegisterMaster instance, yielding each register object one by one. 
+        The iteration order depends on the protocol type being used (either "tin" or another protocol), 
+        and the method ensures that all registers are included in the iteration regardless of their organization in the internal data structures.
+        """
         global mylogger
         if self._protocol_typ == "tin":
             for regs in self._cpuregs.values():
@@ -1336,17 +1977,61 @@ class RegisterMaster(mqtt_deviceattributes):
                     yield reg
 
     def __len__(self):
+        """
+        Return the total number of registers in the RegisterMaster instance, which is calculated based on the protocol type being used. 
+        If the protocol type is "tin", the method counts the number of registers in the "_cpuregs" data structure, while for other protocol types, 
+        it counts the registers in the "_regs" data structure.
+        
+        Returns
+        -------
+            int
+                The total number of registers in the RegisterMaster instance.
+        """
         if self._protocol_typ == "tin":
             return sum(len(regs) for regs in self._cpuregs.values())
         else:
             return sum(len(regs) for regs in self._regs.values())
 
     def _mqtt2json(self, value, attr=None):
+        """ 
+        Convert the value of an attribute to a JSON-compatible format for MQTT publishing, 
+        while ensuring that only attributes that are part of the MQTT publishing mechanism are included in the conversion.
+        
+        Parameters
+        ----------
+            value : any
+                The value of the attribute to be converted to JSON format.
+            attr : str, optional
+                The name of the attribute being converted (default is None).
+                
+        Returns
+        -------
+            any
+                The value of the attribute in a JSON-compatible format if the attribute is part of the MQTT
+                publishing mechanism, or the string "nomqtt" if the attribute is not part of the MQTT publishing mechanism.
+        """
         if attr in self.mqtt_all:
             return value
         return "nomqtt"
 
     def _register_to_list(patterns: Union[str, Iterable[str]]) ->List[str]:
+        """
+        Convert a string or an iterable of strings into a list of strings. 
+        If the input is a single string, it will be wrapped in a list. 
+        If the input is already an iterable of strings, it will be converted to a list.
+        
+        Parameters
+        ----------
+            patterns : str or Iterable[str]
+                A string or an iterable of strings to be converted into a list of strings.
+                
+        Returns
+        -------
+            List[str]
+                A list of strings derived from the input patterns. 
+                If the input is a single string, the output will be a list containing that string. 
+                If the input is an iterable of strings, the output will be a list containing all the strings from the iterable.
+        """
         if isinstance(patterns, str):
             return[patterns]
         return list(patterns)
@@ -1355,6 +2040,19 @@ class RegisterMaster(mqtt_deviceattributes):
         pass
 
     def find(self, addr):
+        """
+        Find the name of a register based on its address, depending on the protocol type being used.
+        
+        Parameters
+        ----------
+            addr : int
+                The address of the register to be found.
+                
+        Returns
+        -------
+            str or None
+                The name of the register if found, or None if no register with the specified address exists.
+        """
         try:
             if self._protocol_typ == "tin":
                 return self._cpuregs[addr][0]
@@ -1365,6 +2063,16 @@ class RegisterMaster(mqtt_deviceattributes):
 
     @property
     def use(self):
+        """
+        Get the current protocol type.
+        
+        eg. self.regs.use returns "tin" or "spi" or "biphase" depending on the protocol type being used.
+
+        Returns
+        -------
+            str
+                The current protocol type.
+        """
         return self._protocol_typ
 
     @use.setter
@@ -1387,12 +2095,13 @@ class RegisterMaster(mqtt_deviceattributes):
 
         Parameters
         ----------
-        adr : TYPE
-            DESCRIPTION.
+        adr : int
+            address.
 
         Returns
         -------
-          adr.
+            adr : int
+                address without bank.
         """
         if self.banks:
             for bank in self.banks.keys():
@@ -1412,6 +2121,22 @@ class RegisterMaster(mqtt_deviceattributes):
         return adr
 
     def _call_from_string(self, adr, callstr):
+        """
+        Call a function for all registers matching the given address pattern, using a string representation of the function call.
+        
+        Parameters
+        ----------
+            adr : str
+                The address pattern to match registers against, which can include wildcards for flexible matching.
+            callstr : str
+                A string representation of the function call to be executed for each matching register, 
+                including the function name and its arguments in a format that can be parsed and evaluated.
+                
+        Returns
+        -------
+            result : list or int
+                The result of the function calls for each matching register, aggregated based on the type of the input data.
+        """
         result = []
         regs = self._register_to_list()
         call = ast.parse(callstr, mode='eval').body
@@ -1435,6 +2160,30 @@ class RegisterMaster(mqtt_deviceattributes):
         return result
 
     def readreg(self, adr, bank=None, compare=None, onlycheck=True, tolerance=0, mask=None):
+        """
+        Read Register with selected protocol.
+        
+        Parameters
+        ----------
+            adr : int or str or list
+                The address or addresses of the register(s) to read.
+            bank : int, optional
+                The bank address, if applicable.
+            compare : int or list, optional
+                The value(s) to compare against, if any.
+            onlycheck : bool, optional
+                If True, only perform the check without returning the value.
+            tolerance : int, optional
+                The tolerance for the comparison.
+            mask : int, optional
+                The mask to apply to the value before comparison.
+        
+        Returns
+        -------
+            int or list or tuple
+                The result of the read operation, which can be an integer value, a list of values, or a tuple 
+                containing the comparison result and the value, depending on the parameters provided.     
+        """
         if type(adr) is str:
            if len(adr) == 0:
                mylogger.log_message(LogLevel.Error(), 'readreg: adr is empty')
@@ -1465,21 +2214,29 @@ class RegisterMaster(mqtt_deviceattributes):
 
         Parameters
         ----------
-        adr : integer
-            address.
-        bank : integer
-            bank adress
-        compare : integer
-            compare value, if None than no compare
-        tolerance : integer
+            adr : int
+                address.
+            bank : int
+                bank adress
+            compare : int
+                compare value, if None than no compare
+            onlycheck : bool
+                if True, only perform the check without returning the value.
+            tolerance : int
+                tolerance for the comparison.
+            mask : int
+                mask to apply to the value before comparison.
 
         Returns
         -------
-        dat : integer
-            data.
-        check : if compare defined this is the compare result:
-            0 = ok
-            1 = error
+            value : int
+                The value read from the register, potentially after applying a mask and comparison, depending on the parameters provided.
+            error : int
+                The error code resulting from the comparison, if applicable.
+            check : int
+                If compare is defined, this is the compare result:
+                0 = ok
+                1 = error
         """
         hadr = adr
         if bank is not None:
@@ -1506,6 +2263,22 @@ class RegisterMaster(mqtt_deviceattributes):
         return value
 
     def writereg(self, adr, dat, bank=None):
+        """
+        Write Register with selected protocol.
+        
+        Parameters
+        ----------
+            adr : int or str or list
+                The address or addresses of the register(s) to write to.
+            dat : int or list
+                The data to write to the register(s).
+            bank : int, optional
+                The bank address. If None, the current bank is used.
+
+        Returns
+        -------
+            None.
+        """
         if type(adr) is str:
             if len(adr) == 0:
                 mylogger.log_message(LogLevel.Error(), 'writereg: adr is empty')
@@ -1531,17 +2304,16 @@ class RegisterMaster(mqtt_deviceattributes):
 
         Parameters
         ----------
-        adr : integer
-            address.
-        bank : integer
-            bank adress
-        dat : integer
-            data.
+            adr : int
+                address.
+            dat : int
+                data.
+            bank : int
+                bank adress
 
         Returns
         -------
-        None.
-
+            None.
         """
         hadr = adr
         if bank is not None:
@@ -1556,12 +2328,14 @@ class RegisterMaster(mqtt_deviceattributes):
         self.publish_set(f"writereg({hadr})", dat)
 
     def reset(self):
+        """ Reset the RegisterMaster instance by resetting the protocol and clearing the cache for all registers. """
         self._protocol.reset()
         object.__setattr__(self, "_bank", -1)
         for reg in self:
             object.__setattr__(reg, "__cache__", None)
 
     def reset_internal(self):
+        """ Reset the internal state of the RegisterMaster instance by resetting the protocol's internal state and clearing the cache for all registers. """
         object.__setattr__(self, "_bank", -1)
         try:
             self._protocol.reset_internal()
@@ -1577,15 +2351,15 @@ class RegisterMaster(mqtt_deviceattributes):
 
         Parameters
         ----------
-        default : set the register to the default value
-            if None, default values 0 will be used
-        force :  False -> Only a writable slice sees a reset.
-                 True  -> readable and writable slice sees a reset.
+            default : int, optional
+                The value to set the register to. If None, default values 0 will be used.
+            force : bool, optional
+                False -> Only a writable slice sees a reset.
+                True  -> Readable and writable slice sees a reset.
 
         Returns
         -------
-        None.
-
+            None.
         """
         global mylogger
         for regname in self:
@@ -1600,6 +2374,22 @@ class RegisterMaster(mqtt_deviceattributes):
         mylogger.log_message(LogLevel.Info(), "Reset register Cache to resetvalues")
 
     def handle_exception(self, msg, typ=None, name=None):
+        """
+        Handle exceptions by logging an error message using the logger instance, and optionally raising a specified exception type with the provided message.
+        
+        Parameters
+        ----------
+            msg : str
+                The error message to be logged and potentially included in the raised exception.
+            typ : Exception class, optional
+                The type of exception to be raised. If None, no exception is raised.
+            name : str, optional
+                The name associated with the error message.
+
+        Returns
+        -------
+            None.
+        """
         global mylogger
         if mylogger is not None:
             if name is None:
@@ -1612,7 +2402,18 @@ class RegisterMaster(mqtt_deviceattributes):
             ValueError(msg)
 
     def set_configuration_values(self, data):
-        """Only empty dummy function."""
+        """ 
+        Only empty dummy function.
+        
+        Parameters
+        ----------
+            data : dict
+                A dictionary containing configuration values to be set for the RegisterMaster instance. 
+        
+        Returns
+        -------
+            None.
+        """
         global mylogger
         mylogger.log_message(LogLevel.Warning(), "pylab_ml.RegisterMaster: set_configuration_values only dummy function.....")
         pass
@@ -1623,13 +2424,12 @@ class RegisterMaster(mqtt_deviceattributes):
 
         Parameters
         ----------
-        data : TYPE
-            DESCRIPTION.
+            data : dict
+                A dictionary containing configuration values to be applied to the RegisterMaster instance, such as the filename.
 
         Returns
         -------
-        None.
-
+            None.
         """
         _setattr = object.__setattr__.__get__(self, self.__class__)
         config = environment.replaceEnvs(data)

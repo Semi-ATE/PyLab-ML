@@ -11,7 +11,8 @@ from pylab_ml.base_instrument import Instrument
 
 
 class Base_Thermostreamer(Instrument):
-    """Interface to the thermostreamer.
+    """
+    Interface to the thermostreamer.
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
@@ -20,26 +21,25 @@ class Base_Thermostreamer(Instrument):
 
     Initialization arguments:
         addr (int):
-                        interface address
+            Interface address
 
         interface (Interface):
-                        gpib, usbserial
+            GPIB, USB
 
         backend (str):
-                        visa backend is either '@ni' for NI-Library or
-                        '@py' for pure python pyvisa-py backend.
-                        On default it uses '@ni' on win32 and '@py' on
-                        other platforms.
+            VISA backend is either '@ni' for NI-Library or
+            '@py' for pure python pyvisa-py backend.
+            On default it uses '@ni' on win32 and '@py' on
+            other platforms.
 
     Example: Initialization
         >>> instrument = Base_Thermostreamer(addr=24)   # GPIB or USB address
-
     """
 
     interchoices = [Interface.usbserial, Interface.gpib]
 
     def __init__(self, **kwargs):
-        """Initialise."""
+        """Initialise the Thermostreamer."""
         self.is_local = False
         super().__init__(**kwargs)
         logger.debug("Class {}".format(self.__class__.__name__))
@@ -120,17 +120,17 @@ class Base_Thermostreamer(Instrument):
 
 
 class Dummy(object):
-    """Dummy object  for the Thermostreamer.
+    """
+    Dummy object  for the Thermostreamer.
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
 
     Usable if you have no real Thermostreamer as instance
-
     """
 
     def __init__(self, parent, **kwargs):
-        """Initialise."""
+        """Initialise the Dummy Thermostreamer."""
         # kwargs = {"addr": addr, "interface": interface, "backend": backend, "identify": identify, "instName": instName}
         if 'message' in kwargs:
             logger.error(kwargs['message'])
@@ -145,6 +145,20 @@ class Dummy(object):
         self.TEMP = 25          # default is RT = 25
 
     def query(self, cmd):
+        """
+        Query the Dummy Thermostreamer with cmd.
+        
+        Parameters
+        ----------
+        cmd : str
+            The command to query.
+
+        Returns
+        -------
+        value : int or str
+            The value returned by the Dummy Thermostreamer.
+        """
+        
         if cmd == '*IDN?':
             return f'{self.__class__}\r'
         cmd = cmd[:cmd.find('?')]
@@ -161,6 +175,19 @@ class Dummy(object):
         return value
 
     def write(self, cmd):
+        """
+        Write the Dummy Thermostreamer with cmd.
+        
+        Parameters
+        ----------
+            cmd : str
+                The command to write.
+                
+        Returns
+        -------
+            None
+        """
+        
         self._lastcmd = cmd[:cmd.find('?')] if cmd.find('?') > -1 else ''
         cmd = cmd.split(' ')
         if len(cmd) > 1:
@@ -170,6 +197,7 @@ class Dummy(object):
         logger.debug(f'Dummy Thermostreamer write {cmd}')
 
     def read(self):
+        """Read from the Dummy Thermostreamer."""
         # value = self.NaN
         value = 0xdeadbeef
         if self._lastcmd in ('SOAK', 'FLWM', 'DSNS'):

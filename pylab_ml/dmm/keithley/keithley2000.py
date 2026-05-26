@@ -10,7 +10,8 @@ from pylab_ml.smu.keithley.base_keithley import Keithley
 
 
 class Keithley2000(Keithley):
-    """Interface to the Measuremet-Unit (SMU) Keithley2000.
+    """
+    Interface to the Measuremet-Unit (SMU) Keithley2000.
 
     The Keithley2000 can measure voltage and current precisely
 
@@ -18,26 +19,27 @@ class Keithley2000(Keithley):
     :Author: Semi-ATE <info@Semi-ATE.org>
 
     .. image:: ../_static/kethley2000.jpg
-
     """
 
     interchoices = [Interface.usbserial, Interface.gpib]
 
     def __init__(self, addr=None, interface=None, backend=None, identify=True, instName=None, **kwargs):
-        """Connect and initialize.
+        """
+        Connect and initialize the Keithley2000.
 
-        Args:
-           addr (int):
-              interface address
-           interface (Interface):
-              gpib, usbserial
-           backend (str):
-              visa backend is either '@ni' for NI-Library or
-              '@py' for pure python pyvisa-py backend.
-              On default it uses '@ni' on win32 and '@py' on
-              other platforms.
-           instName (string):
-              Instance Name from parent.
+        Parameters
+        ----------
+            addr (int):
+                Interface address
+            interface (Interface):
+                GPIB, USBSerial
+            backend (str):
+                visa backend is either '@ni' for NI-Library or
+                '@py' for pure python pyvisa-py backend.
+                On default it uses '@ni' on win32 and '@py' on
+                other platforms.
+            instName (string):
+                Instance Name from parent.
 
         Example: Initialization
            >>> vdd = Keithley2000(addr=24)  # GPIB or USB address
@@ -48,7 +50,6 @@ class Keithley2000(Keithley):
 
         Example: Voltage measurement
            >>> v = vdd.voltage              # measure voltage
-
         """
         kwargs = {"addr": addr, "interface": interface, "backend": backend, "identify": identify, "instName": instName, **kwargs}
         super().__init__(**kwargs)
@@ -88,9 +89,9 @@ class Keithley2000(Keithley):
 
     @property
     def nplc(self):
-        """Set the conversion number of power line cycles accuracy, for all converters.
-
-        for a plc of 1, conversion rate is 1/50s = 20ms, max 10, min 0.1 accuracy
+        """
+        Set the conversion number of power line cycles accuracy, for all converters.
+        For a PLC of 1, conversion rate is 1/50s = 20ms, max 10, min 0.1 accuracy
         """
         val = self._nplc
         return float(val)
@@ -365,5 +366,19 @@ class Keithley2000(Keithley):
         self.inst.write(':SENS:FREQ:APER {}'.format(self.freq_aperture))
 
     def temporal_tuple(self, threshold, aperture):
-        """Wrapper for tuple assignment to period & frequency."""
+        """
+        Wrapper for tuple assignment to period & frequency.
+        
+        Parameters
+        ----------
+            threshold : float
+                Threshold voltage for period or frequency measurement.
+            aperture : float
+                Aperture time for period or frequency measurement.
+                
+        Returns
+        -------
+            tuple
+                Returns a tuple of (threshold, aperture) for period or frequency measurement.
+        """
         return threshold, aperture

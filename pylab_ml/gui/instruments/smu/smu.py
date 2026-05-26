@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-smu.
+This script defines a GUI class for a Source Measure Unit (SMU) instrument, which is part of the PyLab-ML project.
+The GUI allows users to interact with the SMU instrument, send MQTT commands, and receive updates.
+The class inherits from a base instrument GUI class and implements specific functionality for the SMU instrument.
 
 Created on Mon Jan  3 09:19:17 2022
 
@@ -24,9 +26,10 @@ __version__ = "0.0.1"
 
 
 class Gui(Guibase):
-    """SMU  Gui.
+    """
+    This class defines a GUI for a Source Measure Unit (SMU) instrument.
 
-    inherited from base_instrument
+    Inherited from base_instrument
        status
 
     """
@@ -42,6 +45,20 @@ class Gui(Guibase):
     _color_display_disable = "color: #d9d9d9;background-color: rgb(0, 0, 0);"
 
     def __init__(self, parent=None, name="scope", parentwindow=None, channel=None):
+        """
+        Initialize the GUI for the SMU instrument.
+        
+        Parameters
+        ----------
+            parent : QWidget, optional
+                The parent widget for the GUI.
+            name : str, optional
+                The name of the instrument.
+            parentwindow : QWidget, optional
+                The parent window for the GUI.
+            channel : int, optional
+                The channel number for the instrument.
+        """
         super().__init__(grandparent=parent, name=name, parentwindow=parentwindow)
         self.myframe = load_ui(self.gui.myframe, __file__)
         # bgcolor = self.gui.palette().color(QtGui.QPalette.Background).name()    # getRgb()
@@ -57,6 +74,7 @@ class Gui(Guibase):
         # self.gui.myframe.setEnabled(True)
 
     def myadjustUI(self):
+        """Adjust the GUI elements for the SMU instrument."""
         # set icons:
         self.gui.runToolBar.setVisible(False)
         # self.add_menuicon('onoff')                              # add existing icon and connection from the base-instrument
@@ -87,13 +105,23 @@ class Gui(Guibase):
         self.myframe.setGeometry(geometry.x(), geometry.y(), wh.width() + 100, wh.height() + 250)
 
     def mqttMeasureEvent(self, event):
+        """Handle mouse press events on the main frame by publishing MQTT commands to measure and check completion."""
         self.grandparent.mqtt.publish_get(self.instName, "measure")
         self.grandparent.mqtt.publish_get(self.instName, "cmpl")
 
     # ======================================================
     # attributes which connect to an extern call (mqtt-command)
     def mqttreceive(self, instName, msg):
-        """Common mqtt receive messages, get raw mqtt-Data for more information."""
+        """
+        Common MQTT receive messages, get raw MQTT data for more information.
+        
+        Parameters
+        ----------
+            instName : str
+                The name of the instrument.
+            msg : dict
+                The MQTT message received.
+        """
         self.logger.debug(f"   {instName}.mqttreceive: {msg} ")
         if super().mqttreceive(instName, msg):
             return
@@ -122,14 +150,17 @@ class Gui(Guibase):
 
     @property
     def channel(self):
+        """Get the current channel of the instrument."""
         return self.id
 
     @channel.setter
     def channel(self, msg):
+        """Set the current channel of the instrument."""
         self.id = msg
 
     @property
     def output_function(self):  # connect to QCombobox
+        """Get the current output function of the instrument."""
         return self._output_function
 
     #        if self.gui.output_function.currentIndex() != self._output_function:
@@ -137,6 +168,7 @@ class Gui(Guibase):
 
     @output_function.setter
     def output_function(self, val):
+        """Set the current output function of the instrument."""
         if val.find("DC_VOLTAGE") == 0 and self._output_function != 0:
             self.myframe.MQTT_SET_voltage.show()
             self.myframe.MQTT_SET_current.hide()
@@ -200,21 +232,25 @@ class Gui(Guibase):
     # connected GUI-function to buttons or menues
     #
     def gui2sweep(self):
+        """Handle the click event of the sweep button by publishing MQTT commands to set the voltage or current based on the selected output function."""
         if self._output_function == 0:
             self.publish("voltage", [self.myframe.MQTT_SET_voltage.value(), self.myframe.MQTT_sweepto.value()])
         elif self._output_function == 1:
             self.publish("current", [self.myframe.MQTT_SET_current.value(), self.myframe.MQTT_sweepto.value()])
 
     def close(self, event=None):
+        """Handle the close event for the GUI by publishing an 'off' command and then calling the base class's close method."""
         self.publish("off()")
         super().close()
 
     @property
     def smustatus(self):
+        """Get the current status of the SMU."""
         return self._smustatus
 
     @smustatus.setter
     def smustatus(self, msg):
+        """Set the current status of the SMU and update the GUI."""
         if msg != "":
             print("Error: {}".format(msg))
         # self.gui.status.setText(self._translate("Form", "Current"))
@@ -222,6 +258,7 @@ class Gui(Guibase):
         self._smustatus = msg
 
     def sweep(self, b):
+        """Handle the state change of the sweep checkbox and show/hide related GUI elements accordingly."""
         if b.isChecked():
             self.myframe.Lfrom.show()
             self.myframe.Lto.show()

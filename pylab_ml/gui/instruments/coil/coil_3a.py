@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-coil_3a.
+This script defines a GUI class for a coil instrument, which is part of the PyLab-ML project. 
+The GUI allows users to interact with the coil instrument, send MQTT commands, and receive updates. 
+The class inherits from a base instrument GUI class and implements specific functionality for the coil instrument.
 
 Created on Mon Jan  3 09:19:17 2022
 
@@ -25,9 +27,10 @@ __version__ = "0.0.1"
 
 
 class Gui(Guibase):
-    """Template  Gui.
+    """
+    Template  Gui.
 
-    inherited from base_instrument
+    Inherited from base_instrument
        status
 
     """
@@ -40,6 +43,20 @@ class Gui(Guibase):
     }
 
     def __init__(self, parent=None, name="scope", parentwindow=None, channel=None):
+        """
+        Initialize the GUI for the coil instrument.
+        
+        Parameters
+        ----------
+            parent: object, optional
+                The parent widget for this GUI. Default is None.
+            name: str, optional
+                The name of the instrument. Default is "scope".
+            parentwindow: object, optional
+                The parent window for this GUI. Default is None.
+            channel: int, optional
+                The channel number. Default is None.
+        """
         super().__init__(grandparent=parent, name=name, parentwindow=parentwindow)
         self.myframe = load_ui(self.gui.myframe, __file__)
         # bgcolor = self.gui.palette().color(QtGui.QPalette.Background).name()    # getRgb()
@@ -50,6 +67,7 @@ class Gui(Guibase):
         self.smustatus = ""
 
     def myadjustUI(self):
+        """Adjust the GUI elements for the coil instrument."""
         # set icons:
         self.gui.runToolBar.setVisible(False)
         # self.add_menuicon('onoff')                              # add existing icon and connection from the base-instrument
@@ -69,6 +87,7 @@ class Gui(Guibase):
         self.myframe.setGeometry(geometry.x(), geometry.y(), wh.width() + 100, wh.height() + 250)
 
     def mqttMeasureEvent(self, event):
+        """Handle mouse press events to trigger MQTT measurements."""
         self.grandparent.mqtt.publish_get(self.instName, "mField")
         self.grandparent.mqtt.publish_get(self.instName, "current")
         self.grandparent.mqtt.publish_get(self.instName, "voltage")
@@ -76,7 +95,16 @@ class Gui(Guibase):
     # ======================================================
     # attributes which connect to an extern call (mqtt-command)
     def mqttreceive(self, instName, msg):
-        """Common mqtt receive messages, get raw mqtt-Data for more information."""
+        """
+        Handle incoming MQTT messages and update the GUI accordingly.
+        
+        Parameters
+        ----------
+            instName: str
+                The name of the instrument sending the MQTT message.
+            msg: dict
+                The MQTT message containing the command and payload.
+        """
         self.logger.debug(f"{instName}.mqttreceive: {msg} ")
         if super().mqttreceive(instName, msg):
             return
@@ -98,10 +126,12 @@ class Gui(Guibase):
     # connected GUI-function to buttons or menues
     #
     def close(self, event=None):
+        """Handle the close event for the GUI."""
         self.publish("off()")
         super().close()
 
     def sweep(self, b):
+        """Handle the state change of the sweep checkbox and show/hide related GUI elements accordingly."""
         if b.isChecked():
             self.myframe.Lfrom.show()
             self.myframe.Lto.show()
@@ -123,10 +153,12 @@ class Gui(Guibase):
 
     @property
     def smustatus(self):
+        """Get the current SMU status."""
         return self._smustatus
 
     @smustatus.setter
     def smustatus(self, msg):
+        """Set the SMU status and update the GUI accordingly."""
         if msg != "":
             print("Error: {}".format(msg))
         # self.gui.status.setText(self._translate("Form", "Current"))

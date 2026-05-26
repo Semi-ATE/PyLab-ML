@@ -30,45 +30,42 @@ class PXIe41xx(NatInst):
     todo:
         add sequence_loop_count
 
-
     The National Instruments PXIe-41xx can source and sink power in all four voltage/current quadrants and
     measure voltage and current precisely
 
-    This Module supports (=tested) the National Instruments
-       * PXIe-4138
-       * PXIe-4141
+    This Module supports (=tested) the National Instruments:
+        * PXIe-4138
+        * PXIe-4141
 
-    known Bugs:
-       * wenn eine mqtt message von extern empfangen wird, so kann ein aktuelles Artribute
-         set/get unterbrochen werden, und es kann dadurch zu Problemen mit dem aktuellen state geben.
-         z.bsp aperture_time=2, es kommt aber ein voltage von extern (weil gui aufgerufen wird),
-         state war auf uncommited, voltage setzt state auf running
-         aperture_time wird weiter verarbeitet, brauch state aber uncommited
-         ==> setzen von Attribute darf nicht unterbrochen werden...
-       * Source Mode must be configured to Single Point when multiple channels are present
-         in the same session (e.q. PXIe4141) -> Workaround for stair_sweep, which is implemented :
+    Known Bugs:
+        * Wenn eine mqtt message von extern empfangen wird, so kann ein aktuelles Artribute
+          set/get unterbrochen werden, und es kann dadurch zu Problemen mit dem aktuellen state geben.
+          z.bsp aperture_time=2, es kommt aber ein voltage von extern (weil gui aufgerufen wird),
+          state war auf uncommited, voltage setzt state auf running
+          aperture_time wird weiter verarbeitet, brauch state aber uncommited
+          ==> Setzen von Attribute darf nicht unterbrochen werden...
+        * Source Mode must be configured to Single Point when multiple channels are present
+          in the same session (e.q. PXIe4141) -> Workaround for stair_sweep, which is implemented:
 
-         1. rescue all adjustments
-         2. close session (source remain their state)
-         3. reopen only one channel
-         4. write adjustements to this channel
-         5. run stair_sweep
-         6. close session
-         7. reopen the channels again and write all adjustements to the channels
+        1. Rescue all adjustments
+        2. Close session (source remain their state)
+        3. Reopen only one channel
+        4. Write adjustements to this channel
+        5. Run stair_sweep
+        6. Close session
+        7. Reopen the channels again and write all adjustements to the channels
 
-         * --> if you know a better solution, please improve the stair_sweep
+        * --> If you know a better solution, please improve the stair_sweep
 
-    some functions of the PXIe41xx are not implemented now,
-       see: http://nimi-python.readthedocs.io/en/master/nidcpower.html
-       or read the manual http://zone.ni.com/reference/en-XX/help/370736U-01/
+    Some functions of the PXIe41xx are not implemented now,
+    see: http://nimi-python.readthedocs.io/en/master/nidcpower.html
+    or read the manual http://zone.ni.com/reference/en-XX/help/370736U-01/
 
-          * self.ch[0].source_delay = 0.01667
-          * self.ch[0].sequence_loop_count = run count x sequence
+    * self.ch[0].source_delay = 0.01667
+    * self.ch[0].sequence_loop_count = run count x sequence
 
-    for generell measurement: http://www.ni.com/de-de/innovations/white-papers/14/top-measurement-considerations-for-modular-source-measure-units-.html
-
+    For general measurement: http://www.ni.com/de-de/innovations/white-papers/14/top-measurement-considerations-for-modular-source-measure-units-.html
     """
-
     try:
         import nidcpower
 
@@ -105,53 +102,52 @@ class PXIe41xx(NatInst):
 
     def __init__(self, addr=None, channels="0", identify=False, instName=None, runningmode="auto"):
         """
-        Initialise.
+        Initialise the instrument.
 
         Args:
-           addr (string):
-              name from the PXI-Slot e.q. 'PXI1Slot3' or 'SMU'.
-           channels (string, optional): (only 4141).
-              Specifies which output channel(s) to include to this module.
-              Specify multiple channels by using a channel list or a channel range.
-              A channel list is a comma (,) separated sequence of channel names.
-              For example, '0,2' specifies channels 0 and 2.
-           identify (bool, optional):
-              Defaults to False.
-           instName (string, optional):
-              Instance Name from top.
-           runningmode (string, optional):
-              handle state of the instrument automaticall or manual. Defaults to 'auto'.
+            addr (string):
+                Name from the PXI-Slot e.q. 'PXI1Slot3' or 'SMU'.
+            channels (string, optional): (only 4141).
+                Specifies which output channel(s) to include to this module.
+                Specify multiple channels by using a channel list or a channel range.
+                A channel list is a comma (,) separated sequence of channel names.
+                For example, '0,2' specifies channels 0 and 2.
+            identify (bool, optional):
+                Defaults to False.
+            instName (string, optional):
+                Instance Name from top.
+            runningmode (string, optional):
+                Handle state of the instrument automatically or manually. Defaults to 'auto'.
 
         Raises:
-           InvalidInstrumentConnection: something is wrong with the connection.
+            InvalidInstrumentConnection: something is wrong with the connection.
 
-        .. note::
-           For Instrument handling it is much easier to set runningmode = 'auto' (default).
-           Otherwise you have to handle commit, initiate and abort by yourselve,
-           and often you will raise an Excepetion by the instrument.
+        Note:
+            For Instrument handling it is much easier to set runningmode = 'auto' (default).
+            Otherwise you have to handle commit, initiate and abort by yourselve,
+            and often you will raise an Excepetion by the instrument.
 
         *Examples:*
-           * Initialization
-              >>> vdd = PXIe41xx(addr=3,instName='vdd')   # connect and initialize instrument PXI-4138 or one channel fro PXI-4141
-              >>> vdd = PXIe41xx(addr=3,channel='0,1',instName='vdd')   # connect and initialize instrument PXI-4141 with channel 0,1
+            * Initialization
+                >>> vdd = PXIe41xx(addr=3,instName='vdd')   # connect and initialize instrument PXI-4138 or one channel fro PXI-4141
+                >>> vdd = PXIe41xx(addr=3,channel='0,1',instName='vdd')   # connect and initialize instrument PXI-4141 with channel 0,1
 
-           * Use instrument as voltage source
-              >>> vdd.i_clamp = 0.01           # current protection
-              >>> vdd.voltage = 3.3            # set output voltage
-              >>> i = vdd.current              # measure (supply) current
+            * Use instrument as voltage source
+                >>> vdd.i_clamp = 0.01           # current protection
+                >>> vdd.voltage = 3.3            # set output voltage
+                >>> i = vdd.current              # measure (supply) current
 
-           * Use instrument as current source
-              >>> vdd.v_clamp = 5              # voltage protection
-              >>> vdd.current = 0.1            # set output current_range
-              >>> v = vdd.voltage              # measure voltage
+            * Use instrument as current source
+                >>> vdd.v_clamp = 5              # voltage protection
+                >>> vdd.current = 0.1            # set output current_range
+                >>> v = vdd.voltage              # measure voltage
 
-           * detailed example of usage:
-              * common for PXIe4138: :download:`examples/smu/PXIe4138.py <../../../examples/smu/PXIe4138.py>`
-              * common for PXIe4141: :download:`examples/smu/PXIe4141.py <../../../examples/smu/PXIe4141.py>`
-              * measure loops : :download:`examples/smu/PXIe4141_2.py <../../../examples/smu/PXIe4141_2.py>`
-              * loops and stairsweep combined (2x faster as the example before), for PXIe4141/PXIe4138: :download:`examples/smu/PXIe4141_3.py <../../../examples/smu/PXIe4141_3.py>`
-              * and an example, how you should not used this module: :download:`examples/smu/PXIe4141_badexample.py <../../../examples/smu/PXIe4141_badexample.py>`
-
+            * Detailed example of usage:
+                * Common for PXIe4138: :download:`examples/smu/PXIe4138.py <../../../examples/smu/PXIe4138.py>`
+                * Common for PXIe4141: :download:`examples/smu/PXIe4141.py <../../../examples/smu/PXIe4141.py>`
+                * Measure loops : :download:`examples/smu/PXIe4141_2.py <../../../examples/smu/PXIe4141_2.py>`
+                * Loops and stairsweep combined (2x faster as the example before), for PXIe4141/PXIe4138: :download:`examples/smu/PXIe4141_3.py <../../../examples/smu/PXIe4141_3.py>`
+                * And an example, how you should not used this module: :download:`examples/smu/PXIe4141_badexample.py <../../../examples/smu/PXIe4141_badexample.py>`
         """
         if not self._has_nidcpower:
             msg = "\nPXIe41xx not usable!! missing nidcpower\n"
@@ -298,27 +294,26 @@ class PXIe41xx(NatInst):
 
         Parameters
         ----------
-        value : :mod:`NatInst.State`
-            expected status.
+            value : :mod:`NatInst.State`
+                expected status.
 
         Returns
         -------
-        None.
-
+            None.
         """
         self.state = value
 
     def reset(self):
         """
-        reset, and all channels set to.
+        Reset, and all channels set to.
 
-          * current_limit_autorange=True
-          * voltage_limit_autorange=True
-          * power_line_frequency = 50.0
-          * aperture_time_units=POWER_LINE_CYCLES
-          * aperture_time=2
-          * inst.auto_zero=OFF
-          * dc_noise_rejection=SECOND_ORDER
+            * current_limit_autorange=True
+            * voltage_limit_autorange=True
+            * power_line_frequency = 50.0
+            * aperture_time_units=POWER_LINE_CYCLES
+            * aperture_time=2
+            * inst.auto_zero=OFF
+            * dc_noise_rejection=SECOND_ORDER
         """
         super().reset()
         self.inst.reset_device()
@@ -356,15 +351,14 @@ class PXIe41xx(NatInst):
         """
         Define behaving after change voltage/curret setting.
 
-        Args: if set
-           value (bool):
-              * True : enable output after voltage/current setting (default).
-              * False : output not switching after voltage/current setting.
+        Args: If set
+            value (bool):
+                * True : enable output after voltage/current setting (default).
+                * False : output not switching after voltage/current setting.
 
-        Returns: if get
+        Returns: If get
             value (bool):
                 True or False.
-
         """
         return self._onAfterset
 
@@ -374,15 +368,15 @@ class PXIe41xx(NatInst):
 
     @property
     def measure(self):
-        """Get voltage and current together without delay, or set the measure typ.
+        """
+        Get voltage and current together without delay, or set the measure typ.
 
         Returns:
-           * float: mesasured voltage.
-           * float: measured current.
+            * float: mesasured voltage.
+            * float: measured current.
 
         Tip:
-            measure is 2x faster as separate voltage and current.
-
+            Measure is 2x faster as separate voltage and current.
         """
         # measure=self.ch[self.channel].fetch_multiple(1)    # in sequence mode
         if not self.onoff_cache:
@@ -408,10 +402,9 @@ class PXIe41xx(NatInst):
 
         Returns
         -------
-        value : bool
-           * False no compliance
-           * True  compliance, limit accomplished
-
+            value : bool
+                * False no compliance
+                * True  compliance, limit accomplished
         """
         self.checkstate("running")
         value = self.ch[self.channel].query_in_compliance()
@@ -426,8 +419,7 @@ class PXIe41xx(NatInst):
 
         Returns
         -------
-        None.
-
+            None.
         """
         return self._sweepto
 
@@ -439,14 +431,12 @@ class PXIe41xx(NatInst):
     def voltage(self):
         """
         Get or set output voltage.
-
         If the voltage is set, the output is switched on immediately (if self.onAfterset == True).
 
         Args:
-           value (float): set to voltage (in V).
+            value (float): set to voltage (in V).
         Returns:
-           value (float): output voltage (in V).
-
+            value (float): output voltage (in V).
         """
         self.checkstate("running")
         value = self.ch[self.channel].measure(self.nidcpower.MeasurementTypes["VOLTAGE"])
@@ -492,7 +482,6 @@ class PXIe41xx(NatInst):
 
         Returns:
            value(float) : driver Voltage (in V).
-
         """
         value = self.ch[self.channel].voltage_level
         return value
@@ -501,15 +490,13 @@ class PXIe41xx(NatInst):
     def current(self):
         """
         Get/set output current.
-
         If the current is set, the output is switched on immediately (if self.onAfterset == True).
 
         Args:
-           value (float): set to current (in A).
+            value (float): set to current (in A).
 
         Returns:
-           value (float): current (in A).
-
+            value (float): current (in A).
         """
         self.checkstate("running")
         value = self.ch[self.channel].measure(self.nidcpower.MeasurementTypes["CURRENT"])
@@ -534,8 +521,7 @@ class PXIe41xx(NatInst):
         Get driver current.
 
         Returns:
-           value (float): driver current (in A).
-
+            value (float): driver current (in A).
         """
         value = self.ch[self.channel].current_level
         return value
@@ -553,16 +539,15 @@ class PXIe41xx(NatInst):
         Set the current clamping (A), will adjust current measurement range.
 
         Current Limit Range and Current Limit are :
-           * i_clamp 0.000001 A (int) / 1 µA = Limit +0.00000001 A to +0.000001 A (int) / +10 nA to +1 µA
-           * i_clamp 0.00001 A (int) / 10 µA = Limit +0.0000001 A to +0.00001 A (int) / +100 nA to +10 µA
-           * i_clamp 0.0001A (int) / 100 µA = Limit +0.000001 A to +0.0001 A (int) /  +1 µA to +100 µA
-           * i_clamp 0.001 A (int) / 1 mA = Limit +0.00001 A to +0.001 A (int) / +10 µA to +1 mA
-           * i_clamp 0.01 A (int) / 10 mA = Limit +0.0001 A to +0.01 A (int) / +100 µA to +10 mA
-           * i_clamp 0.1 A (int) / 100 mA = Limit +0.001 A to +0.1 A (int) / +1 mA to +100 mA
-           * i_clamp 1 A (int) / 1 A = Limit +0.01 A to +1 A (int) / +10 mA to +1 A
-           * i_clamp 3 A (int) / 3 A = Limit +0.1 A to +3 A (int) / +100 mA to +3 A
-           * i_clamp 10 A (int) / 10 A = Limit +0.1 A to +10 A pulsing only (int) / +100 mA to +10 A
-
+            * i_clamp 0.000001 A (int) / 1 µA = Limit +0.00000001 A to +0.000001 A (int) / +10 nA to +1 µA
+            * i_clamp 0.00001 A (int) / 10 µA = Limit +0.0000001 A to +0.00001 A (int) / +100 nA to +10 µA
+            * i_clamp 0.0001A (int) / 100 µA = Limit +0.000001 A to +0.0001 A (int) /  +1 µA to +100 µA
+            * i_clamp 0.001 A (int) / 1 mA = Limit +0.00001 A to +0.001 A (int) / +10 µA to +1 mA
+            * i_clamp 0.01 A (int) / 10 mA = Limit +0.0001 A to +0.01 A (int) / +100 µA to +10 mA
+            * i_clamp 0.1 A (int) / 100 mA = Limit +0.001 A to +0.1 A (int) / +1 mA to +100 mA
+            * i_clamp 1 A (int) / 1 A = Limit +0.01 A to +1 A (int) / +10 mA to +1 A
+            * i_clamp 3 A (int) / 3 A = Limit +0.1 A to +3 A (int) / +100 mA to +3 A
+            * i_clamp 10 A (int) / 10 A = Limit +0.1 A to +10 A pulsing only (int) / +100 mA to +10 A
         """
         # self.ch[self.channel].compliance_limit_symmetry=self.backend.ComplianceLimitSymmetry.SYMMETRIC
         limit = self.ch[self.channel].current_limit
@@ -618,14 +603,14 @@ class PXIe41xx(NatInst):
         Set/Get the current range (A), will adjust current clamping.
 
         Current Value Range and Current Value are :
-           * i_range 0.000001 A (int) / 1 µA = Value ±0.000001 A (int) /  ±1 µA
-           * i_range 0.00001 A (int) / 10 µA = Value ±0.00001 A (int) / ±10 µA
-           * i_range 0.0001 A (int) / 100 µA = Value ±0.0001 A (int) /  ±100 µA
-           * i_range 0.001 A (int) / 1 mA = Value ±0.001 A (int) / ±1 mA
-           * i_range 0.01 A (int) / 10 mA = Value ±0.01 A (int) / ±10 mA
-           * i_range 0.1 A (int) / 100 mA = Value ±0.1 A (int) / ±100 mA
-           * i_range 3 A (int) / 3 A = Value ±3 A (int) / ±3 A
-           * i_range 10 A (int) / 10 A = Value ±10 A pulsing only (int) / ±10 A
+            * i_range 0.000001 A (int) / 1 µA = Value ±0.000001 A (int) /  ±1 µA
+            * i_range 0.00001 A (int) / 10 µA = Value ±0.00001 A (int) / ±10 µA
+            * i_range 0.0001 A (int) / 100 µA = Value ±0.0001 A (int) /  ±100 µA
+            * i_range 0.001 A (int) / 1 mA = Value ±0.001 A (int) / ±1 mA
+            * i_range 0.01 A (int) / 10 mA = Value ±0.01 A (int) / ±10 mA
+            * i_range 0.1 A (int) / 100 mA = Value ±0.1 A (int) / ±100 mA
+            * i_range 3 A (int) / 3 A = Value ±3 A (int) / ±3 A
+            * i_range 10 A (int) / 10 A = Value ±10 A pulsing only (int) / ±10 A
         """
         val = self.ch[self.channel].current_level_range
         logger.measure("{!r}.i_range == {}A".format(self.instName, val))
@@ -636,7 +621,13 @@ class PXIe41xx(NatInst):
         """
         Set measure current range.
 
-        parameter: imax (in A)
+        Parameters
+        ----------
+            imax (float): current range (in A).
+            
+        Returns
+        -------
+            None.
         """
         current_level_old = self.ch[self.channel].current_level
         if current_level_old > imax:
@@ -653,7 +644,6 @@ class PXIe41xx(NatInst):
         Returns
         -------
             val (float): current drive range (in A).
-
         """
         val = self.ch[self.channel].current_limit_range
         logger.measure("{!r}.I_range == {}A".format(self.instName, val))
@@ -676,10 +666,9 @@ class PXIe41xx(NatInst):
         Set the voltage clamping (V), will adjust voltage measurement range.
 
         Voltage Limit Range and Voltage Limit
-           * v_clamp 0.6 V (int) / 600 mV = Limit +0.006 V to +0.6 V (int) / +6 mV to +600 mV
-           * v_clamp 6 V (int) / 6 V = Limit +0.06 V to +6 V (int) / +60 mV to +6 V
-           * v_clamp 60 V (int) / 60 V = Limit +0.6 V to +60 V (int) / +600 mV to +60 V
-
+            * v_clamp 0.6 V (int) / 600 mV = Limit +0.006 V to +0.6 V (int) / +6 mV to +600 mV
+            * v_clamp 6 V (int) / 6 V = Limit +0.06 V to +6 V (int) / +60 mV to +6 V
+            * v_clamp 60 V (int) / 60 V = Limit +0.6 V to +60 V (int) / +600 mV to +60 V
         """
         limit = self.ch[self.channel].voltage_limit
         logger.measure("{!r}.v_clamp == {}V".format(self.instName, limit))
@@ -730,13 +719,12 @@ class PXIe41xx(NatInst):
         Set the voltage range, will adjust voltage clamping.
 
         Voltage Value Range and Voltage Value are:
-           * PXIe4138:
-              * v_range 0.6 V (int) / Value ±0.6 V
-              * v_range 6 V   (int) / Value ±6 V
-              * v_range 60 V  (int) / Value ±60 V
-           * PXIe4141:
-              * v_range 10.0 V (int) / Value ±10 V
-
+            * PXIe4138:
+                * v_range 0.6 V (int) / Value ±0.6 V
+                * v_range 6 V   (int) / Value ±6 V
+                * v_range 60 V  (int) / Value ±60 V
+            * PXIe4141:
+                * v_range 10.0 V (int) / Value ±10 V
         """
         val = self.ch[self.channel].voltage_level_range
         logger.measure("{!r}.v_range == {}V".format(self.instName, val))
@@ -746,8 +734,14 @@ class PXIe41xx(NatInst):
     def v_range(self, vmax):
         """
         Set voltage measure range.
-
-        vmax in V
+        
+        Parameters
+        ----------
+            vmax (float): voltage measure range (in V).
+            
+        Returns
+        -------
+            None.
         """
         self.ch[self.channel].voltage_level_range = vmax
         logger.measure("{!r}.v_range := {}V".format(self.instName, vmax))
@@ -770,31 +764,32 @@ class PXIe41xx(NatInst):
 
         Parameters
         ----------
-        start : float
-            Start value in volts or amps.
-        stop : TYPE
-            Stop value in volts or amps.
-        dstep : TYPE, optional
-            Delta amplitude for Lin, Points to interpolate for Log, if "None" than take minimum dstep and stime= time for the whole sweep(=rising,falling time). The default is None.
-        stime : TYPE, optional
-            Delay between steps, if dstep='None' than stime is the whole time for the sweep (=rising,falling time). The default is 0.
-        typ : TYPE, optional
-            'V-', 'I-'  = Voltage / Current sourced, '-' changes direction,
-            volts, amps, timestamp  are sensed. The default is 'V'.
-        stair : TYPE, optional
-            ('Lin','Log) = linear or log source. The default is 'Lin'.
-        aperture_time : TYPE, optional
-            Specifies the measurement aperture time for the channel configuration.
-                   Aperture time is specified in the units set by aperture_time_units (default is seconds).
-                   more help: http://zone.ni.com/reference/en-XX/help/370736U-01/nidcpowercref/nidcpower_attr_aperture_time/. The default is None.
-        wait : TYPE, optional
-            not implemented yet. The default is True.
+            start : float
+                Start value in volts or amps.
+            stop : float
+                Stop value in volts or amps.
+            dstep : float, optional
+                Delta amplitude for Lin, Points to interpolate for Log, if "None" than take minimum dstep and stime= time for the whole sweep(=rising,falling time). The default is None.
+            stime : float, optional
+                Delay between steps, if dstep='None' than stime is the whole time for the sweep (=rising,falling time). The default is 0.
+            typ : str, optional
+                'V-', 'I-'  = Voltage / Current sourced, '-' changes direction,
+                volts, amps, timestamp  are sensed. The default is 'V'.
+            stair : str, optional
+                ('Lin','Log) = linear or log source. The default is 'Lin'.
+            aperture_time : float, optional
+                Specifies the measurement aperture time for the channel configuration.
+                Aperture time is specified in the units set by aperture_time_units (default is seconds).
+                more help: http://zone.ni.com/reference/en-XX/help/370736U-01/nidcpowercref/nidcpower_attr_aperture_time/. 
+                The default is None.
+            wait : bool, optional
+                not implemented yet. The default is True.
 
         Returns
         -------
-        TYPE
-            original data from the instrument (Voltage, Current, Compliance).
-
+            stair_measure : list of dict
+                list of dict with keys 'value' and 'delay' for each step, value is the voltage or current value for this step, 
+                delay is the time to wait after setting this step before the next step is set.
         """
         self.sweepto = stop
         if start is not None and typ == "V":
@@ -919,23 +914,22 @@ class PXIe41xx(NatInst):
         """
         Get response of previous stair_sweep(), choosing result rows from previous request typ.
 
-        get info about calculated divergence to target sweep values, for checking ramping time is ok
+        Get info about calculated divergence to target sweep values, for checking ramping time is ok.
         Transfer last requested measurement sweep results
 
         Parameters
         ----------
-        typ : TYPE, could be 'VITS'
-              V = Voltage
-              I = current
-              T = time
-              S = status(compliance)
-              The default is ''.
+            typ : str, could be 'VITS'
+                V = Voltage
+                I = current
+                T = time
+                S = status(compliance)
+                The default is ''.
 
         Returns
         -------
-        TYPE
-            numpy array from the values.
-
+            numpy array
+                numpy array from the values.
         """
         measure = np.array(self.stair_measure)
         cnt_cmpl = measure[0:, 2].sum()
@@ -1028,7 +1022,7 @@ class PXIe41xx(NatInst):
         """
         Set/get delay between steps.
 
-        if dstep='None' than stime is the whole time for the sweep (=rising or falling time).
+        If dstep='None' than stime is the whole time for the sweep (=rising or falling time).
         """
         stair_set_args, stair_set_kwargs = self.stair_step_set[:2]
         if "stime" not in stair_set_kwargs:
@@ -1045,8 +1039,8 @@ class PXIe41xx(NatInst):
         """
         List all PXIe devices.
 
-        but it's not running correcly....
-        how can we make a list from all devices on PXIe ?
+        But it's not running correctly....
+        How can we make a list from all devices on PXIe ?
         """
         import pyvisa
 
@@ -1075,6 +1069,21 @@ class PXIe41xx(NatInst):
             resource.close()
 
     def smu_fetch_settings(self, record_length=5_000_000, aperture_time=0.001):
+        """
+        Set settings for smu_fetch().
+        
+        Parameters
+        ----------
+            record_length : int, optional
+                Number of points to fetch. The default is 5_000_000.
+            aperture_time : float, optional
+                Aperture time for the measurements. The default is 0.001.
+        
+        Returns
+        -------
+            None.
+        """
+        
         self.inst.measure_when = self.nidcpower.enums.MeasureWhen.ON_MEASURE_TRIGGER
         self.inst.measure_trigger_type = self.nidcpower.enums.TriggerType.SOFTWARE_EDGE
         self.inst.measure_buffer_size = record_length
@@ -1082,6 +1091,25 @@ class PXIe41xx(NatInst):
         self.inst.aperture_time = aperture_time
 
     def fetch_data(self, npoints, measure="voltage"):
+        """
+        Fetch data from the instrument after a software edge trigger.
+        
+        Parameters
+        ----------
+            npoints : int
+                Number of points to fetch.
+            measure : str, optional
+                Type of measurement to fetch: "voltage", "current", or "both". The default is "voltage".
+                
+        Returns
+        -------
+            time_pts : list
+                List of time points corresponding to the measurements.
+            voltage : list, optional
+                List of voltage measurements (in V), returned if measure is "voltage" or "both".
+            current : list, optional
+                List of current measurements (in mA), returned if measure is "current" or "both".
+        """
         start_time = time.time()
         self.inst.send_software_edge_trigger(self.nidcpower.enums.SendSoftwareEdgeTriggerType.MEASURE)
         temp = self.inst.fetch_multiple(npoints, timeout=hightime.timedelta(seconds=20))
@@ -1106,6 +1134,22 @@ class PXIe41xx(NatInst):
             return time_pts, voltage, current
 
     def plot_smu_data(self, time, voltage=None, current=None):
+        """
+        Plot the fetched SMU data.
+        
+        Parameters
+        ----------
+            time : list
+                List of time points corresponding to the measurements.
+            voltage : list, optional
+                List of voltage measurements (in V). The default is None.
+            current : list, optional
+                List of current measurements (in mA). The default is None.
+                
+        Returns
+        -------
+            None. Displays a plot of the voltage and/or current measurements over time.
+        """
         if (voltage is not None) and (current is not None):
             plt.figure(figsize=(6.4, 4.8), dpi=300)
             plt.title("SMU Measurements")

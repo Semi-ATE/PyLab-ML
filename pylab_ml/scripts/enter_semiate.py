@@ -17,6 +17,12 @@ from typing import Optional
 
 
 class SemiAte:
+    """ 
+    Semi-Automatic Tool for Environment management (Semi-ATE):
+        - Manages a directory of projects, each with versions.
+        - Stores project info in a YAML file.
+        - Can start Spyder in a conda environment named after the project and version.
+    """
     def __init__(self, args):
         optionfile = str(Path(__file__).with_suffix('')) + '.yaml'
         if not os.path.isfile(optionfile) or args.edit:                 # search for the optionfile, if not found, create it
@@ -63,6 +69,19 @@ class SemiAte:
 
 
     def _validate_version(self, v: str) -> str:
+        """
+        Validate that version is a 4-digit number. If not, print error and exit.
+        
+        Parameters
+        ----------
+            v: str
+                Version string to validate.
+        
+        Returns
+        -------
+            str: 
+                Validated version string.
+        """
         if len(v) != 4 or not v.isdigit():
             print("The version must be a 4-digit number, e.g. 0001")
             exit()
@@ -73,9 +92,25 @@ class SemiAte:
         """
         Start Spyder in the given conda env. Return exit code.
         Cross-platform:
-          - On Windows: use `conda run -n <env> spyder` (and pass env vars via env)
-          - On Unix: try to source conda.sh and `conda activate`, export vars and exec spyder.
-                  if that fails, fallback to `conda run`.
+            - On Windows: use `conda run -n <env> spyder` (and pass env vars via env)
+            - On Unix: try to source conda.sh and `conda activate`, export vars and exec spyder.
+                       if that fails, fallback to `conda run`.
+                       
+        Parameters
+        ----------
+            env_name: str
+                Name of the conda environment to activate.
+            project: str
+                Project name to set as env var.
+            version: str
+                Version to set as env var.
+            user: Optional[str]
+                Optional user name to set as env var.
+                
+        Returns
+        -------
+            int: 
+                Exit code of the Spyder process.
         """
         env = os.environ.copy()
         env["PROJECT"] = project

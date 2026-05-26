@@ -1,4 +1,5 @@
-"""Thermostreamer MPI_TA5000.
+"""
+This script interfaces with the Thermostreamer MPI_TA5000.
 
 :Date: |today|
 :Author: Semi-ATE <info@Semi-ATE.org>
@@ -25,7 +26,6 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
     :Author: Semi-ATE <info@Semi-ATE.org>
 
     .. image:: ../static/mpi_ta5000.jpg
-
     """
 
     # create functions or proberty and wrap it to the inst.funcname:
@@ -84,7 +84,6 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
 
     class Headlock(Enum):
         """Enum for Headlock control."""
-
         off = 0.0
         on = 1.0
 
@@ -95,29 +94,35 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
         on = 1
 
     def __init__(self, addr=None, interface=None, backend=None, identify=True, instName=None):
-        """Initialise.
+        """
+        Initialise the Thermostreamer.
 
-        Args:
-           addr (int):
-              interface address
-           interface (dev_interface.Instrument):
-              gpib, usbserial
-           instName (string):
-              Instance Name from parent.
+        Parameters
+        ----------
+            addr (int):
+                Interface address
+            interface (dev_interface.Instrument):
+                GPIB, USBSerial
+            backend (str):
+                Backend for the interface, e.g. 'pyvisa', 'pyvisa-py', 'python-gpib', 'pyserial-asyncio'
+            identify (bool):
+                Query IDN after initialization 
+            instName (string):
+                Instance Name from parent.
 
-        Raises:
-           TimeoutError:
-              timeout after set temp.
-           InvalidInstrumentConnection:
-              something is wrong with the connection.
+        Raises
+        ------
+            TimeoutError:
+                Timeout after set temp.
+            InvalidInstrumentConnection:
+                Something is wrong with the connection.
 
         Examples:
            >>> # Initialization
            >>> thermo = Thermo(addr=1)   # GPIB address
 
-        more detailed examples:
-           common for MPI_TA5k.py: :download:`examples/thermostreamer/mpi_ta5k <../../../examples/thermostreamer/mpi_ta5k.py>`
-
+        More detailed examples:
+            Common for MPI_TA5k.py: :download:`examples/thermostreamer/mpi_ta5k <../../../examples/thermostreamer/mpi_ta5k.py>`
         """
         create_attributes.__init__(self)
         kwargs = {"addr": addr, "interface": interface, "backend": backend, "identify": identify, "instName": instName}
@@ -178,7 +183,6 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
         | 0: off (air control)
         | 1: on (dut control)
         | 2: TC Meter mode
-
         """
 
     @property
@@ -191,7 +195,6 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
 
         | 'off'(=0, Flow.off).
         | 'on'(=1, FLow.on).
-
         """
 
     @property
@@ -204,7 +207,6 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
 
         | 'up'(=0, Head.up)
         | 'down'(=1, Head.down)
-
         """
 
     @property
@@ -213,7 +215,6 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
 
         | 'off' (=0, Headlock.off) -> unlock
         | 'on' (=1, Headlock.on) -> lock
-
         """
 
     @property
@@ -230,7 +231,6 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
 
         | set: select a setpoint to the current setpoint
         | get: read the current setpoint number
-
         """
 
     @property
@@ -239,7 +239,6 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
 
         | get the filename,
         | set = load the  test setup file with the filename
-
         """
 
     @property
@@ -266,15 +265,18 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
     # ----------------------------------------------------------
 
     def _compressor(self, value):
+        """Set compressor on/off."""
         self.flow = self.Flow.off
 
     def _head(self, value):
+        """Set head up/down."""
         if self.headlock == self.Headlock.on:
             logger.error("{}.Head  is locked! Can not move Head".format(self.instName))
             return self.ATTR_ERROR
         return None
 
     def _wait4flow(self, value):
+        """Set flow on/off and wait until flow is set."""
         # logging.disable(logging.MEASURE)
         # if value==self.flow.on and self.head==self.Head.up: self.head=self.Head.down
         if value == self.Flow.on and float(self.inst.query('HDLK?')) == 0 and self.inst.query('HEAD?') == '0':
@@ -302,10 +304,12 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
 
     def get_id(self):
         """
-        Get identifikation from Thermostreamer.
+        Get identification from Thermostreamer.
 
-        Returns:
-            string: identifikation.
+        Returns
+        -------
+            str
+                Identification string from Thermostreamer.
         """
         self.inst.write('*IDN?')
         return self.inst.read()
@@ -318,21 +322,23 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
         - get temperature
         - or set the currently selected setpoint temperatur and wait until temperture is reached.
 
-        Args:
-            value (float): set dut sensor or air temperature
-            timeout (int, optional): timeout time. Defaults to 600s.
+        Parameters
+        ----------
+            value : float or tuple
+                | if float: set temperature and use default timeout of 600s
+                | if tuple: (temperature, timeout) -> set temperature and wait until temperture is reached or timeout is elapsed
 
-        Returns:
-            float:
-               * in Air mode: get main air temperature
-               * in Dut mode: get DUT sensor temperatur
-               * in TC Meter mode: siehe TEMP? in Manual.
+        Returns
+        -------
+            float :
+                * in Air mode: get main air temperature
+                * in Dut mode: get DUT sensor temperatur
+                * in TC Meter mode: siehe TEMP? in Manual.
 
         Example:
            >>> thermo.temp = -10, 100   # -> set temperatur=-10 and timeout to 100s (default 600s)
            >>> thermo.temp = 80         # -> set temperatur=80 and timeout is default = 600s
            >>> print(thermo.temp)      # get temperature
-
         """
         return float(self.inst.query('TEMP?'))
 
@@ -346,7 +352,23 @@ class MPI_TA5K(create_attributes, Base_Thermostreamer):
         self._setpoint = float(value)
 
     def _temp_set(self, temp=None, timeout=600):
-        """get/set the setpoint temperature."""
+        """
+        Get/Set the setpoint temperature.
+        
+        Parameters
+        ----------
+            temp (float, optional):
+                If None, get the current setpoint temperature. 
+                If float, set the setpoint temperature to this value and wait until the temperature is reached or timeout is elapsed. 
+                Default is None.
+            timeout (int, optional):
+                Timeout in seconds to wait for the temperature to reach the setpoint. Default is 600 seconds.
+        
+        Returns
+        -------
+            temp (float):
+                The current setpoint temperature after setting it (if temp is not None) or the current setpoint temperature (if temp is None).
+        """
         if temp is None:
             return float(self.inst.query('SETP?'))
         # elif self._setpoint==None or float(temp) != self._setpoint:

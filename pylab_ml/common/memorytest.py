@@ -2,6 +2,9 @@
 """
 Created on Fri Aug  8 15:18:15 2025
 
+This script is for memory testing, it defines a class MER to hold the operations for the memory test and a class Memory_test to perform the memory test based on the operations defined in the MER. 
+The Memory_test class includes methods to run different algorithms for memory testing and to read/write memory using provided functions.
+
 @author: Zlin526F
 """
 import math
@@ -10,6 +13,11 @@ from pylab_ml.common.data import complement
 
 
 class MER:
+    """ 
+    March Element Register, holds the operations for the memory test.
+    The MER has 4 registers (r0, r1, w0, w1) which can be set to read or write operations.
+    """
+
     SIZE = 4
 
     pmer = ["r0", "r1", "w0", "w1"]
@@ -28,7 +36,7 @@ class MER:
             self.log_error(f"Index must be between 1 and {self.SIZE}")
             return
         if not isinstance(value, str) or value not in self.pmer:
-            self.log_error(f'Wert must be {self.pmer}')
+            self.log_error(f'Value must be {self.pmer}')
             return
         trvalue = 'read ' if value[0] == 'r' else 'write '
         trvalue = trvalue + value[1]
@@ -40,6 +48,7 @@ class MER:
 
 class Memory_test():
     """
+    Memory test class, performs memory testing based on the operations defined in the MER.
     
     TODO:   
         - only data background = sdb implemented, missing: 'bdb', 'rdb', 'cdb'
@@ -130,6 +139,23 @@ class Memory_test():
         self.error_values = []
         
     def algorithmen(self, alist):
+        """ 
+        Run the algorithms defined in algo_ops, if alist is a list of algorithm names.
+        If alist is not a list, log an error and return 1.
+        
+        eg. algorithmen(['Scan', 'March C-']) will run the Scan and March C- algorithms defined in algo_ops.
+        If an algorithm name in alist is not defined in algo_ops, log an error and return 1.
+        
+        Parameters
+        ----------
+            alist : list
+                A list of algorithm names to run, must be keys in algo_ops.
+                
+        Returns
+        -------
+            errors : int
+                The number of errors found during the algorithms, or 1 if there was an error in the input. 
+        """
         if type(alist) != list:
             self.parent.log_error(f'Argument have to be a list. Values are {list(self.algo_ops.keys())}')
             return 1
@@ -143,6 +169,23 @@ class Memory_test():
         return errors
 
     def algorithmus(self, name, operations):
+        """ 
+        Run a single algorithm defined by the operations list, which is a list of lists of operations to perform.
+        
+        eg. algorithmus('Scan', [['up', 'w0'], ['r0'], ['down', 'w1'], ['r1']]) will run the Scan algorithm defined in algo_ops.
+        
+        Parameters
+        ----------
+            name : str
+                The name of the algorithm to run.
+            operations : list
+                A list of lists of operations to perform.
+                
+        Returns
+        -------
+            errors : int
+                The number of errors found during the algorithm.
+        """
         starttime = time()
         self.parent.log_info(f'Memory-Test: will run {name}')
         errors = 0
@@ -173,7 +216,23 @@ class Memory_test():
         return errors
 
     def run(self, start=None, end=None):
-        """read/write memory with the commands in the march element registers."""
+        """
+        Read/Write memory with the commands in the march element registers.
+        
+        eg. run() will run the memory test with the start and end addresses defined in the constructor, and the operations defined in the MER.
+        
+        Parameters
+        ----------
+            start : int, optional
+                The start address for the memory test, if not provided, the start address defined in the constructor will be used.
+            end : int, optional
+                The end address for the memory test, if not provided, the end address defined in the constructor will be used.
+                
+        Returns
+        -------
+            errors : int
+                The number of errors found during the memory test.
+        """
         if self.beforefunc is not None:
             self.beforefunc()
         start = start if start is not None else self.start
@@ -243,15 +302,50 @@ class Memory_test():
         return errors
 
     def read(self, adr, compare=None):
+        """ 
+        Read data from the memory at the given address and compare it to the provided value if compare is not None. 
+        
+        eg. read(0x1000, 0xFF) will read data from address 0x1000 and compare it to 0xFF, logging an error if they do not match.
+            read(0x1000, 0xFF) will read data from address 0x1000 and compare it to 0xFF, logging an error if they do not match.
+            read(0x1000) will read data from address 0x1000 without comparing it to any value.
+            
+        Parameters
+        ----------
+            adr : int
+                The address to read from.
+            compare : int, optional
+                The value to compare the read data to, if not provided, no comparison will be made.
+                
+        Returns
+        -------
+            data : int
+                The data read from the memory at the given address.
+        """
         dat = self.readfunc(adr)
         return dat
 
     def write(self, adr, dat):
+        """ 
+        Write data to the memory at the given address.
+        
+        eg. write(0x1000, 0xFF) will write the value 0xFF to address 0x1000.
+        
+        Parameters
+        ----------
+            adr : int
+                The address to write to.
+            dat : int
+                The data to write to the memory at the given address.
+        
+        Returns
+        -------
+            None
+        """
         self.writefunc(adr, dat)
 
     @property
     def adr_order(self):
-        """Address Order, up or down."""
+        """ Address Order, up or down. """
         return self._ao
 
     @adr_order.setter
@@ -263,7 +357,7 @@ class Memory_test():
 
     @property
     def count_method(self):
-        """Counting method."""
+        """ Counting method. """
         return self._cm
 
     @count_method.setter
@@ -275,7 +369,7 @@ class Memory_test():
 
     @property
     def data_background(self):
-        """Data background.
+        """ Data background.
 
          'sdb' - solid DB - all bits with same data
          'bdb' - checkerboard DB - adjacent cells with different data
