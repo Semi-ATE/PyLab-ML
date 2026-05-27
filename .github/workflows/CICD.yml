@@ -16,7 +16,7 @@ jobs:
       CI: 'true'
       OS: 'linux'
       PYTHON_VERSION: ${{ matrix.PYTHON_VERSION }}
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: 'true'
     strategy:
       fail-fast: false 
       matrix:
@@ -106,6 +106,10 @@ jobs:
         run: |
             sphinx-build -b html docs/source/ docs/build/html
             touch docs/build/html/.nojekyll
+
+      - name: Fix output file permissions
+        run: |
+          sudo chown -R runner:docker $GITHUB_WORKSPACE
 
       - name: Fix output file permissions
         run: |
