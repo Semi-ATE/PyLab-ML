@@ -94,7 +94,7 @@ jobs:
         run: |
           pip install sphinx sphinx-rtd-theme myst-parser sphinx-markdown-tables
           pip install --upgrade myst-parser
-          pip install PyQt5 qdarkstyle lxml
+          pip install PyQt5 qdarkstyle lxml qtawesome
           pip install check-manifest
           pip install twine
           pip install -e .
