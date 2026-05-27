@@ -1,15 +1,21 @@
-
-
 import gc
 import inspect
 
-
-"""ident package, provides Ident() class for multiple inheritance 'identity' functionality
-and stand-alone get_names() function to get list of assignemt identifiers"""
+"""
+ident package, provides Ident() class for multiple inheritance 'identity' functionality
+and stand-alone get_names() function to get list of assignemt identifiers
+"""
 
 
 def find_names(obj):
-    """find_names(obj) returns list of identifiers strings, lhs of = assignments to obj"""
+    """
+    find_names(obj) returns list of identifiers strings, lhs of = assignments to obj
+    
+    Returns
+    -------
+        obj_names : list of str
+            List of identifier strings
+    """
     frame = inspect.currentframe()
     for frame in iter(lambda: frame.f_back, None):
         frame.f_locals
@@ -23,11 +29,17 @@ def find_names(obj):
 
 
 class Ident():
-
     """Ident class to determine identity of identifiers to which class instances assigned"""
 
     def find_names(self):
-        """find_names() returns list of identifiers strings, lhs of = assignments"""
+        """
+        find_names() returns list of identifiers strings, lhs of = assignments
+        
+        Returns
+        -------
+            obj_names : list of str
+                List of identifier strings
+        """
         frame = inspect.currentframe()
         for frame in iter(lambda: frame.f_back, None):
             frame.f_locals

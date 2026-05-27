@@ -1,4 +1,5 @@
-"""Create methode or attributes from a dictionary.
+"""
+Create methods or attributes from a dictionary.
 
 Call the methode read() for get, or write() for set attribute, with some checks before and after calling.
 
@@ -14,7 +15,8 @@ from pylab_ml.common.common import str2num
 
 
 class create_attributes(object):
-    """Create a methode or an attributes from a dictionary.
+    """
+    Create methods or attributes from a dictionary.
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
@@ -23,130 +25,130 @@ class create_attributes(object):
 
     Syntax from this dictonary to create the attributes:
 
-    | {attribute/methode name : (Device command for read/write) , range, call functions}
+    | {attribute/method name : (Device command for read/write) , range, call functions}
 
-    :attribute/methode name:
-       your favorite name for the attribute/methode
+    :Attribute/Method name:
+        Your provided name for the attribute/method
 
     :Device command:
-       * the read nd write command for the instance, e.q. 'TMPA?' or None.
-       * or the methode name e.q. 'current_level_autorange'.
-    :range:
-       could be None, Enum or range value (integer or float)
-    :call functions:
-       before or after the instance write or read, you can define a functionname, which will be call and manipulate the get/set value
+        * The read nd write command for the instance, e.q. 'TMPA?' or None.
+        * Or the method name e.q. 'current_level_autorange'.
+    :Range:
+        Could be None, Enum or range value (integer or float)
+    :Call functions:
+       Before or after the instance write or read, you can define a functionname, which will be call and manipulate the get/set value
 
-          * 'gb'=  get_before()      -> get, call function before the read instance. Do something before the read instance
-          * 'ga'=  get_after()       -> get, call function after the read instance. Do something with the value, e.q. translate from hex to integer
-          * 'gac'= get_after_check() -> get, call function after the read instance and check.
-          * 'sb'=  set_before()      -> set, call function before write instance
-          * 'sac'= set_after_check() -> set, call function after check, before write instance
-          * 'sa'=  set_after         -> set, call function after write instance
+        * 'gb'=  get_before()      -> get, call function before the read instance. Do something before the read instance
+        * 'ga'=  get_after()       -> get, call function after the read instance. Do something with the value, e.q. translate from hex to integer
+        * 'gac'= get_after_check() -> get, call function after the read instance and check.
+        * 'sb'=  set_before()      -> set, call function before write instance
+        * 'sac'= set_after_check() -> set, call function after check, before write instance
+        * 'sa'=  set_after         -> set, call function after write instance
 
-          The functions itself, have to return the modified value or None if value are not  modified.
-          If you get an error in the function, than you should set your return value to ATTR_ERROR
+        The functions itself, have to return the modified value or None if value are not  modified.
+        If you get an error in the function, than you should set your return value to ATTR_ERROR
 
 
     Example 1:
-       >>> class test(create_attributes)
-       >>>
-       >>>     properties = {'bitTime' :        (('?bt',  'sbt'),     [10, 3400],    {'ga': '_hex2dec(value)', 'sac': '_dec2hex(value)', 'sa': 'readresult(0)'}),
-       >>>                   'airtemp' :        (('TMPA?', None),     None,          None),
-       >>>                   'dutsensortype' :  (('DSNS?','DSNS'),    [0,4],         None),
-       >>>                   'blaba' :          (('BLAA?','BLAB'),    [1.0,4.7];     None),
-       >>>                   'compressor' :     (('COOL?','COOL'),   'Compressor',   {'sac': '_compressor(value)'}),
-       >>>                  }
-       >>>
-       >>> class Compressor(Enum) :
-       >>>     off= 0
-       >>>     on = 1
-       >>>
-       >>>     def setup_inst(self):
-       >>>         self.createattributes(self.properties)    # <-- add this line in your setup_inst
-       >>>         super().setup_inst()
+        >>> class test(create_attributes)
+        >>>
+        >>>     properties = {'bitTime' :        (('?bt',  'sbt'),     [10, 3400],    {'ga': '_hex2dec(value)', 'sac': '_dec2hex(value)', 'sa': 'readresult(0)'}),
+        >>>                   'airtemp' :        (('TMPA?', None),     None,          None),
+        >>>                   'dutsensortype' :  (('DSNS?','DSNS'),    [0,4],         None),
+        >>>                   'blaba' :          (('BLAA?','BLAB'),    [1.0,4.7];     None),
+        >>>                   'compressor' :     (('COOL?','COOL'),   'Compressor',   {'sac': '_compressor(value)'}),
+        >>>                  }
+        >>>
+        >>> class Compressor(Enum) :
+        >>>     off= 0
+        >>>     on = 1
+        >>>
+        >>>     def setup_inst(self):
+        >>>         self.createattributes(self.properties)    # <-- add this line in your setup_inst
+        >>>         super().setup_inst()
 
-    ==> this will create following attributes:
-       >>> # create attribute bitTime with get/set :
-       >>> self.bitTime             # get attribute : call the methode inst.query('?bt')
-       MEASURE - 'yourDevice'.bitTime == 480
-       480
-       >>> self.bitTime = 20   # set attribute : check if value is integer, and 10<=value<=3400,
-       >>>                     # if ok than call inst.write('sbt')
-       MEASURE - 'yourDevice'.bitTime := 20
+    ==> This will create following attributes:
+        >>> # create attribute bitTime with get/set :
+        >>> self.bitTime             # get attribute : call the methode inst.query('?bt')
+        MEASURE - 'yourDevice'.bitTime == 480
+        480
+        >>> self.bitTime = 20   # set attribute : check if value is integer, and 10<=value<=3400,
+        >>>                     # if ok than call inst.write('sbt')
+        MEASURE - 'yourDevice'.bitTime := 20
 
-       >>> # create attribute airtemp with get:
-       >>> self.airtemp
-       MEASURE - 'yourDevice'.airtemp == 22.2
-       22.2
+        >>> # Create attribute airtemp with get:
+        >>> self.airtemp
+        MEASURE - 'yourDevice'.airtemp == 22.2
+        22.2
 
-       >>> # create attribute dutsensortype with get/set :
-       >>> self.dutsensortype     # write inst.query('DSNS?'), return with int(value)
-       MEASURE - 'yourDevice'.dutsensortype == 0
-       0
-       >>> self.dutsensortype = 3  # check if value is integer, and 0<=value<=4,
-       >>>                         # if ok than inst.write('DSNS 3')
-       MEASURE - 'yourDevice'.dutsensortype := 3
-       3
-       >>> self.dutsensortype = 5
-       ERROR - 'yourDevice'.dutsensortype := 5 outside limits, choose [0, 4]
+        >>> # Create attribute dutsensortype with get/set :
+        >>> self.dutsensortype     # write inst.query('DSNS?'), return with int(value)
+        MEASURE - 'yourDevice'.dutsensortype == 0
+        0
+        >>> self.dutsensortype = 3  # check if value is integer, and 0<=value<=4,
+        >>>                         # if ok than inst.write('DSNS 3')
+        MEASURE - 'yourDevice'.dutsensortype := 3
+        3
+        >>> self.dutsensortype = 5
+        ERROR - 'yourDevice'.dutsensortype := 5 outside limits, choose [0, 4]
 
-       >>> # create attribute blaba  with get/set :
-       >>> self.blaba         # inst.query('BLAA?'), return with float(value)
-       MEASURE - 'yourDevice'.blaba == 3.0
-       3.0
-       >>> self.blaba = 3.4   # check if value is float, and 1.0<=value<=4.7,
-       >>>                    # if ok than inst.write('BLAB')
-       MEASURE - 'yourDevice'.blaba := 3.4
-       3.4
+        >>> # Create attribute blaba  with get/set :
+        >>> self.blaba         # inst.query('BLAA?'), return with float(value)
+        MEASURE - 'yourDevice'.blaba == 3.0
+        3.0
+        >>> self.blaba = 3.4   # check if value is float, and 1.0<=value<=4.7,
+        >>>                    # if ok than inst.write('BLAB')
+        MEASURE - 'yourDevice'.blaba := 3.4
+        3.4
 
-       >>> # create attribute compressor with get/set and values is Enum:
-       >>> self.compressor               #inst.query('COOL?'), return with the enum Compressor
-       MEASURE - 'yourDevice'.compressor == Compressor.on
-       <Compressor.on: 1>
-       >>> compressor = Compressor.on # check if value in Compressor
-       >>>                            # if ok than call _compressor(Compressor.on), and than inst.write('COOL 1'),
-       MEASURE - 'yourDevice'.compressor := Compressor.on
-       >>> compressor = 'on'          # shorter but the same as before
-       MEASURE - 'yourDevice'.compressor := Compressor.on
-       >>> compressor = 1             # also possible
-       MEASURE - 'yourDevice'.compressor := Compressor.on
+        >>> # Create attribute compressor with get/set and values is Enum:
+        >>> self.compressor               #inst.query('COOL?'), return with the enum Compressor
+        MEASURE - 'yourDevice'.compressor == Compressor.on
+        <Compressor.on: 1>
+        >>> compressor = Compressor.on # check if value in Compressor
+        >>>                            # if ok than call _compressor(Compressor.on), and than inst.write('COOL 1'),
+        MEASURE - 'yourDevice'.compressor := Compressor.on
+        >>> compressor = 'on'          # shorter but the same as before
+        MEASURE - 'yourDevice'.compressor := Compressor.on
+        >>> compressor = 1             # also possible
+        MEASURE - 'yourDevice'.compressor := Compressor.on
 
-       Example 2, for calling inst.methode (none read/write):
-       >>> properties = {'auto_zero':           ('auto_zero',               'backend.AutoZero',           {'sac': 'checkstate(uncommitted)'}),
-       >>>               'aperture_time_units': ('aperture_time_units',     'backend.ApertureTimeUnits',  {'sac': 'checkstate(uncommitted)'}),
-       >>>               'aperture_time':       ('aperture_time',            None,                        {'sac': 'checkstate(uncommitted)'}),
-       >>>               }
+        Example 2, for calling inst.methode (none read/write):
+        >>> properties = {'auto_zero':           ('auto_zero',               'backend.AutoZero',           {'sac': 'checkstate(uncommitted)'}),
+        >>>               'aperture_time_units': ('aperture_time_units',     'backend.ApertureTimeUnits',  {'sac': 'checkstate(uncommitted)'}),
+        >>>               'aperture_time':       ('aperture_time',            None,                        {'sac': 'checkstate(uncommitted)'}),
+        >>>               }
 
-    see also
-       * the class :func:`~instruments.smu.tti.base_tti.TTI` :download:`instruments/smu/tti/base_tti <../../../src/pylab_ml/pylab_ml/smu/tti/base_tti.py>`
-         show the usage to create attributes and connect to a smu with one or more channels
-       * the class :func:`~instruments.thermostreamer.mpi_ta5k.MPI_TA5K` :download:`instruments/thermostreamer/mpi_ta5k <../../../src/pylab_ml/pylab_ml/thermostreamer/mpi_ta5k.py>`
-         show the usage to create attributes and connect to a thermostreamer
-       * the class :func:`~instruments.boards.micronas.communication.apbboard.HALAPBBoard` :
-         download:`../../../src/pylab_ml/pylab_ml/boards/micronas/communication/apbboard <../../../instruments/boards/micronas/communication/apbboard.py>`
-         show the usage to create attributes and connect to a communication board
-       * the class :func:`~instruments.smu.natinst.pxie41xx` use this class to call inst.methods_name
-         :download:`instruments/smu/natinst/pxie41xx.py <../../../src/pylab_ml/pylab_ml//smu/natinst/pxie41xx.py>`
+    See also:
+        * the class :func:`~instruments.smu.tti.base_tti.TTI` :download:`instruments/smu/tti/base_tti <../../../src/pylab_ml/pylab_ml/smu/tti/base_tti.py>`
+            show the usage to create attributes and connect to a smu with one or more channels
+        * the class :func:`~instruments.thermostreamer.mpi_ta5k.MPI_TA5K` :download:`instruments/thermostreamer/mpi_ta5k <../../../src/pylab_ml/pylab_ml/thermostreamer/mpi_ta5k.py>`
+            show the usage to create attributes and connect to a thermostreamer
+        * the class :func:`~instruments.boards.micronas.communication.apbboard.HALAPBBoard` :
+            download:`../../../src/pylab_ml/pylab_ml/boards/micronas/communication/apbboard <../../../instruments/boards/micronas/communication/apbboard.py>`
+            show the usage to create attributes and connect to a communication board
+        * the class :func:`~instruments.smu.natinst.pxie41xx` use this class to call inst.methods_name
+            :download:`instruments/smu/natinst/pxie41xx.py <../../../src/pylab_ml/pylab_ml//smu/natinst/pxie41xx.py>`
 
     Tip:
-       if your device has no read/write instance, than overwrite the method  _call_instance()
-       Example:
-          >>> def _call_instance(self, function, rw, value=None):
-          >>>     if rw == "wr":
-          >>>         self.ch[self.channel].__setattr__(function, value)        # for set attribute
-          >>>     elif rw == "rd":
-          >>>         value = self.ch[self.channel].__getattribute__(function)  # for get attribute
-          >>>     return (value)
+        If your device has no read/write instance, than overwrite the method _call_instance()
+        Example:
+            >>> def _call_instance(self, function, rw, value=None):
+            >>>     if rw == "wr":
+            >>>         self.ch[self.channel].__setattr__(function, value)        # for set attribute
+            >>>     elif rw == "rd":
+            >>>         value = self.ch[self.channel].__getattribute__(function)  # for get attribute
+            >>>     return (value)
 
     Note:
-       necessary Methods in the class above (if you don't overwrite the method _call_instance()):
-          >>> def read(self):
-          >>>     value = self.inst.read()  # your code for instance read
-          >>>     return value
-          >>>
-          >>> def write(self,value):
-          >>>     self.instance.write(value)  # your code for instance write
-          >>>
+        Necessary Methods in the class above (if you don't overwrite the method _call_instance()):
+            >>> def read(self):
+            >>>     value = self.inst.read()  # your code for instance read
+            >>>     return value
+            >>>
+            >>> def write(self,value):
+            >>>     self.instance.write(value)  # your code for instance write
+            >>>
     """
 
     _attributes = {}
@@ -177,15 +179,23 @@ class create_attributes(object):
         """
         Create attributes or methods from a dictionary.
 
-        syntax from the dictionary see example in the class documentation.
+        Syntax from the dictionary see example in the class documentation.
 
-        Args:
-            dictionary (dict):
+        Parameters
+        ----------
+            dictionary : dict
+                 The dictionary with the syntax:
                 {attribute/methode name : (Device command for read/write) , range, call functions}.
+            parent : create_attributes, optional
+                If you want to create a child, than you have to set the parent, otherwise None, by default None.
+            child : str, optional
+                The name of the child, by default None.
+            childname : str, optional
+                The name of the child, by default ''.
 
-        Returns:
+        Returns
+        -------
             None.
-
         """
         if child is not None:
             myparent = self if parent is None else parent
@@ -213,19 +223,23 @@ class create_attributes(object):
             self._attributes = dictionary
 
     def __setattr__(self, attr, value):
-        """Set attribute.
+        """
+        Set attribute.
 
-        this methode will be called automatically if you set an attribute.
+        This method will be called automatically if you set an attribute.
         Checks whether the atribute is in the attributes-directory.
         If so, the associated functions are called.
 
-        Args:
-            ttr (str): attribute name.
-            value (anything): setting value for the attribute.
+        Parameters
+        ----------
+            attr : str
+                Attribute name.
+            value : any
+                Value which one want to set.
 
-        Returns:
+        Returns
+        -------
             None.
-
         """
         if hasattr(self, '_attributes') and attr in self._attributes:
             self.attrLast = attr
@@ -266,18 +280,22 @@ class create_attributes(object):
             super(__class__, self).__setattr__(attr, value)
 
     def __getattribute__(self, attr):
-        """Get attribute.
+        """
+        Get attribute.
 
-        this methode will be called automatically if you get an attribute.
+        This method will be called automatically if you get an attribute.
         Checks whether the atribute is in the attributes-directory.
         If so, the associated functions are called.
 
-        Args:
-            attr (str): attribute name.
+        Parameters
+        ----------
+            attr : str
+                Attribute name.
 
-        Returns:
-            value (anything): getting value the inst.read()
-
+        Returns
+        -------
+            value : any
+                Getting value the inst.read() or the shadow attribute.
         """
         if (
             attr != "__class__"
@@ -345,6 +363,20 @@ class create_attributes(object):
         return value
 
     def _attrlogger(self, msgnr, *kwargs):
+        """
+        Log the attribute access and errors.
+        
+        Parameters
+        ----------
+            msgnr : int
+                Message number to determine the log message and level.
+            *kwargs : any
+                Additional arguments to format the log message.
+
+        Returns
+        -------
+            None
+        """
         # if self.instName[-3:] == '[0]':
         #     instName_short = self.instName[:len(self.instName) - 3]
         # else:
@@ -362,6 +394,22 @@ class create_attributes(object):
             logger.error("error: message not implemented !")
 
     def _enum_error(self, function_name, val, enum):
+        """
+        Log an error message for invalid enum values.
+        
+        Parameters
+        ----------
+            function_name : str
+                Name of the function where the error occurred.
+            val : any
+                The invalid value.
+            enum : Enum
+                The enum class.
+
+        Returns
+        -------
+            None
+        """
         msg = ""
         for values in enum:
             msg += "/" + values.name
@@ -370,14 +418,21 @@ class create_attributes(object):
     def _validateattributes(self, attr, value, validaterange=None):
         """Check if value in the validate range.
 
-        Args:
-            attr (string): attribute name.
-            value (TYPE):  None, list or enum.
-            validaterange (TYPE, optional): DESCRIPTION. Defaults to None.
+        Parameters
+        ----------
+            attr : str
+                Attribute name.
+            value : any
+                The value to be validated.
+            validaterange : any, optional
+                The range or enum to validate against. Defaults to None.
 
-        Returns:
-            error (bool): True or False.
-            value (anything): orginal value, or the enum.
+        Returns
+        -------
+            error : bool
+                True if the value is invalid, False otherwise.
+            value : any
+                The original value or the corresponding enum member if valid.
         """
         error = False
         is_enum, enum = self._ifenum(validaterange)  # check if validaterange an enum
@@ -416,17 +471,22 @@ class create_attributes(object):
         return error, value
 
     def _ifenum(self, value):
-        """Check if type(value)==enum.
+        """
+        Check if type(value)==enum.
 
-        enum have to be in the path of self , e.q: self.test(value='test') or self.backend.test (value='backend.test')
+        ENUM have to be in the path of self , e.q: self.test(value='test') or self.backend.test (value='backend.test')
 
-        Args:
-            value (anything): the value which want to be checked.
+        Parameters
+        ----------
+            value : any
+                The value to be checked.
 
-        Returns:
-            bool: True or False.
-            enum: the enum, if value is enum, otherwise None.
-
+        Returns
+        -------
+            result : bool
+                True if the value is an enum, False otherwise.
+            enum : Enum or None
+                The enum class if the value is an enum, None otherwise.
         """
         result = False
         enum = None
@@ -445,6 +505,21 @@ class create_attributes(object):
         return result, enum
 
     def _get_functionname(self, dictline, rw):
+        """
+        Get the function name for read/write.
+        
+        Parameters
+        ----------
+            dictline : any
+                The dictionary line to be processed.
+            rw : str
+                The read/write operation ('rd' or 'wr').
+
+        Returns
+        -------
+            result : str
+                The function name for the specified read/write operation.
+        """
         if isinstance(dictline[0], tuple):
             if rw == "wr":
                 result = dictline[0][1]
@@ -455,6 +530,25 @@ class create_attributes(object):
         return result
 
     def _call_function(self, typ, fparam, value=None):
+        """
+        Call the associated function for the attribute if defined in the dictionary.
+        
+        Parameters
+        ----------
+            typ : str
+                The type of the function to be called.
+            fparam : list
+                The function parameters.
+            value : any, optional
+                The value to be passed to the function. Defaults to None.
+
+        Returns
+        -------
+            error : int
+                The error code.
+            result : any
+                The result of the function call.
+        """
         found = -1
         result = value
         error = 0
@@ -490,22 +584,24 @@ class create_attributes(object):
         """
         Read/write interface to the instance.
 
-        if your device have no read/write than overwrite this function in your class.
-        see e.q. instruments/instruments/smu/natinst/base_natinst.py
+        If your device has no read/write, then overwrite this function in your class.
+        See eg. instruments/instruments/smu/natinst/base_natinst.py
 
-        Args:
-            function (methode): method which will be call.
-            rw (str):
-               * 'wr' -> inst.write(function,value)
-               *'rd' -> inst.write(function), value=inst.read()
+        Parameters
+        ----------
+            function : str
+                The function or command to be called on the instance.
+            rw : str
+                * 'wr' -> inst.write(function,value)
+                * 'rd' -> inst.write(function), value=inst.read()
 
-            value (anything, optional):
-                only necessary for 'wr', your value which will be write
+            value : any, optional
+                Only necessary for 'wr', the value which will be written.
 
-        Returns:
-            value (str):
-                DESCRIPTION.
-
+        Returns
+        -------
+            value : any
+                Only for 'rd', the value which you get from the instance
         """
         if isinstance(value, Enum):
             value = value.value
@@ -518,16 +614,30 @@ class create_attributes(object):
 
 
 class Child(create_attributes):
+    """ Class for child attributes. This class is used to create child attributes, which are attributes of attributes. """
+    
     def __init__(self, root, instName):
+        """
+        Initialize the Child instance.
+        
+        Parameters
+        ----------
+            root : object
+                The root object to which this child belongs.
+            instName : str
+                The name of the instance.
+        """
         super().__init__()
         self.root = root
         self.instName = instName
         self._attributes = {}
 
     def write(self, msg):
+        """Write method for the child instance. This method will be called when you set a child attribute."""
         self.root.publish_get(f'{self.instName}.{self.attrLast}', self.attrLastvalue)
 
     def read(self):
+        """Read method for the child instance. This method will be called when you get a child attribute."""
         cache = f'{self.attrLast}_cache'
         value = getattr(self, cache) if hasattr(self, cache) else None
         self.root.publish_get(f'{self.instName}.{self.attrLast}', value)

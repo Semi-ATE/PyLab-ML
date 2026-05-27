@@ -4,31 +4,31 @@ Package: collate_instrument.
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
 
-this collate_instrument package provides utilities to collate Instruments
+This collate_instrument package provides utilities to collate Instruments
 
-it provides the following
+It provides the following
 
 Classes:
 
     Interface:
-        enumeration of instrument interface types
+        Enumeration of instrument interface types
 
     InterfaceItem:
-        dataclass to classify interface item
+        Dataclass to classify interface item
 
     InstrumentItem
-        dataclass to classify instrument item
+        Dataclass to classify instrument item
 
     DefInter:
-        singleton class to determine the default interface and optional backend
+        Singleton class to determine the default interface and optional backend
 
     CollateInstrument:
-        singleton class to collate all instrument instantiations
+        Singleton class to collate all instrument instantiations
 
-    note::
-          DefInter.check4nidriver() should find the national instrument driver if exist
-          the used key depends from the pyvisa-version
-          search for an independent solution !!
+    NOTE::
+        DefInter.check4nidriver() should find the national instrument driver if exist
+        the used key depends from the pyvisa-version
+        search for an independent solution !!
 """
 
 import os
@@ -44,6 +44,7 @@ logger = logging.getLogger("pylab_ml.base_instrument")
 
 
 class Interface(Enum):
+    """Enumeration of instrument interface types"""
     gpib = 1
     usbserial = 2
     pxie = 3
@@ -54,6 +55,7 @@ class Interface(Enum):
 
 @dataclass
 class InterfaceItem:
+    """Dataclass to classify interface item"""
     interface: Interface
     backend: str
     hostname: str
@@ -63,6 +65,7 @@ class InterfaceItem:
 
 @dataclass
 class InstrumentItem:
+    """Dataclass to classify instrument item"""
     instName: str
     moduleName: str
     className: str
@@ -73,6 +76,7 @@ class InstrumentItem:
 
 
 class DefInter(object, metaclass=Singleton):
+    """Singleton class to determine the default interface and optional backend"""
 
     import pyvisa
 
@@ -82,6 +86,16 @@ class DefInter(object, metaclass=Singleton):
         self.style(style)
 
     def style(self, style=None):
+        """
+        Determine the default interface and optional backend
+        
+        Parameters
+        ----------
+            style : str
+                "Linux" : Default interface is tcpip and usbserial, default backend is "@py"
+                "usbserial" or "Serial" : Default interface is tcpip and usbserial, default backend is "@ni" if ni driver exist else "@py"
+                other : Default interface is tcpip and gpib, default backend is "@ni" if ni driver exist else "@py"
+        """
         if style == "Linux":
             self.default_interface = [Interface.tcpip, Interface.usbserial]
             self.default_backend = "@py"
@@ -112,9 +126,15 @@ class DefInter(object, metaclass=Singleton):
         """
         Search for the national instrument driver if exist.
 
-          The used key depends from the pyvisa-version
-          search for an independent solution !!
-          returns @default_backend or False
+        The used key depends from the pyvisa-version
+        search for an independent solution !!
+        returns @default_backend or False
+        
+        Returns
+        -------
+            default_backend : str
+                "@ni" for NI-Library or "@ivi" for IVI-Library
+            False : if no NI-Library is found
         """
         default_backend = False
         if "ni" in self.pyvisa.util.get_system_details()["backends"]:  # pyvisa 1.10.1
@@ -132,10 +152,20 @@ class DefInter(object, metaclass=Singleton):
 
 
 class CollateInstrument(object, metaclass=Singleton):
+    """Singleton class to collate all instrument instantiations"""
+    
     def __init__(self):
         self.interface_addresses = {}
 
     def list_int(self, interface=[]):
+        """
+        List all instruments of the given interface(s) or all instruments if no interface is given.
+        
+        Parameters
+        ----------
+            interface : list of Interface
+                List of interfaces to list, if empty list is given, all interfaces are listed
+        """
         if interface is None:
             interface = DefInter().default_interface
         if interface == []:
@@ -160,6 +190,19 @@ class CollateInstrument(object, metaclass=Singleton):
                     print("    : {}".format(instr.instance))
 
     def add(self, instrument):
+        """
+        Add an instrument to the collate instrument.
+        
+        Parameters
+        ----------
+             instrument : BaseInstrument
+                Instrument to add
+                
+        Returns
+        -------
+            instrument : BaseInstrument
+                Instrument that was added
+        """
         if instrument.interface not in self.interface_addresses:
             self.interface_addresses[instrument.interface] = {}
         if instrument.instName is None:
@@ -184,6 +227,26 @@ class CollateInstrument(object, metaclass=Singleton):
         return instrument
 
     def identification(self, interface, address, identity=None, module=None, initialized=None, instance=None, instName=None):
+        """
+        Add identification information to an instrument.
+        
+        Parameters
+        ----------
+            interface : Interface
+                Interface of the instrument
+            address : int
+                Address of the instrument
+            identity : str, optional
+                Identity of the instrument
+            module : str, optional
+                Module name of the instrument
+            initialized : bool, optional
+                Initialization status of the instrument
+            instance : object, optional
+                Instance of the instrument
+            instName : str, optional
+                Name of the instrument
+        """
         if interface in self.interface_addresses:
             if address in self.interface_addresses[interface]:
                 if self.interface_addresses[interface][address] is None:
@@ -200,6 +263,21 @@ class CollateInstrument(object, metaclass=Singleton):
                     self.interface_addresses[interface][address].instName = instName
 
     def get_instrument(self, interface, address):
+        """
+        Get an instrument from the collate instrument.
+        
+        Parameters
+        ----------
+            interface : Interface
+                Interface of the instrument
+            address : int
+                Address of the instrument
+        
+        Returns
+        -------
+            InstrumentItem or None
+                The instrument item if found, otherwise None
+        """
         if interface in self.interface_addresses:
             if address in self.interface_addresses[interface]:
                 return self.interface_addresses[interface][address]
@@ -207,6 +285,19 @@ class CollateInstrument(object, metaclass=Singleton):
                 return None
 
     def find_instrument(self, instName):
+        """
+        Find an instrument by its name.
+        
+        Parameters
+        ----------
+            instName : str
+                Name of the instrument
+        
+        Returns
+        -------
+            InstrumentItem or None
+                The instrument item if found, otherwise None
+        """
         for interface in self.interface_addresses:
             for address in self.interface_addresses[interface]:
                 instrument = self.get_instrument(interface, address)
@@ -215,6 +306,18 @@ class CollateInstrument(object, metaclass=Singleton):
         return None
 
     def drop(self, interface, address, force=False):
+        """
+        Drop an instrument from the collate instrument.
+        
+        Parameters
+        ----------
+            interface : Interface
+                Interface of the instrument
+            address : int
+                Address of the instrument
+            force : bool, optional
+                Force drop the instrument even if not initialized
+        """
         if interface in self.interface_addresses:
             if address in self.interface_addresses[interface]:
                 if force or self.interface_addresses[interface][address].initialized:
@@ -223,12 +326,15 @@ class CollateInstrument(object, metaclass=Singleton):
 
 @dataclass
 class InstrumentDefinition:
+    """Dataclass to classify instrument definition"""
     nickName: str
     moduleName: str
     className: str
 
 
 class InstrumentLibrary(metaclass=Singleton):
+    """Singleton class to collate all instrument definitions"""
+    
     def __init__(self):
         logger.debug("Class {}".format(self.__class__.__name__))
         self.tcc_pythonpath = os.environ["TCC_PYTHONPATH"]

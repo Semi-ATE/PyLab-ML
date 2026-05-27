@@ -1,5 +1,6 @@
 """DMM (Digital Multimeter) Vendors."""
 
-__all__ = ["natinst",
-           "keithley"
+__all__ = [
+            "natinst",
+            "keithley"
            ]
