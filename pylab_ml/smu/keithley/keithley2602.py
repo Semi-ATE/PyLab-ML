@@ -13,7 +13,8 @@ from pylab_ml.smu.keithley.base_keithley import Keithley
 
 
 class Keithley2602 (Keithley):
-    """Interface to the dual channel Power-Measuremet-Unit (SMU) Keithley2602.
+    """
+    Interface to the dual channel Power-Measuremet-Unit (SMU) Keithley2602.
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
@@ -22,8 +23,7 @@ class Keithley2602 (Keithley):
 
     The Keithley2602 can
     source and sink power in all four voltage/current quadrants and
-    measure voltage and current precisely on dual channels a & b
-
+    measure voltage and current precisely on dual channels a & b.
     """
 
     A = "a"    # channel A
@@ -32,38 +32,37 @@ class Keithley2602 (Keithley):
     interchoices = [Interface.usbserial, Interface.gpib]
 
     def __init__(self, addr=None, interface=None, backend=None, identify=True, instName=None):
-        """Connect and initialize.
+        """Connect and initialize Keithley2602 instrument.
 
         Args:
-           addr (int):
-              interface address
-           interface (Interface):
-              gpib, usbserial
-
-           backend (str):
-              visa backend is either '@ni' for NI-Library or
-              '@py' for pure python pyvisa-py backend.
-              On default it uses '@ni' on win32 and '@py' on
-              other platforms.
-           instName (string):
-              Instance Name from parent.
-
+            addr (int):
+                Interface address
+            interface (Interface):
+                GPIB, USBSerial
+            backend (str):
+                VISA backend is either '@ni' for NI-Library or
+                '@py' for pure python pyvisa-py backend.
+                On default it uses '@ni' on win32 and '@py' on
+                other platforms.
+            identify (bool):
+                If True, query the instrument ID and print it to the log.
+            instName (string):
+                Instance Name from parent.
 
         Example: Initialization
-           >>> vdd = Keithley2400(addr=24)  # GPIB or USB address
-           >>>                              #  validate displayed message Id on device
-           >>> vdd.init()                   # connect and initialize instrument
+            >>> vdd = Keithley2602(addr=24)  # GPIB or USB address
+            >>>                              #  validate displayed message Id on device
+            >>> vdd.init()                   # connect and initialize instrument
 
         Example: Voltage source
-           >>> vdd.i_clamp = 0.01           # current protection
-           >>> vdd.voltage = 3.3            # set output voltage
-           >>> i = vdd.current              # measure (supply) current
+            >>> vdd.i_clamp = 0.01           # current protection
+            >>> vdd.voltage = 3.3            # set output voltage
+            >>> i = vdd.current              # measure (supply) current
 
         Example: Current source
-           >>> vdd.v_clamp = 5              # voltage protection
-           >>> vdd.current = 0.1            # set output current_range
-           >>> v = vdd.voltage              # measure voltage
-
+            >>> vdd.v_clamp = 5              # voltage protection
+            >>> vdd.current = 0.1            # set output current_range
+            >>> v = vdd.voltage              # measure voltage
         """
         self.has_scripts = False
         kwargs = {"addr": addr, "interface": interface, "backend": backend, "identify": identify, "instName": instName}
@@ -151,9 +150,16 @@ class Keithley2602 (Keithley):
         self.inst.write('smu{}.nvbuffer2.clear()'.format(ch.lower()))
 
     def message(self, message=None):
-        """Message display.
-
-        instrument message ("string") or ()
+        """
+        Message display about Keithley instrument.
+        Instrument message ("string") or ()
+        
+        If message is None, the display is cleared, otherwise the message is shown on the display.
+        
+        Parameters
+        ----------
+            message : str or None
+                Message to be displayed on the instrument. If None, the display is cleared.
         """
         self.budget.set_slack(self)
         if message is None:
@@ -211,7 +217,7 @@ class Keithley2602 (Keithley):
     def nplc(self):
         """Set the conversion number of power line cycles accuracy, for all converters.
 
-        for a plc of 0.1, conversion rate is 0.1/50s = 2ms. Accuracy max 25, min 0.001
+        For a plc of 0.1, conversion rate is 0.1/50s = 2ms. Accuracy max 25, min 0.001.
         """
         self.budget.set_slack(self)
         val = self.inst.query('print(smu{ch}.measure.nplc)'.format(ch=self.chab))
@@ -294,9 +300,22 @@ class Keithley2602 (Keithley):
 
     @property
     def measure(self):
-        """Get or set measure.
-
-        where the measurements are defined by "virp" flags (VOLTAGE,CURRENT,RESISTANCE,POWER).
+        """
+        Get or set measure.
+        Where the measurements are defined by "vir" flags (VOLTAGE,CURRENT,RESISTANCE)
+        
+        eg. "v" for voltage, "i" for current, "r" for resistance, "vi" for voltage and current, etc.
+        
+        PARAMETERS
+        ----------
+            typ : str
+                String with "vir" flags (VOLTAGE,CURRENT,RESISTANCE) defining the measurements to be made.
+                 For example, "v" for voltage, "i" for current, "r" for resistance, "vi" for voltage and current, etc.
+                 
+        RETURNS
+        -------
+            list
+                List of measured values corresponding to the "vir" flags.
         """
         if not self.onoff:
             return
@@ -358,6 +377,10 @@ class Keithley2602 (Keithley):
         """Get or set output voltage.
 
         If the voltage is set the output is switched on immediately.
+        
+        Returns
+        -------
+            value(float) : output voltage (in V).
         """
         self.budget.set_slack(self)
         if not self.onoff:
@@ -393,8 +416,11 @@ class Keithley2602 (Keithley):
     @property
     def current(self):
         """Get or set output current.
-
         If the current is set the output is switched on immediately.
+        
+        Returns
+        -------
+            value(float) : output current (in A).
         """
         self.budget.set_slack(self)
         if not self.onoff:
@@ -507,23 +533,23 @@ class Keithley2602 (Keithley):
         self.inst.write('smu{ch}.source.rangev = {val}'.format(ch=self.chab, val=abs(vmax)))
 
     def stair_sweep(self, start, stop, dstep, stime=0, typ='V', stair='Lin', wait=False):
-        """Sweep V or I, measure v,i,r,p at time t with state s, wait for response.
-
-        Args:
-           typ:
-              | 'Vvirpts-?', 'Ivirpts-?'  = Voltage / Current sourced, '-' changes direction,
-              |  volts, amps, ohms, power, timestamp, status are sensed, ? animates display
-           start:
-              Start value in volts or amps
-           stop:
-              Stop value in volts or amps
-           dstep:
-              Delta amplitude for Lin, Points to interpolate for Log, stime is slope time for None (>0.2ms)
-           stime:
-              Delay between steps or slope time if dstep == None
-           stair:
-              ('Lin','Log) = linear or log source
-
+        """
+        Sweep V or I, measure v,i,r at time t with state s, change by dstep, steptime stime, wait for response.
+        If dstep is None then stime is slopetime (>1ms) & nplc is min : 0.01.
+        
+        Parameters
+        ----------
+            start : Start value in volts or amps, None implies incremental
+            stop  : Stop value in volts or amps
+            dstep : Delta amplitude for Lin, Points to interpolate for Log, stime is slope time for None (>1ms)
+            stime : Delay between steps or slope time if dstep == None
+            typ   : 'Vvirts-', 'Ivirts-'  = Voltage / Current sourced, '-' changes direction,
+                    volts, amps, ohms, timestamp, status are sensed
+            stair : ('Lin','Log) = linear or log source
+            
+        Returns
+        -------
+            None
         """
         args = [None, stop, dstep]
         kwargs = {'stime': stime, 'typ': typ, 'stair': stair, 'wait': wait}
@@ -715,20 +741,21 @@ class Keithley2602 (Keithley):
         return ret
 
     def get_values(self, typ=''):
-        """Transfer last requested measurement sweep results.
-
-        Get response of previous stair_sweep(), choosing result rows from previous request typ
-
+        """
+        Transfer last requested measurement sweep results.
+        Get response of previous stair_sweep(), choosing result rows from previous request typ.
+        
         Parameters
         ----------
-        typ : string, optional
-            'virpts'. The default is ''.
-
+            typ : str
+                String with "vir" flags (VOLTAGE,CURRENT,RESISTANCE) defining the measurements to be returned.
+                For example, "v" for voltage, "i" for current, "r" for resistance, "vi" for voltage and current, etc.
+                 
         Returns
         -------
-        TYPE
-            values.
-
+            np.array
+                Numpy array of measured values corresponding to the "vir" flags in typ, with shape (len(typ), number of steps).
+                For example, if typ is "vi", the returned array will have two rows: the first row for voltage measurements and the second row for current measurements, with columns corresponding to each step in the previous stair_sweep().
         """
         if not typ or typ == '':
             typ = self.stair_measure
@@ -868,9 +895,18 @@ class Keithley2602 (Keithley):
             self.stair_step_get = self.stair_sweep(*stair_set_args, **stair_set_kwargs)
 
     def scriptin(self, msg):
-        """A multiline LUA script needs to have -- comments correctly handled and newlines.
-
-        converted to returns
+        """
+        A multiline LUA script needs to have -- comments correctly handled and newlines.
+        
+        Parameters
+        ----------
+            msg : str
+                Multiline LUA script as a string, where -- comments are correctly handled and newlines are preserved.
+                
+        Returns
+        -------
+            str
+                A formatted multiline LUA script string that can be sent to the instrument, with -- comments handled and newlines preserved.
         """
         self.inst.write('display.clear()')
         self.inst.write('display.settext("loading scripts: ")')
@@ -1080,9 +1116,18 @@ display.settext("loaded scripts: ")
 
     def com_recover(self, fix=False):
         """Detect & attempt to recover out of step communication (maybe after timeout).
-
-        can lose coherency between read request and data, usually because of Timeout
-        this routine can diagnose such loss of coherency and attempt to fix it, when fix=Tru
+        Can lose coherency between read request and data, usually because of Timeout.
+        This routine can diagnose such loss of coherency and attempt to fix it, when fix=True.
+        
+        Parameters
+        ----------
+            fix : bool
+                If True, the method will attempt to recover from out-of-step communication by consuming unexpected responses until it regains coherency. If False, it will only detect and report the issue without attempting recovery.
+                
+        Returns
+        -------
+            bool
+                True if communication is coherent (i.e., the response matches the expected value), False if it is not coherent. If fix is True, it will return True after attempting recovery, even if it had to consume unexpected responses to regain coherency.
         """
         self.budget.set_slack(self)
         ires = None

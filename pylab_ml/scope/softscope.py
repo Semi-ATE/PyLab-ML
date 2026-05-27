@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 """
+This script defines the Softscope class, which is responsible for communicating with a softscope GUI via MQTT. 
+The class allows for starting and stopping data sampling, setting the channel to be monitored, and adjusting the sample time. 
+It uses a Timer thread to manage the sampling loop and handles MQTT commands to control its behavior. 
+The class also includes error handling for cases where the specified channel is not defined or returns an error.
+
 Created on Thu Jan  7 17:18:03 2021
 
 @author: jung
@@ -31,11 +36,21 @@ class Softscope(mqtt_deviceattributes):
 
     TODO: very simple.....
             max sample Time ~50Hz
-
     """
 
     def __init__(self, mqttc, logger, instName="softscope"):
-        """Initialise."""
+        """
+        Initialise the softscope class and subscribe for mqtt if mqttc is not None
+        
+        Parameters
+        ----------
+            mqttc : MQTT client object
+                The MQTT client to use for communication. If None, MQTT functionality will be disabled.
+            logger : Logger object
+                The logger to use for logging messages.
+            instName : str, optional
+                The name of the instrument. Default is "softscope".
+        """
         self.instName = instName
         self.logger = logger
         super().__init__()
@@ -52,16 +67,18 @@ class Softscope(mqtt_deviceattributes):
         self.busy = False
 
     def init(self, topinstname):
+        """Initialize the topinstname for the strcall to get the value for the scopeChannel"""
         self.topinstname = topinstname
 
     def setchannel(self, value):
-        """set the scopeChannel via mqtt"""
+        """Set the scopeChannel via mqtt"""
         result = common.strcall(self.topinstname, value)
         self.scopeChannel = value if result != "ERROR" else "ERROR"
         # print(f'Softscope.setchannel: {value} -> {result}')
         self.publish_set("scopeChannel", self.scopeChannel)
 
     def on(self):
+        """Start the softscope sampling."""
         if self.busy:
             self.off()
         if self.scopeChannel is None:
@@ -71,25 +88,30 @@ class Softscope(mqtt_deviceattributes):
         self._newsample()
 
     def off(self):
+        """Stop the softscope sampling."""
         self.busy = False
         if self._samplethread is not None:
             self._samplethread.cancel()
 
     @property
     def sampleTime(self):
+        """Get the current sample time for the softscope."""
         return self._sampleTime
 
     @sampleTime.setter
     def sampleTime(self, value):
+        """Set the sample time for the softscope."""
         if type(value) not in [int, float]:
             return
         self._sampleTime = value
 
     def close(self):
+        """Close the softscope and disconnect from MQTT."""
         self.off()
         self.mqtt_disconnect()
 
     def _newsample(self):
+        """Internal method to handle the sampling loop."""
         if not self.busy:
             return
         starttime = time()
@@ -107,6 +129,14 @@ class Softscope(mqtt_deviceattributes):
 
     @property
     def test(self):
+        """
+        Get the current test value for the softscope.
+        
+        Returns
+        -------
+            int
+                A sawtooth value that increments with each call and resets after reaching 256.
+        """
         # print(f'call scope.sawtooth value= {self._sawtooth}')
         self._sawtooth += 1
         if self._sawtooth > 256:

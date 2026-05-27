@@ -1,7 +1,6 @@
 """
-Some functions for environment handling for the TCC Labor .
-
-
+This script contains functions to handle the environment, such as inserting paths to sys.path and getting environment variables. 
+It also includes a function to replace environment variables in a dictionary with their values.
 """
 import os
 import sys
@@ -14,10 +13,26 @@ __version__ = '0.0.1'
 
 
 def path_insert(self, path, check=True, append=False):
-    """Insert path to sys.path in the top or bottom.
+    """
+    Insert a path into sys.path if it does not already exist.
+    
+    eg. path_insert('/path/to/directory', check=True, append=False) will insert the specified path at the beginning of sys.path if it does not already exist and if the path exists on the filesystem. 
+    If check is False, it will insert the path without checking if it exists. 
+    If append is True, it will insert the path at the end of sys.path instead of the beginning.
 
-    if check -> insert only if path not exist in sys.path
-    if append -> insert path in the bottom
+    Parameters
+    ----------
+        path : str
+            The path to be inserted into sys.path.
+        check : bool, optional
+            If True, insert only if the path does not exist in sys.path. Default is True.
+        append : bool, optional
+            If True, insert the path at the bottom of sys.path. Default is False.
+
+    Returns
+    -------
+        bool
+            True if the path was successfully inserted or already exists, False otherwise.
     """
     if path is None:
         self.log_error('pylab_ml: setup path==None')
@@ -46,10 +61,22 @@ def path_insert(self, path, check=True, append=False):
 
 
 def environ_getpath(self, key):
-    '''Get environment from the key.
-
-    Check if key a path and running on nt,  add prefix from the network
-    replace the the environment.
+    '''
+    Get the value of an environment variable and adjust it for network paths on Windows if necessary.
+    
+    eg. If the environment variable 'DATA_PATH' is set to '/data' and the 'NETWORK' environment variable is set to '\\\\samba', 
+    then on Windows, this function will return '\\\\samba\\data' instead of '/data'.
+    
+    Parameters
+    ----------
+        key : str
+            The name of the environment variable to retrieve.
+            
+    Returns
+    -------
+        str or None
+            result : The value of the environment variable, adjusted for network paths on Windows if necessary. 
+            Returns None if the environment variable is not found.
     '''
     result = os.environ.get(key)
     if result is None:
@@ -66,6 +93,25 @@ def environ_getpath(self, key):
     return result
 
 def checkNetworkPath(name, network=''):
+    """
+    Check if the given path name is a network path on Windows and adjust it if necessary.
+    
+    eg. If name is '/data' and the 'NETWORK' environment variable is set to '\\\\samba', 
+    then on Windows, this function will return '\\\\samba\\data' instead of '/data'.
+    
+    Parameters
+    ----------
+        name : str
+            The path name to check and adjust if necessary.
+        network : str, optional
+            The network path to prepend if the path is a network path on Windows. Defaults to ''.
+
+    Returns
+    -------
+        str
+            name : The adjusted path name.
+    """
+    
     envName = 'NETWORK'
     if envName in os.environ and os.environ[envName] and network=='':
         network = os.environ[envName]
@@ -78,12 +124,22 @@ def checkNetworkPath(name, network=''):
 
 def replaceEnvs(dictionary, network=''):
     """
-    check if dictionary has environment-variables starts with $,
-    or dictionary has path-value.
+    Recursively replace environment variables in a dictionary with their values.
+    
+    eg. If the dictionary is {'path': '$NETWORK_PATH'} and the 'NETWORK_PATH' environment variable is set to '//samba', 
+    then this function will replace '$NETWORK_PATH' with '//samba' in the dictionary, resulting in {'path': '//samba'}.
+    
+    Parameters
+    ----------
+        dictionary : dict
+            The dictionary in which to replace environment variables.
+        network : str, optional
+            The network path to prepend if the path is a network path on Windows. Defaults to ''.
 
-    if yes than replace environment-variables with its value,
-    if it a path-value than add the network-name
-
+    Returns
+    -------
+        dict
+            The dictionary with environment variables replaced by their values.
     """
     for key in dictionary:
         if type(dictionary) == dict:

@@ -28,6 +28,7 @@ MAIN_BG_COLOR = QStylePalette.COLOR_BACKGROUND_1
 # --- Constants
 # ----------------------------------------------------------------------------
 class StdfWidgetActions:
+    """ Constants for actions defined in StdfWidget. """
     # Triggers
     Import = "import"
     Reload = "reload"
@@ -39,20 +40,34 @@ class StdfWidgetActions:
 
 
 class StdfWidgetMainToolbarSections:
+    """ Constants for sections in the main toolbar of StdfWidget. """
     Edit = "edit_section"
     Move = "move_section"
     Zoom = "zoom_section"
 
 
 class StdfWidgetToolbarItems:
+    """ Constants for toolbar items in StdfWidget. """
     ZoomSpinBox = "zoom_spin"
 
 
 # --- Widgets
 # ----------------------------------------------------------------------------
 class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,PluginMainWidget
+    """ Main widget for the STDF plugin. """
 
     def __init__(self, name=None, plugin=None, parent=None):
+        """ Initialize the main widget. 
+        
+        Parameters
+        ----------
+            name: str
+                The name of the widget.
+            plugin: SpyderPluginV2
+                The plugin instance.
+            parent: QWidget
+                The parent widget.
+        """
         super().__init__(name, plugin, parent)
         #QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_ShareOpenGLContexts)
 
@@ -66,14 +81,17 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
     # ---- PluginMainWidget API
     # ------------------------------------------------------------------------
     def get_title(self):
+        """ Return the title of the widget. """
         return _("Stdf")
 
     def get_focus_widget(self):
+        """ Return the widget to give focus to when this plugin's dockwidget is raised. """
         widget = self.current_widget()
 
         return widget
 
     def setup(self):
+        """ Setup the main widget. This is called after the widget is created and before it is shown for the first time. """
         layout = QHBoxLayout()
         layout.addWidget(self.widget)
         self.setLayout(layout)
@@ -144,6 +162,7 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
             self.add_item_to_menu(item, menu=context_menu)
 
     def update_actions(self):
+        """ Update the enabled/disabled state of actions based on the current context. """
         value = False
 #        widget = self.current_widget()
 
@@ -173,6 +192,7 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
                 pass
 
     def on_close(self):
+        """ Handle the widget being closed. """
         return super().on_close()
 
     # ---- Public API:
@@ -184,7 +204,7 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
         self.widget.open_files()
 
     def reload_data(self):
-        """Import data."""
+        """Reload data."""
         print('StdfWidget.reload_data')
         if self.widget.filename != "":
             self.widget.open_files(self.widget.path + "/" + self.widget.filename)
@@ -192,11 +212,12 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
             self.import_data()
 
     def set_filename(self, path, filename):
+        """ Set the filename and path for the widget. """
         self.widget.path = path
         self.widget.filename = filename.lower() + ".stdf"
 
     def graph_show(self):
-        """Import data."""
+        """Show graph."""
         self.widget.graph_show()
 
     def generate_graph_from_json(self):

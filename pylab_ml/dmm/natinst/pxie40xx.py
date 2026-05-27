@@ -14,7 +14,8 @@ import hightime
 
 
 class PXIe40xx(NatInst):
-    """Interface to the Digital Multimeter (DMM) NI PXIe-40xx (e.q. 4081).
+    """
+    Interface to the Digital Multimeter (DMM) NI PXIe-40xx (e.q. 4081).
 
     .. image:: ../_static/pxie_4081.jpg
 
@@ -29,9 +30,7 @@ class PXIe40xx(NatInst):
     | call the misssing function with dmm.inst.functionname
 
     The PXI-4081 can measure voltage and current precisely
-
     """
-
     try:
         import nidmm
 
@@ -70,15 +69,17 @@ class PXIe40xx(NatInst):
 
     # def __init__(self, addr=None, channels='0', identify=False, instName=None):
     def __init__(self, addr=None, identify=False, instName=None):
-        """Initialise.
+        """
+        Initialise the instrument.
 
-        Args:
-           addr (string):
-              name from the PXI-Slot e.q. 'PXI1Slot3' or 'SMU'.
-           identify (bool, optional):
-              Defaults to False.
-           instName (string, optional):
-              Instance Name from top.
+        Parameters
+        ----------
+            addr (string):
+                name from the PXI-Slot e.q. 'PXI1Slot3' or 'SMU'.
+            identify (bool, optional):
+                Defaults to False.
+            instName (string, optional):
+                Instance Name from top.
 
         Example: Initialization
            >>> dmm = PXIe41xx('PXI1Slot5',instName='dmm')   # connect and initialize instrument
@@ -119,11 +120,11 @@ class PXIe40xx(NatInst):
     def reset(self):
         """Reset, and set folowing attributes.
 
-        * power_line_frequency = 50.0
-        * aperture_time_units = POWER_LINE_CYCLES
-        * aperture_time = 2
-        * inst.auto_zero = OFF
-        * dc_noise_rejection = SECOND_ORDER
+            * power_line_frequency = 50.0
+            * aperture_time_units = POWER_LINE_CYCLES
+            * aperture_time = 2
+            * inst.auto_zero = OFF
+            * dc_noise_rejection = SECOND_ORDER
         """
         super().reset()
         for inst in self.ch:
@@ -209,13 +210,12 @@ class PXIe40xx(NatInst):
 
         Parameters
         ----------
-        value : :mod:`NatInst.State`
-            expected status.
+            value : str
+                State to compare with actual state.
 
         Returns
         -------
-        None.
-
+            None
         """
         self.state = value
 
@@ -238,20 +238,20 @@ class PXIe40xx(NatInst):
         return float(value)
 
     def measure(self, nsamples):
-        """Start to fetch data from the DMM.
+        """
+        Start to fetch data from the DMM.
 
         Parameters
         ----------
-        nsamples : int
-            Number of Data-points to fetch.
+            nsamples : int
+                Number of Data-points to fetch.
 
         Returns
         -------
-        time : list
-            Contains list of Time values..
-        voltage : list
-            Contains list of Voltage values..
-
+            time : list
+                Contains list of Time values.
+            voltage : list
+                Contains list of Voltage values.
         """
         self.inst.send_software_trigger()
         voltage = self.inst.fetch_waveform(nsamples, maximum_time=hightime.timedelta(milliseconds=3000))
@@ -265,19 +265,19 @@ class PXIe40xx(NatInst):
         return time, voltage
 
     def plot_dmm_data(self, time, voltage):
-        """Plot graph between Time and Voltage.
+        """
+        Plot graph between Time and Voltage.
 
         Parameters
         ----------
-        time : list
-            Input a list of Time values for x-axis..
-        voltage : list
-            Input a list of Voltage values for y-axis..
+            time : list
+                Input a list of Time values for x-axis.
+            voltage : list
+                Input a list of Voltage values for y-axis.
 
         Returns
         -------
-        None.
-
+            None
         """
         plt.figure(figsize=(6.4, 4.8), dpi=300)
         plt.plot(time, voltage, "ro", markersize=0.1, alpha=0.1)

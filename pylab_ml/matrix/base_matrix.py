@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Interface to a relay matrix.
+"""
+Interface to a relay matrix.
 
 :Date: |today|
 :Author: Semi-ATE <info@Semi-ATE.org>
@@ -23,11 +24,11 @@ from pylab_ml.base_instrument import logger
 
 
 class BaseMatrix():
-    """Basic interface to a Relay Matrix.
+    """
+    Basic interface to a Relay Matrix.
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
-
     """
 
     interchoices = [Interface.generic]
@@ -37,27 +38,28 @@ class BaseMatrix():
 
         Parameters
         ---------_
-        connectionTableName : str, optional
-            filename from setup- or matlab-file with connection definition. The default is $WORKAREA/harness/matrix*.setup
-        emulator : bool, optional
-            if True than emulate only a Matrix. No real hardware. The default is False.
+            connectionTableName : str, optional
+                Filename from setup- or matlab-file with connection definition. The default is $WORKAREA/harness/matrix*.setup
+            identify : bool, optional
+                If True than identify the instrument. The default is False.
+            emulator : bool, optional
+                If True than emulate only a Matrix. No real hardware. The default is False.
 
 
         Example: Initialization
-           >>> tablename = 'matrix_messplatz.setup'
-           >>> matrix = Pickering_40_5xx(addr='Switch', tablename, instName='matrix')
-           >>> matrix.set('Position2','close')              # need connectionTable
-           >>> matrix.set('Oszi','close')
-           >>> matrix.set('APB_Vsup','close')
-           >>> matrix.set('APB_Vsup','open')
-           >>> matrix.set('SMU_Vsup','close')
-           >>> matrix.set('SMU_Vsup')                       # default = open
-           >>> matrix.set('APB_Vsup','close',SwitchOver=True)
-           >>> matrix.connect('1,1,1;1,2,3;1,3,5','close')  # if connectionTable not loaded
+            >>> tablename = 'matrix_messplatz.setup'
+            >>> matrix = Pickering_40_5xx(addr='Switch', tablename, instName='matrix')
+            >>> matrix.set('Position2','close')              # need connectionTable
+            >>> matrix.set('Oszi','close')
+            >>> matrix.set('APB_Vsup','close')
+            >>> matrix.set('APB_Vsup','open')
+            >>> matrix.set('SMU_Vsup','close')
+            >>> matrix.set('SMU_Vsup')                       # default = open
+            >>> matrix.set('APB_Vsup','close',SwitchOver=True)
+            >>> matrix.connect('1,1,1;1,2,3;1,3,5','close')  # if connectionTable not loaded
 
-        detailed example of usage:
+        Detailed example of usage:
            * :download:`examples/pickeringmatrix/matrix_40_541_201.py <../../../examples/pickeringmatrix/matrix_40_541_201.py>`
-
         """
         self.connectionTableName = connectionTableName
         self.connectionTable = None
@@ -99,10 +101,10 @@ class BaseMatrix():
         """
         Display state, nodes or connection in ASCII-String.
 
-           | mode==None or 'state'  display actual state
-           | mode=='nodes'  display connected nodes
-           | mode=='connection' display available codes for connections
-           | mode==someone else  display help
+            | mode==None or 'state'  display actual state
+            | mode=='nodes'  display connected nodes
+            | mode=='connection' display available codes for connections
+            | mode==someone else  display help
         """
         if mode is None or mode == "state":
             if self.connectionTable is None:
@@ -141,9 +143,9 @@ class BaseMatrix():
             print("                = 'connection' ")
 
     def clear(self):
-        """Clear all connections (open).
-
-        add the correct command for the instance to this function.
+        """
+        Clear all connections (open).
+        Add the correct command for the instance to this function.
         """
         if self.connectionTable is None:
             self.ActualState = "open"
@@ -154,18 +156,21 @@ class BaseMatrix():
         self.publish_set("clear", 0)
 
     def set(self, connection, state="open", SwitchOver=False):
-        """Set categories or scenarios to state 'open' or 'close'.
+        """
+        Set categories or scenarios to state 'open' or 'close'.
 
-        Args:
-            connection (str):  categories or scenarios.
-            state (str, optional):  'open' or 'close'. Defaults to 'open'.
-            SwitchOver (TYPE, optional):
-               | True : connection will be open AFTER the new one was set,
-               | False : default -> first: open last connection, than: close new connection
+        Parameters
+        ----------
+            connection : str
+                Categories or scenarios.
+            state : str, optional
+                'open' or 'close'. Defaults to 'open'.
+            SwitchOver : bool, optional
+               | True : Connection will be open AFTER the new one was set,
+               | False : default -> first: Open last connection, then: Close new connection
 
         Returns:
             None
-
         """
         if self.connectionTable is None:
             logger.warning("set({},{}) not possible: connectionTable not loaded".format(connection, state))
@@ -239,9 +244,14 @@ class BaseMatrix():
         return
 
     def load_connectionTable(self, connectionTableName=None):
-        """Load matlab(.m) or setup-file(.setup) with definition from connections.
-
-        create constantsTable and connectionTable
+        """
+        Load matlab(.m) or setup-file(.setup) with definition from connections.
+        Create constantsTable and connectionTable
+        
+        Parameters
+        ----------
+            connectionTableName : str, optional
+                Filename from setup- or matlab-file with connection definition. The default is None.
         """
         self.id
         if connectionTableName is None:
@@ -270,15 +280,21 @@ class BaseMatrix():
         """
         Load filename  and create dictionary constants and contab.
 
-        Args:
-            filename (TYPE):  filename *.setup
+        Parameters
+        ----------
+            filename : str
+                Filename *.setup
 
-        Raises:
-            Exception: IOError.
-
-        Returns:
-            constants (dic)  contab.
-
+        Returns
+        -------
+            constants : dict
+                Dictionary with constants from setup-file.
+            contab : dict
+                Dictionary with connectionTable from setup-file.
+            
+        Raises
+        ------
+            Exception: when file not found.
         """
         if not os.path.isfile(filename):
             raise Exception(" couldn't find {}".format(filename))
@@ -312,20 +328,26 @@ class BaseMatrix():
         return (dic_constantsTable, contab)
 
     def connect(self, crosspointtable, state):
-        """Set state from crosspoint.
+        """
+        Set state from crosspoint.
 
-        Args:
-            crosspointtable (str): stringlist with nodes ('1,3,4;1,5,6;1,2,14')  card, row, col.
-            state (str): 'open' or 'close'.
+        Parameters
+        ----------
+            crosspointtable : str
+                Stringlist with nodes ('1,3,4;1,5,6;1,2,14')  card, row, col.
+            state : str
+                'open' or 'close'.
 
-        Raises:
-            Exception: when more than one card use.
-
-        Returns:
+        Raises
+        ------
+            IOError: 
+                When state is not 'open' or 'close'.
+                
+        Returns
+        -------
             bool:
-               | True : etablish state
-               | False : error
-
+                | True : etablish state
+                | False : error
         """
         if state == "close":
             state = 1
@@ -356,6 +378,18 @@ class BaseMatrix():
         return True
 
     def _GetCrosspointState(self, cardnr):
+        """
+        Get the state of all crosspoints and display in ASCII-String.
+        
+        Parameters
+        ----------
+            cardnr : int
+                Card number.
+
+        Returns
+        -------
+            None
+        """
         msg = "\n    {} = {}  {}x{}\n      ".format(self.instName, self.type, self.cols, self.rows)
         for cols in range(1, int(self.cols / 10) + 1):
             msg = msg + ("         {}".format(cols))
@@ -380,19 +414,28 @@ class BaseMatrix():
 
 
 class Matrix_Emulator(object):
-    """Emulator from a relay Matrix.
+    """
+    Emulator from a relay Matrix.
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
 
     Usable if you have no real Matrix as instance
-
     """
-
     import numpy as np
 
     def __init__(self, addr=None, x=66, y=8):
-        """Initialise."""
+        """Initialise the emulator.
+        
+        Parameters
+        ----------
+            addr : str, optional
+                Address of the emulator.
+            x : int, optional
+                Number of columns in the emulator.
+            y : int, optional
+                Number of rows in the emulator.
+        """
         self.addr = addr
         self.y_max = y
         self.x_max = x
@@ -416,27 +459,101 @@ class Matrix_Emulator(object):
         self.matrix_array = self.np.zeros((self.y_max, self.x_max))
 
     def SetCrosspointState(self, cardnr, row, col, state):
+        """
+        Set state from crosspoint.
+        
+        Parameters
+        ----------
+            cardnr : int
+                Card number.
+            row : int
+                Row number.
+            col : int
+                Column number.
+            state : int
+                State to set.
+
+        Returns
+        -------
+            int
+                0 if successful, error code otherwise.
+        """
         self.matrix_array[row - 1][col - 1] = state
         return 0
 
     def GetCrosspointState(self, cardnr, rows, cols):
+        """
+        Get the state of a crosspoint.
+        
+        Parameters
+        ----------
+            cardnr : int
+                Card number.
+            rows : int
+                Row number.
+            cols : int
+                Column number.
+
+        Returns
+        -------
+            tuple
+                0 if successful, error code otherwise, and the state of the crosspoint.
+        """
         return 0, self.matrix_array[rows - 1][cols - 1]
 
     def ErrorMessage(self, err):
+        """
+        Get the error message corresponding to an error code.
+        
+        Parameters
+        ----------
+            err : int
+                Error code.
+
+        Raises
+        ------
+            Exception
+                If an error occurs.
+        """
         msg = "Emulator.matrix:  something goes wrong, error = {}".format(err)
         raise Exception(msg)
 
     def message(self, message=None):
+        """
+        Display a message.
+
+        Parameters
+        ----------
+            message : str, optional
+                Message to display.
+        """
         """Device has no display, message display to logger."""
         if message is not None:
             logger.debug(message)
 
     def GetCardId(self):
+        """ Get the card ID. """
         return 0, "Pickering Emulator Matrix"
 
     def Diagnostic(self):
+        """ Perform a diagnostic check. """
         value = 0
         return [value]
 
     def SubInfo(self, cardnr, unknown):
+        """
+        Get sub-unit information.
+        
+        Parameters
+        ----------
+            cardnr : int
+                Card number.
+            unknown : int
+                Unknown parameter.
+
+        Returns
+        -------
+            tuple
+                0 if successful, error code otherwise, and the sub-unit information.
+        """
         return 0, 100, self.y_max, self.x_max

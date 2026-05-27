@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-softscope.
+This script defines a GUI class for a softscope instrument, which is part of the PyLab-ML project. 
+The GUI allows users to interact with the softscope instrument, send MQTT commands, and receive updates. 
+The class inherits from a base instrument GUI class and implements specific functionality for the softscope instrument.
 
 Created on Wed April 21 13:43:20 2021
 @author: C. Jung
@@ -28,9 +30,36 @@ __version__ = "0.0.8"
 
 
 class Scope(FigureCanvas):
+    """ Scope class for the softscope instrument, responsible for plotting data in real-time.
+    It uses Matplotlib to create a dynamic plot that updates with new data points. 
+    The class handles the initialization of the plot, updating the data, and adjusting the axes as needed.
+    """
+
     sampleSteps = 100
 
     def __init__(self, gui, frame=None, width=5, height=5, dpi=100, min_y=None, max_y=None, bgcolor=None):
+        """
+        Initialize the Scope class with the given parameters and set up the Matplotlib figure and axes for plotting.
+        
+        Parameters
+        ----------
+            gui: object
+                The GUI instance to which this scope belongs.
+            frame: object, optional
+                The frame in which the scope will be displayed.
+            width: int, optional
+                The width of the figure in inches.
+            height: int, optional
+                The height of the figure in inches.
+            dpi: int, optional
+                The dots per inch (DPI) of the figure.
+            min_y: float, optional
+                The minimum value for the y-axis.
+            max_y: float, optional
+                The maximum value for the y-axis.
+            bgcolor: str, optional
+                The background color of the figure.
+        """
         self.gui = gui
         self.frame = frame
         self._min_y = min_y if min_y is not None else 0
@@ -56,6 +85,14 @@ class Scope(FigureCanvas):
         self.oldtime = time.time()
 
     def newdata(self, y):
+        """
+        Update the scope with new data.
+
+        Parameters
+        ----------
+            y: float
+                The new data point to be added to the scope.
+        """
         timedelta = time.time() - self.oldtime
         self.samplerate = timedelta
         self.oldtime = time.time()
@@ -85,6 +122,7 @@ class Scope(FigureCanvas):
         self.value = y_average
 
     def setrange(self):
+        """Adjust the y-axis range based on the current minimum and maximum y values."""
         tmin = self.min_y
         tmax = self.max_y
         diff = tmax - tmin
@@ -96,25 +134,29 @@ class Scope(FigureCanvas):
         return
 
     def init(self):
-        """initialization function."""
+        """Initialization function."""
         self.line.set_data([], [])
         return (self.line,)
 
     @property
     def value(self):
+        """Get the current value of the scope."""
         return self._value
 
     @value.setter
     def value(self, value):
+        """Set the current value of the scope."""
         self._value = value
         self.gui.setLabel(self.frame.Lvalue, self._value)
 
     @property
     def samplerate(self):
+        """Get the current sample rate of the scope."""
         return self._samplerate
 
     @samplerate.setter
     def samplerate(self, value):
+        """Set the current sample rate of the scope."""
         if value != 0:
             self._samplerate = 1 / value
             self.gui.setLabel(self.frame.Lsamplerate, f"{self._samplerate:0.1f}", "/s")
@@ -138,38 +180,45 @@ class Scope(FigureCanvas):
 
     @property
     def min_y(self):
+        """Get the current minimum y value of the scope."""
         if self._min_y is None:
             return 0
         return self._min_y
 
     @min_y.setter
     def min_y(self, value):
+        """Set the current minimum y value of the scope."""
         if self._min_y is None or self.min_y > value:
             self._min_y = value
             self.gui.setLabel(self.frame.Lmin, self._min_y)
 
     @property
     def max_y(self):
+        """Get the current maximum y value of the scope."""
         if self._max_y is None:
             return 0
         return self._max_y
 
     @max_y.setter
     def max_y(self, value):
+        """Set the current maximum y value of the scope."""
         if self._max_y is None or self._max_y < value:
             self._max_y = value
             self.gui.setLabel(self.frame.Lmax, self._max_y)
 
     @property
     def samples(self):
+        """Get the current number of samples in the scope."""
         return self._samples
 
     @samples.setter
     def samples(self, value):
+        """Set the current number of samples in the scope."""
         self._samples = value
         self.gui.setLabel(self.frame.Lsamples, self._samples)
 
     def clear(self):
+        """Clear the scope and reset all relevant parameters."""
         self.samples = 0
         self.line.set_data([], [])
         self.x_value = [0]
@@ -184,9 +233,10 @@ class Scope(FigureCanvas):
 
 
 class Gui(Guibase):
-    """Softscope Gui.
+    """
+    Softscope GUI.
 
-    inherited from base_instrument
+    Inherited from base_instrument
        status
 
     """
@@ -203,6 +253,20 @@ class Gui(Guibase):
     }
 
     def __init__(self, parent=None, name="softscope", parentwindow=None, channel=None):
+        """
+        Initialize the GUI for the softscope instrument.
+        
+        Parameters
+        ----------
+            parent: object, optional
+                The parent widget for this GUI. Default is None.
+            name: str, optional
+                The name of the instrument. Default is "softscope".
+            parentwindow: object, optional
+                The parent window for this GUI. Default is None.
+            channel: int, optional
+                The channel number. Default is None.
+        """
         super().__init__(grandparent=parent, name=name, parentwindow=parentwindow)
         self.myframe = load_ui(self.gui.myframe, __file__)
         bgcolor = self.gui.palette().color(QtGui.QPalette.Background).name()  # getRgb()
@@ -215,6 +279,7 @@ class Gui(Guibase):
         # self.mqtt_initlist = ['all attributes do you need, widgets start with MQTT will add automaticaly']
 
     def myadjustUI(self):
+        """Adjust the GUI elements for the softscope instrument."""
         # set icons:
         self.add_menuicon("onoff")  # add existing icon and connection from the base-instrument
         self.add_menuicon("clear", connect=self.scope.clear)
@@ -233,7 +298,16 @@ class Gui(Guibase):
     # ======================================================
     # attributes which connect to an extern call (mqtt-command)
     def mqttreceive(self, instName, msg):
-        """common mqtt receive messages, get raw mqtt-Data for more information"""
+        """
+        Handle incoming MQTT messages for the softscope instrument.
+        
+        Parameters
+        ----------
+            instName: str
+                The name of the instrument that sent the message.
+            msg: dict
+                The MQTT message received.
+        """
         self.logger.debug(f"    {self.instName}.mqttreceive:   {instName}: {msg} ")
         if super().mqttreceive(instName, msg):
             return
@@ -250,10 +324,12 @@ class Gui(Guibase):
 
     @property
     def scopeChannel(self):
+        """Get the current scope channel."""
         return self._scopeChannel
 
     @scopeChannel.setter
     def scopeChannel(self, value):
+        """Set the current scope channel and update the status accordingly."""
         value = self.filtersubtopic(value)
         self.logger.debug(f"get scopeChannel = {value},  subtopic = {self.topinstname}.{self.subtopic}, ")
         if value == 0:
@@ -273,10 +349,12 @@ class Gui(Guibase):
     #
 
     def rangeSamples(self):
+        """Handle the change in the number of samples and update the scope accordingly."""
         self.scope.max_x = self.myframe.Dsamples.value()
         self.myframe.QLsamples.setText(f"{self.scope.max_x} Samples")
 
     def editchname(self):
+        """Handle the change in the channel name and update the scope accordingly."""
         channel = self.myframe.Echname.text()
         self._scopeChannel = None
         self._onoff_ = None
@@ -289,6 +367,7 @@ class Gui(Guibase):
             self.status = "chNotDef"
 
     def close(self, event=None):
+        """Handle the close event for the GUI by publishing an 'off' command, clearing the subtopic, and then calling the base class's close method."""
         self.publish("off()")
         self.subtopic = []
         super().close()

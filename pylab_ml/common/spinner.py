@@ -1,4 +1,6 @@
-"""Create an rotate cursor .
+"""
+This script contains a spinner class that can be used to display a spinning cursor in the console while a long-running task is being executed. 
+The spinner class uses a separate thread to update the cursor while the main thread is busy with the task.
 
 
 :Date: |today|
@@ -17,11 +19,14 @@ __email__ = "Zlin526F@github"
 
 
 class spinner:
+    """ A class to display a spinning cursor in the console while a long-running task is being executed. """
+    
     busy = False
     delay = 0.1
 
     @staticmethod
     def spinning_cursor():
+        """ A generator that yields a spinning cursor character. """
         while 1:
             for cursor in "|/-\\":
                 yield cursor
@@ -32,6 +37,7 @@ class spinner:
             self.delay = delay
 
     def spinner_task(self):
+        """ The task that updates the spinner in the console. """
         while self.busy:
             sys.stdout.write(next(self.spinner_generator))
             sys.stdout.flush()
@@ -40,10 +46,12 @@ class spinner:
             sys.stdout.flush()
 
     def __enter__(self):
+        """ Start the spinner when entering the context. """
         self.busy = True
         threading.Thread(target=self.spinner_task).start()
 
     def __exit__(self, exception, value, tb):
+        """ Stop the spinner when exiting the context. """
         self.busy = False
         time.sleep(self.delay)
         if exception is not None:

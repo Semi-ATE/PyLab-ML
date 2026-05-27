@@ -3,6 +3,7 @@ from pylab_ml.base_instrument import Instrument
 
 
 class Scope(Instrument):
+    """ Base class for oscilloscopes."""
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

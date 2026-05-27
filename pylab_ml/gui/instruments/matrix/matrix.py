@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-matrix.
+This script defines a GUI class for a matrix instrument, which is part of the PyLab-ML project. 
+The GUI allows users to interact with the matrix instrument, send MQTT commands, and receive updates.
 
 Created on Fri Jul 10 13:43:20 2020
 
@@ -8,7 +9,6 @@ TODO:
     Bug: in discardTable funktioniert nicht
 
     ate/NB200813/instruments    {"matrix": {"type": "set", "cmd": "set", "payload": ["Position1", "close"]}}
-
 
     Variablen in Gui dürfen nicht Namen benutzen die als mqtt-Kommandos benutzt werden!
 """
@@ -37,14 +37,19 @@ __version__ = "0.0.3"
 
 
 class VerticalLabel(QLabel):
+    """ VerticalLabel is a custom QLabel that displays text vertically. It overrides the paintEvent to rotate the text. """
+    
     def __init__(self, *args):
+        """Initialize the VerticalLabel."""
         QLabel.__init__(self, *args)
 
     def mousePressEvent(self, event):
+        """Handle mouse press events on the vertical label."""
         # self.clicked.emit()
         QLabel.mousePressEvent(self, event)
 
     def paintEvent(self, event):
+        """Handle the paint event to draw the text vertically."""
         painter = QtGui.QPainter(self)
         painter.translate(0, self.height())
         painter.rotate(-90)
@@ -53,7 +58,7 @@ class VerticalLabel(QLabel):
 
 
 class Gui(Guibase):
-    """Gui."""
+    """Gui class for the matrix instrument."""
 
     Fontsize = 8
     X_OFFSET = 5
@@ -75,6 +80,18 @@ class Gui(Guibase):
     CB_WIDTH = 150
 
     def __init__(self, parent=None, name="matrix", parentwindow=None):
+        """
+        Initialize the GUI for the matrix instrument.
+        
+        Parameters
+        ----------
+            parent: QWidget, optional
+                The parent widget of the GUI.
+            name: str, optional
+                The name of the instrument.
+            parentwindow: QWidget, optional
+                The parent window of the GUI.
+        """
         super().__init__(grandparent=parent, name=name, parentwindow=parentwindow)
         self.myframe = load_ui(self.gui.myframe, __file__)
         # bgcolor = self.gui.palette().color(QtGui.QPalette.Background).name()    # getRgb()
@@ -103,6 +120,7 @@ class Gui(Guibase):
         self.mqtt_initlist = ["load_connectionTable()", "display()"]
 
     def myadjustUI(self):
+        """Adjust the GUI elements for the matrix instrument."""
         self.gui.runToolBar.setVisible(False)
         # set icons:
         # self.windowIcon(qta.icon('ei.file', color='white', scale_factor=1.0, color_active='orange'))
@@ -139,6 +157,14 @@ class Gui(Guibase):
         # self.myframe.setGeometry(geometry.x(), geometry.y(), wh.width()+100, wh.height()+250)
 
     def create_CBox(self, index):
+        """
+        Create a combo box and its associated label for the given index.
+        
+        Parameters
+        ----------
+            index: int
+                The index of the combo box to create.
+        """
         panel = self.gui.findChild(QtWidgets.QWidget, "tabshow")
         self.lcb.append(QtWidgets.QLabel(panel))
         self.cb.append(QtWidgets.QComboBox(panel))
@@ -167,6 +193,7 @@ class Gui(Guibase):
         return
 
     def update_mainwindow(self):
+        """Update the main window of the GUI based on the current connection table and constants table."""
         index = 0
         if self.lcb != []:
             return
@@ -196,6 +223,18 @@ class Gui(Guibase):
         # self.gui.setGeometry(0, 0, width+20, height+50)
 
     def update_CBox(self, index, name, color):
+        """
+        Update the combo box and its associated label for the given index, name, and color.
+        
+        Parameters
+        ----------
+            index: int
+                The index of the combo box to update.
+            name: str
+                The name to set for the combo box and its label.
+            color: tuple
+                The RGB color to set for the combo box and its label.
+        """
         lcb = self.lcb[index]
         cb = self.cb[index]
         lcb.setText(name)
@@ -206,6 +245,7 @@ class Gui(Guibase):
         cb.show()
 
     def show_matrix(self):
+        """Show the matrix window with the current connection and constants tables."""
         matrix_window = QtWidgets.QMainWindow()
         matrix_window.setWindowTitle(f"{self.instName} {self.x_max} * {self.y_max}   {self._id}")
         matrix_window.setObjectName("matrix")
@@ -256,6 +296,7 @@ class Gui(Guibase):
         self.matrix_window.show()
 
     def update_matrixarray(self):
+        """Update the matrix array based on the current connection table and constants table."""
         if self.matrix_window is not None:
             for y in range(0, self.y_max):
                 for x in range(0, self.x_max):
@@ -268,6 +309,7 @@ class Gui(Guibase):
                     )  # set connection
 
     def update_matrixcolor(self):
+        """Update the colors of the matrix labels based on the current connection table and constants table."""
         for categorie in self.dic_connectionTable.keys():
             for scenario in self._dic_connectionTable[categorie]["List"].keys():
                 color, nets = self.get_nets(categorie, scenario)
@@ -283,11 +325,41 @@ class Gui(Guibase):
                 # self.matrix_window.label_x[x].setStyleSheet('color: rgb{}'.format(str(color)))
 
     def color_inaktiv(self, color):
+        """
+        Calculate the inactive color based on the given color and the COLOR_INAKTIV factor.
+        
+        Parameters
+        ----------
+            color : tuple
+                The RGB color to be modified.
+        
+        Returns
+        -------
+            result : tuple
+                The inactive RGB color.
+        """
         color = tuple(map(int, color[1:-1].split(",")))
         result = tuple([int(self.COLOR_INAKTIV * c) for c in color])
         return result
 
     def get_nets(self, categorie, scenario):
+        """
+        Get the nets for a given category and scenario from the connection table.
+        
+        Parameters
+        ----------
+            categorie : str
+                The category of the nets.
+            scenario : str
+                The scenario of the nets.
+        
+        Returns
+        -------
+            color : tuple
+                The RGB color associated with the category.
+            result : list
+                A list of nets, where each net is represented as a list of three integers [x1, x2, y].
+        """
         color = self.dic_connectionTable[categorie]["Color"]
         nets = self._dic_connectionTable[categorie]["List"][scenario].split(";")
         result = []
@@ -300,6 +372,23 @@ class Gui(Guibase):
         return color, result
 
     def create_net(self, form, x, y):
+        """
+        Create a radio button representing a net at the given x and y coordinates.
+        
+        Parameters
+        ----------
+            form : QWidget
+                The parent widget for the radio button.
+            x : int
+                The x-coordinate of the net.
+            y : int
+                The y-coordinate of the net.
+        
+        Returns
+        -------
+            radioButton : QRadioButton
+                The created radio button representing the net.
+        """
         radioButton = QtWidgets.QRadioButton(form)
         radioButton.setGeometry(
             QtCore.QRect(
@@ -321,10 +410,31 @@ class Gui(Guibase):
 
     def create_label(self, form, x, y, text=None):
         """
-        x== -1   -> place wire numbers left
-        x== -2   -> place wire text right
-        y== -1   -> pace wire number at top vertical
-        y== -2   -> pace wire text at bottom vertical
+        Create a label at the given x and y coordinates with the specified text.
+            x== -1   -> place wire numbers left
+            x== -2   -> place wire text right
+            y== -1   -> pace wire number at top vertical
+            y== -2   -> pace wire text at bottom vertical
+        
+        Parameters
+        ----------
+            form : QWidget
+                The parent widget for the label.
+            x : int
+                The x-coordinate for the label. Special values:
+                    -1: place wire numbers on the left
+                    -2: place wire text on the right
+            y : int
+                The y-coordinate for the label. Special values:
+                    -1: place wire numbers at the top
+                    -2: place wire text at the bottom
+            text : str, optional
+                The text to display on the label. If None, default text will be used based on the coordinates.
+                
+        Returns
+        -------
+            label : QLabel
+                The created label with the specified properties.
         """
         if x < 0:
             label = QtWidgets.QLabel(form)
@@ -388,6 +498,17 @@ class Gui(Guibase):
         return label
 
     def edit_label(self, event, source_object=None):
+        """
+        Handle the mouse press event on a label to allow editing of the label's text.
+        
+        Parameters
+        ----------
+            event : QMouseEvent
+                The mouse event that triggered the label editing.
+            source_object : QLabel, optional
+                The label that was clicked, triggering the edit. If None, the event's source will be used.
+        """
+        
         if self.lineEdit.source_object is not None:
             self.editfinish_label()
         if event.button() == 1:
@@ -400,13 +521,27 @@ class Gui(Guibase):
             self.lineEdit.show()
 
     def editfinish_label(self):
+        """Handle the completion of label editing by updating the label's text and hiding the line edit."""
         self.lineEdit.source_object.setText("{}".format(self.lineEdit.text()))
         self.lineEdit.hide()
 
     def create_line(self, form, x, y):
         """
-        x== -1   -> horizontal line
-        y== -1   -> vertical line
+        Create a line (horizontal or vertical) in the given form.
+        
+        Parameters
+        ----------
+            form : QWidget
+                The parent widget in which the line will be created.
+            x : int
+                The x-coordinate or special value indicating a horizontal line (-1).
+            y : int
+                The y-coordinate or special value indicating a vertical line (-1).
+                
+        Returns
+        -------
+            line : QFrame
+                The created line (either horizontal or vertical) with the specified properties.
         """
         line = QtWidgets.QFrame(form)
         if x == -1:  # horizontal  left, top, width and height
@@ -434,6 +569,7 @@ class Gui(Guibase):
         return line
 
     def retranslateUi(self, Form):
+        """Set the text for the GUI elements based on the current language settings."""
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.checkBox.setText(_translate("Form", "CheckBox"))
@@ -442,7 +578,16 @@ class Gui(Guibase):
     # =======================================================
     # attributes which connect to an extern call (mqtt-command)
     def mqttreceive(self, instName, msg):
-        """common mqtt receive messages, get raw mqtt-Data for more information"""
+        """
+        Handle incoming MQTT messages and update the GUI elements accordingly.
+        
+        Parameters
+        ----------
+            instName : str
+                The name of the instance sending the MQTT message.
+            msg : dict
+                The MQTT message containing the command and payload.
+        """
         # print(instName, msg)
         if instName != self.instName and msg["cmd"] == "loadNames" and self._loadNames is None:
             self.create_CBox(len(self.lcb))
@@ -486,10 +631,12 @@ class Gui(Guibase):
             )
 
     def reset(self):
+        """Reset the GUI to its initial state by clearing the matrix array and resetting the combo boxes."""
         self.cb[-1].setCurrentIndex(0)
 
     @property
     def id(self):
+        """Get the ID of the instrument."""
         return self._id
 
     @id.setter
@@ -499,6 +646,7 @@ class Gui(Guibase):
 
     @property
     def dic_constantsTable(self):
+        """Get the constants table dictionary."""
         return self._dic_constantsTable
 
     @dic_constantsTable.setter
@@ -510,6 +658,7 @@ class Gui(Guibase):
 
     @property
     def dic_connectionTable(self):
+        """Get the connection table dictionary."""
         return self._dic_connectionTable
 
     @dic_connectionTable.setter
@@ -525,6 +674,7 @@ class Gui(Guibase):
 
     @property
     def SetCrosspointState(self):
+        """Get the current crosspoint state."""
         pass
 
     @SetCrosspointState.setter
@@ -620,6 +770,7 @@ class Gui(Guibase):
     # connected GUI-function to buttons or menues
     #
     def _set_(self, pos):
+        """Handle the activation of a combo box and publish the corresponding command based on the selected scenario."""
         if self.subtopic != [] and self._loadNames is not None and pos == len(self.cb) - 1:
             cmd = self._loadNames[self.cb[pos].currentText()]
             cmd = cmd.split("=")
@@ -638,9 +789,11 @@ class Gui(Guibase):
             self.publish("set()", (value, state))
 
     def edit(self):
+        """Handle the editing of the matrix by enabling the tab edit and allowing the user to modify the connection and constants tables."""
         self.gui.tabedit.setEnabled(True)
 
     def close(self, event=None):
+        """Handle the closing of the GUI by closing the matrix window and the main GUI window if necessary."""
         super().close()
         if self.matrix_window is not None:
             self.matrix_window.close()
@@ -648,11 +801,13 @@ class Gui(Guibase):
             self.gui.close()
 
     def load_connectionTable(self):
+        """Handle the loading of the connection table by publishing the corresponding command to retrieve the connection table data."""
         self.publish("load_connectionTable()")
         # if len(self.subtopic) > 0:
         #    self.parent.publish_get(self.subtopic[0], 'loadNames')
 
     def discardTable(self):
+        """Handle the discarding of the table by resetting the instance name extension, MQTT status, and deleting all combo boxes."""
         self.instNameExtension = ""
         self.mqtt_status
         for lcb in self.lcb:

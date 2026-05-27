@@ -1,6 +1,6 @@
 """
-file IO functions
-
+This script contains functions to handle the environment, such as inserting paths to sys.path and getting environment variables. 
+It also includes a function to replace environment variables in a dictionary with their values.
 """
 from pathlib import Path
 import os
@@ -13,6 +13,8 @@ from pylab_ml.common.data import complement
 
 
 def help():
+    """ Lists all functions available in file_io module. """
+    
     print("Lists all functions available in file_io module:")
     print("********************************************************")
     print(readVlogMemFile.__doc__)
@@ -24,6 +26,28 @@ NETWORK = '//samba'
 
 
 def filedialog(initialdir, title, filetypes):
+    """
+    Open a file dialog to select a file.
+    
+    eg. filedialog(initialdir='/path/to/directory', title='Select a file', filetypes=[('Text files', '*.txt'), ('All files', '*.*')]) will open a file dialog with the 
+    specified initial directory, title, and file types to filter the displayed files. 
+    The user can select a file, and the function will return the path to the selected file as a string.
+
+    Parameters
+    ----------
+        initialdir : str
+            The initial directory to open in the file dialog.
+        title : str
+            The title of the file dialog.
+        filetypes : list of tuples
+            The file types to display in the file dialog.
+
+    Returns
+    -------
+        str
+            filename : The selected file path.
+    """
+    
     from tkinter import Tk
     from tkinter import filedialog as fd
 
@@ -35,11 +59,25 @@ def filedialog(initialdir, title, filetypes):
 
 
 def openFile(fileName, *argv, **kwargs):
-    '''open a file with name= fileName
-
-        - fileName could contain $Variable, this will be interpret with os.environ.get('$Variable')
-        - if os = windows and filename start with '/' than add //samba
-    '''
+    """
+    Open a file with the given name.
+    
+    eg. openFile('data.txt', 'r') will open the file 'data.txt' in read mode and return the file object.
+    
+    Parameters
+    ----------
+        fileName : str
+            The name of the file to open.
+        *argv :
+            Additional positional arguments to pass to the open function (e.g., mode, buffering, encoding).
+        **kwargs :
+            Additional keyword arguments to pass to the open function (e.g., mode='r', encoding='utf-8').
+        
+    Returns
+    -------
+        file : file object
+            The opened file object, or None if the file cannot be opened.
+    """
     fileName = replaceFilename(fileName)
     file = None
     try:
@@ -51,6 +89,22 @@ def openFile(fileName, *argv, **kwargs):
 
 
 def replaceFilename(fileName):
+    """
+    Replace environment variables in the given file name with their values.
+    
+    eg. If the fileName is '$NETWORK/data.txt' and the 'NETWORK' environment variable is set to '//samba/proot', then this function will return '//samba/proot/data.txt'.
+    
+    Parameters
+    ----------
+        fileName : str
+            The file name in which to replace environment variables.
+            
+    Returns
+    -------
+        str
+            filename : The file name with environment variables replaced by their values.
+    """
+    
     if fileName.find('$') > -1:   # find environment variables inside the value?
         tmp = fileName.split('/')
         index = 0
@@ -68,17 +122,23 @@ def replaceFilename(fileName):
 def get_latestfile(filename, logerror=None):
     """
     Get the file with the latest date.
+    
+    eg. If there are multiple files with the same prefix and suffix, this function will return the one with the latest date in the directory. 
+    For example, if there are files named 'data_20210101.txt', 'data_20210201.txt', and 'data_20210301.txt', 
+    and you call get_latestfile('data_*.txt'), it will return 'data_20210301.txt' as it has the latest date.
 
     Parameters
     ----------
-    logger :
-    filename : string
-        prefix from the file
+        filename : str
+            The file name with a prefix and suffix to search for. The prefix is the part of the file name before the wildcard '*', 
+            and the suffix is the part of the file name after the wildcard '*'.
+        logerror : function, optional
+            A function to log errors. If None, errors will be printed to the console. Default is None.
 
     Returns
     -------
-    return with the latest file with the name 'filename'.
-
+        str or None
+            The file name with the latest date, or None if no matching files are found.
     """
     directory = os.path.split(filename)[0]
     prefix = os.path.basename('.'.join(filename.split('.')[:-1]))
@@ -100,16 +160,25 @@ def get_latestfile(filename, logerror=None):
 
 def loadIHexFile(fileName, bytemem=None, size=0x10000):
     """
-    loadIHexFile(fileName, bytemem=None, size=0x10000)
-
-    reads the ihex file(s) and builds a byte image
-
-      ihexfileName....path to IntelHex file
-      bytemem.........byte image, default=None
-      size............size of byte memory, default 64kB
-
-
-    return bytemem    or None if fileName not exist
+    Load an Intel Hex file into a byte array.
+    
+    eg. loadIHexFile('firmware.hex') will read the Intel Hex file 'firmware.hex' and return a byte array containing the data from the file. 
+    The function will read the file line by line, parse the Intel Hex format, and fill the byte array with the data from the file. 
+    The function will also keep track of the address range of the data read from the file and print it out at the end.
+    
+    Parameters
+    ----------
+        fileName : str
+            The name of the Intel Hex file to load.
+        bytemem : list, optional
+            A pre-allocated byte array to fill with the data from the file. If None, a new byte array will be created. Default is None.
+        size : int, optional
+            The size of the byte array to create if bytemem is None. Default is 0x10000 (64 KB).
+            
+    Returns
+    -------
+        list
+            bytemem : A byte array containing the data from the Intel Hex file, with None entries for unused/initialized values.
     """
 
     try:
@@ -147,22 +216,30 @@ def loadIHexFile(fileName, bytemem=None, size=0x10000):
 
 def readMemFile(filename, typ=None, interpret=None):
     """
-    read a memory-file and  alocate data.
-
+    Read a memory file in the specified format (verilog, txt, or QEMem).
+    
+    eg. readMemFile('memory.txt', typ='txt') will read the memory data from the file 'memory.txt' in text format and return the starting address and a list of memory data. 
+    The function will determine the type of the memory file based on the file extension if the 'typ' parameter is not provided. 
+    It will then call the appropriate function to read the memory data based on the determined type (verilog, txt, or QEMem). 
+    The function will return the starting address and a list of memory data, with None entries for unused/initialized values.
+    
     Parameters
     ----------
-    filename : TYPE
-        DESCRIPTION.
-    typ : TYPE
-        DESCRIPTION.
-
+        filename : str
+            The name of the memory file to read.
+        typ : str, optional
+            The type of the memory file (e.g., 'verilog', 'txt', 'QEMem'). If None, the type will be determined based on the file extension. Default is None.
+        interpret : dict, optional
+            A dictionary with keys 'adr' and 'dat' to specify the base for interpreting addresses and data in text files. Default is None.
+            
     Returns
     -------
-    data : memory data integer list, None entries for
-            not used/initialized values
+        int
+            start : The starting address of the memory data.
+        list
+            data : A list of memory data, with None entries for unused/initialized values.
     """
-    extensions = {'v': 'verilog',
-                  'txt': 'txt'}
+    extensions = {'v': 'verilog', 'txt': 'txt'}
     start = None
     if typ is None:
         file_extension = pathlib.Path(filename).suffix[1:]
@@ -182,32 +259,40 @@ def readMemFile(filename, typ=None, interpret=None):
 def readtxtMemFile(fileName, memSize=None, bitsize_source=None, bitsize_target=None, numerative=None, raw_data=False):
     """
     Read a file with memory data in simple hex or integer format.
+    
+    eg. readtxtMemFile('memory.txt') will read the memory data from the file 'memory.txt' in text format and return the starting address and a list of memory data. 
+    The function will read the file line by line, parse the address and data values, and fill a list with the memory data. 
+    The function will also handle different bit sizes for the source and target data, and can return raw data if specified.
 
     Parameters
     ----------
-    fileName : string
-        DESCRIPTION.
-    memSize : int
-        size from the reserved memory array.
-    bitsize_source: int
-        size from one datum, e.q. 8-bit, 16-bit, must be multiple times of 8
-        this has an effect on the adress counting
-        if None each datum will assign to an adress, otherwise each 8-bit datum has an adress
-        only little endian is supported yet
-    bitsize_target: int
-        size from one datum in the array result.
-            needed if negative values in the sourcefile
-    numerative : {adr : base
-                 dat : base}    # base could be 10(decimal) or 16(hex)
-    raw_data: bool
-        if True than return with a list of adr + data
-        if False than return with a coherent memory, beginning with startadr
+        fileName : string
+            The name of the text file containing memory data. 
+            The file should have lines in the format "address data", where address and data can be in hex or decimal format.
+        memSize : int
+            Size from the reserved memory array.
+        bitsize_source: int
+            Size from one datum, eg. 8-bit, 16-bit, must be multiple times of 8
+            This has an effect on the address counting.
+            If None, each datum will be assigned to an address, otherwise each 8-bit datum has an address.
+            Only little endian is supported yet.
+        bitsize_target: int
+            Size from one datum in the array result.
+            Needed if negative values in the sourcefile.
+        numerative : {adr : base, dat : base}
+            Base for interpreting addresses and data in text files, e.g. 10 for decimal, 16 for hex.
+            If None then default is 10 for both.
+        raw_data: bool
+            If True then return with a list of adr + data.
+            If False then return with a coherent memory, beginning with startadr.
 
     Returns
     -------
-     startadress : integer
-     data : memory data integer list, None entries for
-         not used/initialized values
+        int
+            minadr : The starting address of the memory data.
+        list
+            array : A list of memory data, with None entries for unused/initialized values.
+            data : A list of tuples containing address and data pairs if raw_data is True, with None entries for unused/initialized values.
 
     """
     file = openFile(fileName)
@@ -261,7 +346,8 @@ def readtxtMemFile(fileName, memSize=None, bitsize_source=None, bitsize_target=N
 
 
 def readQEMemFile(fileName, base=0x20):
-    """Read a file with memory data in the DUMP_QE Software format.
+    """
+    Read a file with memory data in the DUMP_QE Software format.
 
         base address 0
         address 0
@@ -271,15 +357,17 @@ def readQEMemFile(fileName, base=0x20):
 
     Parameters
     ----------
-    fileName : string
-        DESCRIPTION.
+        fileName : string
+            The name of the text file containing memory data in DUMP_QE format.
+        base : int
+            The base address for the memory data.
 
     Returns
     -------
-     startadress : integer
-     data : memory data integer list, None entries for
-         not used/initialized values
-
+        int
+            minadr : The starting address of the memory data.
+        list
+            array : A list of memory data, with None entries for unused/initialized values.
     """
     file = openFile(fileName)
     if file is None:
@@ -306,21 +394,31 @@ def readQEMemFile(fileName, base=0x20):
 
 def readVlogMemFile(fileName, memSize=0, defaultvalues=None, bitwidth=None, debug=False):
     """
-    readVlogMemFile(fileName, debug=False)
+    Read a file with memory data in verilog hex format. 
 
-    reads a file with memory data in verilog hex format
+    eg. readVlogMemFile('memory.v') will read the memory data from the file 'memory.v' in verilog hex format and return the starting address and a list of memory data.
+        The function will read the file line by line, parse the address and data values in verilog hex format, and fill a list with the memory data.
+        The function will also determine the memory size and bit width from the data in the file if memSize and bitwidth parameters are not provided.
+                
+    Parameters
+    ----------
+        fileName : string
+            The name of the verilog file containing memory data.
+        memSize : int
+            The number of memory addresses. If 0, the size will be calculated from the data in the file.
+        defaultvalues : int
+            The default values for the memory array if no data is read.
+        bitwidth : int
+            The bit width of the data.
+        debug : bool
+            If True, it prints out the data loaded.
 
-      fileName........path to verilog file
-      memSize.........number of memory addresses, if 0 then calculate from the data of the file
-      defaultvalues...default values for the memory array if no data was read
-      bitwidth........bitwidht from the data
-      debug...........if True it prints out the data loaded
-
-    return data
-
-      data............memory data integer list, None entries for
-                      not used/initialized values
-
+    Returns
+    -------
+        int
+            startadr : The starting address of the memory data.
+        list
+            data : A list of memory data, with None entries for unused/initialized values.
     """
     fi = openFile(fileName, 'rt')
     if fi is None:
@@ -395,18 +493,32 @@ def readVlogMemFile(fileName, memSize=0, defaultvalues=None, bitwidth=None, debu
 def writeVlogMemFile(fileName, mem, a_dig=4, d_dig=8, adroffset=0, adrinc=1, header=["", "verilog memory data file", ""]):
     """
     Write memory data to a file in verilog hex format.
+    
+    eg. writeVlogMemFile('memory.v', mem) will write the memory data from the list 'mem' to the file 'memory.v' in verilog hex format. 
+    The function will write the data to the file in the format "@address data", where address is the memory address in hexadecimal and data is the memory data in hexadecimal. 
+    The function will also include a header at the top of the file as comments, and will allow for customization of the address and data formatting through the parameters.
+    
+    Parameters
+    ----------
+        fileName : string
+            Path to the verilog file.
+        mem : list
+            List with integer memory data.
+        a_dig : int
+            Minimum address digits.
+        d_dig : int
+            Minimum data digits.
+        adroffset : int
+            Address offset.
+        adrinc : int
+            Increment address by.
+        header : list
+            List of strings placed as comments at the top of the file.
 
-      fileName........path to verilog file
-      mem.............list with integer memory data
-      a_dig...........min address digits
-      d_dig...........min data digits
-      adroffset.......adress offset
-      adrinc..........increment adr by
-      header..........string list placed as comments
-                      at top of file
-
-    return True/False
-
+    Returns
+    -------
+        bool
+            True if the file was successfully written, False otherwise.
     """
     fi = openFile(fileName, 'wt', newline='\n')
     if fi is None:
@@ -422,16 +534,17 @@ def writeVlogMemFile(fileName, mem, a_dig=4, d_dig=8, adroffset=0, adrinc=1, hea
 
 def readVerilogMemFile(filename):
     """
-    Parses an EEPROM file with format '@Address Data' in hex 
-     and returns a dictionary with decimal keys and values.
+    Parses an EEPROM file with format '@Address Data' in hex and returns a dictionary with decimal keys and values.
 
     Parameters
-    @filename : string
-        Path to the EEPROM file.
+    ----------
+        filename : string
+            Path to the EEPROM file.
 
     Returns
-    eeprom_dict : dict
-        Dictionary with address (decimal) as keys and data (decimal) as values.
+    -------
+        eeprom_dict : dict
+            Dictionary with address (decimal) as keys and data (decimal) as values.
     """
     eeprom_dict = {}
     

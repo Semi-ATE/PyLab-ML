@@ -20,9 +20,10 @@ __email__ = "Zlin526F@github"
 
 
 class Gui(Guibase):
-    """Template  Gui.
+    """
+    Template  Gui.
 
-    inherited from base_instrument
+    Inherited from base_instrument
        status
 
     """
@@ -35,6 +36,18 @@ class Gui(Guibase):
         }
 
     def __init__(self, parent=None, name='scope', channel=None):
+        """ 
+        Initialize the GUI, load the UI file, adjust the UI elements, and set up MQTT connections. 
+        
+        Parameters
+        ----------
+            parent : object, optional
+                The parent object to which this GUI belongs. Default is None.
+            name : str, optional
+                The name of the instrument. Default is 'scope'.
+            channel : int, optional
+                The channel number. Default is None.
+        """
         super().__init__(grandparent=parent, name=name)
         self.myframe = load_ui(self.gui.myframe, __file__)
         # bgcolor = self.gui.palette().color(QtGui.QPalette.Background).name()    # getRgb()
@@ -44,6 +57,7 @@ class Gui(Guibase):
         self.mqtt_initlist = ['all attributes do you need. Widgets start with MQTT will add automaticaly']
 
     def myadjustUI(self):
+        """ Adjust the UI elements, set icons, create and connect menu entries, and connect MQTT widgets. """
         # set icons:
         self.gui.runToolBar.setVisible(False)
         # self.add_menuicon('onoff')                              # add existing icon and connection from the base-instrument
@@ -66,7 +80,15 @@ class Gui(Guibase):
 # ======================================================
 # attributes which connect to an extern call (mqtt-command)
     def mqttreceive(self, instName, msg):
-        """common mqtt receive messages, get raw mqtt-Data for more information
+        """
+        Common MQTT receive messages, get raw MQTT data for more information.
+        
+        Parameters
+        ----------
+            instName : str
+                The name of the instrument that received the MQTT message.
+            msg : dict
+                The MQTT message received, expected to contain 'cmd' and 'payload' keys for processing.
         """
         self.logger.debug(f"{instName}.mqttreceive: {msg} ")
         if super().mqttreceive(instName, msg):
@@ -91,6 +113,7 @@ class Gui(Guibase):
 #
 
     def close(self, event=None):
+        """ Close the GUI, publish an 'off' message, and call the close method of the base class. """
         self.publish('off()')
         super().close()
 

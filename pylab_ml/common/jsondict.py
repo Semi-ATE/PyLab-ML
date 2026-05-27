@@ -1,7 +1,10 @@
 """
-Jsondict.
-
 Created on Thu Jan  7 17:18:03 2021
+
+This script is for handling json dictionaries, especially for the projectsetup.json file. 
+It includes a custom JSON decoder, a dictionary list class (diclist) for handling lists of dictionaries, a setup string class (setupstr) for handling arange-like strings, and a dot dictionary class (dotdict) for allowing dot notation access to dictionary attributes.
+The main class, JsonDict, is used to load a json file and convert it into a dot-dictionary format, allowing for easy access and manipulation of the data.
+It also includes a method to replace environment variables in the json data with their actual values, and a method to write the modified data back to a json file.
 
 TODO: started from projectsetup, so, some functions have to delete or to clear....
 
@@ -27,7 +30,7 @@ class JsonDecoder(json.JSONDecoder):
 
 
 class diclist(list):
-    """Dictionary list"""
+    """A custom list class for handling lists of dictionaries, allowing for dot notation access and additional methods for retrieving keys and values."""
 
     def __init__(*args, **kwargs):
         global myparent
@@ -38,13 +41,42 @@ class diclist(list):
         list.__init__(*args, **kwargs)
 
     def __getattr__(mylist, key):
+        """
+        Get the value(s) from the key found in mylist. If the key is not found, return None.
+        
+        Parameters
+        ----------
+            mylist : list
+                The list of dictionaries to search through.
+            key : str
+                The key to search for in the dictionaries.
+                
+        Returns
+        -------
+            The value(s) associated with the key if found, or None if the key is not found in any of the dictionaries.
+        """
+        
         if key in mylist:
             list.__getattribute__(mylist, key)
         else:
             return diclist.values(mylist, key)
 
     def keys(mylist):
-        """get a list of all key words in mylist"""
+        """
+        Get the unique keys from a list of dictionaries.
+        
+        eg. keys([{'name': 'Alice', 'age': 30}, {'name': 'Bob', 'city': 'New York'}]) will return ['name', 'age', 'city'].
+        
+        Parameters
+        ----------
+            mylist : list
+                The list of dictionaries to search through.
+                
+        Returns
+        -------
+            result : list
+                A list of unique keys found in the dictionaries within mylist.
+        """
         result = []
         for item in mylist:
             for key in item.keys():
@@ -53,6 +85,30 @@ class diclist(list):
         return result
 
     def index(mylist, index, value=None):
+        """
+        Get the dictionary/dictionaries from the list where the key 'index' has the value 'value'. 
+        If value is None, return all dictionaries that contain the key 'index'.
+        
+        eg. index([{'name': 'Alice', 'age': 30}, {'name': 'Bob', 'city': 'New York'}], 'name', 'Alice') will return {'name': 'Alice', 'age': 30}.
+            index([{'name': 'Alice', 'age': 30}, {'name': 'Bob', 'city': 'New York'}], 'name') will return [{'name': 'Alice', 'age': 30}, {'name': 'Bob', 'city': 'New York'}].
+        
+        Parameters
+        ----------
+            mylist : list
+                The list of dictionaries to search through.
+            index : str or int
+                The key to search for in the dictionaries or the index if an integer is provided.
+            value : any, optional
+                The value to match for the given key. If None, all dictionaries containing the key are returned.
+                
+        Returns
+        -------
+            result : dict or list
+                If 'index' is an integer, the dictionary at that index in mylist is returned.
+                If 'index' is a string, a list of dictionaries matching the criteria is returned. 
+                If only one dictionary matches, that dictionary is returned directly.
+        """
+        
         if type(index) is int:
             return mylist[index]
         else:
@@ -66,7 +122,24 @@ class diclist(list):
             return result
 
     def values(mylist, key=None):
-        """Get the value(s) from the key found in mylist."""
+        """
+        Get the value(s) from the key found in mylist. If the key is not found, return None.
+        
+        eg. values([{'name': 'Alice', 'age': 30}, {'name': 'Bob', 'city': 'New York'}], 'name') will return ['Alice', 'Bob'].
+            values([{'name': 'Alice', 'age': 30}, {'name': 'Bob', 'city': 'New York'}], 'age') will return [30, None].
+            
+        Parameters
+        ----------
+            mylist : list
+                The list of dictionaries to search through.
+            key : str, optional
+                The key to search for in the dictionaries. If None, all values from all dictionaries are returned.
+                
+        Returns
+        -------
+            result : list
+                A list of values associated with the key if found, or None if the key is not found in any of the dictionaries. If key is None, a list of all values from all dictionaries is returned.
+        """
         result = None
         # if key is not None and key in diclist.keys(mylist):
         if key is not None:
@@ -92,7 +165,23 @@ class diclist(list):
         return result
 
     def run(mylist, **kwargs):
-        """Call the runmacro from the parent."""
+        """
+        Run the macro defined in mylist. The macro is determined by the last accessed dot-dictionary (myparent.mylastdotdic) and the commands are given in mylist.
+        The result of the macro execution can be optionally written to the setup.result json file if 'output' in kwargs is set to 'wr2setup'.
+        
+        Parameters
+        ----------
+            mylist : list
+                The list of commands to execute as part of the macro.
+            **kwargs : dict
+                Optional keyword arguments for macro execution. 
+                If 'output' is set to 'wr2setup', the result of the macro execution will be written to the setup.result json file.
+                
+        Returns
+        -------
+            result : any
+                The result of the macro execution, which can be of any type depending on the macro's functionality. If the macro is not defined, a warning message is printed and None is returned.
+        """
         result = None
         if myparent is not None and hasattr(myparent, "runmacro"):
             # logger.debug(f'run macro {myparent.mylastdotdic}: {mylist}')
@@ -105,20 +194,40 @@ class diclist(list):
 
 
 class setupstr(str):
+    """ A custom string class for handling arange-like strings, allowing for parsing of strings in the format 'start:step:end' to generate a list of values. """
+    
     def arange(items):
+        """ Parse an arange-like string in the format 'start:step:end' and return a list of values generated according to the specified start, step, and end values. """
         return common.arange(items)
 
     def start(items):
+        """ Get the starting value from an arange-like string in the format 'start:step:end'. """
         return common.arange(items)[0]
 
     def end(items):
+        """ Get the ending value from an arange-like string in the format 'start:step:end'. """
         return common.arange(items)[-1]
 
 
 class dotdict(dict):
-    """dot.notation access to dictionary attributes."""
+    """ dot.notation access to dictionary attributes. """
 
     def myget(keyname, value):
+        """ Get the value associated with 'keyname' in the dictionary. If 'keyname' is not found, return None. 
+        
+        Parameters
+        ----------
+            keyname : str
+                The key to search for in the dictionary.
+            value : any
+                The value associated with the key, used for logging purposes. If the key is not found, this value is included in the error message.
+                 If the key is found, this value is not used.
+                 
+        Returns
+        -------
+            result : any
+                The value associated with 'keyname' in the dictionary, or None if the key is not found.
+        """
         result = dict.get(keyname, value)
         if value not in ["size", "shape"]:
             myparent.mylastdotdic = value
@@ -134,8 +243,9 @@ class dotdict(dict):
 
 
 class JsonDict(object):
-    """
-    Class for the handling json dictionaries.
+    """ 
+    Class for the handling json dictionaries. It includes methods for loading a json file, converting it to a dot-dictionary format, 
+    replacing environment variables, and writing the modified data back to a json file. 
     """
 
     _RESULT = "result_projectsetup.json"
@@ -143,7 +253,7 @@ class JsonDict(object):
     _MYCLASS = "myclass"
 
     def __init__(self, filename):
-        """Open a json-file and assign the values to a dot-dictionary."""
+        """ Open a json-file and assign the values to a dot-dictionary. """
         if filename is dict:
             self.contents = filename
         elif os.path.exists(filename):
@@ -165,7 +275,25 @@ class JsonDict(object):
         self.lastmacro = None
 
     def create_dotdic(self, dic, root=None):
-        """Make from a dictionary a dot-dictionary with diclist."""
+        """ 
+        Make from a dictionary a dot-dictionary with diclist. 
+        If the dictionary contains a list, make from this list a diclist.
+        If the dictionary contains a string with arange-function, make from this string a setupstr
+        
+        eg. create_dotdic({'instruments': {'smu': {'port': 'pxie5'}}}) will return a dot-dictionary where you can access the port with setup.instruments.smu.port.
+        
+        Parameters
+        ----------
+            dic : dict
+                The dictionary to convert into a dot-dictionary format.
+            root : dotdict, optional
+                The root dot-dictionary to use for recursive calls. Defaults to None, in which case the current instance is used as the root.
+                
+        Returns
+        -------
+            dotdict
+                The converted dot-dictionary.
+        """
         if type(dic) == list:
             mydic = diclist(root, dic)
             for index in range(0, len(dic)):
@@ -183,10 +311,21 @@ class JsonDict(object):
         return dotdict(dic)
 
     def _replaceSomeThing(self, jsontable):
-        """Check if jsontable has environment-variables starts with $, or jsontable has path-value.
+        """
+        Check if jsontable has environment-variables starts with $, or jsontable has path-value.
 
-        if yes than replace environment-variables with its value,
-        if it a path-value than add //samba
+        eg. If jsontable is {'path': '$NETWORK_PATH'} and the 'NETWORK_PATH' environment variable is set to '//samba', 
+        then this function will replace '$NETWORK_PATH' with '//samba' in jsontable, resulting in {'path': '//samba'}.
+        
+        Parameters
+        ----------
+            jsontable : dict or list
+                The dictionary or list to check for environment variables and path values. If it's a dictionary, it will check the values for environment variables. If it's a list, it will check the items in the list for environment variables.
+                
+        Returns
+        -------
+            None
+                This function modifies jsontable in place and does not return anything.
         """
         for key in jsontable:
             if type(jsontable) == dict:
@@ -220,14 +359,33 @@ class JsonDict(object):
                     jsontable[1] = self.network + value
 
     def write(self, path, name=None, value=None):
-        """Write path to the dictionary in my class ProjectSetup.
+        """
+        Write path to the dictionary in my class ProjectSetup.
 
         Path must be a string like 'instruments.smu'
         normaly append this path to result
         if path start with setup than write to setup.path
 
-        e.q. write('instruments.smu', 'port', 'pxie5')
+        eg. write('instruments.smu', 'port', 'pxie5')
              write('setup.HostName', os.environ.get('COMPUTERNAME'))
+             
+        Parameters
+        ----------
+            path : str
+                The dot-separated path indicating where to write the value in the dictionary. 
+                For example, 'instruments.smu' would indicate that the value should be written to the 'smu' dictionary within the 'instruments' dictionary.
+            name : str, optional
+                The key name to use when writing the value. If None, the value will be appended to the list at the specified path. 
+                If provided, the value will be written as a dictionary with 'name' as the key and 'value' as the value.
+            value : any, optional
+                The value to write to the dictionary at the specified path. 
+                This can be of any type depending on the structure of the dictionary and the intended use. 
+                If 'name' is provided, this value will be associated with 'name' in a new dictionary; if 'name' is None, this value will be appended directly to the list at the specified path.
+                
+        Returns
+        -------
+            None
+                This function modifies the dictionary in place and does not return anything.
         """
         path = path.split(".")
         lastindex = "result"
@@ -259,9 +417,25 @@ class JsonDict(object):
             mydic += [{name: value}]
 
     def runmacro(self, cmdlist, **kwargs):
-        """Execute commands in the cmdlist.
+        """
+        Execute commands in the cmdlist.
+        
+        eg. If cmdlist is ['instruments.smu.port'], this function will attempt to access the 'port' attribute of the 'smu' dictionary within the 'instruments' dictionary, and return its value.
 
-        kwargs: 'wr2setup' : write result to the setup.result json file.
+        Parameters
+        ----------
+            cmdlist : list
+                A list of commands to execute. Each command is a string that represents a path to access within the dictionary. 
+                For example, 'instruments.smu.port' would indicate that the function should access the 'port' attribute of the 'smu' dictionary within the 'instruments' dictionary.
+            **kwargs : dict
+                Optional keyword arguments for macro execution. 
+                If 'output' is set to 'wr2setup', the result of the macro execution will be written to the setup.result json file.
+                
+        Returns
+        -------
+            result : any
+                The result of the macro execution, which can be of any type depending on the macro's functionality. 
+                If the macro is not defined, a warning message is printed and None is returned.
         """
         wr2setup = False
         if "output" in kwargs:
@@ -287,7 +461,7 @@ class JsonDict(object):
         return result
 
     def _write(self):
-        """Write the dictionary to the logfile."""
+        """ Write the dictionary to the logfile. """
         # self.__dict__.pop('init')
         with open(self._RESULT, "w") as outfile:
             outfile.write("{")
@@ -301,9 +475,23 @@ class JsonDict(object):
         print(f"write results to {self._RESULT}")
 
     def jsondump(self, file, dictionary, ident=4):
-        """Dump the dictionary to json-format.
-
-        you can also use json.dump but I think this generated output-format is better for easy reading
+        """
+        Dump the dictionary to json-format.
+        You can also use json.dump but I think this generated output-format is better for easy reading.
+        
+        Parameters
+        ----------
+            file : file object
+                The file object to which the dictionary will be written in json format.
+            dictionary : dict or list
+                The dictionary or list to be written in json format.
+            ident : int, optional
+                The indentation level for formatting the json output. Defaults to 4.
+                
+        Returns
+        -------
+            None
+                This function writes the dictionary to the specified file in json format and does not return anything.
         """
 
         def space(ident, lenght=2):

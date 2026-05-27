@@ -7,41 +7,41 @@ Create interactive widgets from an svg image.
 @author: jung
 
 This lib is based on the following information or other libs:
-   - https://pypi.org/project/svgelements/  for calculation from the transformation matrix
-   - animated svg graphics:  https://funprojects.blog/2021/12/07/animated-svg-graphics-in-python/
-      -> principle adopted for changing text
-   - selectable image: https://stackoverflow.com/questions/59090988/clickable-svg-image-to-run-method
-      - image is not adjusted to the size of the window
-      - not applicable to items within an image, because transform from parent missing
-   - https://forum.qt.io/topic/109025/updating-qgraphicseffect-for-qgraphicssvgitem/6
+    - https://pypi.org/project/svgelements/  for calculation from the transformation matrix
+    - animated svg graphics:  https://funprojects.blog/2021/12/07/animated-svg-graphics-in-python/
+        -> principle adopted for changing text
+    - selectable image: https://stackoverflow.com/questions/59090988/clickable-svg-image-to-run-method
+        - image is not adjusted to the size of the window
+        - not applicable to items within an image, because transform from parent missing
+    - https://forum.qt.io/topic/109025/updating-qgraphicseffect-for-qgraphicssvgitem/6
 
-   - QtWidgets.QGraphicsView
-       https://doc.qt.io/qt-5/qgraphicsview.html
+    - QtWidgets.QGraphicsView
+        https://doc.qt.io/qt-5/qgraphicsview.html
 
 
 What is available for reading, writing, manipulating from svg-files:
-   - svgelements https://github.com/meerk40t/svgelements      -> this lib is used in this class
-      - more robust as svg.path, include other elements like points, matrix, color
-   - SVG manipulation within a GUI https://github.com/MoplusplusApp/Moplusplus
-   - https://doc.qt.io/qtforpython/overviews/graphicsview.html
-   - svglib
-      - only reading SVG files and converting them (to a reasonable degree) to other formats using the ReportLab Open Source toolkit.
-   - CairoSVG  https://cairosvg.org/
-      - convert to png, pdf, ps and svg
-   - svg.path
-      - svg.path is a collection of objects that implement the different path commands in SVG, and a parser for SVG path definitions.
-   - drawSvg
-      - A Python 3 library for programmatically generating SVG images (vector drawings) and rendering them or displaying them in a Jupyter notebook.
-   - svgutils  https://svgutils.readthedocs.io/en/latest/transform.html
-      - basic svg transformations
+    - svgelements https://github.com/meerk40t/svgelements      -> this lib is used in this class
+        - more robust as svg.path, include other elements like points, matrix, color
+    - SVG manipulation within a GUI https://github.com/MoplusplusApp/Moplusplus
+    - https://doc.qt.io/qtforpython/overviews/graphicsview.html
+    - svglib
+        - only reading SVG files and converting them (to a reasonable degree) to other formats using the ReportLab Open Source toolkit.
+    - CairoSVG  https://cairosvg.org/
+        - convert to png, pdf, ps and svg
+    - svg.path
+        - svg.path is a collection of objects that implement the different path commands in SVG, and a parser for SVG path definitions.
+    - drawSvg
+        - A Python 3 library for programmatically generating SVG images (vector drawings) and rendering them or displaying them in a Jupyter notebook.
+    - svgutils  https://svgutils.readthedocs.io/en/latest/transform.html
+        - basic svg transformations
 
 
-TODO: - si units missing
-      - min,max values for the QDoubleSpinBox
-      - show combobox for string values
+TODO:   
+    - si units missing
+    - min,max values for the QDoubleSpinBox
+    - show combobox for string values
 
-      - mouse bewegungen abfangen und setToolTip anzeigen
-
+    - mouse bewegungen abfangen und setToolTip anzeigen
 """
 
 from lxml import etree
@@ -52,12 +52,25 @@ from qtpy.QtCore import Signal
 
 
 class SvgItem(QGraphicsSvgItem):
-    """ """
+    """ SvgItem is a QGraphicsSvgItem with some additional functions for interactivity. """
 
     clickBox = Signal(str, QtCore.QPoint)
     clickHelpBox = Signal(str, QtCore.QPoint)
 
     def __init__(self, id, renderer, parent=None, element=None):
+        """ Constructor for the SvgItem.
+        
+        Parameters
+        ----------
+            id : string
+                id from the svg element.
+            renderer : QSvgRenderer
+                The SVG renderer to use for this item.
+            parent : TYPE, optional
+                The parent item. The default is None.
+            element : TYPE, optional
+                The SVG element associated with this item. The default is None.
+        """
         super().__init__(parent)
         self.id = id
         self.setSharedRenderer(renderer)  # necessary for setting lifetime
@@ -76,13 +89,12 @@ class SvgItem(QGraphicsSvgItem):
 
         Parameters
         ----------
-        event : 'QtWidgets.QGraphicsSceneMouseEvent'
-            DESCRIPTION.
+            event : 'QtWidgets.QGraphicsSceneMouseEvent'
+                    The mouse event that triggered the function.
 
         Returns
         -------
-        None.
-
+            None.
         """
         x = event.pos().x()
         y = event.pos().y()
@@ -107,16 +119,16 @@ class SvgItem(QGraphicsSvgItem):
 
         Parameters
         ----------
-        painter : TYPE
-            DESCRIPTION.
-        option : TYPE
-            DESCRIPTION.
-        widget : TYPE, optional
-            DESCRIPTION. The default is None.
+            painter : QPainter
+                The painter to use for drawing the item.
+            option : QStyleOptionGraphicsItem
+                The style options for the item.
+            widget : QWidget, optional
+                The widget that is being painted on. The default is None.
 
         Returns
         -------
-        None.
+            None.
 
         """
         #  set a graphics colorize effect when item is selected, and disable the effect when deselected
@@ -136,25 +148,22 @@ class SvgItem(QGraphicsSvgItem):
 
         Parameters
         ----------
-        obj : TYPE
-            DESCRIPTION.
-        event : TYPE
-            DESCRIPTION.
+            obj : QObject
+                The object that is being filtered.
+            event : QEvent
+                The event that is being filtered.
 
         Returns
         -------
-        TYPE
-            DESCRIPTION.
-
+            bool
+                True if the event should be filtered out, False otherwise.
         """
         print(event.type())
         return super(QGraphicsSvgItem, self).eventFilter(obj, event)
 
 
 class SvgIaViewer(QtWidgets.QGraphicsView):
-    """
-    SVG interactive Viewer
-    """
+    """ SVG Interactive Viewer """
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -168,13 +177,12 @@ class SvgIaViewer(QtWidgets.QGraphicsView):
 
         Parameters
         ----------
-        filename : TYPE
-            DESCRIPTION.
+            filename : string
+                The path to the SVG file to be rendered.
 
         Returns
         -------
-        None.
-
+            None.
         """
         self.resetTransform()
         self._scene.clear()
@@ -190,7 +198,7 @@ class SvgIaViewer(QtWidgets.QGraphicsView):
         self._scene.addItem(self.mainSvg)
 
     def updateSvg(self):
-        """Update the rendering from the svg."""
+        """ Update the rendering from the svg. This is necessary after changing the svg-tree, otherwise the changes aren't visible. """
         update = etree.tostring(self.root, xml_declaration=True)
         self._renderer.load(update)
         self.mainSvg.setElementId("")  # force repainting
@@ -203,13 +211,15 @@ class SvgIaViewer(QtWidgets.QGraphicsView):
 
         Parameters
         ----------
-        searchid : TYPE
-            id from the text svg-field.
+            searchid : string
+                The id from the element, which is searched for.
+            element : <Element> from etree
+                The element, which is searched for. This is necessary, because not all elements have an id, so the element must be given directly.
 
         Returns
         -------
-        list
-            x,y position and widht/height from the retangle.
+            list
+                x,y position and widht/height from the retangle.
         """
         bmatrix = None
         box = None
@@ -247,14 +257,13 @@ class SvgIaViewer(QtWidgets.QGraphicsView):
 
         Parameters
         ----------
-        element : TYPE
-            DESCRIPTION.
+        element : <Element> from etree
+            The element, which is searched for the id.
 
         Returns
         -------
-        result : string
-            the id from the element.
-
+            result : string
+                The id from the element.
         """
         try:
             result = element.attrib["id"]
@@ -268,15 +277,15 @@ class SvgIaViewer(QtWidgets.QGraphicsView):
 
         Parameters
         ----------
-        color : string
-            color which is used.
-        tlen :
-            minimum text length
+            color : string
+                Color which is used.
+            tlen : int
+                Minimum text length
 
         Returns
         -------
-           result list
-
+           result : dict
+                A dictionary with the text as key and the element, the get/set attribute and the type as value.
         """
         color = color.upper()
         result = {}
@@ -296,13 +305,13 @@ class SvgIaViewer(QtWidgets.QGraphicsView):
 
         Parameters
         ----------
-        tlen :
-            minimum text length
+            tlen : int
+                Minimum text length
 
         Returns
         -------
-           result list
-
+           result : list
+                A list with the colors.
         """
         result = []
         for element in self.root.iter("*"):
@@ -318,7 +327,6 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
     Interactive SVG Widget.
 
     Make a svg image interactive. You can set values and replace elements inside the svg-image.
-
     """
 
     editWidth = 60
@@ -327,6 +335,15 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
     changedId = Signal(str, str)
 
     def __init__(self, svgfilename, firstname=""):
+        """ Constructor for the InteractiveSvgWidget.
+        
+        Parameters
+        ----------
+            svgfilename : string
+                The path to the SVG file to be rendered.
+            firstname : string, optional
+                The name of the widget, which is used for the signal. The default is "".
+        """
         super().__init__()
         self.viewer = SvgIaViewer(self)
         self.firstname = firstname
@@ -347,10 +364,22 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
         self.edit.abort = False
 
     def loadSvg(self, filename, svgtxt=None):
-        """Load the svg-file and parse it.
+        """
+        Load the svg-file and parse it.
 
-        if svgtxt != None, then return with the parent from this element.
-        else with the etree.
+        Parameters
+        ----------
+            filename : string
+                The path to the SVG file to be loaded.
+            svgtxt : string, optional
+                The text to search for in the SVG elements. If None, the entire SVG is returned.
+
+        Returns
+        -------
+            svg : etree.ElementTree
+                The parsed SVG file.
+            element : etree.Element, optional
+                The parent element of the found text. Returned if svgtxt is provided and found.
         """
         svg = etree.parse(filename)
         if svgtxt is None:
@@ -370,15 +399,14 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
 
         Parameters
         ----------
-        name : string
-            name from an svg-element.
-        replace : <Element> from etree
-            DESCRIPTION.
+            name : string
+                The name of the element to be replaced.
+            replace : etree.Element
+                The element to replace with.
 
         Returns
         -------
-        None.
-
+            None.
         """
         child = self._getGrandChildElement(self.elements[name][0].getparent(), "d")
         child.attrib["d"] = self._getGrandChildElement(replace, "d").attrib["d"]
@@ -390,14 +418,15 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
 
         Parameters
         ----------
-        element : <element> from a etree.
-        attrib : string
-            name from the attribute.
+            element : etree.Element
+                The element to search for the grandchild with the attribute.
+            attrib : string
+                The name of the attribute to search for.
 
         Returns
         -------
-        the grandchild with the attribute.
-
+            result : etree.Element
+                The grandchild element with the specified attribute, or None if not found.
         """
         result = None
         for child in element.getchildren():
@@ -408,7 +437,18 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
         return result
 
     def setTextColor(self, color):
-        """Fill the dictionary 'self.elements' with all Text elements with this color, listen to getattribute."""
+        """
+        Fill the dictionary 'self.elements' with all Text elements with this color, listen to getattribute.
+
+        Parameters
+        ----------
+            color : string
+                The color to filter the text elements.
+
+        Returns
+        -------
+            None.
+        """
         self.elements.update(self.viewer.getAllTxtwColor(color))
 
     def setAllsvgElementsWTxt(self, svgtxt):
@@ -417,29 +457,42 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
 
         Parameters
         ----------
-        svgid : string
+            svgtxt : string
+                The text to search for in the SVG elements.
 
         Returns
         -------
-        result : list
-            return a list with the elements.
-
+            result : list
+                Return a list with the elements.
         """
         for element in self.viewer.root.iter("*"):
             if element.text is not None and element.text.find(svgtxt) == 0:
                 self.elements[element.text] = element, None, "element"
 
     def setclickableText(self):
-        """Make  'self.elements' with the attribute 'text' clickable, now the element listen to setattr."""
+        """ Make 'self.elements' with the attribute 'text' clickable, now the element listen to setattr. """
         for name in self.elements:
             if self.elements[name][2] == "text" and self.elements[name][1] == "get":
                 self.viewer.setBox(name, self.elements[name][0])
                 self.elements[name] = self.elements[name][0], "set", "text"
 
     def setElementSvg(self, name=None, *files):
-        """Set all 'self.elements' with the attribute 'element'==None to get(=listen to getattr).
+        """
+        Set all 'self.elements' with the attribute 'element'==None to get(=listen to getattr).
 
         Load all files and search for the parent with the name.
+        
+        Parameters
+        ----------
+            name : string, optional
+                The text to search for in the SVG elements. If None, the first element with the attribute 'element'==None is used. 
+                The default is None.
+            *files : string
+                The paths to the SVG files to be loaded and used for replacement.
+                
+        Returns
+        -------
+            None.
         """
         mySvg = []
         for file in files:
@@ -450,7 +503,7 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
                 self.elements[ename] = self.elements[ename][0], "get", "element", mySvg, 0
 
     def setclickableElement(self):
-        """Make all 'self.elements' with the attribute 'element' clickable, now the element listen to setattr."""
+        """ Make all 'self.elements' with the attribute 'element' clickable, now the element listen to setattr. """
         box = None
         for name in self.elements:
             if self.elements[name][2] == "element" and self.elements[name][1] == "get":
@@ -486,15 +539,14 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
 
         Parameters
         ----------
-        tid : strig
-            Text id.
-        text: string
-            new text string
+            tid : string
+                Text id.
+            text: string
+                New text string
 
         Returns
         -------
-        None.
-
+            None.
         """
         element = self.elements[tid][0]
         if self.elements[tid][2] == 'text':
@@ -510,13 +562,13 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
 
         Parameters
         ----------
-        tlen :
-            minimum text length
+            tlen : int
+                Minimum text length
 
         Returns
         -------
-           result list
-
+            result : list
+                A list of colors from all text elements with a length from minimum tlen.
         """
         result = []
         for element in self.viewer.root.iter("*"):
@@ -528,6 +580,19 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
 
     @QtCore.pyqtSlot(str, QtCore.QPoint)
     def _clickBox(self, tid, viewpoint):
+        """ Click on the box with the text 'tid' and show the edit field. 
+        
+        Parameters
+        ----------
+            tid : string
+                Text id.
+            viewpoint : QPoint
+                The position of the mouse click in global coordinates.
+                
+        Returns
+        -------
+            None.
+        """
         if tid is None:
             self._editfinish()
         typ = self.elements[tid][2]
@@ -555,6 +620,19 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
 
     @QtCore.pyqtSlot(str, QtCore.QPoint)
     def _clickHelpBox(self, tid, viewpoint):
+        """ Click on the help box with the text 'tid' and show the tooltip. 
+        
+        Parameters
+        ----------
+            tid : string
+                Text id.
+            viewpoint : QPoint
+                The position of the mouse click in global coordinates.
+                
+        Returns
+        -------
+            None.
+        """
         # ToDo: create a QLabel and show it
         element = self.elements[tid][0]
         msg = f"{element.text}:  This could be a Tip\n With some information about the using\n      :-)"
@@ -562,6 +640,7 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
         self.setToolTip(msg)
 
     def _editfinish(self):
+        """ Finish the editing of the text and set the new value. """
         if self.edit.abort:
             self.edit.abort = False
             return
@@ -577,6 +656,15 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
         """Overwrite the resizeEvent from QWidget.
 
         This isn't running correctl, it must be improved.
+        
+        Parameters
+        ----------
+            newSize : QResizeEvent
+                The new size of the widget after resizing.
+                
+        Returns
+        -------
+            None.
         """
         self.edit.hide()
         if newSize.oldSize().width() < 0:
@@ -588,7 +676,18 @@ class InteractiveSvgWidget(QtWidgets.QWidget):
         super().resizeEvent(newSize)
 
     def keyPressEvent(self, event):
-        """Escape close the edit-field and refuse the value."""
+        """
+        Escape close the edit-field and refuse the value.
+
+        Parameters
+        ----------
+            event : QKeyEvent
+                The key event that triggered this method.
+
+        Returns
+        -------
+            None.
+        """
         if event.key() == QtCore.Qt.Key_Escape:
             self.edit.abort = True
             self.edit.hide()

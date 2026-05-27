@@ -1,3 +1,9 @@
+"""Interface to the Oscilloscopes NI PXIe-51xx (e.q. 5122)
+
+:Date: |today|
+:Author: Semi-ATE <info@Semi-ATE.org>
+
+"""
 import os
 from pylab_ml.collate_instrument import Interface
 from pylab_ml.base_instrument import InvalidInstrumentConnection
@@ -9,61 +15,60 @@ import hightime
 
 
 class PXIe51xx(NatInst):
-    """Interface to the Oscilloscopes NI PXIe-51xx (e.q. 5122)
+    """
+    Interface to the Oscilloscopes NI PXIe-51xx (e.q. 5122)
 
-    until now only initialisation on poor basic functions
-     for more function see: https://nimi-python.readthedocs.io/en/master/niscope.html
-         call with:   scope.inst.thefunctionname
+    Until now only initialisation on poor basic functions
+    For more function see: https://nimi-python.readthedocs.io/en/master/niscope.html
+        call with:   scope.inst.thefunctionname
 
     Initialization arguments:
-       addr
-           name from the PXI-Slot e.q. PXI1Slot4
-       instName
-           instance Name from top
+        addr
+            Name from the PXI-Slot e.q. PXI1Slot4
+        instName
+            Instance Name from top
 
     Example: Initialization
-       >>> scope = PXIe4138('PXI1Slot4',instName='scope')   # connect and initialize instrument
+        >>> scope = PXIe4138('PXI1Slot4',instName='scope')   # connect and initialize instrument
 
-       >>> scope.trig_channel = 1
-       >>> scope.trig_level = 1.5
-       >>> scope.trig_slope = "POS"
-       >>> scope.trig_mode = "norm"
+        >>> scope.trig_channel = 1
+        >>> scope.trig_level = 1.5
+        >>> scope.trig_slope = "POS"
+        >>> scope.trig_mode = "norm"
 
-       >>> scope.tdiv = 1e-3
-       >>> scope.tdelay = -3e-3
+        >>> scope.tdiv = 1e-3
+        >>> scope.tdelay = -3e-3
 
-       >>> scope.channel = 1
-       >>> scope.trace = True
-       >>> scope.vdiv = 1.0
-       >>> scope.offs = 0
+        >>> scope.channel = 1
+        >>> scope.trace = True
+        >>> scope.vdiv = 1.0
+        >>> scope.offs = 0
 
     Methods:
         reset()           reset
         identify()        instrument message, reflect address & interfade
         message("")       instrument message ("string") or ()
         close()           terminate interface
-      missing:  get_waveform(n)   get waveform data from channel n
-      missing:  trig_oneshot(t)   single measurement trigger to waveform or timeout after t s
+        missing:  get_waveform(n)   get waveform data from channel n
+        missing:  trig_oneshot(t)   single measurement trigger to waveform or timeout after t s
 
     Properties:
-     missing:   memsize
+        missing:   memsize
 
-     missing:   tdiv
-     missing:   tdelay
-     missing:   trig_mode
-     missing:   trig_channel
+        missing:   tdiv
+        missing:   tdelay
+        missing:   trig_mode
+        missing:   trig_channel
 
-     missing:   channel
-     missing:   trace
-     missing:   vdiv
-     missing:   offs
-     missing:   waveform
+        missing:   channel
+        missing:   trace
+        missing:   vdiv
+        missing:   offs
+        missing:   waveform
 
-    for more properties or functios see:    https://nimi-python.readthedocs.io/en/master/niscope.html
+    For more properties or functios see:    https://nimi-python.readthedocs.io/en/master/niscope.html
         scope.inst.functionname
-
     """
-
     try:
         import niscope
 
@@ -112,6 +117,18 @@ class PXIe51xx(NatInst):
     interchoices = [Interface.pxie]
 
     def __init__(self, addr=None, identify=False, instName=None):
+        """ 
+        Initialize the instrument and connect to it.
+        
+        Parameters
+        ----------
+            addr : str
+                Name from the PXI-Slot e.q. PXI1Slot4
+            identify : bool
+                If True, the instrument will be identified during initialization. Default is False.
+            instName : str
+                Instance Name from top
+        """
         if not self.has_scope:
             msg = "\nPXIe50xx not usable!! missing nidscope\n"
             msg = msg + "for installing niscope:\n"
@@ -145,30 +162,30 @@ class PXIe51xx(NatInst):
             self.channel = channels[0]
 
     def measure(self, channel=[0, 1], num_of_record=1, start_record=0, num_of_samples=None, offset=0):
-        """Start to fetch data from the Scope.
+        """
+        Start to fetch data from the Scope.
 
         Parameters
         ----------
-        channel : TYPE, (list or int)
-            DESCRIPTION. The default is [0, 1] to measure from both the channels. Can also give '0' or '1' to measure from separate channel.
-        num_of_record : TYPE, int
-            DESCRIPTION. The default is 1. Number of records to fetch. Use -1 to fetch all configured records.
-        start_record : TYPE, int
-            DESCRIPTION. The default is 0. Zero-based index of the first record to fetch.
-        num_of_samples : TYPE, int
-            DESCRIPTION. The default is None. The maximum number of samples to fetch for each waveform.
-            If the acquisition finishes with fewer points than requested, some devices return partial data if the acquisition finished, was aborted.
-            If it fails to complete within the timeout period, the method raises.
-        offset : TYPE, int
-            DESCRIPTION. The default is 0. Offset in samples to start fetching data within each record. The offset can be positive or negative.
+            channel : TYPE, (list or int)
+                DESCRIPTION. The default is [0, 1] to measure from both the channels. Can also give '0' or '1' to measure from separate channel.
+            num_of_record : TYPE, int
+                DESCRIPTION. The default is 1. Number of records to fetch. Use -1 to fetch all configured records.
+            start_record : TYPE, int
+                DESCRIPTION. The default is 0. Zero-based index of the first record to fetch.
+            num_of_samples : TYPE, int
+                DESCRIPTION. The default is None. The maximum number of samples to fetch for each waveform.
+                If the acquisition finishes with fewer points than requested, some devices return partial data if the acquisition finished, was aborted.
+                If it fails to complete within the timeout period, the method raises.
+            offset : TYPE, int
+                DESCRIPTION. The default is 0. Offset in samples to start fetching data within each record. The offset can be positive or negative.
 
         Returns
         -------
-        x : list
-            Contains list of Time values.
-        y : list
-            Contains list of Voltage values.
-
+            x : list
+                Contains list of Time values.
+            y : list
+                Contains list of Voltage values.
         """
         if isinstance(channel, list):
             channel_map = map(str, channel)
@@ -209,19 +226,19 @@ class PXIe51xx(NatInst):
         return x, y
 
     def plot_scope_data(self, time, voltage):
-        """Plot graph between Time and Voltage.
+        """
+        Plot graph between Time and Voltage.
 
         Parameters
         ----------
-        time : list
-            Input a list of Time values for x-axis.
-        voltage : list
-            Input a list of Voltage values for y-axis.
+            time : list
+                Input a list of Time values for x-axis.
+            voltage : list
+                Input a list of Voltage values for y-axis.
 
         Returns
         -------
-        None.
-
+            None.
         """
         if any(isinstance(i, list) for i in voltage):
             plt.figure(figsize=(6.4, 4.8), dpi=300)
@@ -243,10 +260,12 @@ class PXIe51xx(NatInst):
             plt.show()
 
     def reset(self):
+        """ Reset the instrument to its default state. This method will clear all settings and configurations, returning the instrument to its factory defaults."""
         super().reset()
 
 
 class PXIe5114(PXIe51xx):
+    """ Interface to the Oscilloscopes NI PXIe-51xx (e.q. 5114) """
 
     _properties = {
         "sampleRate": ("min_sample_rate", [200_000_000, 200_000_000], None),
@@ -275,6 +294,18 @@ class PXIe5114(PXIe51xx):
     }
 
     def __init__(self, addr=None, identify=False, instName=None):
+        """ 
+        Initialize the instrument and connect to it.
+        
+        Parameters
+        ----------
+            addr : str
+                Name from the PXI-Slot e.q. PXI1Slot4
+            identify : bool
+                If True, the instrument will be identified during initialization. Default is False.
+            instName : str
+                Instance Name from top
+        """
         if not self.has_scope:
             msg = "\nPXIe51xx not usable!! missing nidscope\n"
             msg = msg + "for installing niscope:\n"
@@ -290,6 +321,7 @@ class PXIe5114(PXIe51xx):
 
 
 class PXIe5122(PXIe51xx):
+    """ Interface to the Oscilloscopes NI PXIe-51xx (e.q. 5122) """
 
     _properties = {
         "sampleRate": ("min_sample_rate", [100_000_000, 100_000_000], None),
@@ -318,6 +350,18 @@ class PXIe5122(PXIe51xx):
     }
 
     def __init__(self, addr=None, identify=False, instName=None):
+        """
+        Initialize the instrument and connect to it.
+        
+        Parameters
+        ----------
+            addr : str
+                Name from the PXI-Slot e.q. PXI1Slot4
+            identify : bool
+                If True, the instrument will be identified during initialization. Default is False.
+            instName : str
+                Instance Name from top
+        """
         if not self.has_scope:
             msg = "\nPXIe51xx not usable!! missing nidscope\n"
             msg = msg + "for installing niscope:\n"
@@ -333,6 +377,7 @@ class PXIe5122(PXIe51xx):
 
 
 class PXIe5172(PXIe51xx):
+    """ Interface to the Oscilloscopes NI PXIe-5172 """
 
     _properties = {
         "sampleRate": ("min_sample_rate", [250_000_000, 250_000_000], None),
@@ -361,6 +406,18 @@ class PXIe5172(PXIe51xx):
     }
 
     def __init__(self, addr=None, identify=False, instName=None):
+        """ 
+        Initialize the instrument and connect to it.
+        
+        Parameters
+        ----------
+            addr : str
+                Name from the PXI-Slot e.q. PXI1Slot4
+            identify : bool
+                If True, the instrument will be identified during initialization. Default is False.
+            instName : str
+                Instance Name from top
+        """
         if not self.has_scope:
             msg = "\nPXIe51xx not usable!! missing nidscope\n"
             msg = msg + "for installing niscope:\n"
@@ -376,97 +433,118 @@ class PXIe5172(PXIe51xx):
 
 
 class TestClass(unittest.TestCase):
+    """ Test Class for PXIe51xx Oscilloscope Interface """
+
     def test_probeAttenuation(self):
+        """ Test the probe attenuation property of the scope. """
         scope.probeAttenuation = 10.0
         self.assertEqual(scope.probeAttenuation, 10.0)
         scope.probeAttenuation = 101.0
         self.assertNotEqual(scope.probeAttenuation, 101.0)
 
     def test_couplings(self):
+        """ Test the coupling property of the scope. """
         scope.couplings = "DC"
         self.assertEqual(scope.couplings, scope.niscope.VerticalCoupling.DC)
 
     def test_onoff(self):
+        """ Test the on/off state of the scope channels. """
         scope.onoff = "on"
         self.assertTrue(scope.inst.channel_enabled)
         scope[2].onoff = False
         self.assertFalse(scope.inst.channels[1].channel_enabled)
 
     def test_sampleRate(self):
+        """ Test the sample rate property of the scope. """
         scope.sampleRate = 1_000_000
         self.assertEqual(scope.sampleRate, 1000000)
 
     def test_numberOfRecords(self):
+        """ Test the number of records property of the scope. """
         scope.numberOfRecords = 10
         self.assertEqual(scope.numberOfRecords, 10)
         scope.numberOfRecords = 100000
         self.assertEqual(scope.numberOfRecords, 100000)
 
     def test_numberOfPoints(self):
+        """ Test the number of points property of the scope. """
         scope.numberOfPoints = 100_000
         self.assertEqual(scope.numberOfPoints, 100000)
         scope.numberOfPoints = 100_000_000
         self.assertNotEqual(scope.numberOfPoints, 100000000)
 
     def test_referencePosition(self):
+        """ Test the reference position property of the scope. """
         scope.referencePosition = 10
         self.assertEqual(scope.referencePosition, 10)
         scope.referencePosition = 101
         self.assertNotEqual(scope.referencePosition, 101)
 
     def test_enforceRealtime(self):
+        """ Test the enforce realtime property of the scope. """
         scope.enforceRealtime = "off"
         self.assertFalse(scope.inst.horz_enforce_realtime)
 
     def test_triggerType(self):
+        """ Test the trigger type property of the scope. """
         scope.triggerType = "DIGITAL"
         self.assertEqual(scope.triggerType, scope.niscope.TriggerType.DIGITAL)
 
     def test_triggerSource(self):
+        """ Test the trigger source property of the scope. """
         scope.triggerSource = "CH3"
         self.assertEqual(scope.triggerSource, str("CH3"))
 
     def test_triggerHysteresis(self):
+        """ Test the trigger hysteresis property of the scope. """
         scope.triggerHysteresis = 10
         self.assertEqual(scope.triggerHysteresis, 10)
         scope.triggerHysteresis = 101
         self.assertNotEqual(scope.triggerHysteresis, 101)
 
     def test_triggerLevel(self):
+        """ Test the trigger level property of the scope. """
         scope.triggerLevel = 10
         self.assertEqual(scope.triggerLevel, 10)
         scope.triggerLevel = 101
         self.assertNotEqual(scope.triggerLevel, 101)
 
     def test_triggerDelay(self):
+        """ Test the trigger delay property of the scope. """
         scope.triggerDelay = 50
         self.assertEqual(scope.triggerDelay, 50)
         scope.triggerDelay = 172
         self.assertNotEqual(scope.triggerDelay, 172)
 
     def test_triggerHoldoff(self):
+        """ Test the trigger holdoff property of the scope. """
         scope.triggerHoldoff = 75
         self.assertEqual(scope.triggerHoldoff, 75)
         scope.triggerHoldoff = 172
         self.assertNotEqual(scope.triggerHoldoff, 172)
 
     def test_triggerSlope(self):
+        """ Test the trigger slope property of the scope. """
         scope.triggerSlope = "FALLING"
         self.assertEqual(scope.triggerSlope, scope.niscope.TriggerSlope.FALLING)
 
     def test_triggerCoupling(self):
+        """ Test the trigger coupling property of the scope. """
         scope.triggerCoupling = "HF_REJECT"
         self.assertEqual(scope.triggerCoupling, scope.niscope.TriggerCoupling.HF_REJECT)
 
     def test_terminals(self):
+        """ Test the terminals property of the scope. """
         scope.terminals = "SINGLE_ENDED"
         self.assertEqual(scope.terminals, scope.niscope.TerminalConfiguration.SINGLE_ENDED)
 
     def test_bandwidth(self):
+        """ Test the bandwidth property of the scope. """
         scope.bandwidth = "20MHz"
         self.assertEqual(scope.bandwidth, str("20MHz"))
 
     def test_range(self):
+        """ Test the range property of the scope. """
         scope.range = 20
         self.assertEqual(scope.range, 20)
         scope.range = 25
@@ -475,6 +553,7 @@ class TestClass(unittest.TestCase):
         self.assertNotEqual(scope.range, 50)
 
     def test_offset(self):
+        """ Test the offset property of the scope. """
         scope.offset = 15
         self.assertEqual(scope.offset, 15)
         scope.offset = 50

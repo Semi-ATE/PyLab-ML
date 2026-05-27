@@ -1,8 +1,8 @@
 """
-projectsetup.
+This script contains the class ProjectSetup for the setup of your project.
+It is used to read the setup-file tb_projectsetup.json and create the setup-dictionary with all values in self.init
 
 Created on Thu Jan  7 17:18:03 2021
-
 """
 import os
 import sys
@@ -27,15 +27,29 @@ mylogger = None
 
 
 class JsonDecoder(json.JSONDecoder):
+    """ JsonDecoder for the setup-file, to decode special formats like hexnumbers and arange-functions. """
 
     def decode(self, obj):
+        """
+        Decode the json-file and check for special formats like hexnumbers and arange-functions.
+        
+        Parameters
+        ----------
+            obj : str
+                The json-string to decode.
+            
+        Returns
+        -------
+            dict
+                The decoded json-string as dictionary.
+        """
         # TODO: implementend parser for hexnumbers and other special formats....
         # or better use YAML-files.....
         return json.JSONDecoder.decode(self, obj)
 
 
 class diclist(list):
-    """Dictionary list."""
+    """ Class for a list of dictionaries, which is used to create the setup-dictionary from the setup-file. """
 
     def __init__(*args, **kwargs):
         global myparent
@@ -46,19 +60,66 @@ class diclist(list):
         list.__init__(*args, **kwargs)
 
     def __getattr__(mylist, key):
+        """ 
+        Get the value(s) from the key found in mylist.
+        
+        Parameters
+        ----------
+            mylist : list
+                The list of dictionaries to search for the key.
+            key : str
+                The key to search for in the list of dictionaries.
+                
+        Returns
+        -------
+            value(s) : any
+                The value(s) associated with the key found in the list of dictionaries, or None if the key is not found.
+        """
         if key in mylist:
             list.__getattribute__(mylist, key)
         else:
             return diclist.values(mylist, key)
 
     def keys(mylist):
+        """
+        Get the keys from the list of dictionaries.
+        
+        eg. mylist = [{'voltage': 0}, {'i_clamp': 0.2}] --> return ['voltage', 'i_clamp']
+            mylist = [{'smu': [{'voltage': 0}, {'i_clamp': 0.2}]}] --> return ['smu']
+        
+        Parameters
+        ----------
+            mylist : list
+                The list of dictionaries to get the keys from.
+                
+        Returns
+        -------
+            result : list
+                A list of keys found in the list of dictionaries.
+        """
         result = []
         for item in mylist:
             result.append(list(item.keys())[0])
         return result
 
     def values(mylist, key=None):
-        """Get the value(s) from the key found in mylist.
+        """
+        Get the value(s) from the key found in mylist.
+        
+        eg. mylist = [{'voltage': 0}, {'i_clamp': 0.2}] --> values(mylist, 'voltage') return 0
+            mylist = [{'smu': [{'voltage': 0}, {'i_clamp': 0.2}]}] --> values(mylist, 'smu') return [{'voltage': 0}, {'i_clamp': 0.2}]
+
+        Parameters
+        ----------
+            mylist : list
+                The list of dictionaries to search for the key.
+            key : str, optional
+                The key to search for in the list of dictionaries. If None, all values are returned.
+
+        Returns
+        -------
+            value(s) : any
+                The value(s) associated with the key found in the list of dictionaries, or None if the key is not found.
         """
         result = None
         if key is not None and key in diclist.keys(mylist):
@@ -80,7 +141,20 @@ class diclist(list):
         return result
 
     def run(mylist, **kwargs):
-        """Call the runmacro from the parent.
+        """
+        Call the runmacro from the parent.
+        
+        Parameters
+        ----------
+            mylist : list
+                The list of dictionaries to run the macro from.
+            **kwargs : dict
+                Additional keyword arguments to pass to the runmacro function.
+                
+        Returns
+        -------
+            result : any
+                The result of the runmacro function, or None if the macro could not be run.
         """
         result = None
         if myparent is not None and hasattr(myparent, 'runmacro'):
@@ -92,20 +166,89 @@ class diclist(list):
 
 
 class setupstr(str):
+    """ Class for a string with special formats, which is used to create the setup-dictionary from the setup-file. """
+    
     def arange(items):
+        """ 
+        Get a list of values from the arange-function found in the string.
+        
+        eg. items = '0:10:1' --> return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            items = '0:1:0.2' --> return [0, 0.2, 0.4, 0.6, 0.8]
+        
+        Parameters
+        ----------
+            items : str
+                The string containing the arange-function to parse.
+                
+        Returns
+        -------
+            list
+                A list of values generated from the arange-function found in the string, or None if the string does not contain a valid arange-function.
+        """
         return (common.arange(items))
 
     def start(items):
+        """
+        Get the first value from the arange-function found in the string.
+        
+        eg. items = '0:10:1' --> return 0
+            items = '0:1:0.2' --> return 0
+            
+        Parameters
+        ----------
+            items : str
+                The string containing the arange-function to parse.
+                
+        Returns
+        -------
+            value : any
+                The first value generated from the arange-function found in the string, or None if the string does not contain a valid arange-function.
+        """
         return (common.arange(items)[0])
 
     def end(items):
+        """
+        Get the last value from the arange-function found in the string.
+        
+        eg. items = '0:10:1' --> return 9
+            items = '0:1:0.2' --> return 0.8
+            
+        Parameters
+        ----------
+            items : str
+                The string containing the arange-function to parse.
+                
+        Returns
+        -------
+            value : any
+                The last value generated from the arange-function found in the string, or None if the string does not contain a valid arange-function.
+        """
         return (common.arange(items)[-1])
 
 
 class dotdict(dict):
-    """dot.notation access to dictionary attributes."""
+    """ dot.notation access to dictionary attributes. Used to create the setup-dictionary from the setup-file. """
 
     def myget(keyname, value):
+        """ 
+        Get the value from the dictionary using dot notation.
+        
+        eg. mydict = dotdict({'instruments': {'smu': [{'voltage': 0}, {'i_clamp': 0.2}]}}) --> mydict.instruments.smu return [{'voltage': 0}, {'i_clamp': 0.2}]
+            mydict.myget('instruments.smu.voltage', None) return 0
+            mydict.myget('instruments.smu.i_clamp', None) return 0.2
+        
+        Parameters
+        ----------
+            keyname : str
+                The key name to access in the dictionary using dot notation.
+            value : str
+                The value associated with the key name to access in the dictionary.
+                
+        Returns
+        -------
+            result : any
+                The value associated with the key name accessed in the dictionary, or None if the key name is not found.
+        """
         result = dict.get(keyname, value)
         if value not in ['size', 'shape']:
             myparent.mylastdotdic = value
@@ -124,22 +267,19 @@ class ProjectSetup(object):
     """
     Class for the Setup from your project.
 
-    read the tb_projectsetup.json file in the directory ..../projec/version/workarea/..../harness
-
-    and create instance slicing
-    with init.'yourpath'  you have access to the initialisation setup, which is defined in the tb_projectsetup.json
+    Read the tb_projectsetup.json file in the directory ..../project/version/workarea/..../harness
+    and create instance slicing with init.'yourpath' you have access to the initialisation setup, which is defined in the tb_projectsetup.json
 
     Example:
        "instruments": {
           "smu" : [
               {"voltage": 0},
               {"i_clamp": 0.2}
-              ]
+            ]
         }
     ==> create dictionary self.init.instruments.smu = [{'voltage': 0}, {'i_clamp': 0.2}]
 
     TODO: possibility to overwrite the values in tb_projectsetup.json with the file in tb_ate/src/'Hardware'/'Base'/tb_projectsetup.json
-
     """
 
     _RESULT = 'result_projectsetup.json'
@@ -150,10 +290,8 @@ class ProjectSetup(object):
         """
         Initialise and save setup configuration to the setup-dictionary.
 
-        read the setup-file tb_projectsetup.json
-          and create all values in self.init.......
-
-        Args: None
+        Read the setup-file tb_projectsetup.json
+        and create all values in self.init with the values from the setup-file.
 
         *Examples:*
            * Initialization
@@ -163,6 +301,13 @@ class ProjectSetup(object):
               >>> tcc.setup.append('instruments.matrix', 'port', 'pxie6')
               >>> tcc.setup.append('instruments.smu', 'voltage', 5)
               >>> tcc.setup.append('instruments.smu', 'limit', 0.1)
+              
+        Parameters
+        ----------
+            logger : Logger, optional
+                The logger to use for logging messages. If None, a default logger will be used.
+            filename : str, optional
+                The filename of the setup file to read. If None, the default filename 'tb_projectsetup.json' will be used.
         """
         global mylogger
         self.main_path = str(Path(sys.modules['__main__'].__file__).parent) + os.sep
@@ -182,7 +327,21 @@ class ProjectSetup(object):
             self.apply_configuration({'filename': filename})
 
     def create_dotdic(self, dic, root=None):
-        """Make from a dictionary a dot-dictionary with diclist."""
+        """
+        Make from a dictionary a dot-dictionary with diclist. 
+        
+        Parameters
+        ----------
+            dic : dict
+                The dictionary to convert to a dot-dictionary.
+            root : dotdict, optional
+                The root dot-dictionary to use for the conversion. If None, a new dot-dictionary will be created.
+                
+        Returns
+        -------
+            dotdict
+                The converted dot-dictionary.
+        """
         for mydic in dic.keys():
             if type(dic[mydic]) is dict:
                 if root is not None:
@@ -195,10 +354,18 @@ class ProjectSetup(object):
         return dotdict(dic)
 
     def initialization(self, parent=None):
-        """Set the instruments with the specified instname to its setup values in self.init.instruments.
-
-        and save information (if instname exist!) from the instruments to result.instruments:
-            - used class, version, id
+        """
+        Set the instruments with the specified instname to its setup values in self.init.instruments.
+        Save information (if instname exist!) from the instruments to result.instruments
+        
+        Parameters
+        ----------
+            parent : object, optional
+                The parent object containing the instruments to initialize. If None, the parent will be set to self.
+                
+        Returns
+        -------
+            None
         """
         self.parent = parent
         if not self.running:
@@ -228,6 +395,23 @@ class ProjectSetup(object):
         self.logger.log_message(LogLevel.Info(), f"{self.__class__}.init: set instruments to its setup values, defined in {self.setup.Setupfile}")
 
     def init_instrument(self, parent, instrument, items):
+        """
+        Initialise the instrument with the specified instname to its setup values in self.init.instruments.
+        Save information (if instname exist!) from the instrument to result.instruments
+        
+        Parameters
+        ----------
+            parent : object
+                The parent object containing the instrument to initialize.
+            instrument : str
+                The name of the instrument to initialize.
+            items : dotdict
+                The setup values for the instrument.
+                
+        Returns
+        -------
+            None
+        """
         if type(items) is dotdict and list(items.keys())[0] == self._MYCLASS:
             for myclass in items[self._MYCLASS]:
                 if hasattr(parent, instrument) and myclass == getattr(parent, instrument).__class__.__name__:
@@ -288,9 +472,17 @@ class ProjectSetup(object):
         """
         Check if jsontable has environment-variables starts with $, or jsontable has path-value.
 
-        if yes than replace environment-variables with its value,
-        if it a path-value than add //samba
-
+        If yes than replace environment-variables with its value,
+        Else if it is a path-value than add "//samba" to the path if it is not already there and if the OS is windows.
+        
+        Parameters
+        ----------
+            jsontable : dict or list
+                The json table to check for environment variables and path values.
+                
+        Returns
+        -------
+            None
         """
         for key in jsontable:
             if type(jsontable) is dict:
@@ -322,14 +514,28 @@ class ProjectSetup(object):
                     jsontable[1] = self.network + value
 
     def write(self, path, name=None, value=None):
-        """Write path to the dictionary in my class ProjectSetup.
+        """
+        Write path to the dictionary in my class ProjectSetup.
 
         Path must be a string like 'instruments.smu'
         normaly append this path to result
         if path start with setup than write to setup.path
 
-        e.q. write('instruments.smu', 'port', 'pxie5')
-             write('setup.HostName', os.environ.get('COMPUTERNAME'))
+        eg. write('instruments.smu', 'port', 'pxie5')
+            write('setup.HostName', os.environ.get('COMPUTERNAME'))
+            
+        Parameters
+        ----------
+            path : str
+                The path to write the value to, in the format 'key1.key2.key3'.
+            name : str, optional
+                The name of the value to write. If None, the value will be appended to the list at the specified path.
+            value : any, optional
+                The value to write to the specified path. If None, the value will be appended to the list at the specified path.
+                
+        Returns
+        -------
+            None
         """
         path = path.split('.')
         lastindex = 'result'
@@ -361,6 +567,7 @@ class ProjectSetup(object):
             mydic += [{name: value}]
 
     def _configsave2setup(self):
+        """ Save configuration to the setup-dictionary. """
         self.setup.Date = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
         self.setup.Timestamp = time.time()
         self.setup.PROJECT = os.environ.get('PROJECT')
@@ -374,9 +581,21 @@ class ProjectSetup(object):
         # self.setup.python = check_output('python -V', shell=True)[:-2].decode('utf-8')
 
     def runmacro(self, cmdlist, **kwargs):
-        """Execute commands in the cmdlist.
-
-        kwargs: 'wr2setup' : write result to the setup.result json file.
+        """ 
+        Call the macro from the parent with the command list cmdlist.
+        
+        Parameters
+        ----------
+            cmdlist : list
+                The list of commands to execute in the macro.
+            **kwargs : dict
+                Additional keyword arguments to pass to the macro. 
+                If 'output' is set to 'wr2setup', the results of the commands will be written to the setup-dictionary.
+                
+        Returns
+        -------
+            result : any
+                The result of the macro execution, which can be a single value or a list of values depending on the number of commands executed.
         """
         wr2setup = False
         if 'output' in kwargs:
@@ -401,6 +620,24 @@ class ProjectSetup(object):
         return result
 
     def call(self, mycmd, value=None, senderror=True):              # TODO! : replace call with common.strcall()
+        """
+        Call the command from the parent with the command string mycmd.
+        
+        Parameters
+        ----------
+            mycmd : str or list
+                The command string or list of command strings to execute. If a string is provided, it will be split by commas to create a list of commands.
+            value : any, optional
+                The value to pass to the command, if applicable.
+            senderror : bool, optional
+                Whether to send an error message if the command is not found. Default is True.
+                
+        Returns
+        -------
+            result : any
+                The result of the command execution, which can be a single value or a list of values depending on the number of commands executed. 
+                If a command is not found and senderror is True, an error message will be logged and None will be returned for that command.
+        """
         if type(mycmd) is str:
             mycmd = mycmd.split(',')
         result = []
@@ -464,23 +701,36 @@ class ProjectSetup(object):
         return result
 
     def regDump(self, liste='default', invert=False, output=None, bwidth=16):
-        """Read values from Register and return with a list of their values.
+        """
+        Read values from Register and return with a list of their values.
 
         Parameters
         ----------
-           liste :
-              * 'default' :  if define setup.reg.nodump -> read register without the registers which are defined in setup.reg.nodump
-                             if define setup.reg.dump   -> read register which are defined in setup.reg.dump
-              * 'all'     :  read all register
-              *  type(liste) == list : use liste as a list
+            liste :
+                * 'default' :  if define setup.reg.nodump -> read register without the registers which are defined in setup.reg.nodump
+                                if define setup.reg.dump   -> read register which are defined in setup.reg.dump
+                * 'all'     :  read all register
+                *  type(liste) == list : use liste as a list
 
-           invert :
-              * True : use reg that are not in the list
-              * False : use reg that are in the list
+            invert :
+                * True : use reg that are not in the list
+                * False : use reg that are in the list
 
-           output :
-              = None       : return with a list of all registers (or adresses) and their values
-              = 'wr2setup' : write return with a list of all registers and their values to setup.result.regs.regDump
+            output :
+                = None       : return with a list of all registers (or adresses) and their values
+                = 'wr2setup' : write return with a list of all registers and their values to setup.result.regs.regDump
+                
+            bwidth :
+                = 16 : bitwidth of the register, used to calculate the width of the value in hexnumbers, default is 16 bit (2 byte)
+                
+        Returns
+        -------
+            error : int
+                The number of errors that occurred while reading the registers. An error is counted if a register value is less than 0.
+            memdump : list
+                A list of the values read from the registers.
+            allregs : list
+                A list of all registers (or addresses) and their values, formatted as [['0xaddr', '0xvalue'], ...].
         """
         knownParameter = [None, 'wr2setup']
         if output not in knownParameter:
@@ -558,18 +808,24 @@ class ProjectSetup(object):
         return error, memdump, allregs
 
     def regDumpSave2DUT(self, mode='default', compare='cache'):
-        """Write the register with values to the device.
+        """
+        Write the register with values to the device.
 
         Parameters
         ----------
-           mode :
-              * 'default'  use the values from parent.setup.result.regs.dump
-              * type(mode) == list : use mode as a list  (not yet implemented)
+            mode :
+                * 'default'  use the values from parent.setup.result.regs.dump
+                * type(mode) == list : use mode as a list  (not yet implemented)
 
-           compare :
-              * 'cache' : compare with the Register cache value and write if orginal different from last cache value (faster as to read the register value)
-              * True : write only if value different from actual values
-              * False : write always
+            compare :
+                * 'cache' : compare with the Register cache value and write if orginal different from last cache value (faster as to read the register value)
+                * True : write only if value different from actual values
+                * False : write always
+                
+        Returns
+        -------
+            error : int
+                The number of errors that occurred while writing the registers. An error is counted if a register value could not be written successfully.
         """
         result = 0
         start = False
@@ -619,13 +875,9 @@ class ProjectSetup(object):
         return result
 
     def close(self):
-        """Write EEPROM/NVRAM with the rescue values and close all instruments.
-
+        """
+        Write EEPROM/NVRAM with the rescue values and close all instruments.
         Close all instruments and write the dictionary to the log-file.
-
-        Returns
-        -------
-        None.
         """
         if not self.running:        # nothing to do, already closed
             return
@@ -640,7 +892,7 @@ class ProjectSetup(object):
         self.logger.log_message(LogLevel.Info(), "setup closed")
 
     def _write(self):
-        """Write the dictionary to the logfile."""
+        """ Write the dictionary to the logfile. """
         # self.__dict__.pop('init')
         with open(os.getenv('PROJECT_PATH') + "output" + os.sep + self._RESULT, 'w') as outfile:
             outfile.write('{')
@@ -652,10 +904,23 @@ class ProjectSetup(object):
         self.logger.log_message(LogLevel.Info(), f'write results to {self._RESULT}')
 
     def jsondump(self, file, dictionary, ident=4):
-        '''dump the dictionary to json-format
-
-        you can also use json.dump but I think this generated output-format is better for easy reading
-        '''
+        """
+        Dump the dictionary to json-format
+        One can also use json.dump but, this generated output-format is better for easy reading
+        
+        Parameters
+        ----------
+            file : file object
+                The file object to write the json output to.
+            dictionary : dict or str
+                The dictionary to dump in json format, or a string key to access a dictionary in self.__dict__.
+            ident : int, optional
+                The indentation level for the json output. Default is 4.
+                
+        Returns
+        -------
+            None
+        """
         def space(ident, lenght=2):
             if lenght < 2 and ident > 4:
                 return
@@ -725,16 +990,30 @@ class ProjectSetup(object):
         return f"{self.__class__}"
 
     def set_configuration_values(self, data):
-        """Only empty dummy function."""
+        """ This is a dummy function and should be implemented by the user if needed. """
         self.logger.log_message(LogLevel.Warning(), 'Semi-ATE Labor.ProjectSetup: set_configuration_values only dummy function..................')
         pass
 
     def do_fetch(self, idnr):
+        """ This is a dummy function and should be implemented by the user if needed. """
         if idnr != 1:
             self.logger.log_message(LogLevel.Error(), f'The projectsetup modul supports only one id, but get id number={idnr}')
         pass
 
     def apply_configuration(self, data):
+        """ 
+        Apply the configuration from the data dictionary. 
+        This includes setting environment variables, replacing environment variables in the configuration, and loading the setup file.
+        
+        Parameters
+        ----------
+            data : dict
+                The configuration data to apply.
+        
+        Returns
+        -------
+            None
+        """
         if 'Network prefix' in data and data['Network prefix'] != '' and os.name == "nt":
             self.network = data['Network prefix']
             os.environ['NETWORK'] = self.network

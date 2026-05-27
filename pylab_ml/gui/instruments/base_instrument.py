@@ -58,20 +58,20 @@ def load_ui(window, my_uifile):
 
 
 class Gui(object):
-    """Base Class for Gui Applikations with an Sensor/Instrument
+    """
+    Base Class for Gui Applikations with an Sensor/Instrument
     Needs:
-       - mqtt-message from the parent
+        - mqtt-message from the parent
 
     Provides:
-       - basic-Window for Instruments
-       - receive and show mqtt_status in the statusbar
-       - subtopic
-       - function mqttConnectWidgets: if Objects-name or an svg-id start with MQTT than automatically
-         connect this object to gui2mqtt() and send the new value about mqtt
-         recognise QT-objects: QCombobox, QPushButton, QDoubleSpinBox, QSpinBox, QLCDNumber, QLabel
-       - if the Gui starts, it send the mqtt connect message
-         if the Gui receive a mqtt connect, it send the the mqtt get from the list self.mqtt_initlist + self.mqtt_cmds
-
+        - basic-Window for Instruments
+        - receive and show mqtt_status in the statusbar
+        - subtopic
+        - function mqttConnectWidgets: if Objects-name or an svg-id start with MQTT than automatically
+          connect this object to gui2mqtt() and send the new value about mqtt
+          recognise QT-objects: QCombobox, QPushButton, QDoubleSpinBox, QSpinBox, QLCDNumber, QLabel
+        - if the Gui starts, it send the mqtt connect message
+          if the Gui receive a mqtt connect, it send the the mqtt get from the list self.mqtt_initlist + self.mqtt_cmds
     """
 
     _states = {
@@ -89,6 +89,18 @@ class Gui(object):
     _tabPrefix = "TAB_"
 
     def __init__(self, grandparent=None, name=None, parentwindow=None):
+        """
+        Init the Gui, create a window and load the ui-file with the same name as the class.
+        
+        Parameters
+        ----------
+            grandparent : object, optional
+                The parent object that contains the MQTT client and other shared resources. The default is None.
+            name : string, optional
+                The name of the instrument, used for MQTT topics and window title. The default is None.
+            parentwindow : QtWidgets.QWidget, optional
+                The parent window for the GUI. The default is None.
+        """
         self.logger = mylogger() if not hasattr(grandparent, "logger") else grandparent.logger
         self.parentwindow = parentwindow if parentwindow is not None else grandparent
         self.debug = False
@@ -118,6 +130,7 @@ class Gui(object):
         # self.gui.myframe.setEnabled(True)
 
     def adjustUI(self):
+        """ Adjust the UI, set the title and icons and connect the quit action. """
         self.gui.setWindowTitle(f" {os.path.basename(__file__)}-Gui (Version {__version__})")
         self._translate = QtCore.QCoreApplication.translate
         # set icons:
@@ -136,7 +149,22 @@ class Gui(object):
         self.gui.runMenu = []
 
     def add_menue(self, menue, connect, enabled, checkable=False, checked=False):
-        """add a menue item to Setup"""
+        """
+        Add a menue item to Setup
+        
+        Parameters
+        ----------
+            menue : string
+                The text of the menu item.
+            connect : function
+                The function to be called when the menu item is triggered.
+            enabled : bool
+                Whether the menu item is enabled.
+            checkable : bool, optional
+                Whether the menu item is checkable. The default is False.
+            checked : bool, optional
+                Whether the menu item is checked. The default is False.
+        """
         action = QtWidgets.QAction(self.gui)
         action.setText(menue)
         action.triggered.connect(connect)
@@ -148,7 +176,15 @@ class Gui(object):
         return action
 
     def add_menuicon(self, typ, connect=None):
-        """add icon and action to the menu:
+        """
+        Add icon and action to the menu.
+
+        Parameters
+        ----------
+            typ : string
+                The type of the menu item.
+            connect : function, optional
+                The function to be called when the menu item is triggered. The default is None.W
 
         "onoff" : on/off
         """
@@ -166,6 +202,7 @@ class Gui(object):
             self.gui.runMenu[-1].setIcon(qta.icon("ei.remove", color="white", scale_factor=0.6))
 
     def retranslateUi(self, Form):
+        """ Retranslate the UI, set the text of the widgets. """
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.checkBox.setText(_translate("Form", "CheckBox"))
@@ -173,19 +210,20 @@ class Gui(object):
 
     def setLabel(self, Label, value, ext=None):
         """
+        Set the text of a label.
+        
         Parameters
         ----------
-        Label : object
-            the label object.
-        value : string
-            this text will be displayed.
-        ext : string, optional
-            extention,  The default is None.
+            Label : object
+                the label object.
+            value : string
+                this text will be displayed.
+            ext : string, optional
+                extention,  The default is None.
 
         Returns
         -------
-        None.
-
+            None.
         """
         text = Label.text()
         text = f"{text[:text.find(':')]}: {value}"
@@ -194,6 +232,14 @@ class Gui(object):
         Label.setText(text)
 
     def set_Geometry(self, geometry):
+        """
+        Set the geometry of the GUI, check if the geometry is on the actual screen.
+        
+        Parameters
+        ----------
+            geometry : tuple
+                A tuple of the form (x, y, width, height) representing the geometry of the GUI.
+        """
         found = False
         for i in range(0, QtWidgets.QDesktopWidget().screenCount()):
             screen = QtWidgets.QDesktopWidget().screenGeometry(i)
@@ -206,6 +252,7 @@ class Gui(object):
 
     @property
     def subtopic(self):
+        """ Return the subtopic of the instrument, which is the part after the topinstname. """
         return self._subtopic
 
     @subtopic.setter
@@ -217,6 +264,7 @@ class Gui(object):
         self._subtopic = [split[0]] if split[0] != self.topinstname else [split[1]]
 
     def filtersubtopic(self, value):
+        """ Filter the subtopic from the value, if the value starts with the topinstname. """
         return (
             value[value.find(self.topinstname) + len(self.topinstname) + 1:]
             if value.split(".")[0] == self.topinstname
@@ -224,6 +272,21 @@ class Gui(object):
         )
 
     def unitOfMeasurement(self, value, unit=None):
+        """
+        Convert a value with a unit to its numerical representation.
+        
+        Parameters
+        ----------
+            value : string
+                The value with a unit (e.g., "10 k").
+            unit : string, optional
+                The unit to use for conversion. If None, the unit is inferred from the value.
+
+        Returns
+        -------
+            float
+                The numerical representation of the value.
+        """
         split = value.split(" ")
         result = str2num(split[0])
         unit = split[1][0] if len(split) > 1 and unit is None else unit
@@ -241,12 +304,25 @@ class Gui(object):
         return result * mul
 
     def objectName2mqttName(self, name):
-        """filter from the object name the right mqtt name.
+        """
+        Filter from the object name the right MQTT name.
 
-        e.q. objectname = MQTT_voltage   -> voltage  listen on get and set
+        eg. objectname  = MQTT_voltage     -> Voltage listen on get and set
                         = MQTT_set_I_limit -> I_limit listen only on set
                         = MQTT_get_I_limit -> I_limit listen only on get
                         = TAB_ch           -> Name for a tab-name
+                        
+        Parameters
+        ----------
+            name : string
+                The object name to be filtered.
+                
+        Returns
+        -------
+            listen : string
+                The type of MQTT command to listen for ("set", "get", or "").
+            result : string
+                The filtered MQTT name extracted from the object name.
         """
         pos = name.find(self._mqttPrefix)
         listen = ""
@@ -272,7 +348,23 @@ class Gui(object):
     # =======================================================
     # attributes which connect to an extern call (mqtt-command)
     def mqttreceive(self, instName, msg, check=False):
-        """common mqtt receive messages, get raw mqtt-Data for receiving more information"""
+        """
+        Common MQTT receive messages, get raw MQTT data for receiving more information.
+        
+        Parameters
+        ----------
+            instName : string
+                The name of the instrument sending the MQTT message.
+            msg : dict
+                The MQTT message received, expected to have keys "cmd", "payload", and "type".
+            check : bool, optional
+                If True, only process the message if the command is in self.mqtt_cmds. The default is False.
+        
+        Returns
+        -------
+            result : bool
+                True if the message was processed successfully, False otherwise.
+        """    
         self.dprint(f'        {instName}.mqttreceive from base class:   search {msg["cmd"]}')
         result = False
         if "cmd" in tuple(msg.keys()) and "payload" in tuple(msg.keys()) and (msg["cmd"] in self.mqtt_cmds or not check):
@@ -350,6 +442,7 @@ class Gui(object):
 
     @property
     def id(self):
+        """ Return the id of the instrument, which is used for MQTT topics. """
         return self._id
 
     @id.setter
@@ -360,6 +453,7 @@ class Gui(object):
 
     @property
     def mqtt_status(self):
+        """ Return the MQTT status of the instrument, which is either "connect" or "disconnect". """
         self.dprint(f"   {self.instName}.mqtt_status == {self._mqtt_status}")
         msg = f"{self.instName}: {self._mqtt_status}"
         self.gui.myInstrument.setTitle(msg)
@@ -385,6 +479,7 @@ class Gui(object):
         self.gui.myInstrument.setTitle(msg)
 
     def gui_disconnect(self):
+        """ Disconnect the GUI, set the MQTT status to "disconnect" and disable the frame. """
         value = "disconnect"
         self.status = value
         self._mqtt_status = value
@@ -436,8 +531,21 @@ class Gui(object):
     def mqttConnectSVGWidget(self, filename, name, channel=None):
         """
         Create an InteractiveSvgWidget and load the filname.
-
         Connect all clicks to the text id's to the function svg2mqtt().
+        
+        Parameters
+        ----------
+            filename : string
+                The path to the SVG file to be loaded into the widget.
+            name : string
+                The base name for the widget, used for MQTT topic construction.
+            channel : string, optional
+                An optional channel identifier to be appended to the name for MQTT topic construction. The default is None.
+                
+        Returns
+        -------
+            svgWidget : InteractiveSvgWidget
+                The created InteractiveSvgWidget with the loaded SVG file and connected signals.
         """
         if not hasattr(self, "svgWidgets"):
             self.svgWidgets = {}
@@ -450,6 +558,7 @@ class Gui(object):
         return svgWidget
 
     def _onoff(self):
+        """ Toggle the on/off state of the instrument, send the corresponding MQTT command and update the menu icon and status. """
         if self._mqtt_status == "disconnect":
             return
         if self._onoff_ is None:
@@ -468,10 +577,12 @@ class Gui(object):
 
     @property
     def status(self):
+        """Return the current status message from the status bar."""
         return self.gui.statusbar.currentMessage()
 
     @status.setter
     def status(self, value):
+        """Set the status message and style in the status bar."""
         style = None
         msg = value
         if type(value) == tuple:
@@ -485,6 +596,18 @@ class Gui(object):
         self.gui.statusbar.showMessage(f"{msg}")
 
     def publish(self, cmd, value="", instName=None):
+        """
+        Publish a command and value over MQTT.
+        
+        Parameters
+        ----------
+            cmd : string
+                The command to be published.
+            value : string, optional
+                The value associated with the command. The default is an empty string.
+            instName : string, optional
+                The name of the instrument. If None, the instance's name is used. The default is None.
+        """
         instName = self.instName if instName is None else instName
         if hasattr(self.grandparent, "mqtt") and hasattr(self.grandparent.mqtt, "publish_set"):
             self.grandparent.mqtt.publish_set(instName, cmd, value)
@@ -492,7 +615,18 @@ class Gui(object):
             print(f"Error: {instName}.{cmd} := {value}   but no publish_set defined!")
 
     def gui2mqtt(self, widget):
-        """Function connect a Gui-widget to mqtt, it sends a mqtt set command with the value from the Gui-widget."""
+        """
+        Function connect a Gui-widget to mqtt, it sends a mqtt set command with the value from the Gui-widget.
+        
+        Parameters
+        ----------
+            widget : QtWidgets.QWidget
+                The GUI widget that triggered the MQTT command, expected to have an objectName that follows the
+                
+        Returns
+        -------
+            None.
+        """
         listen, name = self.objectName2mqttName(widget.objectName())
         name = widget.objectName() if name is None else name
         print(f"{self.instName}.gui2mqtt {name}")
@@ -513,28 +647,40 @@ class Gui(object):
             print(f"Warning: {self.instName}.gui2mqtt {name}  widget={type(widget)} not yet implemented -> improve it !!!!!!")
 
     def svg2mqtt(self, name, value):
-        """Publish the name and value over mqtt.
-
-        overwrite this function if you need a more complexer form.
+        """
+        Publish the name and value over mqtt.
+        Overwrite this function if you need a more complex form.
+        
+        Parameters
+        ----------
+        name : string
+            The name of the SVG element that was changed.
+        value : string
+            The new value of the SVG element.
         """
         self.publish(name, value)
 
     def isVisible(self):
+        """ Return whether the GUI is currently visible. """
         return self.gui.isVisible()
 
     def hide(self):
+        """ Hide the GUI. """
         self.gui.hide()
 
     def show(self):
+        """ Show the GUI. """
         self.gui.show()
 
     def close(self, event=None):
+        """ Close the GUI, publish a disconnect message and call the appclosed method of the grandparent if it exists. """
         self.publish("mqtt_status", "disconnect")
         if hasattr(self.grandparent, "appclosed"):
             self.grandparent.appclosed(self.instName)
         self.gui.close()
 
     def dprint(self, msg):
+        """ Print a debug message if debugging is enabled. """
         if self.debug:
             print(msg)
 

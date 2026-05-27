@@ -8,9 +8,7 @@ __email__ = "Zlin526F@github"
 
 
 class Functions():
-    """
-
-    """
+    """ This class defines the functions that will be used by the plugin. """
     INSTRUMENT_INIT_ALL = 'init_all'
     INSTRUMENT_INIT = 'init'
     USER_PATH = 'units/tcc/source/python/'
