@@ -6,6 +6,7 @@ Register Categories
 """
 
 __all__ = [
+            "iasvg",
+            "project_info",
+            "registermaster"
           ]
-
-

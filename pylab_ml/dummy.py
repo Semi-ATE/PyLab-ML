@@ -7,17 +7,28 @@ Basic Dummy class for instance.
 
 
 class Dummy(object):
-    """Dummy object  for an communication-instance .
+    """
+    Dummy object  for an communication-instance.
 
     :Date: |today|
     :Author: Semi-ATE <info@Semi-ATE.org>
 
     Usable if you have no real serial device, but you want avoid an Exception if you make access to this device
-
     """
-
+    
     def __init__(self, parent, logger, **kwargs):
-        """Initialise."""
+        """
+        Initialise the Dummy instance.
+
+        Parameters
+        ----------
+            parent : object
+                Parent object
+            logger : object
+                Logger instance
+            kwargs : dict
+                Additional keyword arguments
+        """
         self.parent = parent
         self.logger = logger
         # kwargs = {"addr": addr, "interface": interface, "backend": backend, "identify": identify, "instName": instName}
@@ -29,6 +40,19 @@ class Dummy(object):
         self.bytes_in_buffer = 0
 
     def query(self, cmd):
+        """
+        Query the Dummy instance.
+        
+        Parameters
+        ----------
+            cmd : str
+                Command to query
+        
+        Returns
+        -------
+            str or int
+                Response from the Dummy instance
+        """
         if cmd == '*IDN?':
             return f'{self.__class__}\r'
         cmd = cmd[:cmd.find('?')]
@@ -45,6 +69,14 @@ class Dummy(object):
         return value
 
     def write(self, cmd):
+        """
+        Write a command to the Dummy instance.
+
+        Parameters
+        ----------
+            cmd : str
+                Command to write
+        """
         self._lastcmd = cmd[:cmd.find('?')] if cmd.find('?') > -1 else ''
         cmd = cmd.split(' ')
         if len(cmd) > 1:
@@ -52,6 +84,14 @@ class Dummy(object):
         self.logger.debug(f'Dummy {self.parent.instName} write {cmd}')
 
     def read(self):
+        """
+        Read a value from the Dummy instance.
+
+        Returns
+        -------
+            value : str or int
+                Value read from the Dummy instance
+        """
         # value = 0xdeadbeef
         value = '-2'
         self.logger.debug(f'Dummy {self.parent.instName} read value')
@@ -61,6 +101,19 @@ class Dummy(object):
         pass
 
     def __getattribute__(self, name):
+        """ 
+        Get an attribute from the Dummy instance.
+        
+        Parameters
+        ----------
+            name : str
+                Name of the attribute
+        
+        Returns
+        -------
+            value : str or int
+                Value of the attribute
+        """
         try:
             value = super(__class__, self).__getattribute__(name)
         except Exception:
@@ -69,4 +122,5 @@ class Dummy(object):
         return value
 
     def close(self):
+        """Close the Dummy instance."""
         self.logger.debug(f'Dummy {self.parent.instName} close Dummy instance')

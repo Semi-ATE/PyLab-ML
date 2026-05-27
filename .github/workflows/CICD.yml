@@ -17,6 +17,7 @@ jobs:
       OS: 'linux'
       PYTHON_VERSION: ${{ matrix.PYTHON_VERSION }}
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+      
     strategy:
       fail-fast: false 
       matrix:
@@ -93,6 +94,7 @@ jobs:
         run: |
           pip install sphinx sphinx-rtd-theme myst-parser sphinx-markdown-tables
           pip install --upgrade myst-parser
+          pip install PyQt5 qdarkstyle lxml qtawesome
           pip install check-manifest
           pip install twine
           pip install -e .
@@ -105,6 +107,7 @@ jobs:
       - name: Build Sphinx
         run: |
             sphinx-build -b html docs/source/ docs/build/html
+            touch docs/build/html/.nojekyll
 
       - name: Fix output file permissions
         run: |
@@ -113,7 +116,7 @@ jobs:
       - name: Upload docs to Github artifact
         uses: actions/upload-artifact@v7
         with:
-          path: docs/build/html/*
+          path: docs/build/html/
           name: docs-output
 
       - name: Deploy preview

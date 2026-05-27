@@ -1,9 +1,7 @@
 # $Id$
 
+"""Keithley DMMs"""
 
-
-"""
-Kethley DMMs
-
-
-"""
+__all__ = [
+            "keithley2000",
+           ]

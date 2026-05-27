@@ -1,1 +1,5 @@
-"""National Instrumnets DMMs."""
+"""National Instruments DMMs."""
+
+__all__ = [
+            "pxie40xx",
+           ]

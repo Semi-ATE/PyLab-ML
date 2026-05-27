@@ -1,3 +1,7 @@
 """Lecroy Oscilloscopes."""
 
-__all__ = ["wavesurfer"]
+__all__ = [
+            "base_lecroy",
+            "vicp",
+            "wavesurfer"
+        ]

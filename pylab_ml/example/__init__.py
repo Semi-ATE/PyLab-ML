@@ -5,4 +5,6 @@ Example templates.
 
 """
 
-__all__ = ["eg"]
+__all__ = [
+            "eg"
+          ]

@@ -1,3 +1,9 @@
+"""
+This script contains the base classes for different types of instruments, such as LocalInstrument, PxieInstrument, NetworkInstrument, and GenericInstrument. 
+It also includes a TimeoutBudget class for managing timeouts across instrument transactions.
+The Instrument class is an abstract base class that provides a basic set of methods and properties to be overridden by actual instrument implementations.
+"""
+
 import sys
 import os
 try:
@@ -19,12 +25,33 @@ from pylab_ml.common.mqtt_client import mqtt_deviceattributes, mqtt_init
 
 
 def measure(self, message, *args, **kws):
+    """
+    Custom logging level for measurements. Logs messages at the MEASURE level (15) if the logger is configured to handle that level.
+    
+    Parameters
+    ----------
+        message : str
+            The message to be logged.
+        *args : tuple
+            Additional arguments to be passed to the logger.
+        **kws : dict
+            Additional keyword arguments to be passed to the logger.
+    """
     if self.isEnabledFor(MEASURE_LEVEL_NUM):
         # Yes, logger takes its '*args' as 'args'.
         self._log(MEASURE_LEVEL_NUM, message, args, **kws)
 
 
 def choicelogger():
+    """
+    Chooses the logger based on command line arguments. If '--labml' is found in the command line arguments, 
+    it uses the specified logger; otherwise, it defaults to a standard logger.
+    
+    Returns
+    -------
+        logging.Logger
+            The configured logger instance.
+    """
     for px in sys.argv:
         if px == '--labml':
             idx = sys.argv.index(px)
@@ -49,22 +76,24 @@ def createDummyifInvalid(val):
 
     Parameters
     ----------
-    val : bool
-        True/False(default)
+        val : bool
+            True/False(default)
 
     Returns
     -------
-    None.
+        None.
     """
     global _createDummyifInvalid
     _createDummyifInvalid = val
 
 
 def mqttclose():
+    """Close the MQTT client connection."""
     mqttc.close()
 
 
 def logsetup():
+    """Set up the logger with console and file handlers, and configure the logging level."""
     logger.setLevel(logging.DEBUG)
 
     # remove existing handlers
@@ -110,6 +139,10 @@ class InvalidInstrumentConnection(Exception):
 
 
 class LocalInstrument(object, metaclass=Singleton):
+    """
+    Class for local instruments that are connected via interfaces such as GPIB, USB, or serial. 
+    This class handles the initialization and communication with the instrument using the PyVISA library.
+    """
     has_visa = False
     try:
         import pyvisa
@@ -123,6 +156,16 @@ class LocalInstrument(object, metaclass=Singleton):
             self.check_group_dialout()
 
     def _init(self, instrument, identify=True):
+        """
+        Initialize the local instrument by searching for its address, setting up the resource manager, and opening the connection.
+        
+        Parameters
+        ----------
+            instrument : Instrument
+                The instrument object to be initialized.
+            identify : bool, optional
+                If True, the instrument will be identified after initialization (default is True).
+        """
         instrument.addr = self.search4vidpid(instrument.addr, instrument.backend)
         if instrument.init_implict or identify:
             instrument = instrument.collation.add(instrument)
@@ -209,6 +252,21 @@ class LocalInstrument(object, metaclass=Singleton):
                 instrument.mqtt_add(mqttc, instrument)
 
     def resource_id(self, interface, address):
+        """
+        Generate the resource ID for the instrument based on its interface and address.
+        
+        Parameters
+        ----------
+            interface : Interface
+                The interface type of the instrument (e.g., GPIB, USB, serial).
+            address : str or int
+                The address of the instrument.
+
+        Returns
+        -------
+            id_name : str
+                The resource ID string for the instrument.
+        """
         id_name = "UNDEFINED_INTERFACE"
         if os.sys.platform == 'win32':
             if interface == Interface.gpib and str(address).find('.') < -1:
@@ -231,6 +289,14 @@ class LocalInstrument(object, metaclass=Singleton):
         return id_name
 
     def check_group_dialout(self):
+        """
+        Check if the user is in the 'dialout' group on UNIX systems, which is required for accessing serial ports.
+        
+        Returns
+        -------
+            bool
+                True if the user is in the 'dialout' group or if the platform is Windows, False otherwise.
+        """
         if os.sys.platform == 'win32':
             return True
         if "dialout" not in [grp.getgrgid(g).gr_name for g in os.getgroups()]:
@@ -246,11 +312,13 @@ class LocalInstrument(object, metaclass=Singleton):
 #        dev = usb.core.find(backend=backend)
 
     def list_com(self):
+        """List all COM ports available on the system."""
         ports = list(list_ports.comports())
         for p, d, a in ports:
             print("{} {!r} {!r}".format(p, d, a))
 
     def list_usb_serial_ports(self):
+        """List all USB serial ports available on the system."""
         ports = list_ports.comports()
         for port in ports:
             print(port)
@@ -258,9 +326,18 @@ class LocalInstrument(object, metaclass=Singleton):
     def search4vidpid(self, addr, backend=None):
         """
         Search for VID:PID in the addr.
+        
+        Parameters
+        ----------
+            addr : str or int
+                The address of the device in the format 'VID:PID' (e.g., '16C0:0483').
+            backend : str, optional
+                The backend to use for the search.
 
-                addr = 'VID:PID'  e.q  addr = '16C0:0483'
-             return:  device name
+        Returns
+        -------
+            str or int
+                The device name or address if found, otherwise None.
         """
         if isinstance(addr, int) and os.sys.platform == 'win32':
             # return 'COM' + str(addr)
@@ -301,10 +378,12 @@ class LocalInstrument(object, metaclass=Singleton):
     def serial_list(self, backend=None):
         """
         List all devices from serial-port (USB-Ports).
-
-           backend = None
-                     or '@py'/'@ni', than also print ASRL::INSTR
-
+        
+        Parameters
+        ----------
+            backend : str, optional
+                The backend to use for the search. If None, the default backend is used.
+                Can be '@py' or '@ni' to also print ASRL::INSTR.
         """
         ports = list(list_ports.comports())
         dl = len("Port")
@@ -341,7 +420,19 @@ class LocalInstrument(object, metaclass=Singleton):
                 print('{!s:{dl}}   {!r:{ml}}   {!r:{il}}'.format(ports[i].device, ports[i].manufacturer, ports[i].usb_info(), dl=dl, ml=ml, il=il))
 
     def idtry(self, instrument):
-        """Attempt to fix VISA termination characters to Query IDN."""
+        """
+        Attempt to fix VISA termination characters to Query IDN.
+        
+        Parameters
+        ----------
+            instrument : Instrument
+                The instrument object for which to attempt the IDN query.
+                
+        Returns
+        -------
+            str
+                The IDN string returned by the instrument, with termination characters removed.
+        """
         import pyvisa.errors
         # budget.set_slack(self)
         try:
@@ -372,11 +463,25 @@ class LocalInstrument(object, metaclass=Singleton):
 
 
 class PxieInstrument(object, metaclass=Singleton):
+    """
+    Class for PXIe instruments that are connected via the NI-VISA backend. 
+    This class handles the initialization and communication with the instrument using the NI-VISA library.
+    """
 
     def __init__(self):
         logger.debug("Class {}".format(self.__class__.__name__))
 
     def _init(self, instrument, identify=True):
+        """
+        Initialize the PXIe instrument by searching for its address, setting up the resource manager, and opening the connection.
+        
+        Parameters
+        ----------
+            instrument : Instrument
+                The instrument object to initialize.
+            identify : bool, optional
+                Whether to identify the instrument during initialization. Default is True.
+        """
         if instrument.init_implict or identify:
             instrument = instrument.collation.add(instrument)
         else:
@@ -436,10 +541,25 @@ class PxieInstrument(object, metaclass=Singleton):
 
 
 class NetworkInstrument(object, metaclass=Singleton):
+    """
+    Class for network instruments that are connected via the TCP/IP interface. 
+    This class handles the initialization and communication with the instrument using the VICP protocol.
+    """
+    
     def __init__(self):
         logger.debug("Class {}".format(self.__class__.__name__))
 
     def _init(self, instrument, identify=True):
+        """
+        Initialize the network instrument by searching for its address, setting up the connection, and identifying the instrument.
+        
+        Parameters
+        ----------
+            instrument : Instrument
+                The instrument object to initialize.
+            identify : bool, optional
+                Whether to identify the instrument during initialization. Default is True.
+        """
         if instrument.init_implict or identify:
             if instrument.addr and not instrument.hostname:
                 instrument.hostname = instrument.addr
@@ -505,10 +625,22 @@ class NetworkInstrument(object, metaclass=Singleton):
 
 
 class GenericInstrument(object, metaclass=Singleton):
+    """Class for generic instruments that do not fit into the local, PXIe, or network categories."""
+    
     def __init__(self):
         logger.debug("Class {}".format(self.__class__.__name__))
 
     def _init(self, instrument, identify=True):
+        """
+        Initialize the generic instrument by checking for the create_session function, adding it to the collation, and setting up the connection.
+        
+        Parameters
+        ----------
+            instrument : Instrument
+                The instrument object to initialize.
+            identify : bool, optional
+                Whether to identify the instrument during initialization. Default is True.
+        """
         if not hasattr(instrument, "create_session"):
             logger.error("No 'create_session(instrument)' function defined in instrument {!r} instrument at {!r} to create interface inst of instrument".
                          format(instrument.__class__.__name__, instrument.addr))
@@ -569,7 +701,8 @@ class GenericInstrument(object, metaclass=Singleton):
 
 
 class TimeoutBudget(object, metaclass=Singleton):
-    """This TimeoutBudget class is a singleton to provide a shared budget object within each Instrument object.
+    """
+    This TimeoutBudget class is a singleton to provide a shared budget object within each Instrument object.
 
     Allowing each instrument transaction to accumulate timeout for their needs, which gradually bleeds away as time
     elapses
@@ -598,7 +731,19 @@ class TimeoutBudget(object, metaclass=Singleton):
         return (todo)
 
     def cut_slack(self, need):
-        """add needed delay to whats left of the accumulated timeout"""
+        """
+        Add needed delay to whats left of the accumulated timeout
+        
+        Parameters
+        ----------
+            need : float
+                The additional time in seconds to add to the accumulated timeout.
+                
+        Returns
+        -------
+            float
+                The total time in seconds to wait, which is the sum of the remaining slack time, the needed time, and the relaxation time.
+        """
         todo = self.slack()
         todo += need * self.scale + self.relax
         now = time.time()
@@ -606,7 +751,16 @@ class TimeoutBudget(object, metaclass=Singleton):
         return (todo)
 
     def set_slack(self, instrument, need=None):
-        """add needed delay to whats left of the accumulated timeout to given instrument.inst.timeout"""
+        """
+        Add needed delay to whats left of the accumulated timeout to given instrument.inst.timeout
+
+        Parameters
+        ----------
+            instrument : Instrument
+                The instrument object whose timeout will be adjusted.
+            need : float, optional
+                The additional time in seconds to add to the accumulated timeout. Default is 0.2 seconds.
+        """
         if need is None:
             # default time for mundane operations (could depend on instrument interface)
             need = 0.2
@@ -622,36 +776,37 @@ class TimeoutBudget(object, metaclass=Singleton):
 
 
 class Instrument(ABC, Ident, mqtt_deviceattributes):
-    """This is the abstract Instrument class.
+    """
+    This is the abstract Instrument class.
 
     It cannot be used directly but
     provides a basic set of methods & properties to override with actual instruments
 
     Initialization arguments of a derived class:
-        addr (int | str):
-                        interface address, hostname, ip-address, pxi-slot or other address required by interface
+        addr : int or str
+            Interface address, hostname, IP-address, PXI-slot or other address required by interface
 
-        interface (Interface):
-                        gpib, usbserial, tcpip, pxie, generic.
+        interface : Interface
+            GPIB, USBSerial, TCPIP, PXIe, Generic.
 
-        backend (str):
-                        backend could be path to a DLL, custom interface item or for
-                        pyvisa backend is either '@ivi' (or '@ni') for NI-Library or
-                        '@py' for pure python pyvisa-py backend.
-                        On default it uses '@ivi' (or '@ni') on win32 and '@py' on
-                        other platforms.
+        backend : str
+            Backend could be path to a DLL, custom interface item or for
+            PyVisa backend is either '@ivi' (or '@ni') for NI-Library or
+            '@py' for pure python pyvisa-py backend.
+            On default it uses '@ivi' (or '@ni') on win32 and '@py' on
+            other platforms.
 
-        hostname (str):
-                        optional interface hostname or ip-address required by interface, when not addr, for tcpip network instruments
+        hostname : str
+            Optional interface hostname or IP-address required by interface, when not addr, for TCPIP network instruments
 
-        port (int):
-                        optional interface port number, for tcpip network instruments
+        port : int
+            Optional interface port number, for TCPIP network instruments
 
-        instName (str):
-                        Instrument object name passed as string for later reference in messages to user
+        instName : str
+            Instrument object name passed as string for later reference in messages to user
 
-        debug (bool):
-                        debug information
+        debug : bool
+            Debug information
 
     Example: Initialization of a derived class
         >>> vdd = DerivedInstrument (addr=24)  # GPIB or USB address
@@ -659,35 +814,35 @@ class Instrument(ABC, Ident, mqtt_deviceattributes):
 
     Methods:
         init()
-            connect and initialize instrument if this method overidden, otherwise implicitly initialize instrument when this method not locally implemented
+            Connect and initialize instrument if this method overidden, otherwise implicitly initialize instrument when this method not locally implemented
         setup_inst()
-            post init method to override with specific instrument interface initialisation
+            Post init method to override with specific instrument interface initialisation
         reset()
-            abstract reset
+            Abstract reset
         identify()
-            instrument message, reflect address & interface - if message() implemented
+            Instrument message, reflect address & interface - if message() implemented
         message("")
-            abstract instrument message ("string") or ()
+            Abstract instrument message ("string") or ()
         close()
-            terminate interface
+            Terminate interface
         inst.write('*RST')
-            write directly to instrument, using underlying instruments command language
+            Write directly to instrument, using underlying instruments command language
         ask=inst.query(':READ?')
-            write and read the answer, using underlying instruments command language
+            Write and read the answer, using underlying instruments command language
 
     Properties:
         id
-            abstract get IDN string
+            Abstract get IDN string
 
     Objects:
         collation
-            a collate_instrument.CollateInstrument singleton cataloging instruments connected
+            A collate_instrument.CollateInstrument singleton cataloging instruments connected
         budget
-            a TimeoutBudget singleton to accumulate timeout across all instrument transactions
+            A TimeoutBudget singleton to accumulate timeout across all instrument transactions
         com
-            an instrument resource to generate interface instances, a singleton of LocalInstrument, PXIeInstrument, NetworkInstrument or GenericInstrument
+            An instrument resource to generate interface instances, a singleton of LocalInstrument, PXIeInstrument, NetworkInstrument or GenericInstrument
         inst
-            an instance of instrument interface once a connection session to instrument is successful, i.e. a visa object with write(),read(),query() API
+            An instance of instrument interface once a connection session to instrument is successful, i.e. a visa object with write(),read(),query() API
     """
 
     @property
@@ -810,6 +965,7 @@ class Instrument(ABC, Ident, mqtt_deviceattributes):
                args=', '.join(args))
 
     def help(self):
+        """Print the docstring of the instrument class."""
         print(self.__doc__)
 
     @abstractmethod
@@ -871,24 +1027,25 @@ class Instrument(ABC, Ident, mqtt_deviceattributes):
 
 
 class GeneralVisa (Instrument):
-    """Interface to any Visa Instrument.
+    """
+    Interface to any Visa Instrument.
 
     The GeneralVisa baseclass can connect to Visa usbserial & gpib instruments
     Very limited capabilities, but general purpose for low level access to inst
     Use this class to debug an instrument.inst, note  there is no init()
 
     Initialization arguments:
-        addr (int):
-                        interface address
+        addr : int or str
+            Interface address
 
-        interface (Interface):
-                        gpib, usbserial
+        interface : Interface
+            GPIB, USBSerial
 
-        backend (str):
-                        visa backend is either '@ivi' (or '@ni') for NI-Library or
-                        '@py' for pure python pyvisa-py backend.
-                        On default it uses '@ivi' (or '@ni') on win32 and '@py' on
-                        other platforms.
+        backend : str
+            VISA backend is either '@ivi' (or '@ni') for NI-Library or
+            '@py' for pure python pyvisa-py backend.
+            On default it uses '@ivi' (or '@ni') on win32 and '@py' on
+            other platforms.
 
     Example: Initialization
         >>> instrument = GeneralVisa(addr=24)       # GPIB or USB address
@@ -902,7 +1059,8 @@ class GeneralVisa (Instrument):
             write and read the answer
 
     Properties:
-        id          get IDN string
+        id          
+            Get IDN string
     """
 
     interchoices = [Interface.usbserial, Interface.gpib]
