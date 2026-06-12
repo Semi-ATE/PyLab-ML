@@ -1,0 +1,51 @@
+pylab\_ml.pollux.pollux.Pollux
+==============================
+
+.. currentmodule:: pylab_ml.pollux.pollux
+
+.. autoclass:: Pollux
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Pollux.__init__
+      ~Pollux.calibrate
+      ~Pollux.check_group_dialout
+      ~Pollux.connect
+      ~Pollux.disconnect
+      ~Pollux.idtry
+      ~Pollux.list_com
+      ~Pollux.list_usb_serial_ports
+      ~Pollux.maximum_limits
+      ~Pollux.resource_id
+      ~Pollux.search4vidpid
+      ~Pollux.serial_list
+      ~Pollux.set_limits
+      ~Pollux.status
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Pollux.ang
+      ~Pollux.has_visa
+      ~Pollux.interchoices
+      ~Pollux.pos_x
+      ~Pollux.pos_z
+      ~Pollux.speed_ang
+      ~Pollux.speed_x
+      ~Pollux.speed_z
+   
+   
