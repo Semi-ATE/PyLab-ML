@@ -17,6 +17,7 @@ __all__ = [
             "matrix",
             "misc",
             "plugins",
+            "pollux",
             "scope",
             "smu",
             "thermostreamer"
