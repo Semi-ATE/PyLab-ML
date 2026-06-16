@@ -17,6 +17,7 @@ pylab\_ml.pollux.pollux.Pollux
    .. autosummary::
    
       ~Pollux.__init__
+      ~Pollux.base_position
       ~Pollux.calibrate
       ~Pollux.check_group_dialout
       ~Pollux.connect

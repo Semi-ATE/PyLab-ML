@@ -402,6 +402,20 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;3 ncal&quot;</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="Pollux.base_position">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.pollux.pollux.Pollux.html#pylab_ml.pollux.pollux.Pollux.base_position">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">base_position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Set the base position for each axis of the Pollux controller. The base position is set to the following for each axis:</span>
+<span class="sd">            - X-axis        : 40mm</span>
+<span class="sd">            - Z-axis        : 100mm</span>
+<span class="sd">            - Angular axis  : 0 degrees</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;40.0 1 nm&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;100.0 2 nm&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;0.0 3 nm&quot;</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="Pollux.maximum_limits">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.pollux.pollux.Pollux.html#pylab_ml.pollux.pollux.Pollux.maximum_limits">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">maximum_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

@@ -213,46 +213,49 @@ then calibrate the device and set the limits for each axis.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.__init__" title="pylab_ml.pollux.pollux.Pollux.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([addr, instName])</p></td>
 <td><p>Initialize the Pollux controller instance and connect to the device, then calibrate the device and set the limits for each axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.calibrate" title="pylab_ml.pollux.pollux.Pollux.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.base_position" title="pylab_ml.pollux.pollux.Pollux.base_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">base_position</span></code></a>()</p></td>
+<td><p>Set the base position for each axis of the Pollux controller. The base position is set to the following for each axis:</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.calibrate" title="pylab_ml.pollux.pollux.Pollux.calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibrate</span></code></a>()</p></td>
 <td><p>Calibrate each axis of the Pollux controller to determine the origin (lower limit).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.check_group_dialout" title="pylab_ml.pollux.pollux.Pollux.check_group_dialout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_group_dialout</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.check_group_dialout" title="pylab_ml.pollux.pollux.Pollux.check_group_dialout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_group_dialout</span></code></a>()</p></td>
 <td><p>Check if the user is in the 'dialout' group on UNIX systems, which is required for accessing serial ports.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.connect" title="pylab_ml.pollux.pollux.Pollux.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.connect" title="pylab_ml.pollux.pollux.Pollux.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>()</p></td>
 <td><p>Connect to the Pollux controller using NI-VISA settings that match LabVIEW's configuration.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.disconnect" title="pylab_ml.pollux.pollux.Pollux.disconnect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disconnect</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.disconnect" title="pylab_ml.pollux.pollux.Pollux.disconnect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disconnect</span></code></a>()</p></td>
 <td><p>Disconnect from the Pollux controller and close the VISA resource.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.idtry" title="pylab_ml.pollux.pollux.Pollux.idtry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idtry</span></code></a>(instrument)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.idtry" title="pylab_ml.pollux.pollux.Pollux.idtry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idtry</span></code></a>(instrument)</p></td>
 <td><p>Attempt to fix VISA termination characters to Query IDN.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.list_com" title="pylab_ml.pollux.pollux.Pollux.list_com"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_com</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.list_com" title="pylab_ml.pollux.pollux.Pollux.list_com"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_com</span></code></a>()</p></td>
 <td><p>List all COM ports available on the system.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.list_usb_serial_ports" title="pylab_ml.pollux.pollux.Pollux.list_usb_serial_ports"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_usb_serial_ports</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.list_usb_serial_ports" title="pylab_ml.pollux.pollux.Pollux.list_usb_serial_ports"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_usb_serial_ports</span></code></a>()</p></td>
 <td><p>List all USB serial ports available on the system.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.maximum_limits" title="pylab_ml.pollux.pollux.Pollux.maximum_limits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maximum_limits</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.maximum_limits" title="pylab_ml.pollux.pollux.Pollux.maximum_limits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maximum_limits</span></code></a>()</p></td>
 <td><p>Determine the maximum limits for each axis of the Pollux controller.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.resource_id" title="pylab_ml.pollux.pollux.Pollux.resource_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resource_id</span></code></a>(interface, address)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.resource_id" title="pylab_ml.pollux.pollux.Pollux.resource_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resource_id</span></code></a>(interface, address)</p></td>
 <td><p>Generate the resource ID for the instrument based on its interface and address.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.search4vidpid" title="pylab_ml.pollux.pollux.Pollux.search4vidpid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">search4vidpid</span></code></a>(addr[, backend])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.search4vidpid" title="pylab_ml.pollux.pollux.Pollux.search4vidpid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">search4vidpid</span></code></a>(addr[, backend])</p></td>
 <td><p>Search for VID:PID in the addr.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.serial_list" title="pylab_ml.pollux.pollux.Pollux.serial_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serial_list</span></code></a>([backend])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.serial_list" title="pylab_ml.pollux.pollux.Pollux.serial_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serial_list</span></code></a>([backend])</p></td>
 <td><p>List all devices from serial-port (USB-Ports).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.set_limits" title="pylab_ml.pollux.pollux.Pollux.set_limits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_limits</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.set_limits" title="pylab_ml.pollux.pollux.Pollux.set_limits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_limits</span></code></a>()</p></td>
 <td><p>Set the maximum limits for each axis of the Pollux controller. The limits are set to the following for each axis:     - X-axis        : 60mm     - Z-axis        : 100mm     - Angular axis  : 354 degrees.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.status" title="pylab_ml.pollux.pollux.Pollux.status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">status</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.status" title="pylab_ml.pollux.pollux.Pollux.status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">status</span></code></a>()</p></td>
 <td><p>Check the status of each axis (X, Z, Angular) and return True if all are ready, otherwise return False and log the reasons for each axis that is not ready.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.stop" title="pylab_ml.pollux.pollux.Pollux.stop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.pollux.pollux.Pollux.stop" title="pylab_ml.pollux.pollux.Pollux.stop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop</span></code></a>()</p></td>
 <td><p>Stop any ongoing movement of the Pollux controller.</p></td>
 </tr>
 </tbody>
@@ -290,6 +293,19 @@ then calibrate the device and set the limits for each axis.</p>
 <dt class="sig sig-object py" id="pylab_ml.pollux.pollux.Pollux.ang">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ang</span></span><a class="headerlink" href="#pylab_ml.pollux.pollux.Pollux.ang" title="Link to this definition"></a></dt>
 <dd><p>Get the current angular position in degrees.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.pollux.pollux.Pollux.base_position">
+<span class="sig-name descname"><span class="pre">base_position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/pollux/pollux.html#Pollux.base_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.pollux.pollux.Pollux.base_position" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Set the base position for each axis of the Pollux controller. The base position is set to the following for each axis:</dt><dd><ul class="simple">
+<li><p>X-axis        : 40mm</p></li>
+<li><p>Z-axis        : 100mm</p></li>
+<li><p>Angular axis  : 0 degrees</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
