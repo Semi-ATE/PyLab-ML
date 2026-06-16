@@ -198,6 +198,7 @@ class Pollux(LocalInstrument):
         
     def calibrate(self):
         """ Calibrate each axis of the Pollux controller to determine the origin (lower limit). """
+        self.stop()
         self._write("1 ncal")
         self._write("2 ncal")
         self._write("3 ncal")
