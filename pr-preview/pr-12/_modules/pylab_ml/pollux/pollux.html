@@ -396,10 +396,9 @@
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.pollux.pollux.Pollux.html#pylab_ml.pollux.pollux.Pollux.calibrate">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">calibrate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Calibrate each axis of the Pollux controller to determine the origin (lower limit). &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;1 ncal&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;2 ncal&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;3 ncal&quot;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;1 ncal&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;2 ncal&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;3 ncal&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Pollux.maximum_limits">
@@ -410,7 +409,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;1 nrm&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;2 nrm&quot;</span><span class="p">)</span></div>
 
-        
+
 <div class="viewcode-block" id="Pollux.set_limits">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.pollux.pollux.Pollux.html#pylab_ml.pollux.pollux.Pollux.set_limits">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -424,6 +423,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;0 60 1 setnlimit&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;0 100 2 setnlimit&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;0 354 3 setnlimit&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Pollux.stop">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.pollux.pollux.Pollux.html#pylab_ml.pollux.pollux.Pollux.stop">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Stop any ongoing movement of the Pollux controller. &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;1 nabort&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;2 nabort&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">(</span><span class="s2">&quot;3 nabort&quot;</span><span class="p">)</span></div>
 
 
     <span class="nd">@property</span>
