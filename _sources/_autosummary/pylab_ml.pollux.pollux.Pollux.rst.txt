@@ -30,6 +30,7 @@ pylab\_ml.pollux.pollux.Pollux
       ~Pollux.serial_list
       ~Pollux.set_limits
       ~Pollux.status
+      ~Pollux.stop
    
    
 
