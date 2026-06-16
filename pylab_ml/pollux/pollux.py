@@ -198,17 +198,16 @@ class Pollux(LocalInstrument):
         
     def calibrate(self):
         """ Calibrate each axis of the Pollux controller to determine the origin (lower limit). """
-        if self.status():
-            self._write("1 ncal")
-            self._write("2 ncal")
-            self._write("3 ncal")
+        self._write("1 ncal")
+        self._write("2 ncal")
+        self._write("3 ncal")
 
     def maximum_limits(self):
         """ Determine the maximum limits for each axis of the Pollux controller. """
         if self.status():
             self._write("1 nrm")
             self._write("2 nrm")
-        
+
     def set_limits(self):
         """ 
         Set the maximum limits for each axis of the Pollux controller. 
@@ -220,6 +219,12 @@ class Pollux(LocalInstrument):
         self._write("0 60 1 setnlimit")
         self._write("0 100 2 setnlimit")
         self._write("0 354 3 setnlimit")
+
+    def stop(self):
+        """ Stop any ongoing movement of the Pollux controller. """
+        self._write("1 nabort")
+        self._write("2 nabort")
+        self._write("3 nabort")
 
     @property
     def pos_x(self):
