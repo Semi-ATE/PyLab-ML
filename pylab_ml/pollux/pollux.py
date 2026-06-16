@@ -203,6 +203,17 @@ class Pollux(LocalInstrument):
         self._write("2 ncal")
         self._write("3 ncal")
 
+    def base_position(self):
+        """ 
+        Set the base position for each axis of the Pollux controller. The base position is set to the following for each axis:
+            - X-axis        : 40mm
+            - Z-axis        : 100mm
+            - Angular axis  : 0 degrees
+        """
+        self._write("40.0 1 nm")
+        self._write("100.0 2 nm")
+        self._write("0.0 3 nm")
+
     def maximum_limits(self):
         """ Determine the maximum limits for each axis of the Pollux controller. """
         if self.status():
