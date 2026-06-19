@@ -40,7 +40,6 @@
    ident
    matrix
    misc
-   pollux
    scope
    smu
    thermostreamer
