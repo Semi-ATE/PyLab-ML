@@ -1,7 +1,7 @@
-pylab\_ml.pollux
-================
+pylab\_ml.position\_controller
+==============================
 
-.. automodule:: pylab_ml.pollux
+.. automodule:: pylab_ml.position_controller
 
    
    

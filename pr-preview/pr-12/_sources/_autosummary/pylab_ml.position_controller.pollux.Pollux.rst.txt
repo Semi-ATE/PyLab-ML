@@ -1,7 +1,7 @@
-pylab\_ml.pollux.pollux.Pollux
-==============================
+pylab\_ml.position\_controller.pollux.Pollux
+============================================
 
-.. currentmodule:: pylab_ml.pollux.pollux
+.. currentmodule:: pylab_ml.position_controller.pollux
 
 .. autoclass:: Pollux
    :members:
@@ -19,17 +19,23 @@ pylab\_ml.pollux.pollux.Pollux
       ~Pollux.__init__
       ~Pollux.base_position
       ~Pollux.calibrate
-      ~Pollux.check_group_dialout
-      ~Pollux.connect
+      ~Pollux.close
       ~Pollux.disconnect
-      ~Pollux.idtry
-      ~Pollux.list_com
-      ~Pollux.list_usb_serial_ports
+      ~Pollux.find_names
+      ~Pollux.flush
+      ~Pollux.help
+      ~Pollux.identify
+      ~Pollux.init
       ~Pollux.maximum_limits
-      ~Pollux.resource_id
-      ~Pollux.search4vidpid
-      ~Pollux.serial_list
+      ~Pollux.message
+      ~Pollux.mqtt_add
+      ~Pollux.mqtt_disconnect
+      ~Pollux.publish
+      ~Pollux.publish_get
+      ~Pollux.publish_set
+      ~Pollux.reset
       ~Pollux.set_limits
+      ~Pollux.setup_inst
       ~Pollux.status
       ~Pollux.stop
    
@@ -42,8 +48,12 @@ pylab\_ml.pollux.pollux.Pollux
    .. autosummary::
    
       ~Pollux.ang
-      ~Pollux.has_visa
+      ~Pollux.command
+      ~Pollux.id
       ~Pollux.interchoices
+      ~Pollux.mqtt_enable
+      ~Pollux.mqtt_list
+      ~Pollux.mqtt_status
       ~Pollux.pos_x
       ~Pollux.pos_z
       ~Pollux.speed_ang

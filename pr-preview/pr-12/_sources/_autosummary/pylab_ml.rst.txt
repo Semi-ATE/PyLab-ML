@@ -40,7 +40,7 @@
    ident
    matrix
    misc
-   pollux
+   position_controller
    scope
    smu
    thermostreamer
