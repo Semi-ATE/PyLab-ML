@@ -1,0 +1,63 @@
+pylab\_ml.position\_controller.pollux.Pollux
+============================================
+
+.. currentmodule:: pylab_ml.position_controller.pollux
+
+.. autoclass:: Pollux
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Pollux.__init__
+      ~Pollux.base_position
+      ~Pollux.calibrate
+      ~Pollux.close
+      ~Pollux.disconnect
+      ~Pollux.find_names
+      ~Pollux.flush
+      ~Pollux.help
+      ~Pollux.identify
+      ~Pollux.init
+      ~Pollux.maximum_limits
+      ~Pollux.message
+      ~Pollux.mqtt_add
+      ~Pollux.mqtt_disconnect
+      ~Pollux.publish
+      ~Pollux.publish_get
+      ~Pollux.publish_set
+      ~Pollux.reset
+      ~Pollux.set_limits
+      ~Pollux.setup_inst
+      ~Pollux.status
+      ~Pollux.stop
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Pollux.ang
+      ~Pollux.command
+      ~Pollux.id
+      ~Pollux.interchoices
+      ~Pollux.mqtt_enable
+      ~Pollux.mqtt_list
+      ~Pollux.mqtt_status
+      ~Pollux.pos_x
+      ~Pollux.pos_z
+      ~Pollux.speed_ang
+      ~Pollux.speed_x
+      ~Pollux.speed_z
+   
+   
