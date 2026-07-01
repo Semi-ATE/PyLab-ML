@@ -48,6 +48,7 @@ pylab\_ml.position\_controller.pollux.Pollux
    .. autosummary::
    
       ~Pollux.ang
+      ~Pollux.blocking_mode
       ~Pollux.command
       ~Pollux.id
       ~Pollux.interchoices

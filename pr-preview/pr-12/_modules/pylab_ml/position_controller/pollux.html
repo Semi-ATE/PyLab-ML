@@ -181,7 +181,7 @@
              
   <h1>Source code for pylab_ml.position_controller.pollux</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">This script defines the Pollux class, which provides an interface to control the Pollux positioning controller using NI-VISA.</span>
+<span class="sd">This script defines the Pollux class, which provides an interface to control the Pollux positioning controller.</span>
 <span class="sd">The class includes methods for connecting to the device, calibrating it, setting limits, and controlling the position and</span>
 <span class="sd">speed of each axis (X, Z, and Angular). The status of each axis can also be checked to ensure they are ready for operation.</span>
 
@@ -198,7 +198,7 @@
 <div class="viewcode-block" id="Pollux">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.position_controller.pollux.Pollux.html#pylab_ml.position_controller.pollux.Pollux">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Pollux</span><span class="p">(</span><span class="n">Instrument</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Class to control the Pollux positioning controller via NI-VISA.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Class to control the Pollux positioning controller.&quot;&quot;&quot;</span>
 
     <span class="n">interchoices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">]</span>
 
@@ -208,13 +208,6 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the Pollux controller instance and connect to the device,</span>
 <span class="sd">        then calibrate the device and set the limits for each axis.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">            addr : int</span>
-<span class="sd">                The address of the Pollux controller (default is 3).</span>
-<span class="sd">            instName : str</span>
-<span class="sd">                The name of the Pollux controller instance (default is &#39;pollux&#39;).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># kwargs = {&quot;addr&quot; : addr, &quot;interface&quot; : None, &quot;backend&quot; : None, &quot;identify&quot; : identify, &quot;instName&quot; : instName}</span>
         <span class="k">if</span> <span class="s1">&#39;addr&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;addr&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -223,7 +216,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">blocking_mode</span> <span class="o">=</span> <span class="kc">False</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_blocking_mode</span> <span class="o">=</span> <span class="kc">False</span></div>
 
 
 <div class="viewcode-block" id="Pollux.setup_inst">
@@ -402,6 +395,24 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;2 nabort&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;3 nabort&quot;</span><span class="p">)</span></div>
 
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">blocking_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves the current blocking mode status.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocking_mode</span>
+
+    <span class="nd">@blocking_mode</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">blocking_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the blocking mode for the controller.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;blocking_mode must be a boolean (True or False).&quot;</span><span class="p">)</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">_blocking_mode</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Blocking mode set to: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_blocking_mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">pos_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -416,7 +427,7 @@
             <span class="n">value</span> <span class="o">=</span> <span class="mi">60</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2"> 1 nm&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocking_mode</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocking_mode</span><span class="p">:</span>
                 <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">():</span>
                     <span class="k">pass</span>
 
@@ -433,7 +444,7 @@
             <span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">value</span><span class="p">))</span><span class="si">}</span><span class="s2"> 2 nm&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocking_mode</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocking_mode</span><span class="p">:</span>
                 <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">():</span>
                     <span class="k">pass</span>
 
@@ -450,7 +461,7 @@
             <span class="n">value</span> <span class="o">=</span> <span class="mi">354</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2"> 3 nm&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocking_mode</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocking_mode</span><span class="p">:</span>
                 <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">():</span>
                     <span class="k">pass</span>
 
