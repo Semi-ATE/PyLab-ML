@@ -1,5 +1,5 @@
 """
-This script defines the Pollux class, which provides an interface to control the Pollux positioning controller using NI-VISA.
+This script defines the Pollux class, which provides an interface to control the Pollux positioning controller.
 The class includes methods for connecting to the device, calibrating it, setting limits, and controlling the position and
 speed of each axis (X, Z, and Angular). The status of each axis can also be checked to ensure they are ready for operation.
 
@@ -14,7 +14,7 @@ from pylab_ml.base_instrument import Instrument
 
 
 class Pollux(Instrument):
-    """ Class to control the Pollux positioning controller via NI-VISA."""
+    """ Class to control the Pollux positioning controller."""
 
     interchoices = [Interface.usbserial]
 
@@ -22,13 +22,6 @@ class Pollux(Instrument):
         """
         Initialize the Pollux controller instance and connect to the device,
         then calibrate the device and set the limits for each axis.
-
-        Parameters
-        ----------
-            addr : int
-                The address of the Pollux controller (default is 3).
-            instName : str
-                The name of the Pollux controller instance (default is 'pollux').
         """
         # kwargs = {"addr" : addr, "interface" : None, "backend" : None, "identify" : identify, "instName" : instName}
         if 'addr' not in kwargs or kwargs['addr'] is None:
@@ -37,7 +30,7 @@ class Pollux(Instrument):
         self.logger = logger
         logger.debug("Class {}".format(self.__class__.__name__))
         self.com._init(self)
-        self.blocking_mode = False
+        self._blocking_mode = False
 
     def setup_inst(self):
         """Set instrument settings."""
@@ -191,6 +184,24 @@ class Pollux(Instrument):
         self.inst.write("1 nabort")
         self.inst.write("2 nabort")
         self.inst.write("3 nabort")
+        
+    @property
+    def blocking_mode(self):
+        """
+        Retrieves the current blocking mode status.
+        """
+        return self._blocking_mode
+
+    @blocking_mode.setter
+    def blocking_mode(self, value):
+        """
+        Sets the blocking mode for the controller.
+        """
+        if not isinstance(value, bool):
+            raise TypeError("blocking_mode must be a boolean (True or False).")
+            
+        self._blocking_mode = value
+        self.logger.debug(f"Blocking mode set to: {self._blocking_mode}")
 
     @property
     def pos_x(self):
@@ -205,7 +216,7 @@ class Pollux(Instrument):
             value = 60
         if self.status():
             self.inst.write(f"{float(value)} 1 nm")
-            if self.blocking_mode:
+            if self._blocking_mode:
                 while not self.status():
                     pass
 
@@ -222,7 +233,7 @@ class Pollux(Instrument):
             value = -100
         if self.status():
             self.inst.write(f"{float(abs(value))} 2 nm")
-            if self.blocking_mode:
+            if self._blocking_mode:
                 while not self.status():
                     pass
 
@@ -239,7 +250,7 @@ class Pollux(Instrument):
             value = 354
         if self.status():
             self.inst.write(f"{float(value)} 3 nm")
-            if self.blocking_mode:
+            if self._blocking_mode:
                 while not self.status():
                     pass
 
