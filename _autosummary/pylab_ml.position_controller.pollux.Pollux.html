@@ -191,20 +191,12 @@
 <dt class="sig sig-object py" id="pylab_ml.position_controller.pollux.Pollux">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Pollux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/position_controller/pollux.html#Pollux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.position_controller.pollux.Pollux" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pylab_ml.base_instrument.Instrument.html#pylab_ml.base_instrument.Instrument" title="pylab_ml.base_instrument.Instrument"><code class="xref py py-class docutils literal notranslate"><span class="pre">Instrument</span></code></a></p>
-<p>Class to control the Pollux positioning controller via NI-VISA.</p>
+<p>Class to control the Pollux positioning controller.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylab_ml.position_controller.pollux.Pollux.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/position_controller/pollux.html#Pollux.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.position_controller.pollux.Pollux.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initialize the Pollux controller instance and connect to the device,
 then calibrate the device and set the limits for each axis.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>addr</strong> (<em>int</em>) – The address of the Pollux controller (default is 3).</p></li>
-<li><p><strong>instName</strong> (<em>str</em>) – The name of the Pollux controller instance (default is ‘pollux’).</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -284,37 +276,40 @@ then calibrate the device and set the limits for each axis.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.ang" title="pylab_ml.position_controller.pollux.Pollux.ang"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ang</span></code></a></p></td>
 <td><p>Get the current angular position in degrees.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">command</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.blocking_mode" title="pylab_ml.position_controller.pollux.Pollux.blocking_mode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">blocking_mode</span></code></a></p></td>
+<td><p>Retrieves the current blocking mode status.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">command</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.id" title="pylab_ml.position_controller.pollux.Pollux.id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">id</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.id" title="pylab_ml.position_controller.pollux.Pollux.id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">id</span></code></a></p></td>
 <td><p>Get IDN string.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">interchoices</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">interchoices</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_enable</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_enable</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_list</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_list</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.mqtt_status" title="pylab_ml.position_controller.pollux.Pollux.mqtt_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_status</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.mqtt_status" title="pylab_ml.position_controller.pollux.Pollux.mqtt_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_status</span></code></a></p></td>
 <td><p>Getter for the mqtt_status.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.pos_x" title="pylab_ml.position_controller.pollux.Pollux.pos_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pos_x</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.pos_x" title="pylab_ml.position_controller.pollux.Pollux.pos_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pos_x</span></code></a></p></td>
 <td><p>Get the current position of the X-axis in millimeters.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.pos_z" title="pylab_ml.position_controller.pollux.Pollux.pos_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pos_z</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.pos_z" title="pylab_ml.position_controller.pollux.Pollux.pos_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pos_z</span></code></a></p></td>
 <td><p>Get the current position of the Z-axis in millimeters.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.speed_ang" title="pylab_ml.position_controller.pollux.Pollux.speed_ang"><code class="xref py py-obj docutils literal notranslate"><span class="pre">speed_ang</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.speed_ang" title="pylab_ml.position_controller.pollux.Pollux.speed_ang"><code class="xref py py-obj docutils literal notranslate"><span class="pre">speed_ang</span></code></a></p></td>
 <td><p>Get the current angular speed in degrees per second.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.speed_x" title="pylab_ml.position_controller.pollux.Pollux.speed_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">speed_x</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.speed_x" title="pylab_ml.position_controller.pollux.Pollux.speed_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">speed_x</span></code></a></p></td>
 <td><p>Get the current speed of the X-axis in millimeters per second.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.speed_z" title="pylab_ml.position_controller.pollux.Pollux.speed_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">speed_z</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.position_controller.pollux.Pollux.speed_z" title="pylab_ml.position_controller.pollux.Pollux.speed_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">speed_z</span></code></a></p></td>
 <td><p>Get the current speed of the Z-axis in millimeters per second.</p></td>
 </tr>
 </tbody>
@@ -337,6 +332,12 @@ The base position is set to the following for each axis:</p>
 <li><p>Angular axis  : 0 degrees</p></li>
 </ul>
 </div></blockquote>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.position_controller.pollux.Pollux.blocking_mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">blocking_mode</span></span><a class="headerlink" href="#pylab_ml.position_controller.pollux.Pollux.blocking_mode" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the current blocking mode status.</p>
 </dd></dl>
 
 <dl class="py method">
