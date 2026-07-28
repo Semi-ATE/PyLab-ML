@@ -37,7 +37,8 @@ class Project_Info:
             self.logger.log_message(LogLevel.Error(), f'Project_Info: {project_file} not defined')
         for name in project_info:
             value = project_info[name]
-
+            
+            project_info['PROJECT'] = project_info['PROJECT'].upper()
             if type(value) is dict and 'PROJECT' in project_info and project_info['PROJECT'] in value:
                 value = value[project_info['PROJECT']]
             if type(value) is dict and 'VERSION' in project_info and project_info['VERSION'] in value:
