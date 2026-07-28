@@ -1,0 +1,6 @@
+pylab\_ml.common.environment.checkNetworkPath
+=============================================
+
+.. currentmodule:: pylab_ml.common.environment
+
+.. autofunction:: checkNetworkPath

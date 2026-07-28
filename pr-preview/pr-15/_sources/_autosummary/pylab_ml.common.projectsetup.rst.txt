@@ -1,0 +1,35 @@
+pylab\_ml.common.projectsetup
+=============================
+
+.. automodule:: pylab_ml.common.projectsetup
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst  
+   
+      JsonDecoder
+      ProjectSetup
+      diclist
+      dotdict
+      setupstr
+   
+   
+
+   
+   
+   
+
+
+

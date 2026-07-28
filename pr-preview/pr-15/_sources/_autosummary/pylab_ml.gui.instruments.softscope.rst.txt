@@ -1,0 +1,32 @@
+pylab\_ml.gui.instruments.softscope
+===================================
+
+.. automodule:: pylab_ml.gui.instruments.softscope
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   softscope
+
