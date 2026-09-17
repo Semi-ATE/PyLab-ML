@@ -193,7 +193,7 @@
 <p>Create methods or attributes from a dictionary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
-<dd class="field-odd"><p>July 28, 2026</p>
+<dd class="field-odd"><p>September 17, 2026</p>
 </dd>
 <dt class="field-even">Author<span class="colon">:</span></dt>
 <dd class="field-even"><p>Semi-ATE &lt;<a class="reference external" href="mailto:info&#37;&#52;&#48;Semi-ATE&#46;org">info<span>&#64;</span>Semi-ATE<span>&#46;</span>org</a>&gt;</p>
@@ -236,11 +236,11 @@ If you get an error in the function, than you should set your return value to AT
 <dl>
 <dt>Example 1:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">test</span><span class="p">(</span><span class="n">create_attributes</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">properties</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bitTime&#39;</span> <span class="p">:</span>        <span class="p">((</span><span class="s1">&#39;?bt&#39;</span><span class="p">,</span>  <span class="s1">&#39;sbt&#39;</span><span class="p">),</span>     <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3400</span><span class="p">],</span>    <span class="p">{</span><span class="s1">&#39;ga&#39;</span><span class="p">:</span> <span class="s1">&#39;_hex2dec(value)&#39;</span><span class="p">,</span> <span class="s1">&#39;sac&#39;</span><span class="p">:</span> <span class="s1">&#39;_dec2hex(value)&#39;</span><span class="p">,</span> <span class="s1">&#39;sa&#39;</span><span class="p">:</span> <span class="s1">&#39;readresult(0)&#39;</span><span class="p">}),</span>
-<span class="gp">&gt;&gt;&gt; </span>                  <span class="s1">&#39;airtemp&#39;</span> <span class="p">:</span>        <span class="p">((</span><span class="s1">&#39;TMPA?&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>     <span class="kc">None</span><span class="p">,</span>          <span class="kc">None</span><span class="p">),</span>
-<span class="gp">&gt;&gt;&gt; </span>                  <span class="s1">&#39;dutsensortype&#39;</span> <span class="p">:</span>  <span class="p">((</span><span class="s1">&#39;DSNS?&#39;</span><span class="p">,</span><span class="s1">&#39;DSNS&#39;</span><span class="p">),</span>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>         <span class="kc">None</span><span class="p">),</span>
-<span class="gp">&gt;&gt;&gt; </span>                  <span class="s1">&#39;blaba&#39;</span> <span class="p">:</span>          <span class="p">((</span><span class="s1">&#39;BLAA?&#39;</span><span class="p">,</span><span class="s1">&#39;BLAB&#39;</span><span class="p">),</span>    <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">4.7</span><span class="p">];</span>     <span class="kc">None</span><span class="p">),</span>
-<span class="gp">&gt;&gt;&gt; </span>                  <span class="s1">&#39;compressor&#39;</span> <span class="p">:</span>     <span class="p">((</span><span class="s1">&#39;COOL?&#39;</span><span class="p">,</span><span class="s1">&#39;COOL&#39;</span><span class="p">),</span>   <span class="s1">&#39;Compressor&#39;</span><span class="p">,</span>   <span class="p">{</span><span class="s1">&#39;sac&#39;</span><span class="p">:</span> <span class="s1">&#39;_compressor(value)&#39;</span><span class="p">}),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">properties</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'bitTime'</span> <span class="p">:</span>        <span class="p">((</span><span class="s1">'?bt'</span><span class="p">,</span>  <span class="s1">'sbt'</span><span class="p">),</span>     <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3400</span><span class="p">],</span>    <span class="p">{</span><span class="s1">'ga'</span><span class="p">:</span> <span class="s1">'_hex2dec(value)'</span><span class="p">,</span> <span class="s1">'sac'</span><span class="p">:</span> <span class="s1">'_dec2hex(value)'</span><span class="p">,</span> <span class="s1">'sa'</span><span class="p">:</span> <span class="s1">'readresult(0)'</span><span class="p">}),</span>
+<span class="gp">&gt;&gt;&gt; </span>                  <span class="s1">'airtemp'</span> <span class="p">:</span>        <span class="p">((</span><span class="s1">'TMPA?'</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>     <span class="kc">None</span><span class="p">,</span>          <span class="kc">None</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>                  <span class="s1">'dutsensortype'</span> <span class="p">:</span>  <span class="p">((</span><span class="s1">'DSNS?'</span><span class="p">,</span><span class="s1">'DSNS'</span><span class="p">),</span>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>         <span class="kc">None</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>                  <span class="s1">'blaba'</span> <span class="p">:</span>          <span class="p">((</span><span class="s1">'BLAA?'</span><span class="p">,</span><span class="s1">'BLAB'</span><span class="p">),</span>    <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">4.7</span><span class="p">];</span>     <span class="kc">None</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>                  <span class="s1">'compressor'</span> <span class="p">:</span>     <span class="p">((</span><span class="s1">'COOL?'</span><span class="p">,</span><span class="s1">'COOL'</span><span class="p">),</span>   <span class="s1">'Compressor'</span><span class="p">,</span>   <span class="p">{</span><span class="s1">'sac'</span><span class="p">:</span> <span class="s1">'_compressor(value)'</span><span class="p">}),</span>
 <span class="gp">&gt;&gt;&gt; </span>                 <span class="p">}</span>
 <span class="gp">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Compressor</span><span class="p">(</span><span class="n">Enum</span><span class="p">)</span> <span class="p">:</span>
@@ -254,53 +254,53 @@ If you get an error in the function, than you should set your return value to AT
 </div>
 </dd>
 <dt>==&gt; This will create following attributes:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># create attribute bitTime with get/set :</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">bitTime</span>             <span class="c1"># get attribute : call the methode inst.query(&#39;?bt&#39;)</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.bitTime == 480</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">bitTime</span>             <span class="c1"># get attribute : call the methode inst.query('?bt')</span>
+<span class="go">MEASURE - 'yourDevice'.bitTime == 480</span>
 <span class="go">480</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">bitTime</span> <span class="o">=</span> <span class="mi">20</span>   <span class="c1"># set attribute : check if value is integer, and 10&lt;=value&lt;=3400,</span>
-<span class="gp">&gt;&gt;&gt; </span>                    <span class="c1"># if ok than call inst.write(&#39;sbt&#39;)</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.bitTime := 20</span>
+<span class="gp">&gt;&gt;&gt; </span>                    <span class="c1"># if ok than call inst.write('sbt')</span>
+<span class="go">MEASURE - 'yourDevice'.bitTime := 20</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create attribute airtemp with get:</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">airtemp</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.airtemp == 22.2</span>
+<span class="go">MEASURE - 'yourDevice'.airtemp == 22.2</span>
 <span class="go">22.2</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create attribute dutsensortype with get/set :</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">dutsensortype</span>     <span class="c1"># write inst.query(&#39;DSNS?&#39;), return with int(value)</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.dutsensortype == 0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">dutsensortype</span>     <span class="c1"># write inst.query('DSNS?'), return with int(value)</span>
+<span class="go">MEASURE - 'yourDevice'.dutsensortype == 0</span>
 <span class="go">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">dutsensortype</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># check if value is integer, and 0&lt;=value&lt;=4,</span>
-<span class="gp">&gt;&gt;&gt; </span>                        <span class="c1"># if ok than inst.write(&#39;DSNS 3&#39;)</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.dutsensortype := 3</span>
+<span class="gp">&gt;&gt;&gt; </span>                        <span class="c1"># if ok than inst.write('DSNS 3')</span>
+<span class="go">MEASURE - 'yourDevice'.dutsensortype := 3</span>
 <span class="go">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">dutsensortype</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="go">ERROR - &#39;yourDevice&#39;.dutsensortype := 5 outside limits, choose [0, 4]</span>
+<span class="go">ERROR - 'yourDevice'.dutsensortype := 5 outside limits, choose [0, 4]</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create attribute blaba  with get/set :</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">blaba</span>         <span class="c1"># inst.query(&#39;BLAA?&#39;), return with float(value)</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.blaba == 3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">blaba</span>         <span class="c1"># inst.query('BLAA?'), return with float(value)</span>
+<span class="go">MEASURE - 'yourDevice'.blaba == 3.0</span>
 <span class="go">3.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">blaba</span> <span class="o">=</span> <span class="mf">3.4</span>   <span class="c1"># check if value is float, and 1.0&lt;=value&lt;=4.7,</span>
-<span class="gp">&gt;&gt;&gt; </span>                   <span class="c1"># if ok than inst.write(&#39;BLAB&#39;)</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.blaba := 3.4</span>
+<span class="gp">&gt;&gt;&gt; </span>                   <span class="c1"># if ok than inst.write('BLAB')</span>
+<span class="go">MEASURE - 'yourDevice'.blaba := 3.4</span>
 <span class="go">3.4</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create attribute compressor with get/set and values is Enum:</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">compressor</span>               <span class="c1">#inst.query(&#39;COOL?&#39;), return with the enum Compressor</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.compressor == Compressor.on</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">compressor</span>               <span class="c1">#inst.query('COOL?'), return with the enum Compressor</span>
+<span class="go">MEASURE - 'yourDevice'.compressor == Compressor.on</span>
 <span class="go">&lt;Compressor.on: 1&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">compressor</span> <span class="o">=</span> <span class="n">Compressor</span><span class="o">.</span><span class="n">on</span> <span class="c1"># check if value in Compressor</span>
-<span class="gp">&gt;&gt;&gt; </span>                           <span class="c1"># if ok than call _compressor(Compressor.on), and than inst.write(&#39;COOL 1&#39;),</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.compressor := Compressor.on</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">compressor</span> <span class="o">=</span> <span class="s1">&#39;on&#39;</span>          <span class="c1"># shorter but the same as before</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.compressor := Compressor.on</span>
+<span class="gp">&gt;&gt;&gt; </span>                           <span class="c1"># if ok than call _compressor(Compressor.on), and than inst.write('COOL 1'),</span>
+<span class="go">MEASURE - 'yourDevice'.compressor := Compressor.on</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">compressor</span> <span class="o">=</span> <span class="s1">'on'</span>          <span class="c1"># shorter but the same as before</span>
+<span class="go">MEASURE - 'yourDevice'.compressor := Compressor.on</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">compressor</span> <span class="o">=</span> <span class="mi">1</span>             <span class="c1"># also possible</span>
-<span class="go">MEASURE - &#39;yourDevice&#39;.compressor := Compressor.on</span>
+<span class="go">MEASURE - 'yourDevice'.compressor := Compressor.on</span>
 </pre></div>
 </div>
 <p>Example 2, for calling inst.methode (none read/write):
@@ -341,9 +341,9 @@ show the usage to create attributes and connect to a communication board</p>
 <p>If your device has no read/write instance, than overwrite the method _call_instance()
 Example:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">_call_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">rw</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="k">if</span> <span class="n">rw</span> <span class="o">==</span> <span class="s2">&quot;wr&quot;</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">if</span> <span class="n">rw</span> <span class="o">==</span> <span class="s2">"wr"</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>        <span class="bp">self</span><span class="o">.</span><span class="n">ch</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">]</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>        <span class="c1"># for set attribute</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="k">elif</span> <span class="n">rw</span> <span class="o">==</span> <span class="s2">&quot;rd&quot;</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">elif</span> <span class="n">rw</span> <span class="o">==</span> <span class="s2">"rd"</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ch</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">]</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>  <span class="c1"># for get attribute</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>

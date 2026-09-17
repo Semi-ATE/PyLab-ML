@@ -202,13 +202,13 @@ port : scope TCP/IP port (1861 by default)</p>
 </dd>
 </dl>
 <p>Example: Initialization</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span> <span class="o">=</span> <span class="n">hwlib</span><span class="o">.</span><span class="n">lecroy</span><span class="o">.</span><span class="n">Scope</span><span class="p">(</span><span class="s2">&quot;lcry4066n50407&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span> <span class="o">=</span> <span class="n">hwlib</span><span class="o">.</span><span class="n">lecroy</span><span class="o">.</span><span class="n">Scope</span><span class="p">(</span><span class="s2">"lcry4066n50407"</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_channel</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_level</span> <span class="o">=</span> <span class="mf">1.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_slope</span> <span class="o">=</span> <span class="s2">&quot;POS&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_mode</span> <span class="o">=</span> <span class="s2">&quot;norm&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_slope</span> <span class="o">=</span> <span class="s2">"POS"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_mode</span> <span class="o">=</span> <span class="s2">"norm"</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">tdiv</span> <span class="o">=</span> <span class="mf">1e-3</span>

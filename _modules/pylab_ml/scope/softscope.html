@@ -181,7 +181,7 @@
              
   <h1>Source code for pylab_ml.scope.softscope</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="sd">This script defines the Softscope class, which is responsible for communicating with a softscope GUI via MQTT. </span>
 <span class="sd">The class allows for starting and stopping data sampling, setting the channel to be monitored, and adjusting the sample time. </span>
 <span class="sd">It uses a Timer thread to manage the sampling loop and handles MQTT commands to control its behavior. </span>
@@ -190,22 +190,22 @@
 <span class="sd">Created on Thu Jan  7 17:18:03 2021</span>
 
 <span class="sd">@author: jung</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ate_common.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogLevel</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common.mqtt_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">mqtt_deviceattributes</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">common</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">time</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
 
-<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Zlin526F&quot;</span>
-<span class="n">__credits__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Zlin526F&quot;</span><span class="p">]</span>
-<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;Zlin526F@github&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">"Zlin526F"</span>
+<span class="n">__credits__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Zlin526F"</span><span class="p">]</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">"Zlin526F@github"</span>
 
 
 <div class="viewcode-block" id="Softscope">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.scope.softscope.Softscope.html#pylab_ml.scope.softscope.Softscope">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Softscope</span><span class="p">(</span><span class="n">mqtt_deviceattributes</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Class for the communication with the softcope-GUI.</span>
 
 <span class="sd">    via mqtt some command controlled the sending of data:</span>
@@ -220,12 +220,12 @@
 
 <span class="sd">    TODO: very simple.....</span>
 <span class="sd">            max sample Time ~50Hz</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
 <div class="viewcode-block" id="Softscope.__init__">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.scope.softscope.Softscope.html#pylab_ml.scope.softscope.Softscope.__init__">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mqttc</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="s2">&quot;softscope&quot;</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mqttc</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="s2">"softscope"</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialise the softscope class and subscribe for mqtt if mqttc is not None</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -235,13 +235,13 @@
 <span class="sd">            logger : Logger object</span>
 <span class="sd">                The logger to use for logging messages.</span>
 <span class="sd">            instName : str, optional</span>
-<span class="sd">                The name of the instrument. Default is &quot;softscope&quot;.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">                The name of the instrument. Default is "softscope".</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">instName</span> <span class="o">=</span> <span class="n">instName</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="s2">&quot;pylab_ml.gui.instruments.softscope.softscope&quot;</span>  <span class="c1"># semi-ctrl use this lib for the scope gui</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_all</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;setchannel()&quot;</span><span class="p">,</span> <span class="s2">&quot;on()&quot;</span><span class="p">,</span> <span class="s2">&quot;off()&quot;</span><span class="p">,</span> <span class="s2">&quot;sampleTime&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">]</span>  <span class="c1"># approved commands for mqtt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="s2">"pylab_ml.gui.instruments.softscope.softscope"</span>  <span class="c1"># semi-ctrl use this lib for the scope gui</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_all</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"setchannel()"</span><span class="p">,</span> <span class="s2">"on()"</span><span class="p">,</span> <span class="s2">"off()"</span><span class="p">,</span> <span class="s2">"sampleTime"</span><span class="p">,</span> <span class="s2">"test"</span><span class="p">]</span>  <span class="c1"># approved commands for mqtt</span>
         <span class="k">if</span> <span class="n">mqttc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_add</span><span class="p">(</span><span class="n">mqttc</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>  <span class="c1"># subscribe for mqtt and send information about the gui</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scopeChannel</span> <span class="o">=</span> <span class="kc">None</span>
@@ -256,28 +256,28 @@
 <div class="viewcode-block" id="Softscope.init">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.scope.softscope.Softscope.html#pylab_ml.scope.softscope.Softscope.init">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topinstname</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the topinstname for the strcall to get the value for the scopeChannel&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Initialize the topinstname for the strcall to get the value for the scopeChannel"""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">topinstname</span> <span class="o">=</span> <span class="n">topinstname</span></div>
 
 
 <div class="viewcode-block" id="Softscope.setchannel">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.scope.softscope.Softscope.html#pylab_ml.scope.softscope.Softscope.setchannel">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">setchannel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the scopeChannel via mqtt&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Set the scopeChannel via mqtt"""</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">strcall</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topinstname</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scopeChannel</span> <span class="o">=</span> <span class="n">value</span> <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="s2">&quot;ERROR&quot;</span> <span class="k">else</span> <span class="s2">&quot;ERROR&quot;</span>
-        <span class="c1"># print(f&#39;Softscope.setchannel: {value} -&gt; {result}&#39;)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">&quot;scopeChannel&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopeChannel</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scopeChannel</span> <span class="o">=</span> <span class="n">value</span> <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="s2">"ERROR"</span> <span class="k">else</span> <span class="s2">"ERROR"</span>
+        <span class="c1"># print(f'Softscope.setchannel: {value} -&gt; {result}')</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">"scopeChannel"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopeChannel</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Softscope.on">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.scope.softscope.Softscope.html#pylab_ml.scope.softscope.Softscope.on">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start the softscope sampling.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Start the softscope sampling."""</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">busy</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopeChannel</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2"> scopeChannel not defined&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2"> scopeChannel not defined"</span><span class="p">)</span>
             <span class="k">return</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">busy</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_newsample</span><span class="p">()</span></div>
@@ -286,7 +286,7 @@
 <div class="viewcode-block" id="Softscope.off">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.scope.softscope.Softscope.html#pylab_ml.scope.softscope.Softscope.off">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">off</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Stop the softscope sampling.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Stop the softscope sampling."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">busy</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_samplethread</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_samplethread</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span></div>
@@ -294,12 +294,12 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">sampleTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the current sample time for the softscope.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Get the current sample time for the softscope."""</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampleTime</span>
 
     <span class="nd">@sampleTime</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">sampleTime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the sample time for the softscope.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Set the sample time for the softscope."""</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
             <span class="k">return</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sampleTime</span> <span class="o">=</span> <span class="n">value</span>
@@ -307,20 +307,20 @@
 <div class="viewcode-block" id="Softscope.close">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.scope.softscope.Softscope.html#pylab_ml.scope.softscope.Softscope.close">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close the softscope and disconnect from MQTT.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Close the softscope and disconnect from MQTT."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_disconnect</span><span class="p">()</span></div>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_newsample</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Internal method to handle the sampling loop.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Internal method to handle the sampling loop."""</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">busy</span><span class="p">:</span>
             <span class="k">return</span>
         <span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-        <span class="c1"># print(f&#39;_newsample: {self.topinstname}, {self.scopeChannel}&#39;)</span>
+        <span class="c1"># print(f'_newsample: {self.topinstname}, {self.scopeChannel}')</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">strcall</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topinstname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scopeChannel</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2"> get ERROR from </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">scopeChannel</span><span class="si">}</span><span class="s2">  --&gt;stop sampling&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">"ERROR"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2"> get ERROR from </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">scopeChannel</span><span class="si">}</span><span class="s2">  --&gt;stop sampling"</span><span class="p">)</span>
             <span class="k">return</span>
         <span class="c1"># print(result)</span>
         <span class="n">mytime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampleTime</span> <span class="o">-</span> <span class="p">(</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">starttime</span><span class="p">)</span>
@@ -331,29 +331,29 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Get the current test value for the softscope.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            int</span>
 <span class="sd">                A sawtooth value that increments with each call and resets after reaching 256.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># print(f&#39;call scope.sawtooth value= {self._sawtooth}&#39;)</span>
+<span class="sd">        """</span>
+        <span class="c1"># print(f'call scope.sawtooth value= {self._sawtooth}')</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sawtooth</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sawtooth</span> <span class="o">&gt;</span> <span class="mi">256</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_sawtooth</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sawtooth</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="s2">&quot;</span></div>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="s2">"</span></div>
 
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common.mqtt_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">mylogger</span>
 
-    <span class="n">scope</span> <span class="o">=</span> <span class="n">Softscope</span><span class="p">(</span><span class="n">mqttc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">mylogger</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="s2">&quot;softscope&quot;</span><span class="p">)</span>
+    <span class="n">scope</span> <span class="o">=</span> <span class="n">Softscope</span><span class="p">(</span><span class="n">mqttc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">mylogger</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="s2">"softscope"</span><span class="p">)</span>
 </pre></div>
 
            </div>

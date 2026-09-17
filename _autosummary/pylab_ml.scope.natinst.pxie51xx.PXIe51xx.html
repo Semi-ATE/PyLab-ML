@@ -206,13 +206,13 @@ For more function see: <a class="reference external" href="https://nimi-python.r
 </dd>
 </dl>
 </dd>
-<dt>Example: Initialization</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span> <span class="o">=</span> <span class="n">PXIe4138</span><span class="p">(</span><span class="s1">&#39;PXI1Slot4&#39;</span><span class="p">,</span><span class="n">instName</span><span class="o">=</span><span class="s1">&#39;scope&#39;</span><span class="p">)</span>   <span class="c1"># connect and initialize instrument</span>
+<dt>Example: Initialization</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span> <span class="o">=</span> <span class="n">PXIe4138</span><span class="p">(</span><span class="s1">'PXI1Slot4'</span><span class="p">,</span><span class="n">instName</span><span class="o">=</span><span class="s1">'scope'</span><span class="p">)</span>   <span class="c1"># connect and initialize instrument</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_channel</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_level</span> <span class="o">=</span> <span class="mf">1.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_slope</span> <span class="o">=</span> <span class="s2">&quot;POS&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_mode</span> <span class="o">=</span> <span class="s2">&quot;norm&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_slope</span> <span class="o">=</span> <span class="s2">"POS"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">trig_mode</span> <span class="o">=</span> <span class="s2">"norm"</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scope</span><span class="o">.</span><span class="n">tdiv</span> <span class="o">=</span> <span class="mf">1e-3</span>

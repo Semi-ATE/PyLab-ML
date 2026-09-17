@@ -180,12 +180,12 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pylab_ml.dmm.natinst.pxie40xx</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Interface to the Digital Multimeter (DMM) NI PXIe-40xx (e.q. 4081).</span>
+<span></span><span class="sd">"""Interface to the Digital Multimeter (DMM) NI PXIe-40xx (e.q. 4081).</span>
 
 <span class="sd">:Date: |today|</span>
 <span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.collate_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interface</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidInstrumentConnection</span>
@@ -198,7 +198,7 @@
 <div class="viewcode-block" id="PXIe40xx">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.html#pylab_ml.dmm.natinst.pxie40xx.PXIe40xx">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">PXIe40xx</span><span class="p">(</span><span class="n">NatInst</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Interface to the Digital Multimeter (DMM) NI PXIe-40xx (e.q. 4081).</span>
 
 <span class="sd">    .. image:: ../_static/pxie_4081.jpg</span>
@@ -214,17 +214,17 @@
 <span class="sd">    | call the misssing function with dmm.inst.functionname</span>
 
 <span class="sd">    The PXI-4081 can measure voltage and current precisely</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="kn">import</span><span class="w"> </span><span class="nn">nidmm</span>
 
         <span class="n">has_nidmm</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
         <span class="n">has_nidmm</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">!=</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;import nidmm not found&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">!=</span> <span class="s2">"win32"</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"import nidmm not found"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;no import nidmm can be found on non Windows platforms&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"no import nidmm can be found on non Windows platforms"</span><span class="p">)</span>
 
     <span class="c1"># create functions or proberty and wrap it to the inst.funcname:</span>
     <span class="c1"># if state != necessary state -&gt; switch to the necessary state</span>
@@ -233,42 +233,42 @@
     <span class="c1">#                                                         call functions: see help in attributes</span>
 
     <span class="n">_properties</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;auto_zero&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;auto_zero&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.AutoZero&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;aperture_time_units&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;aperture_time_units&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.ApertureTimeUnits&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;aperture_time&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;aperture_time&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;adc_calibration&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;adc_calibration&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.ADCCalibration&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;dc_noise_rejection&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;dc_noise_rejection&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.DCNoiseRejection&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;function&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.Function&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;operation_mode&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;operation_mode&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.OperationMode&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;trigger_source&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;trigger_source&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.TriggerSource&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;sample_interval&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;sample_interval&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">149</span><span class="p">],</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;sample_trigger&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;sample_trigger&quot;</span><span class="p">,</span> <span class="s2">&quot;backend.SampleTrigger&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;sample_count&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;sample_count&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;waveform_rate&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;waveform_rate&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1_800_000</span><span class="p">],</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
-        <span class="s2">&quot;waveform_points&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;waveform_points&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">18_000_000</span><span class="p">],</span> <span class="p">{</span><span class="s2">&quot;sac&quot;</span><span class="p">:</span> <span class="s2">&quot;checkstate(uncommitted)&quot;</span><span class="p">}),</span>
+        <span class="s2">"auto_zero"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"auto_zero"</span><span class="p">,</span> <span class="s2">"backend.AutoZero"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"range"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"range"</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"aperture_time_units"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"aperture_time_units"</span><span class="p">,</span> <span class="s2">"backend.ApertureTimeUnits"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"aperture_time"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"aperture_time"</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"adc_calibration"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"adc_calibration"</span><span class="p">,</span> <span class="s2">"backend.ADCCalibration"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"dc_noise_rejection"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"dc_noise_rejection"</span><span class="p">,</span> <span class="s2">"backend.DCNoiseRejection"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"function"</span><span class="p">,</span> <span class="s2">"backend.Function"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"operation_mode"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"operation_mode"</span><span class="p">,</span> <span class="s2">"backend.OperationMode"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"trigger_source"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"trigger_source"</span><span class="p">,</span> <span class="s2">"backend.TriggerSource"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"sample_interval"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"sample_interval"</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">149</span><span class="p">],</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"sample_trigger"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"sample_trigger"</span><span class="p">,</span> <span class="s2">"backend.SampleTrigger"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"sample_count"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"sample_count"</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"waveform_rate"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"waveform_rate"</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1_800_000</span><span class="p">],</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
+        <span class="s2">"waveform_points"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"waveform_points"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">18_000_000</span><span class="p">],</span> <span class="p">{</span><span class="s2">"sac"</span><span class="p">:</span> <span class="s2">"checkstate(uncommitted)"</span><span class="p">}),</span>
     <span class="p">}</span>
 
     <span class="n">interchoices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">pxie</span><span class="p">]</span>
 
-    <span class="c1"># def __init__(self, addr=None, channels=&#39;0&#39;, identify=False, instName=None):</span>
+    <span class="c1"># def __init__(self, addr=None, channels='0', identify=False, instName=None):</span>
 <div class="viewcode-block" id="PXIe40xx.__init__">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.html#pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialise the instrument.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            addr (string):</span>
-<span class="sd">                name from the PXI-Slot e.q. &#39;PXI1Slot3&#39; or &#39;SMU&#39;.</span>
+<span class="sd">                name from the PXI-Slot e.q. 'PXI1Slot3' or 'SMU'.</span>
 <span class="sd">            identify (bool, optional):</span>
 <span class="sd">                Defaults to False.</span>
 <span class="sd">            instName (string, optional):</span>
 <span class="sd">                Instance Name from top.</span>
 
 <span class="sd">        Example: Initialization</span>
-<span class="sd">           &gt;&gt;&gt; dmm = PXIe41xx(&#39;PXI1Slot5&#39;,instName=&#39;dmm&#39;)   # connect and initialize instrument</span>
+<span class="sd">           &gt;&gt;&gt; dmm = PXIe41xx('PXI1Slot5',instName='dmm')   # connect and initialize instrument</span>
 
 <span class="sd">        Example: Current measurement</span>
 <span class="sd">           &gt;&gt;&gt; i = dmm.current              # measure (supply) current</span>
@@ -276,26 +276,26 @@
 <span class="sd">        Example: Voltage measurement</span>
 <span class="sd">           &gt;&gt;&gt; v = dmm.voltage              # measure voltage</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_nidmm</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">PXIe4081 not usable!! missing nidcpower</span><span class="se">\n</span><span class="s2">&quot;</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;for installing nidcpower:</span><span class="se">\n</span><span class="s2">&quot;</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;    Start anaconda prompt and write: python –m pip install nidmm</span><span class="se">\n</span><span class="s2">&quot;</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;For more infomation see:   http://nimi-python.readthedocs.io</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">PXIe4081 not usable!! missing nidcpower</span><span class="se">\n</span><span class="s2">"</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">"for installing nidcpower:</span><span class="se">\n</span><span class="s2">"</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">"    Start anaconda prompt and write: python –m pip install nidmm</span><span class="se">\n</span><span class="s2">"</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">"For more infomation see:   http://nimi-python.readthedocs.io</span><span class="se">\n</span><span class="s2">"</span>
             <span class="k">raise</span> <span class="n">InvalidInstrumentConnection</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="c1"># kwargs = {&quot;addr&quot;: addr, &quot;channels&quot;: channels, &quot;backend&quot;: self.nidmm, &quot;identify&quot;: identify, &quot;instName&quot;: instName}</span>
-        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="n">addr</span><span class="p">,</span> <span class="s2">&quot;backend&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">nidmm</span><span class="p">,</span> <span class="s2">&quot;identify&quot;</span><span class="p">:</span> <span class="n">identify</span><span class="p">,</span> <span class="s2">&quot;instName&quot;</span><span class="p">:</span> <span class="n">instName</span><span class="p">}</span>
+        <span class="c1"># kwargs = {"addr": addr, "channels": channels, "backend": self.nidmm, "identify": identify, "instName": instName}</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"addr"</span><span class="p">:</span> <span class="n">addr</span><span class="p">,</span> <span class="s2">"backend"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">nidmm</span><span class="p">,</span> <span class="s2">"identify"</span><span class="p">:</span> <span class="n">identify</span><span class="p">,</span> <span class="s2">"instName"</span><span class="p">:</span> <span class="n">instName</span><span class="p">}</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Class </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="PXIe40xx.setup_inst">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.html#pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.setup_inst">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">setup_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set setup instrument settings.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Set setup instrument settings."""</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_inst</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_all</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;voltage&quot;</span><span class="p">,</span> <span class="s2">&quot;current&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_all</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"voltage"</span><span class="p">,</span> <span class="s2">"current"</span><span class="p">]</span>
         <span class="n">channels</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">channel_count</span><span class="p">):</span>
@@ -310,14 +310,14 @@
 <div class="viewcode-block" id="PXIe40xx.reset">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.html#pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset, and set folowing attributes.</span>
+<span class="w">        </span><span class="sd">"""Reset, and set folowing attributes.</span>
 
 <span class="sd">            * power_line_frequency = 50.0</span>
 <span class="sd">            * aperture_time_units = POWER_LINE_CYCLES</span>
 <span class="sd">            * aperture_time = 2</span>
 <span class="sd">            * inst.auto_zero = OFF</span>
 <span class="sd">            * dc_noise_rejection = SECOND_ORDER</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">inst</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ch</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">inst</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -328,7 +328,7 @@
                 <span class="n">inst</span><span class="o">.</span><span class="n">adc_calibration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nidmm</span><span class="o">.</span><span class="n">ADCCalibration</span><span class="o">.</span><span class="n">AUTO</span>
                 <span class="n">inst</span><span class="o">.</span><span class="n">resolution_digits</span> <span class="o">=</span> <span class="mf">5.5</span>
                 <span class="k">try</span><span class="p">:</span>  <span class="c1"># not possible for PXI-4138</span>
-                    <span class="n">inst</span><span class="o">.</span><span class="n">dc_noise_rejection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nidmm</span><span class="o">.</span><span class="n">DCNoiseRejection</span><span class="o">.</span><span class="n">SECOND_ORDER</span>  <span class="c1"># set dc noise rejection to &quot;second order&quot;</span>
+                    <span class="n">inst</span><span class="o">.</span><span class="n">dc_noise_rejection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nidmm</span><span class="o">.</span><span class="n">DCNoiseRejection</span><span class="o">.</span><span class="n">SECOND_ORDER</span>  <span class="c1"># set dc noise rejection to "second order"</span>
                 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
                     <span class="k">pass</span></div>
 
@@ -337,42 +337,42 @@
     <span class="c1"># doc strings for _properties, propertie themselve will create form dictionary _properties</span>
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">aperture_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Specifiy the measurement aperture time for the channel configuration.</span>
+<span class="w">        </span><span class="sd">"""Specifiy the measurement aperture time for the channel configuration.</span>
 
 <span class="sd">        Aperture time is specified in the units set by the aperture_time_units property</span>
 <span class="sd">        see: http://nimi-python.readthedocs.io/en/master/nidmm/class.html#aperture-time</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">aperture_time_units</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Specifiy the units of the aperture_time property for the channel configuration.</span>
+<span class="w">        </span><span class="sd">"""Specifiy the units of the aperture_time property for the channel configuration.</span>
 
 <span class="sd">        | SECONDS or POWER_LINE_CYCLES.</span>
 <span class="sd">        | see: http://nimi-python.readthedocs.io/en/master/nidmm/class.html#aperture-time-units</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">auto_zero</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set auto_zero.</span>
+<span class="w">        </span><span class="sd">"""Get or set auto_zero.</span>
 
 <span class="sd">        | AUTO = The drivers chooses the AutoZero setting based on the configured method  and resolution.</span>
 <span class="sd">        | OFF  = Disables AutoZero.</span>
 <span class="sd">        | ON   = The DMM internally disconnects the input signal following each measurement  and takes a zero reading. It then subtracts the zero reading from the  preceding reading.</span>
 <span class="sd">        | ONCE = The DMM internally disconnects the input signal for the first measurement  and takes a zero reading. It then subtracts the zero reading from the first  reading and the following readings.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">adc_calibration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set adc_calibration.</span>
+<span class="w">        </span><span class="sd">"""Get or set adc_calibration.</span>
 
 <span class="sd">        AUTO = The DMM enables or disables ADC calibration for you.</span>
 <span class="sd">        OFF  = The DMM does not compensate for changes to the gain.</span>
 <span class="sd">        ON   = The DMM measures an internal reference to calculate the correct gain for the  measurement.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set measurement method.</span>
+<span class="w">        </span><span class="sd">"""Get or set measurement method.</span>
 
 <span class="sd">        | DC_VOLTS =    DC Voltage</span>
 <span class="sd">        | AC_VOLTS =    AC Voltage</span>
@@ -392,15 +392,15 @@
 
 <span class="sd">        see https://nimi-python.readthedocs.io/en/master/nidmm/class.html#function</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
     <span class="c1"># end doc strings for _properties</span>
-    <span class="c1"># ----------------------------------------------------------&#39;</span>
+    <span class="c1"># ----------------------------------------------------------'</span>
 
 <div class="viewcode-block" id="PXIe40xx.checkstate">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.html#pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.checkstate">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">checkstate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Compare actual state with value and set it to value if compare false.</span>
 
 <span class="sd">        Parameters</span>
@@ -411,32 +411,32 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">value</span></div>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get voltage.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Get voltage."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nidmm</span><span class="o">.</span><span class="n">Function</span><span class="o">.</span><span class="n">DC_VOLTS</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">current</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get current.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Get current."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nidmm</span><span class="o">.</span><span class="n">Function</span><span class="o">.</span><span class="n">DC_CURRENT</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get measurement from measurement method.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Get measurement from measurement method."""</span>
         <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
 <div class="viewcode-block" id="PXIe40xx.measure">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.html#pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.measure">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">measure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nsamples</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Start to fetch data from the DMM.</span>
 
 <span class="sd">        Parameters</span>
@@ -450,7 +450,7 @@
 <span class="sd">                Contains list of Time values.</span>
 <span class="sd">            voltage : list</span>
 <span class="sd">                Contains list of Voltage values.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">send_software_trigger</span><span class="p">()</span>
         <span class="n">voltage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">fetch_waveform</span><span class="p">(</span><span class="n">nsamples</span><span class="p">,</span> <span class="n">maximum_time</span><span class="o">=</span><span class="n">hightime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">milliseconds</span><span class="o">=</span><span class="mi">3000</span><span class="p">))</span>
 
@@ -466,7 +466,7 @@
 <div class="viewcode-block" id="PXIe40xx.plot_dmm_data">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.html#pylab_ml.dmm.natinst.pxie40xx.PXIe40xx.plot_dmm_data">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">plot_dmm_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">voltage</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Plot graph between Time and Voltage.</span>
 
 <span class="sd">        Parameters</span>
@@ -479,37 +479,37 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.4</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;DMM Measurements&quot;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Voltage (V)&quot;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="s2">"ro"</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"DMM Measurements"</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Time (s)"</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Voltage (V)"</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="k">pass</span></div>
 </div>
 
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logsetup</span>
 
     <span class="n">logsetup</span><span class="p">()</span>
 
-    <span class="n">dmm</span> <span class="o">=</span> <span class="n">PXIe40xx</span><span class="p">(</span><span class="s2">&quot;PXI1Slot5&quot;</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="s2">&quot;dmm&quot;</span><span class="p">)</span>
+    <span class="n">dmm</span> <span class="o">=</span> <span class="n">PXIe40xx</span><span class="p">(</span><span class="s2">"PXI1Slot5"</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="s2">"dmm"</span><span class="p">)</span>
 
     <span class="n">dmm</span><span class="o">.</span><span class="n">abort</span><span class="p">()</span>
 
     <span class="c1"># Change the Operation mode and operation function</span>
-    <span class="n">dmm</span><span class="o">.</span><span class="n">operation_mode</span> <span class="o">=</span> <span class="s2">&quot;WAVEFORM&quot;</span>
-    <span class="n">dmm</span><span class="o">.</span><span class="n">function</span> <span class="o">=</span> <span class="s2">&quot;WAVEFORM_VOLTAGE&quot;</span>
-    <span class="n">dmm</span><span class="o">.</span><span class="n">dc_noise_rejection</span> <span class="o">=</span> <span class="s2">&quot;AUTO&quot;</span>
+    <span class="n">dmm</span><span class="o">.</span><span class="n">operation_mode</span> <span class="o">=</span> <span class="s2">"WAVEFORM"</span>
+    <span class="n">dmm</span><span class="o">.</span><span class="n">function</span> <span class="o">=</span> <span class="s2">"WAVEFORM_VOLTAGE"</span>
+    <span class="n">dmm</span><span class="o">.</span><span class="n">dc_noise_rejection</span> <span class="o">=</span> <span class="s2">"AUTO"</span>
 
     <span class="c1"># Edit the Trigger properties</span>
     <span class="n">dmm</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="mi">10</span>
-    <span class="n">dmm</span><span class="o">.</span><span class="n">trigger_source</span> <span class="o">=</span> <span class="s2">&quot;SOFTWARE_TRIG&quot;</span>
-    <span class="n">dmm</span><span class="o">.</span><span class="n">sample_trigger</span> <span class="o">=</span> <span class="s2">&quot;SOFTWARE_TRIG&quot;</span>
+    <span class="n">dmm</span><span class="o">.</span><span class="n">trigger_source</span> <span class="o">=</span> <span class="s2">"SOFTWARE_TRIG"</span>
+    <span class="n">dmm</span><span class="o">.</span><span class="n">sample_trigger</span> <span class="o">=</span> <span class="s2">"SOFTWARE_TRIG"</span>
 
     <span class="c1"># Set the Waveform Acquisition properties</span>
     <span class="n">dmm</span><span class="o">.</span><span class="n">waveform_rate</span> <span class="o">=</span> <span class="mi">1_800_000</span>
@@ -526,8 +526,8 @@
 
     <span class="n">dmm</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-    <span class="c1"># print(&quot;voltage= {} V&quot;.format(dmm.voltage))</span>
-    <span class="c1"># print(&quot;current= {} mA&quot;.format(dmm.current * 1000))</span>
+    <span class="c1"># print("voltage= {} V".format(dmm.voltage))</span>
+    <span class="c1"># print("current= {} mA".format(dmm.current * 1000))</span>
 </pre></div>
 
            </div>

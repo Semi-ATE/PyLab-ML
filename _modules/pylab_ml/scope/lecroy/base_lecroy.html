@@ -180,14 +180,14 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pylab_ml.scope.lecroy.base_lecroy</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">This script defines the LecroyGenericScope class, which provides an interface to LeCroy Oscilloscopes.</span>
 <span class="sd">The class allows users to control various settings of the oscilloscope and retrieve waveform data.</span>
 
 <span class="sd">:Date: |today|</span>
 <span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">struct</span>
@@ -199,39 +199,39 @@
 <div class="viewcode-block" id="Lecroy">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.Lecroy.html#pylab_ml.scope.lecroy.base_lecroy.Lecroy">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Lecroy</span> <span class="p">(</span><span class="n">Scope</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Base class for LeCroy Oscilloscopes. &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">""" Base class for LeCroy Oscilloscopes. """</span>
 
 <div class="viewcode-block" id="Lecroy.__init__">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.Lecroy.html#pylab_ml.scope.lecroy.base_lecroy.Lecroy.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Initialize the Lecroy scope interface. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Initialize the Lecroy scope interface. """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Class </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Lecroy.reset">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.Lecroy.html#pylab_ml.scope.lecroy.base_lecroy.Lecroy.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Reset the Lecroy scope. &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;*RST&#39;</span><span class="p">)</span></div>
+<span class="w">        </span><span class="sd">""" Reset the Lecroy scope. """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'*RST'</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Lecroy.message">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.Lecroy.html#pylab_ml.scope.lecroy.base_lecroy.Lecroy.message">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Send a message to the Lecroy scope. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Send a message to the Lecroy scope. """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">message</span><span class="p">()</span>
         <span class="k">pass</span></div>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the identification string of the Lecroy scope. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Get the identification string of the Lecroy scope. """</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*IDN?&#39;</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'*IDN?'</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s2">""</span>
         <span class="k">return</span> <span class="n">value</span></div>
 
 
@@ -239,10 +239,10 @@
 <div class="viewcode-block" id="LecroyGenericScope">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.html#pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">LecroyGenericScope</span> <span class="p">(</span><span class="n">Lecroy</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Interface to LeCroy Oscilloscopes.</span>
 
-<span class="sd">    The Lecroy &#39;wavesurfer&#39; &amp; &#39;HBO with SENT option&#39; Oscilloscopes can be driven over</span>
+<span class="sd">    The Lecroy 'wavesurfer' &amp; 'HBO with SENT option' Oscilloscopes can be driven over</span>
 <span class="sd">    the network TCP/IP with this interface.</span>
 
 <span class="sd">    Initialisation arguments:</span>
@@ -252,12 +252,12 @@
 
 <span class="sd">    Example: Initialization</span>
 
-<span class="sd">        &gt;&gt;&gt; scope = hwlib.lecroy.Scope(&quot;lcry4066n50407&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; scope = hwlib.lecroy.Scope("lcry4066n50407")</span>
 
 <span class="sd">        &gt;&gt;&gt; scope.trig_channel = 1</span>
 <span class="sd">        &gt;&gt;&gt; scope.trig_level = 1.5</span>
-<span class="sd">        &gt;&gt;&gt; scope.trig_slope = &quot;POS&quot;</span>
-<span class="sd">        &gt;&gt;&gt; scope.trig_mode = &quot;norm&quot;</span>
+<span class="sd">        &gt;&gt;&gt; scope.trig_slope = "POS"</span>
+<span class="sd">        &gt;&gt;&gt; scope.trig_mode = "norm"</span>
 
 <span class="sd">        &gt;&gt;&gt; scope.tdiv = 1e-3</span>
 <span class="sd">        &gt;&gt;&gt; scope.tdelay = -3e-3</span>
@@ -280,7 +280,7 @@
 <span class="sd">    Methods:</span>
 <span class="sd">        reset()           reset</span>
 <span class="sd">        identify()        instrument message, reflect address &amp; interfade</span>
-<span class="sd">        message(&quot;&quot;)       instrument message (&quot;string&quot;) or ()</span>
+<span class="sd">        message("")       instrument message ("string") or ()</span>
 <span class="sd">        close()           terminate interface</span>
 <span class="sd">        get_waveform(n)   get waveform data from channel n</span>
 <span class="sd">        trig_oneshot(t)   single measurement trigger to waveform or timeout after t s</span>
@@ -299,36 +299,36 @@
 <span class="sd">        vdiv</span>
 <span class="sd">        offs</span>
 <span class="sd">        waveform</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
 <div class="viewcode-block" id="LecroyGenericScope.__init__">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.html#pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Initialize the LecroyGenericScope interface. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Initialize the LecroyGenericScope interface. """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Class </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="LecroyGenericScope.setup_inst">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.html#pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.setup_inst">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">setup_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Set up the Lecroy scope with initial settings. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Set up the Lecroy scope with initial settings. """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_inst</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;COMM_HEADER OFF&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span> <span class="o">=</span> <span class="s1">&#39;C1&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'COMM_HEADER OFF'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span> <span class="o">=</span> <span class="s1">'C1'</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mode_before_oneshot</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the identification string of the Lecroy scope. &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*IDN?&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">""" Get the identification string of the Lecroy scope. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'*IDN?'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span>
 
 <div class="viewcode-block" id="LecroyGenericScope.wait_until_idle">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.html#pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.wait_until_idle">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">wait_until_idle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delay_ms</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Wait until the Lecroy scope is idle.</span>
 
 <span class="sd">        Parameters</span>
@@ -340,8 +340,8 @@
 <span class="sd">        -------</span>
 <span class="sd">            value : str</span>
 <span class="sd">                The response from the scope indicating its idle status.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;VBS? &quot;return = app.WaitUntilIdle(</span><span class="si">{}</span><span class="s1">)&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">delay_ms</span><span class="p">)</span>
+<span class="sd">        """</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">'VBS? "return = app.WaitUntilIdle(</span><span class="si">{}</span><span class="s1">)"'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">delay_ms</span><span class="p">)</span>
         <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span></div>
 
@@ -349,11 +349,11 @@
 <div class="viewcode-block" id="LecroyGenericScope.fix_lecroy_trig">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.html#pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.fix_lecroy_trig">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">fix_lecroy_trig</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Issue on LeCroy-wavesurfer, once active channel changed &amp; used, trigger.</span>
 
 <span class="sd">        Channel attribute (level &amp; slope) changes are ignored!</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">tc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trig_channel</span>
         <span class="n">ch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">tc</span>
@@ -363,92 +363,92 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">memsize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the memory size of the Lecroy scope. &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MSIZ?&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">""" Get the memory size of the Lecroy scope. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'MSIZ?'</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
     <span class="nd">@memsize</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">memsize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;MSIZ </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'MSIZ </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">tdiv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the time division of the Lecroy scope. &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;TDIV?&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">""" Get the time division of the Lecroy scope. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'TDIV?'</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@tdiv</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">tdiv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;TDIV </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'TDIV </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">tdelay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the trigger delay of the Lecroy scope. &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;TRIG_DELAY?&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">""" Get the trigger delay of the Lecroy scope. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'TRIG_DELAY?'</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@tdelay</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">tdelay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;TRIG_DELAY </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'TRIG_DELAY </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">trig_slope</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the trigger slope of the Lecroy scope. &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;TRIG_SLOPE?&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">""" Get the trigger slope of the Lecroy scope. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'TRIG_SLOPE?'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span>
 
     <span class="nd">@trig_slope</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">trig_slope</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;POS&#39;</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;NEG&#39;</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s1">'POS'</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">'NEG'</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;POS&#39;</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="s1">&#39;NEG&#39;</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s1">'POS'</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="s1">'NEG'</span>
         <span class="k">if</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fix_lecroy_trig</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;TRIG_SLOPE </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'TRIG_SLOPE </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">trig_level</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the trigger level of the Lecroy scope. &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;TRIG_LEVEL?&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">""" Get the trigger level of the Lecroy scope. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'TRIG_LEVEL?'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span>
 
     <span class="nd">@trig_level</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">trig_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fix_lecroy_trig</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;TRIG_LEVEL </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'TRIG_LEVEL </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">trig_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Get the trigger mode of the Lecroy scope. </span>
-<span class="sd">        Trigger mode is one of {&#39;AUTO&#39;, &#39;NORM&#39;, &#39;SINGLE&#39;, &#39;STOP&#39;}</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;TRIG_MODE?&#39;</span><span class="p">)</span>
+<span class="sd">        Trigger mode is one of {'AUTO', 'NORM', 'SINGLE', 'STOP'}</span>
+<span class="sd">        """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'TRIG_MODE?'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span>
 
     <span class="nd">@trig_mode</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">trig_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;TRIG_MODE </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'TRIG_MODE </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">trig_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the trigger channel of the Lecroy scope. &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;TRIG_SELECT?&#39;</span><span class="p">)</span>
-        <span class="n">channel_name</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;^C&quot;</span><span class="p">,</span> <span class="n">channel_name</span><span class="p">):</span>
-            <span class="n">channel</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="w">        </span><span class="sd">""" Get the trigger channel of the Lecroy scope. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'TRIG_SELECT?'</span><span class="p">)</span>
+        <span class="n">channel_name</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"^C"</span><span class="p">,</span> <span class="n">channel_name</span><span class="p">):</span>
+            <span class="n">channel</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
             <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">channel_name</span>
 
     <span class="nd">@trig_channel</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">trig_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span> <span class="ow">or</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;TRIG_SELECT EDGE,SR,C</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span> <span class="ow">or</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\d"</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'TRIG_SELECT EDGE,SR,C</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;TRIG_SELECT EDGE,SR,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'TRIG_SELECT EDGE,SR,</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
 <div class="viewcode-block" id="LecroyGenericScope.TriggerTimeout">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.html#pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.TriggerTimeout">[docs]</a>
@@ -459,7 +459,7 @@
 <div class="viewcode-block" id="LecroyGenericScope.trig_oneshot">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.html#pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.trig_oneshot">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">trig_oneshot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Trigger a single measurement and wait until it is complete or timeout.</span>
 
 <span class="sd">        Parameters</span>
@@ -471,19 +471,19 @@
 <span class="sd">        ------</span>
 <span class="sd">            TriggerTimeout</span>
 <span class="sd">                If the measurement does not complete within the specified timeout.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mode_before_oneshot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trig_mode</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;TRIG_MODE SINGLE&#39;</span><span class="p">)</span>
-        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;TRIG_MODE?&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;STOP&quot;</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'TRIG_MODE SINGLE'</span><span class="p">)</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'TRIG_MODE?'</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">"STOP"</span><span class="p">:</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">TriggerTimeout</span><span class="p">(</span><span class="s2">&quot;Oneshot Trigger Timeout after </span><span class="si">{}</span><span class="s2">s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">timeout</span><span class="p">))</span></div>
+                <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">TriggerTimeout</span><span class="p">(</span><span class="s2">"Oneshot Trigger Timeout after </span><span class="si">{}</span><span class="s2">s"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">timeout</span><span class="p">))</span></div>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the current channel of the Lecroy scope. &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;^C&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Get the current channel of the Lecroy scope. """</span>
+        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"^C"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">):</span>
             <span class="n">channel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
             <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -491,8 +491,8 @@
 
     <span class="nd">@channel</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span> <span class="ow">or</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span> <span class="o">=</span> <span class="s2">&quot;C</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span> <span class="ow">or</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\d"</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span> <span class="o">=</span> <span class="s2">"C</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span> <span class="o">=</span> <span class="n">value</span>
 
@@ -500,37 +500,37 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">trace</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the trace state of the current channel. &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">:TRACE?&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">))</span>
+<span class="w">        </span><span class="sd">""" Get the trace state of the current channel. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">:TRACE?'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">))</span>
         <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">ON</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">OFF</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">value</span><span class="p">]</span>
 
     <span class="nd">@trace</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;ON&#39;</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="s1">&#39;OFF&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">:TRACE </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="s1">'ON'</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="s1">'OFF'</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">:TRACE </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">vdiv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the voltage division of the current channel. &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">:VDIV?&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">))</span>
-        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot; &#39;</span><span class="p">))</span>
+<span class="w">        </span><span class="sd">""" Get the voltage division of the current channel. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">:VDIV?'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">'" '</span><span class="p">))</span>
 
     <span class="nd">@vdiv</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">vdiv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">:VDIV </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">:VDIV </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">offs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Get the offset of the current channel. &quot;&quot;&quot;</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">:OFFSET?&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">))</span>
-        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot; &#39;</span><span class="p">))</span>
+<span class="w">        </span><span class="sd">""" Get the offset of the current channel. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">:OFFSET?'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">'" '</span><span class="p">))</span>
 
     <span class="nd">@offs</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">offs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">:OFFSET </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">:OFFSET </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_waveform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="w">        </span><span class="sd">""" </span>
 <span class="sd">        Get the waveform data from the specified channel.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -546,54 +546,54 @@
 <span class="sd">                The time interval between samples.</span>
 <span class="sd">            toffs : float</span>
 <span class="sd">                The time offset of the waveform.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">channel</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">channel_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_name</span>
-        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span> <span class="ow">or</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d&quot;</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
-            <span class="n">channel_name</span> <span class="o">=</span> <span class="s2">&quot;C</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">channel</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span> <span class="ow">or</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\d"</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
+            <span class="n">channel_name</span> <span class="o">=</span> <span class="s2">"C</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">channel</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">channel_name</span> <span class="o">=</span> <span class="n">channel</span>
         <span class="n">meta</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">desc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">:INSPECT? WAVEDESC&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">channel_name</span><span class="p">))</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">desc</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="se">\r\n</span><span class="s1">DESCRIPTOR_NAME    : WAVEDESC&#39;</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*** desc: </span><span class="si">{!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">desc</span><span class="p">))</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*** retry receiving description&#39;</span><span class="p">)</span>
+        <span class="n">desc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">:INSPECT? WAVEDESC"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">channel_name</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">desc</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'"</span><span class="se">\r\n</span><span class="s1">DESCRIPTOR_NAME    : WAVEDESC'</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'*** desc: </span><span class="si">{!r}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">desc</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'*** retry receiving description'</span><span class="p">)</span>
             <span class="n">desc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">desc</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">):</span>
-            <span class="n">name</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">sep</span> <span class="o">==</span> <span class="s1">&#39;:&#39;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">desc</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\r\n</span><span class="s1">'</span><span class="p">):</span>
+            <span class="n">name</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sep</span> <span class="o">==</span> <span class="s1">':'</span><span class="p">:</span>
                 <span class="n">meta</span><span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="n">gain</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;VERTICAL_GAIN&#39;</span><span class="p">])</span>
-        <span class="n">offs</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;VERTICAL_OFFSET&#39;</span><span class="p">])</span>
-        <span class="n">tdelta</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;HORIZ_INTERVAL&#39;</span><span class="p">])</span>
-        <span class="n">toffs</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;HORIZ_OFFSET&#39;</span><span class="p">])</span>
-        <span class="nb">format</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;COMM_TYPE&#39;</span><span class="p">]</span>
+        <span class="n">gain</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s1">'VERTICAL_GAIN'</span><span class="p">])</span>
+        <span class="n">offs</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s1">'VERTICAL_OFFSET'</span><span class="p">])</span>
+        <span class="n">tdelta</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s1">'HORIZ_INTERVAL'</span><span class="p">])</span>
+        <span class="n">toffs</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s1">'HORIZ_OFFSET'</span><span class="p">])</span>
+        <span class="nb">format</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s1">'COMM_TYPE'</span><span class="p">]</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">:WF? DAT1&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">channel_name</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">:WF? DAT1"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">channel_name</span><span class="p">))</span>
         <span class="n">chunks</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">chunk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read_chunk</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">chunk</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
-                <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">chunk</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">b</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">):</span>
+                <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">))</span>
                 <span class="k">break</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    get_waveform: c1 = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chunks</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    get_waveform: c1 = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chunks</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">chunks</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
-        <span class="k">assert</span> <span class="nb">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;byte&#39;</span> <span class="ow">or</span> <span class="nb">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;word&#39;</span>
-        <span class="k">if</span> <span class="nb">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;byte&#39;</span><span class="p">:</span>
-            <span class="n">values</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">b&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)),</span> <span class="n">b</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;word&#39;</span><span class="p">:</span>
-            <span class="n">values</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">h&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)),</span> <span class="n">b</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'    get_waveform: c1 = </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chunks</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'    get_waveform: c1 = </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chunks</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">chunks</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+        <span class="k">assert</span> <span class="nb">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'byte'</span> <span class="ow">or</span> <span class="nb">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'word'</span>
+        <span class="k">if</span> <span class="nb">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'byte'</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">b'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)),</span> <span class="n">b</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'word'</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">h'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)),</span> <span class="n">b</span><span class="p">)</span>
         <span class="n">voltage</span> <span class="o">=</span> <span class="n">gain</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="n">offs</span>
         <span class="k">return</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">tdelta</span><span class="p">,</span> <span class="n">toffs</span>
 
 <div class="viewcode-block" id="LecroyGenericScope.get_waveform">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.html#pylab_ml.scope.lecroy.base_lecroy.LecroyGenericScope.get_waveform">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_waveform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Get the waveform data from the specified channel and return the time and voltage arrays.</span>
 
 <span class="sd">        Parameters</span>
@@ -607,7 +607,7 @@
 <span class="sd">                The time values of the waveform.</span>
 <span class="sd">            voltage : np.ndarray</span>
 <span class="sd">                The voltage values of the waveform.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">voltage</span><span class="p">,</span> <span class="n">tdelta</span><span class="p">,</span> <span class="n">toffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_waveform</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">voltage</span><span class="p">))</span> <span class="o">*</span> <span class="n">tdelta</span> <span class="o">+</span> <span class="n">toffs</span>
         <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">voltage</span></div>
@@ -615,7 +615,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">waveform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="w">        </span><span class="sd">""" </span>
 <span class="sd">        Get the waveform data from the current channel and return the time and voltage arrays.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
@@ -624,14 +624,14 @@
 <span class="sd">                The time values of the waveform.</span>
 <span class="sd">            voltage : np.ndarray</span>
 <span class="sd">                The voltage values of the waveform.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">voltage</span><span class="p">,</span> <span class="n">tdelta</span><span class="p">,</span> <span class="n">toffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_waveform</span><span class="p">()</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">voltage</span><span class="p">))</span> <span class="o">*</span> <span class="n">tdelta</span> <span class="o">+</span> <span class="n">toffs</span>
         <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">voltage</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">waveform_dt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="w">        </span><span class="sd">""" </span>
 <span class="sd">        Get the waveform data from the current channel and return the voltage, time interval, and time offset.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
@@ -642,7 +642,7 @@
 <span class="sd">                The time interval between samples.</span>
 <span class="sd">            toffs : float</span>
 <span class="sd">                The time offset of the waveform.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">voltage</span><span class="p">,</span> <span class="n">tdelta</span><span class="p">,</span> <span class="n">toffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_waveform</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">tdelta</span><span class="p">,</span> <span class="n">toffs</span></div>
 

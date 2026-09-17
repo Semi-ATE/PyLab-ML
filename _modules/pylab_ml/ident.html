@@ -183,23 +183,23 @@
 <span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">ident package, provides Ident() class for multiple inheritance &#39;identity&#39; functionality</span>
+<span class="sd">"""</span>
+<span class="sd">ident package, provides Ident() class for multiple inheritance 'identity' functionality</span>
 <span class="sd">and stand-alone get_names() function to get list of assignemt identifiers</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <div class="viewcode-block" id="find_names">
 <a class="viewcode-back" href="../../_autosummary/pylab_ml.ident.find_names.html#pylab_ml.ident.find_names">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">find_names</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    find_names(obj) returns list of identifiers strings, lhs of = assignments to obj</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">        obj_names : list of str</span>
 <span class="sd">            List of identifier strings</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">frame</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_back</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
         <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span>
@@ -216,19 +216,19 @@
 <div class="viewcode-block" id="Ident">
 <a class="viewcode-back" href="../../_autosummary/pylab_ml.ident.Ident.html#pylab_ml.ident.Ident">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Ident</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ident class to determine identity of identifiers to which class instances assigned&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Ident class to determine identity of identifiers to which class instances assigned"""</span>
 
 <div class="viewcode-block" id="Ident.find_names">
 <a class="viewcode-back" href="../../_autosummary/pylab_ml.ident.Ident.html#pylab_ml.ident.Ident.find_names">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">find_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        find_names() returns list of identifiers strings, lhs of = assignments</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            obj_names : list of str</span>
 <span class="sd">                List of identifier strings</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">frame</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_back</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
             <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span>

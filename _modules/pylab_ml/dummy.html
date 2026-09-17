@@ -180,30 +180,30 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pylab_ml.dummy</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Basic Dummy class for instance.</span>
 
 <span class="sd">:Date: |today|</span>
 <span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <div class="viewcode-block" id="Dummy">
 <a class="viewcode-back" href="../../_autosummary/pylab_ml.dummy.Dummy.html#pylab_ml.dummy.Dummy">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Dummy</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Dummy object  for an communication-instance.</span>
 
 <span class="sd">    :Date: |today|</span>
 <span class="sd">    :Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
 
 <span class="sd">    Usable if you have no real serial device, but you want avoid an Exception if you make access to this device</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     
 <div class="viewcode-block" id="Dummy.__init__">
 <a class="viewcode-back" href="../../_autosummary/pylab_ml.dummy.Dummy.html#pylab_ml.dummy.Dummy.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialise the Dummy instance.</span>
 
 <span class="sd">        Parameters</span>
@@ -214,22 +214,22 @@
 <span class="sd">                Logger instance</span>
 <span class="sd">            kwargs : dict</span>
 <span class="sd">                Additional keyword arguments</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span>
-        <span class="c1"># kwargs = {&quot;addr&quot;: addr, &quot;interface&quot;: interface, &quot;backend&quot;: backend, &quot;identify&quot;: identify, &quot;instName&quot;: instName}</span>
-        <span class="k">if</span> <span class="s1">&#39;message&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="c1"># kwargs = {"addr": addr, "interface": interface, "backend": backend, "identify": identify, "instName": instName}</span>
+        <span class="k">if</span> <span class="s1">'message'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">'message'</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1">.inst: Device or no connection found,  use Dummy instead&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_lastcmd</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1">.inst: Device or no connection found,  use Dummy instead'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lastcmd</span> <span class="o">=</span> <span class="s1">''</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bytes_in_buffer</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 
 <div class="viewcode-block" id="Dummy.query">
 <a class="viewcode-back" href="../../_autosummary/pylab_ml.dummy.Dummy.html#pylab_ml.dummy.Dummy.query">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Query the Dummy instance.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -241,55 +241,55 @@
 <span class="sd">        -------</span>
 <span class="sd">            str or int</span>
 <span class="sd">                Response from the Dummy instance</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;*IDN?&#39;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="se">\r</span><span class="s1">&#39;</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[:</span><span class="n">cmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">)]</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">'*IDN?'</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="se">\r</span><span class="s1">'</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[:</span><span class="n">cmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'?'</span><span class="p">)]</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
                 <span class="k">pass</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Dummy </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1"> query </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1"> == </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Dummy </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1"> query </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1"> == </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="n">value</span> <span class="o">=</span> <span class="mh">0xdeadbeef</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Dummy </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1"> query </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1"> == </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Dummy </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1"> query </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1"> == </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span></div>
 
 
 <div class="viewcode-block" id="Dummy.write">
 <a class="viewcode-back" href="../../_autosummary/pylab_ml.dummy.Dummy.html#pylab_ml.dummy.Dummy.write">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Write a command to the Dummy instance.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            cmd : str</span>
 <span class="sd">                Command to write</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_lastcmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[:</span><span class="n">cmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">)]</span> <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lastcmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[:</span><span class="n">cmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'?'</span><span class="p">)]</span> <span class="k">if</span> <span class="n">cmd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'?'</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="s1">''</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Dummy </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1"> write </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Dummy </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1"> write </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Dummy.read">
 <a class="viewcode-back" href="../../_autosummary/pylab_ml.dummy.Dummy.html#pylab_ml.dummy.Dummy.read">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Read a value from the Dummy instance.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            value : str or int</span>
 <span class="sd">                Value read from the Dummy instance</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># value = 0xdeadbeef</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;-2&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Dummy </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1"> read value&#39;</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="s1">'-2'</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Dummy </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1"> read value'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span></div>
 
 
@@ -297,7 +297,7 @@
         <span class="k">pass</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="w">        </span><span class="sd">""" </span>
 <span class="sd">        Get an attribute from the Dummy instance.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -309,19 +309,19 @@
 <span class="sd">        -------</span>
 <span class="sd">            value : str or int</span>
 <span class="sd">                Value of the attribute</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="c1"># value = 0xdeadbeef</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;-2&#39;</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s1">'-2'</span>
         <span class="k">return</span> <span class="n">value</span>
 
 <div class="viewcode-block" id="Dummy.close">
 <a class="viewcode-back" href="../../_autosummary/pylab_ml.dummy.Dummy.html#pylab_ml.dummy.Dummy.close">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close the Dummy instance.&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Dummy </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1"> close Dummy instance&#39;</span><span class="p">)</span></div>
+<span class="w">        </span><span class="sd">"""Close the Dummy instance."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Dummy </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1"> close Dummy instance'</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

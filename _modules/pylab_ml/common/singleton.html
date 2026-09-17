@@ -181,18 +181,18 @@
              
   <h1>Source code for pylab_ml.common.singleton</h1><div class="highlight"><pre>
 <span></span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="sd">Creating a singleton in Python</span>
 <span class="sd">This script contains two methods to create a singleton in Python: one using a decorator and another using a metaclass.</span>
 
 <span class="sd">see https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <div class="viewcode-block" id="singleton">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.singleton.singleton.html#pylab_ml.common.singleton.singleton">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">singleton</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">        Create Singleton by decorator</span>
 
 <span class="sd">            Pros:</span>
@@ -203,7 +203,7 @@
 <span class="sd">                While objects created using MyClass() would be true singleton objects, MyClass</span>
 <span class="sd">                itself is a a function, not a class, so you cannot call class methods from it.</span>
 <span class="sd">                Also for m = MyClass(); n = MyClass(); o = type(n)(); then m == n &amp;&amp; m != o &amp;&amp; n != o</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">instance</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span>
 
@@ -225,22 +225,22 @@
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.singleton.Singleton.html#pylab_ml.common.singleton.Singleton">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Singleton</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Create Singleton by inheriting from a metaclass</span>
 
 <span class="sd">        Pros:</span>
-<span class="sd">            - It&#39;s a true class</span>
+<span class="sd">            - It's a true class</span>
 <span class="sd">            - Auto-magically covers inheritance</span>
 <span class="sd">            - Uses __metaclass__ for its proper purpose (and made me aware of it)</span>
 
 <span class="sd">        Cons:</span>
-<span class="sd">            - It&#39;s a bit more complex to understand</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">            - It's a bit more complex to understand</span>
+<span class="sd">    """</span>
 
     <span class="n">_instances</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        If an instance of the class does not exist, create one and store it in the _instances dictionary.</span>
 <span class="sd">        If an instance already exists, return the existing instance from the _instances dictionary.</span>
 <span class="sd">        </span>
@@ -255,7 +255,7 @@
 <span class="sd">        -------</span>
 <span class="sd">            object</span>
 <span class="sd">                The singleton instance of the class.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="bp">cls</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instances</span><span class="p">:</span>
             <span class="bp">cls</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">Singleton</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span></div>

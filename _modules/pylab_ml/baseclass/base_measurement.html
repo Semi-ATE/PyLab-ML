@@ -180,7 +180,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pylab_ml.baseclass.base_measurement</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Basic SMU class.&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""Basic SMU class."""</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Instrument</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -189,23 +189,23 @@
 <div class="viewcode-block" id="Measure">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_measurement.Measure.html#pylab_ml.baseclass.base_measurement.Measure">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Measure</span><span class="p">(</span><span class="n">Instrument</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Base class for measurement instruments, e.g. SMU, DMM, Scope etc.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">""" Base class for measurement instruments, e.g. SMU, DMM, Scope etc."""</span>
 
 <div class="viewcode-block" id="Measure.__init__">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_measurement.Measure.html#pylab_ml.baseclass.base_measurement.Measure.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the smu class.&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_instName</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="w">        </span><span class="sd">"""Initialize the smu class."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_instName</span> <span class="o">=</span> <span class="s1">''</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Class </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span></div>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">instName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return with instname or instname[ch] if it has channels.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_channel&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span>
+<span class="w">        </span><span class="sd">"""Return with instname or instname[ch] if it has channels."""</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'_channel'</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span>
                                                                               <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)):</span>
-            <span class="c1"># return &#39;{}[{}]&#39;.format(self._instName, self._channel)</span>
+            <span class="c1"># return '{}[{}]'.format(self._instName, self._channel)</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instName</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instName</span>
@@ -216,13 +216,13 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">measurecnt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get the number of measurement to be carried out in a loop.</span>
+<span class="w">        </span><span class="sd">"""Set/get the number of measurement to be carried out in a loop.</span>
 
 <span class="sd">        TODO: this function is not running yet, it is only a dummy</span>
 
 <span class="sd">        if the result == None than this function not implemented.</span>
 <span class="sd">        The return value for the measurement is calculated togetheer with the mfilter setting.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurecnt</span>
 
     <span class="nd">@measurecnt</span><span class="o">.</span><span class="n">setter</span>
@@ -231,13 +231,13 @@
 
     <span class="c1"># @property</span>
     <span class="c1"># def mfilter(self):</span>
-    <span class="c1">#     &quot;&quot;&quot;Set/get the type of digital-filter for the result of measurment if measurecnt&gt;1.</span>
+    <span class="c1">#     """Set/get the type of digital-filter for the result of measurment if measurecnt&gt;1.</span>
 
     <span class="c1">#     TODO: this function is not running yet, it is only a dummy</span>
 
     <span class="c1">#     Returns:</span>
     <span class="c1">#         delete_min_max_values_and_average: same function as the laboratory matlab function with the same name...</span>
-    <span class="c1">#     &quot;&quot;&quot;</span>
+    <span class="c1">#     """</span>
     <span class="c1">#     return self._mfilter</span>
 
     <span class="c1"># @mfilter.setter</span>
@@ -258,19 +258,19 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Set/get channel number if the instrument have more than one channel.</span>
 
 <span class="sd">        One can also use:</span>
 <span class="sd">            &gt;&gt;&gt; vdd[0].voltage = 5           # set voltage from channel 0</span>
 <span class="sd">            &gt;&gt;&gt; vdd[1].current = 0.1         # set current from channel 1</span>
 <span class="sd">            &gt;&gt;&gt; v = vdd[1].voltage           # measure voltage from channel 1</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_channel</span>
 
     <span class="nd">@channel</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="w">        </span><span class="sd">""" </span>
 <span class="sd">        Set/get channel number if the instrument have more than one channel.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters:</span>
@@ -281,14 +281,14 @@
 <span class="sd">        Returns:</span>
 <span class="sd">        --------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1">.channel := </span><span class="si">{}</span><span class="s1"> not initialise in channels list == </span><span class="si">{}</span><span class="se">\n</span><span class="s1">   use last channel := </span><span class="si">{}</span><span class="s1"> !&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">'</span><span class="si">{!r}</span><span class="s1">.channel := </span><span class="si">{}</span><span class="s1"> not initialise in channels list == </span><span class="si">{}</span><span class="se">\n</span><span class="s1">   use last channel := </span><span class="si">{}</span><span class="s1"> !'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">))</span>
             <span class="k">return</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_channel</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set channel to key.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Set channel to key."""</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">key</span>
             <span class="k">return</span> <span class="bp">self</span>
@@ -298,8 +298,8 @@
             <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span>
                     <span class="n">chlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error, sorry this doesn&#39;t work yet :-(&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">chlist</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Error, sorry this doesn't work yet :-("</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">'-&gt;'</span><span class="p">,</span> <span class="n">chlist</span><span class="p">)</span>
             <span class="c1"># self.channel=chlist[0]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_chiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">chlist</span><span class="p">)</span>
             <span class="c1"># return map([self[i] for i in chlist])</span>
@@ -307,31 +307,31 @@
             <span class="k">return</span> <span class="bp">self</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
             <span class="n">chlist</span> <span class="o">=</span> <span class="n">key</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error, sorry, this doesn&#39;t work yet :-(&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">chlist</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Error, sorry, this doesn't work yet :-("</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">'-&gt;'</span><span class="p">,</span> <span class="n">chlist</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">self</span>
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; For iterating over channels &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" For iterating over channels """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_chiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; For iterating over channels &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" For iterating over channels """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_chiter</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Return True if key in channels list, else False. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Return True if key in channels list, else False. """</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the number of channels.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_channel&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Return the number of channels."""</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'_channel'</span><span class="p">):</span>
             <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">0</span></div>

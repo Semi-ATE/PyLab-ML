@@ -180,12 +180,12 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pylab_ml.smu.tti.ql355tp</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Interface to the Power supply unit TTi QL355TP.</span>
+<span></span><span class="sd">"""Interface to the Power supply unit TTi QL355TP.</span>
 
 <span class="sd">:Date: |today|</span>
 <span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.collate_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interface</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.smu.tti.base_tti</span><span class="w"> </span><span class="kn">import</span> <span class="n">TTI</span>
@@ -195,7 +195,7 @@
 <div class="viewcode-block" id="QL355TP">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.ql355tp.QL355TP.html#pylab_ml.smu.tti.ql355tp.QL355TP">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">QL355TP</span><span class="p">(</span><span class="n">TTI</span><span class="p">):</span>
-<span class="w">   </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">   </span><span class="sd">"""</span>
 <span class="sd">   Interface to the Power supply unit TTi QL355TP.</span>
 
 <span class="sd">   :Date: |today|</span>
@@ -209,14 +209,14 @@
 
 <span class="sd">   *Examples:*</span>
 <span class="sd">      * Common for QL355TP: :download:`examples/smu/ql355tp.py &lt;../../../examples/smu/ql355tp.py&gt;`</span>
-<span class="sd">   &quot;&quot;&quot;</span>
+<span class="sd">   """</span>
    
    <span class="n">interchoices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">gpib</span><span class="p">]</span>
 
 <div class="viewcode-block" id="QL355TP.__init__">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.ql355tp.QL355TP.html#pylab_ml.smu.tti.ql355tp.QL355TP.__init__">[docs]</a>
    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">      Connect and initialize.</span>
 
 <span class="sd">      Args:</span>
@@ -229,11 +229,11 @@
 <span class="sd">            * USBSerial:</span>
 <span class="sd">               | for serial or usb</span>
 <span class="sd">               | The serial bus only works with a special cable (rts must be connect to cts)</span>
-<span class="sd">               | USB works only with windows. Please install the driver &#39;instruments/smu/tti/TTI_USB_FTDI-v2_12_16&#39;</span>
+<span class="sd">               | USB works only with windows. Please install the driver 'instruments/smu/tti/TTI_USB_FTDI-v2_12_16'</span>
 <span class="sd">         backend (str):</span>
-<span class="sd">            VISA backend is either &#39;@ni&#39; for NI-Library or</span>
-<span class="sd">            &#39;@py&#39; for pure python pyvisa-py backend.</span>
-<span class="sd">            On default it uses &#39;@ni&#39; on win32 and &#39;@py&#39; on</span>
+<span class="sd">            VISA backend is either '@ni' for NI-Library or</span>
+<span class="sd">            '@py' for pure python pyvisa-py backend.</span>
+<span class="sd">            On default it uses '@ni' on win32 and '@py' on</span>
 <span class="sd">            other platforms.</span>
 <span class="sd">         identify (bool):</span>
 <span class="sd">            Whether to identify the instrument. The default is True.</span>
@@ -241,7 +241,7 @@
 <span class="sd">            Instance Name from top.</span>
 
 <span class="sd">         Example: Initialization</span>
-<span class="sd">            &gt;&gt;&gt; vdd = QL355TP(11, &#39;vdd&#39;)     # GPIB address=11</span>
+<span class="sd">            &gt;&gt;&gt; vdd = QL355TP(11, 'vdd')     # GPIB address=11</span>
 <span class="sd">            &gt;&gt;&gt; vdd.init()                   # connect and initialize instrument with 2 channels</span>
 
 <span class="sd">         Example: Config power supply 1+2 and enable the output</span>
@@ -251,48 +251,48 @@
 <span class="sd">            &gt;&gt;&gt; vdd[1].voltage = 6.3           # voltage (@channel=1) = 6.3V</span>
 <span class="sd">            &gt;&gt;&gt; vdd[1].current_lim = 0.58      # current limit = 580mA</span>
 <span class="sd">            &gt;&gt;&gt; vdd[1].onoff = 1               # enable output 0</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="n">addr</span><span class="p">,</span> <span class="s2">&quot;interface&quot;</span><span class="p">:</span> <span class="n">interface</span><span class="p">,</span> <span class="s2">&quot;backend&quot;</span><span class="p">:</span> <span class="n">backend</span><span class="p">,</span> <span class="s2">&quot;identify&quot;</span><span class="p">:</span> <span class="n">identify</span><span class="p">,</span> <span class="s2">&quot;instName&quot;</span><span class="p">:</span> <span class="n">instName</span><span class="p">}</span>
+<span class="sd">        """</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"addr"</span><span class="p">:</span> <span class="n">addr</span><span class="p">,</span> <span class="s2">"interface"</span><span class="p">:</span> <span class="n">interface</span><span class="p">,</span> <span class="s2">"backend"</span><span class="p">:</span> <span class="n">backend</span><span class="p">,</span> <span class="s2">"identify"</span><span class="p">:</span> <span class="n">identify</span><span class="p">,</span> <span class="s2">"instName"</span><span class="p">:</span> <span class="n">instName</span><span class="p">}</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Class </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="QL355TP.setup_inst">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.tti.ql355tp.QL355TP.html#pylab_ml.smu.tti.ql355tp.QL355TP.setup_inst">[docs]</a>
    <span class="k">def</span><span class="w"> </span><span class="nf">setup_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">      </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">      </span><span class="sd">"""</span>
 <span class="sd">      Start setup instrument settings, called from class instruments.</span>
 
 <span class="sd">      Create 2 channels</span>
-<span class="sd">      &quot;&quot;&quot;</span>
+<span class="sd">      """</span>
       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_inst</span><span class="p">()</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span></div>
 
 
    <span class="nd">@property</span>
    <span class="k">def</span><span class="w"> </span><span class="nf">v_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">      </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">      </span><span class="sd">"""</span>
 <span class="sd">      Get/Set the operating Output-Value-Range for actual Channel.</span>
 
-<span class="sd">      |  0 = 15V/5A&#39; : Voltage 0 to 15 V / Current 0 to 5 A</span>
-<span class="sd">      |  1 = 35V/3A&#39; : Voltage 0 to 35 V / Current 0 to 3 A</span>
+<span class="sd">      |  0 = 15V/5A' : Voltage 0 to 15 V / Current 0 to 5 A</span>
+<span class="sd">      |  1 = 35V/3A' : Voltage 0 to 35 V / Current 0 to 3 A</span>
 <span class="sd">      |  2 = 35V/500mA : Voltage 0 to 35 V / Current 0 to 500 mA</span>
-<span class="sd">      &quot;&quot;&quot;</span></div>
+<span class="sd">      """</span></div>
 
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logsetup</span>
 
     <span class="n">logsetup</span><span class="p">()</span>
 
-    <span class="n">smu</span> <span class="o">=</span> <span class="n">QL355TP</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="s1">&#39;smu&#39;</span><span class="p">)</span>
-    <span class="c1"># smu = QL355TP(5, Interface.usbserial, instName=&#39;smu&#39;)</span>
-    <span class="c1"># smu = QL355TP(11, instName=&#39;smu&#39;)           # Interface.gpib is default</span>
+    <span class="n">smu</span> <span class="o">=</span> <span class="n">QL355TP</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="s1">'smu'</span><span class="p">)</span>
+    <span class="c1"># smu = QL355TP(5, Interface.usbserial, instName='smu')</span>
+    <span class="c1"># smu = QL355TP(11, instName='smu')           # Interface.gpib is default</span>
     <span class="n">smu</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 
     <span class="c1"># smu[0,2].voltage = 1.1      # not running yet</span>
-    <span class="c1"># smu[0:1].voltage = 1.1      # &quot;</span>
+    <span class="c1"># smu[0:1].voltage = 1.1      # "</span>
     <span class="n">smu</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span> <span class="o">=</span> <span class="mf">1.1</span>
     <span class="n">smu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span> <span class="o">=</span> <span class="mf">2.2</span>
     <span class="n">smu</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span>

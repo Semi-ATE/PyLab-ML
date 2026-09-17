@@ -180,13 +180,13 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pylab_ml.matrix.base_pickering</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Base Class, Interface to the Pickering Matrix Card.</span>
 
 <span class="sd">:Date: |today|</span>
 <span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.collate_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interface</span>
@@ -197,7 +197,7 @@
 <div class="viewcode-block" id="findcard">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_pickering.findcard.html#pylab_ml.matrix.base_pickering.findcard">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">findcard</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Find address for Pickering Card.</span>
 
 <span class="sd">    Returns:</span>
@@ -205,22 +205,22 @@
 <span class="sd">            | -1 if no card found</span>
 <span class="sd">            | addr if card found</span>
 <span class="sd">            | -1 and display addr if more than 1 card found.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">base</span> <span class="o">=</span> <span class="n">Pipx40</span><span class="o">.</span><span class="n">pipx40_base</span><span class="p">()</span>                   <span class="c1"># Initialising Base Class</span>
     <span class="n">CountFreeCards</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">CountFreeCards</span><span class="p">()</span>        <span class="c1"># search for available cards</span>
     <span class="k">if</span> <span class="n">CountFreeCards</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: no card found&#39;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">: no card found'</span><span class="p">)</span>
         <span class="n">addr</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">elif</span> <span class="n">CountFreeCards</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">RsrcString</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">FindFreeCards</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="c1"># addr=int(RsrcString.split(&#39;::&#39;)[1])</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;found card addr:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">RsrcString</span><span class="p">))</span>
+        <span class="c1"># addr=int(RsrcString.split('::')[1])</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'found card addr:</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">RsrcString</span><span class="p">))</span>
         <span class="n">addr</span> <span class="o">=</span> <span class="n">RsrcString</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">RsrcString</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">FindFreeCards</span><span class="p">()</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;found more than one card &#39;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'found more than one card '</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">CountFreeCards</span><span class="p">()):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RsrcString</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RsrcString</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
         <span class="n">addr</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">return</span> <span class="n">addr</span></div>
 
@@ -229,7 +229,7 @@
 <div class="viewcode-block" id="Pickering">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_pickering.Pickering.html#pylab_ml.matrix.base_pickering.Pickering">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Pickering</span> <span class="p">(</span><span class="n">Instrument</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Base Class, Interface to the Pickering Matrix Card.</span>
 
 <span class="sd">    :Date: |today|</span>
@@ -237,12 +237,12 @@
 
 <span class="sd">    The Pickering baseclass can connect to Pickering Matrix Card</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
 <div class="viewcode-block" id="Pickering.__init__">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_pickering.Pickering.html#pylab_ml.matrix.base_pickering.Pickering.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the Pickering Matrix Card.</span>
+<span class="w">        </span><span class="sd">"""Initialise the Pickering Matrix Card.</span>
 
 <span class="sd">        Initialization arguments:</span>
 <span class="sd">            addr : int</span>
@@ -253,19 +253,19 @@
 <span class="sd">        Example: Initialization</span>
 <span class="sd">            &gt;&gt;&gt; instrument = NatInst(addr=3)     # PXIe slot address</span>
 <span class="sd">            &gt;&gt;&gt; instrument.init()                # connect and initialize instrument</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;interchoices&#39;</span><span class="p">):</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'interchoices'</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">interchoices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">pxie</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Class </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Pickering.findcard">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_pickering.Pickering.html#pylab_ml.matrix.base_pickering.Pickering.findcard">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">findcard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Find address for Pickering Card.</span>
 
 <span class="sd">        Returns:</span>
@@ -273,22 +273,22 @@
 <span class="sd">                | -1 if no card found</span>
 <span class="sd">                | addr if card found</span>
 <span class="sd">                | -1 and display addr if more than 1 card found.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">Pipx40</span><span class="o">.</span><span class="n">pipx40_base</span><span class="p">()</span>                  <span class="c1"># Initialising Base Class</span>
         <span class="n">CountFreeCards</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">CountFreeCards</span><span class="p">()</span>       <span class="c1"># search for available cards</span>
         <span class="k">if</span> <span class="n">CountFreeCards</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: no card found&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">: no card found'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
             <span class="n">addr</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">elif</span> <span class="n">CountFreeCards</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">RsrcString</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">FindFreeCards</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="c1"># addr=int(RsrcString.split(&#39;::&#39;)[1])</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: found card addr:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">RsrcString</span><span class="p">))</span>
+            <span class="c1"># addr=int(RsrcString.split('::')[1])</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">: found card addr:</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">RsrcString</span><span class="p">))</span>
             <span class="n">addr</span> <span class="o">=</span> <span class="n">RsrcString</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">RsrcString</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">FindFreeCards</span><span class="p">()</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: found more than one card &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">: found more than one card '</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">CountFreeCards</span><span class="p">()):</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RsrcString</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">b</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RsrcString</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
             <span class="n">addr</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">return</span> <span class="n">addr</span></div>
 
@@ -296,7 +296,7 @@
 <div class="viewcode-block" id="Pickering.reset">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_pickering.Pickering.html#pylab_ml.matrix.base_pickering.Pickering.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Reset."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">Reset</span><span class="p">()</span></div>
 
@@ -304,14 +304,14 @@
 <div class="viewcode-block" id="Pickering.clear">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_pickering.Pickering.html#pylab_ml.matrix.base_pickering.Pickering.clear">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear error status.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Clear error status."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="Pickering.close">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_pickering.Pickering.html#pylab_ml.matrix.base_pickering.Pickering.close">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close connection to Pickering device.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Close connection to Pickering device."""</span>
         <span class="n">err</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">err</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
@@ -324,13 +324,13 @@
 <div class="viewcode-block" id="Pickering.error_list">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_pickering.Pickering.html#pylab_ml.matrix.base_pickering.Pickering.error_list">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">error_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;List of outstanding errors.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""List of outstanding errors."""</span>
         <span class="n">errorlist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">Diagnostic</span><span class="p">()</span>
 <span class="c1">#        errors = errormsgs[0]</span>
 <span class="c1">#        codes =errormsgs[1]</span>
 <span class="c1">#        errorlist = []</span>
 <span class="c1">#        for c,m in zip(codes, errors):</span>
-<span class="c1">#            print(&quot;{} : {}&quot;.format(c,m))</span>
+<span class="c1">#            print("{} : {}".format(c,m))</span>
 <span class="c1">#            errorlist.append((c,m))</span>
         <span class="k">return</span> <span class="n">errorlist</span></div>
 
@@ -338,25 +338,25 @@
 <div class="viewcode-block" id="Pickering.message">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_pickering.Pickering.html#pylab_ml.matrix.base_pickering.Pickering.message">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Device has no display, message display to logger.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Device has no display, message display to logger."""</span>
         <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the id from the device.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Get the id from the device."""</span>
         <span class="n">err</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">GetCardId</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_error_message</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">''</span>
         <span class="k">return</span> <span class="n">msg</span>
 
 <div class="viewcode-block" id="Pickering.local">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.matrix.base_pickering.Pickering.html#pylab_ml.matrix.base_pickering.Pickering.local">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">local</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Not possible, always remote control.&quot;&quot;&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;set local not possible, always remote control&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">"""Not possible, always remote control."""</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"set local not possible, always remote control"</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span> <span class="o">=</span> <span class="kc">False</span></div>
 </div>
 

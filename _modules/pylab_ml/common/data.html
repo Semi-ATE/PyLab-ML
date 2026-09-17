@@ -180,10 +180,10 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pylab_ml.common.data</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">This script contains functions for data manipulation and processing, such as converting between signed and unsigned data, calculating CRC checksums, and parsing strings to numeric values. </span>
 <span class="sd">These functions are commonly used in data processing tasks, especially when dealing with binary data or communication protocols.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dt</span>
@@ -192,7 +192,7 @@
 <div class="viewcode-block" id="unsigned_data">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.unsigned_data.html#pylab_ml.common.data.unsigned_data">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">unsigned_data</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Convert to 16-bit unsigned_data.</span>
 <span class="sd">    </span>
 <span class="sd">    eg. unsigned_data(-1) -&gt; 65535</span>
@@ -208,7 +208,7 @@
 <span class="sd">        int</span>
 <span class="sd">            unsigned 16-bit value</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">f</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
         <span class="n">f</span> <span class="o">+=</span> <span class="mf">65536.0</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
@@ -218,7 +218,7 @@
 <div class="viewcode-block" id="signed_data">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.signed_data.html#pylab_ml.common.data.signed_data">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">signed_data</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bitwidth</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Convert to signed_data.</span>
 <span class="sd">    </span>
 <span class="sd">    eg. signed_data(65535) -&gt; -1</span>
@@ -236,7 +236,7 @@
 <span class="sd">    -------</span>
 <span class="sd">        int</span>
 <span class="sd">            signed value</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">f</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">bitwidth</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
         <span class="n">f</span> <span class="o">-=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">bitwidth</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
@@ -246,7 +246,7 @@
 <div class="viewcode-block" id="byte2word">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.byte2word.html#pylab_ml.common.data.byte2word">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">byte2word</span><span class="p">(</span><span class="n">list8</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return a list with 16-bit data from a imput list with 8-bit data.</span>
 <span class="sd">    </span>
 <span class="sd">    eg. byte2word([0x01, 0x02, 0x03, 0x04]) -&gt; [0x0201, 0x0403]</span>
@@ -258,7 +258,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">        list16 : list of 16-bit values</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">list16</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">list8</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
         <span class="n">list16</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">))</span>
@@ -269,7 +269,7 @@
 <div class="viewcode-block" id="byte2uint">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.byte2uint.html#pylab_ml.common.data.byte2uint">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">byte2uint</span><span class="p">(</span><span class="n">list8</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return a list with 32-bit data from a imput list with 8-bit data.</span>
 <span class="sd">    </span>
 <span class="sd">    eg. byte2uint([0x01, 0x02, 0x03, 0x04]) -&gt; [0x04030201]</span>
@@ -282,7 +282,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">        list32 : list of 32-bit values</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">list32</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">list8</span><span class="p">),</span> <span class="mi">4</span><span class="p">):</span>
         <span class="n">list32</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">list8</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">))</span>
@@ -293,7 +293,7 @@
 <div class="viewcode-block" id="complement">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.complement.html#pylab_ml.common.data.complement">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">complement</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">bits</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Binary complement from a positive value with number of bits.</span>
 <span class="sd">    </span>
 <span class="sd">    eg. complement(0, 8) -&gt; 255</span>
@@ -312,19 +312,19 @@
 <span class="sd">    -------</span>
 <span class="sd">        int</span>
 <span class="sd">            Complemented value.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;complement value must be an positive integer, not </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">formatstring</span> <span class="o">=</span> <span class="s1">&#39;{:0</span><span class="si">%i</span><span class="s1">b}&#39;</span> <span class="o">%</span> <span class="n">bits</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"complement value must be an positive integer, not </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">formatstring</span> <span class="o">=</span> <span class="s1">'{:0</span><span class="si">%i</span><span class="s1">b}'</span> <span class="o">%</span> <span class="n">bits</span>
     <span class="n">bvalue</span> <span class="o">=</span> <span class="n">formatstring</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">({</span><span class="s1">&#39;0&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">}[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bvalue</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">({</span><span class="s1">'0'</span><span class="p">:</span> <span class="s1">'1'</span><span class="p">,</span> <span class="s1">'1'</span><span class="p">:</span> <span class="s1">'0'</span><span class="p">}[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bvalue</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="complement2">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.complement2.html#pylab_ml.common.data.complement2">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">complement2</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">bits</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    2&#39;s complement representation from a value with number of bits.</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    2's complement representation from a value with number of bits.</span>
 <span class="sd">    </span>
 <span class="sd">    eg. complement2(0, 8) -&gt; 0</span>
 <span class="sd">        complement2(1, 8) -&gt; 1</span>
@@ -334,17 +334,17 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">        value : int</span>
-<span class="sd">            Integer value to be converted to 2&#39;s complement.</span>
+<span class="sd">            Integer value to be converted to 2's complement.</span>
 <span class="sd">        bits : int</span>
-<span class="sd">            Number of bits for the 2&#39;s complement representation.</span>
+<span class="sd">            Number of bits for the 2's complement representation.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">        int</span>
-<span class="sd">            2&#39;s complement representation of the value.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">            2's complement representation of the value.</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">bits</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;complement2 value must be &lt; </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">bits</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"complement2 value must be &lt; </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">bits</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">value</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="k">else</span> <span class="n">complement</span><span class="p">(</span><span class="o">-</span><span class="n">value</span><span class="p">,</span> <span class="n">bits</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
     <span class="k">return</span> <span class="n">result</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">bits</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
 
@@ -352,7 +352,7 @@
 <div class="viewcode-block" id="crc4">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.crc4.html#pylab_ml.common.data.crc4">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">crc4</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>             <span class="c1"># width</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Calculate 4-bit crc from a data with width bits.</span>
 
 <span class="sd">    polynomial = X4+X+1</span>
@@ -370,11 +370,11 @@
 <span class="sd">    -------</span>
 <span class="sd">        int</span>
 <span class="sd">            The calculated 4-bit CRC value as an integer.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data</span><span class="si">:</span><span class="s1">0b</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="sd">    """</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">data</span><span class="si">:</span><span class="s1">0b</span><span class="si">}</span><span class="s1">'</span>
     <span class="n">crcdat</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">bit</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="n">doinvert</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="n">crcdat</span> <span class="o">&amp;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">)</span>      <span class="c1"># DoInvert = (&#39;1&#39;==BitString[i]) ^ CRC[3];</span>
+        <span class="n">doinvert</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="n">crcdat</span> <span class="o">&amp;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">)</span>      <span class="c1"># DoInvert = ('1'==BitString[i]) ^ CRC[3];</span>
         <span class="n">crc</span> <span class="o">=</span> <span class="p">(</span><span class="n">crcdat</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xc</span>                      <span class="c1"># CRC[3] = CRC[2]; CRC[2] = CRC[1];</span>
         <span class="n">crc</span> <span class="o">|=</span> <span class="p">((</span><span class="n">crcdat</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">^</span> <span class="n">doinvert</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>          <span class="c1"># CRC[1] = CRC[0] ^ DoInvert;</span>
         <span class="n">crc</span> <span class="o">|=</span> <span class="n">doinvert</span>                                <span class="c1"># CRC[0] = DoInvert;</span>
@@ -386,7 +386,7 @@
 <div class="viewcode-block" id="crc16">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.crc16.html#pylab_ml.common.data.crc16">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">crc16</span><span class="p">(</span><span class="n">word_array</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Calculate CRC-16 on array.</span>
 <span class="sd">    </span>
 <span class="sd">    eg. crc16([0x0201, 0x0403]) -&gt; 0x29B1</span>
@@ -402,7 +402,7 @@
 <span class="sd">    -------</span>
 <span class="sd">        crc : int</span>
 <span class="sd">            16-bit CRC value.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">crctable</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x0000</span><span class="p">,</span> <span class="mh">0x1021</span><span class="p">,</span> <span class="mh">0x2042</span><span class="p">,</span> <span class="mh">0x3063</span><span class="p">,</span> <span class="mh">0x4084</span><span class="p">,</span> <span class="mh">0x50A5</span><span class="p">,</span> <span class="mh">0x60C6</span><span class="p">,</span> <span class="mh">0x70E7</span><span class="p">,</span>
                 <span class="mh">0x8108</span><span class="p">,</span> <span class="mh">0x9129</span><span class="p">,</span> <span class="mh">0xA14A</span><span class="p">,</span> <span class="mh">0xB16B</span><span class="p">,</span> <span class="mh">0xC18C</span><span class="p">,</span> <span class="mh">0xD1AD</span><span class="p">,</span> <span class="mh">0xE1CE</span><span class="p">,</span> <span class="mh">0xF1EF</span><span class="p">,</span>
                 <span class="mh">0x1231</span><span class="p">,</span> <span class="mh">0x0210</span><span class="p">,</span> <span class="mh">0x3273</span><span class="p">,</span> <span class="mh">0x2252</span><span class="p">,</span> <span class="mh">0x52B5</span><span class="p">,</span> <span class="mh">0x4294</span><span class="p">,</span> <span class="mh">0x72F7</span><span class="p">,</span> <span class="mh">0x62D6</span><span class="p">,</span>
@@ -455,7 +455,7 @@
 <div class="viewcode-block" id="j1850_crc">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.j1850_crc.html#pylab_ml.common.data.j1850_crc">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">j1850_crc</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;J1850 CRC-Calculation.</span>
+<span class="w">    </span><span class="sd">"""J1850 CRC-Calculation.</span>
 
 <span class="sd">    eg. j1850_crc([0x01, 0x02, 0x03, 0x04]) -&gt; 0x1D</span>
 <span class="sd">        j1850_crc([0xAB, 0xCD, 0xEF]) -&gt; 0x4B</span>
@@ -474,7 +474,7 @@
 <span class="sd">    -------</span>
 <span class="sd">        int</span>
 <span class="sd">            The calculated J1850 CRC value as an integer.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">length</span>
     <span class="n">crc_reg</span> <span class="o">=</span> <span class="mh">0xff</span>
 
@@ -495,7 +495,7 @@
 <div class="viewcode-block" id="Parity">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.Parity.html#pylab_ml.common.data.Parity">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">Parity</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">even</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the parity-bit from the data.</span>
 <span class="sd">    </span>
 <span class="sd">    eg. Parity(0b1011, even=True) -&gt; 1</span>
@@ -514,11 +514,11 @@
 <span class="sd">    -------</span>
 <span class="sd">        int</span>
 <span class="sd">            Parity bit (0 or 1) based on the input data and parity type (even or odd).</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">data</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="n">parity</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">even</span> <span class="k">else</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
-        <span class="n">parity</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">parity</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'1'</span> <span class="k">else</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="n">parity</span> <span class="o">%</span> <span class="mi">2</span></div>
 
 
@@ -526,48 +526,48 @@
 <div class="viewcode-block" id="datetime">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.datetime.html#pylab_ml.common.data.datetime">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">datetime</span><span class="p">(</span><span class="n">typ</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the acual time as a string (year, month, day, _, hour, min, sec).</span>
 <span class="sd">    </span>
-<span class="sd">    eg. datetime() -&gt; &#39;20240615_123456&#39;</span>
-<span class="sd">        datetime(typ=&quot;str&quot;) -&gt; &#39;2024/06/15 12:34:56&#39;</span>
+<span class="sd">    eg. datetime() -&gt; '20240615_123456'</span>
+<span class="sd">        datetime(typ="str") -&gt; '2024/06/15 12:34:56'</span>
 <span class="sd">        </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">        typ : str, optional</span>
-<span class="sd">            If None, return the datetime in the format &#39;YYYYMMDD_HHMMSS&#39;.</span>
+<span class="sd">            If None, return the datetime in the format 'YYYYMMDD_HHMMSS'.</span>
 <span class="sd">            </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">        str</span>
 <span class="sd">            The current date and time as a string in the specified format.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">typ</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">date</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_year</span><span class="si">:</span><span class="s1">04d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_mon</span><span class="si">:</span><span class="s1">02d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_mday</span><span class="si">:</span><span class="s1">02d</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_hour</span><span class="si">:</span><span class="s1">02d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_min</span><span class="si">:</span><span class="s1">02d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_sec</span><span class="si">:</span><span class="s1">02d</span><span class="si">}</span><span class="s1">&#39;</span>
-    <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;str&quot;&quot;&quot;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y/%m/</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_year</span><span class="si">:</span><span class="s1">04d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_mon</span><span class="si">:</span><span class="s1">02d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_mday</span><span class="si">:</span><span class="s1">02d</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_hour</span><span class="si">:</span><span class="s1">02d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_min</span><span class="si">:</span><span class="s1">02d</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">tm_sec</span><span class="si">:</span><span class="s1">02d</span><span class="si">}</span><span class="s1">'</span>
+    <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">"str"""</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y/%m/</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="str2num">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.data.str2num.html#pylab_ml.common.data.str2num">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">str2num</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">str2num</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Translate str to numeric value.</span>
 <span class="sd">    </span>
-<span class="sd">    eg. str2num(&quot;0x1A&quot;) -&gt; 26</span>
-<span class="sd">        str2num(&quot;0b1010&quot;) -&gt; 10</span>
-<span class="sd">        str2num(&quot;&quot;) -&gt; default value (empty string)</span>
-<span class="sd">        str2num(&quot;3.14&quot;) -&gt; 3.14</span>
-<span class="sd">        str2num(&quot;Hello&quot;) -&gt; &quot;Hello&quot;</span>
+<span class="sd">    eg. str2num("0x1A") -&gt; 26</span>
+<span class="sd">        str2num("0b1010") -&gt; 10</span>
+<span class="sd">        str2num("") -&gt; default value (empty string)</span>
+<span class="sd">        str2num("3.14") -&gt; 3.14</span>
+<span class="sd">        str2num("Hello") -&gt; "Hello"</span>
 <span class="sd">        </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">        value : str</span>
 <span class="sd">            The string to be converted to a numeric value. The function will attempt to parse the string as an integer or a float, and will return the original string if it cannot be parsed as a number.</span>
 <span class="sd">        base : int, optional</span>
-<span class="sd">            The base to use for parsing integers. Default is 10. If the string starts with &quot;0x&quot; or &quot;0b&quot;, the base will be automatically set to 16 or 2, respectively.</span>
+<span class="sd">            The base to use for parsing integers. Default is 10. If the string starts with "0x" or "0b", the base will be automatically set to 16 or 2, respectively.</span>
 <span class="sd">        default : any, optional</span>
 <span class="sd">            The default value to return if the input string is empty or None. Default is an empty string.</span>
 <span class="sd">            </span>
@@ -575,17 +575,17 @@
 <span class="sd">    -------</span>
 <span class="sd">        int, float, or str</span>
 <span class="sd">            The parsed numeric value if the string can be converted to an integer or a float, or the original string if it cannot be parsed as a number. If the input string is empty or None, the specified default value will be returned.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1">#    if type(value) in [bool, int, float, np.int32, np.float64]:</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">value</span>
     <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">""</span> <span class="ow">or</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">value</span> <span class="o">=</span> <span class="n">default</span>
         <span class="k">return</span>
-    <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;0x&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"0x"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">base</span> <span class="o">=</span> <span class="mi">16</span>
-    <span class="k">elif</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;0b&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"0b"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">base</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>

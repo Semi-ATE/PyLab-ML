@@ -180,12 +180,12 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pylab_ml.smu.keithley.base_keithley</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Baseclass Interfaces to the Keithley SMU Instruments.</span>
+<span></span><span class="sd">"""Baseclass Interfaces to the Keithley SMU Instruments.</span>
 
 <span class="sd">:Date: |today|</span>
 <span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.collate_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interface</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.baseclass.base_measurement</span><span class="w"> </span><span class="kn">import</span> <span class="n">Measure</span>
@@ -194,24 +194,24 @@
 <div class="viewcode-block" id="Keithley">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.base_keithley.Keithley.html#pylab_ml.smu.keithley.base_keithley.Keithley">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Keithley</span> <span class="p">(</span><span class="n">Measure</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Baseclass Interface to the Keithley SMU Instruments.</span>
 
 <span class="sd">    The Keithley baseclass can connect to Keithley SMU instruments</span>
 
 <span class="sd">    Methods:</span>
-<span class="sd">        inst.write(&#39;*RST&#39;)</span>
+<span class="sd">        inst.write('*RST')</span>
 <span class="sd">            write direct to instrument</span>
-<span class="sd">        ask=inst.query(&#39;:READ?&#39;)</span>
+<span class="sd">        ask=inst.query(':READ?')</span>
 <span class="sd">            write and read the answer</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">interchoices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">usbserial</span><span class="p">,</span> <span class="n">Interface</span><span class="o">.</span><span class="n">gpib</span><span class="p">]</span>
 
 <div class="viewcode-block" id="Keithley.__init__">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.base_keithley.Keithley.html#pylab_ml.smu.keithley.base_keithley.Keithley.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Connect and initialize Keithley instrument.</span>
 
 <span class="sd">        Args:</span>
@@ -222,50 +222,50 @@
 <span class="sd">                GPIB, USB</span>
 
 <span class="sd">            backend (str):</span>
-<span class="sd">                VISA backend is either &#39;@ivi&#39; (or &#39;@ni&#39;) for NI-Library or</span>
-<span class="sd">                &#39;@py&#39; for pure python pyvisa-py backend.</span>
-<span class="sd">                On default it uses &#39;@ivi&#39; (or &#39;@ni&#39;) on win32 and &#39;@py&#39; on</span>
+<span class="sd">                VISA backend is either '@ivi' (or '@ni') for NI-Library or</span>
+<span class="sd">                '@py' for pure python pyvisa-py backend.</span>
+<span class="sd">                On default it uses '@ivi' (or '@ni') on win32 and '@py' on</span>
 <span class="sd">                other platforms.</span>
 
 <span class="sd">        Example: Initialization</span>
 <span class="sd">            &gt;&gt;&gt; instrument = Keithley(addr=24)   # GPIB or USB address</span>
 <span class="sd">            &gt;&gt;&gt; instrument.init()                # connect and initialize instrument</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Class </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Keithley.init">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.base_keithley.Keithley.html#pylab_ml.smu.keithley.base_keithley.Keithley.init">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Connect to Keithley instrument and initialize.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            identify : bool</span>
 <span class="sd">                If True, query the instrument ID and print it to the log.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">identify</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Keithley.reset">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.base_keithley.Keithley.html#pylab_ml.smu.keithley.base_keithley.Keithley.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset and switch beep off.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Reset and switch beep off."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:SYST:BEEP:STAT 0&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;*RST&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:SYST:BEEP:STAT 0&#39;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">':SYST:BEEP:STAT 0'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'*RST'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">':SYST:BEEP:STAT 0'</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Keithley.clear">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.base_keithley.Keithley.html#pylab_ml.smu.keithley.base_keithley.Keithley.clear">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear error status.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Clear error status."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
 
@@ -273,14 +273,14 @@
 <div class="viewcode-block" id="Keithley.error_list">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.base_keithley.Keithley.html#pylab_ml.smu.keithley.base_keithley.Keithley.error_list">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">error_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;List of instrument errors.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""List of instrument errors."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">errormsgs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:SYST:ERR:ALL?&#39;</span><span class="p">)</span>
-        <span class="n">errors</span> <span class="o">=</span> <span class="n">errormsgs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">codes</span> <span class="o">=</span> <span class="n">errormsgs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">errormsgs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">':SYST:ERR:ALL?'</span><span class="p">)</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="n">errormsgs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">codes</span> <span class="o">=</span> <span class="n">errormsgs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
         <span class="n">errorlist</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">codes</span><span class="p">,</span> <span class="n">errors</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
             <span class="n">errorlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">errorlist</span></div>
 
@@ -288,9 +288,9 @@
 <div class="viewcode-block" id="Keithley.message">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.base_keithley.Keithley.html#pylab_ml.smu.keithley.base_keithley.Keithley.message">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Message display about Keithley instrument.</span>
-<span class="sd">        Instrument message (&quot;string&quot;) or ()</span>
+<span class="sd">        Instrument message ("string") or ()</span>
 <span class="sd">        </span>
 <span class="sd">        If message is None, the display is cleared, otherwise the message is shown on the display.</span>
 <span class="sd">        </span>
@@ -298,40 +298,40 @@
 <span class="sd">        ----------</span>
 <span class="sd">            message : str or None</span>
 <span class="sd">                Message to be displayed on the instrument. If None, the display is cleared.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:DISP:TEXT:STAT 0&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">':DISP:TEXT:STAT 0'</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">linlen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg_row_col</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="n">message</span><span class="p">[:</span><span class="n">linlen</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:DISP:TEXT:DATA </span><span class="se">\&quot;</span><span class="si">{message}</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:DISP:TEXT:STAT 1&#39;</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">':DISP:TEXT:DATA </span><span class="se">\"</span><span class="si">{message}</span><span class="se">\"</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">':DISP:TEXT:STAT 1'</span><span class="p">)</span></div>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Query IDN.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Query IDN."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*IDN?&#39;</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'*IDN?'</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'</span><span class="se">\r</span><span class="s1">'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Keithley.local">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.base_keithley.Keithley.html#pylab_ml.smu.keithley.base_keithley.Keithley.local">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">local</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Switch back to local instrument control.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Switch back to local instrument control."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:SYSTEM:LOC&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">':SYSTEM:LOC'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span> <span class="o">=</span> <span class="kc">True</span></div>
 
 
 <div class="viewcode-block" id="Keithley.com_recover">
 <a class="viewcode-back" href="../../../../_autosummary/pylab_ml.smu.keithley.base_keithley.Keithley.html#pylab_ml.smu.keithley.base_keithley.Keithley.com_recover">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">com_recover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fix</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Detect &amp; attempt to recover out of step communication (maybe after timeout).</span>
 
 <span class="sd">        Can lose coherency between read request and data, usually because of Timeout</span>
@@ -346,25 +346,25 @@
 <span class="sd">        -------</span>
 <span class="sd">            bool</span>
 <span class="sd">                True if communication is coherent, False otherwise.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="o">.</span><span class="n">set_slack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">ires</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:DISP:TEXT:DATA </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:DISP:TEXT:DATA?&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">':DISP:TEXT:DATA </span><span class="se">\"</span><span class="si">{}</span><span class="se">\"</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">':DISP:TEXT:DATA?'</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">res</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">r</span> <span class="ow">in</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">])</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">res</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">r</span> <span class="ow">in</span> <span class="s1">'"'</span><span class="p">])</span>
                 <span class="n">ires</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For </span><span class="si">{}</span><span class="s2"> got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ires</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"For </span><span class="si">{}</span><span class="s2"> got </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ires</span><span class="p">))</span>
                 <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> <span class="ow">and</span> <span class="n">fix</span><span class="p">:</span>
                     <span class="n">diff</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">ires</span>
                     <span class="k">if</span> <span class="n">diff</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;See offset </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">"See offset </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
                         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">diff</span><span class="p">):</span>
                             <span class="n">consume</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-                            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Consumed &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">consume</span><span class="p">))</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="s2">"Consumed '</span><span class="si">{}</span><span class="s2">'"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">consume</span><span class="p">))</span>
             <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For </span><span class="si">{}</span><span class="s2"> got: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">res</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"For </span><span class="si">{}</span><span class="s2"> got: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">res</span><span class="p">))</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">ires</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span></div>
 </div>
 

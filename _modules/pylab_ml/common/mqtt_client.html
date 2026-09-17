@@ -181,7 +181,7 @@
              
   <h1>Source code for pylab_ml.common.mqtt_client</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="sd">This script contains a MQTT client class that can be used to communicate with a MQTT broker.</span>
 <span class="sd">The MQTT client class uses the paho-mqtt library to handle the communication.</span>
 
@@ -195,7 +195,7 @@
 
 <span class="sd">todo:</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">platform</span>
@@ -207,23 +207,23 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5</span><span class="w"> </span><span class="kn">import</span> <span class="n">QtCore</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">common</span>
 
-<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Zlin526F&quot;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright 2023, Lab&quot;</span>
-<span class="n">__credits__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Zlin526F&quot;</span><span class="p">]</span>
-<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;Zlin526F@github&quot;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.0.1&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">"Zlin526F"</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">"Copyright 2023, Lab"</span>
+<span class="n">__credits__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Zlin526F"</span><span class="p">]</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">"Zlin526F@github"</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.0.1"</span>
 
 
-<span class="n">TOPIC_PREFIX</span> <span class="o">=</span> <span class="s2">&quot;ate&quot;</span>
-<span class="n">TOPIC_CONTROL</span> <span class="o">=</span> <span class="s2">&quot;semictrl&quot;</span>
-<span class="n">TOPIC_INSTRUMENT</span> <span class="o">=</span> <span class="s2">&quot;instruments&quot;</span>
-<span class="n">TOPIC_INSTNAME</span> <span class="o">=</span> <span class="s2">&quot;tcc&quot;</span>
+<span class="n">TOPIC_PREFIX</span> <span class="o">=</span> <span class="s2">"ate"</span>
+<span class="n">TOPIC_CONTROL</span> <span class="o">=</span> <span class="s2">"semictrl"</span>
+<span class="n">TOPIC_INSTRUMENT</span> <span class="o">=</span> <span class="s2">"instruments"</span>
+<span class="n">TOPIC_INSTNAME</span> <span class="o">=</span> <span class="s2">"tcc"</span>
 
 
 <div class="viewcode-block" id="mylogger">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mylogger.html#pylab_ml.common.mqtt_client.mylogger">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">mylogger</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Class for logging messages. &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">""" Class for logging messages. """</span>
 
 <div class="viewcode-block" id="mylogger.__init__">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mylogger.html#pylab_ml.common.mqtt_client.mylogger.__init__">[docs]</a>
@@ -236,62 +236,62 @@
 <div class="viewcode-block" id="mylogger.debug">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mylogger.html#pylab_ml.common.mqtt_client.mylogger.debug">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Log a debug message. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Log a debug message. """</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">enable</span><span class="p">:</span>
             <span class="k">return</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="s2">"DEBUG"</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="mylogger.info">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mylogger.html#pylab_ml.common.mqtt_client.mylogger.info">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Log an info message. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Log an info message. """</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">enable</span><span class="p">:</span>
             <span class="k">return</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="s2">"INFO"</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="mylogger.measure">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mylogger.html#pylab_ml.common.mqtt_client.mylogger.measure">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">measure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Log a measure message. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Log a measure message. """</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">enable</span><span class="p">:</span>
             <span class="k">return</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;MEASURE&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="s2">"MEASURE"</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="mylogger.warning">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mylogger.html#pylab_ml.common.mqtt_client.mylogger.warning">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Log a warning message. &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
+<span class="w">        </span><span class="sd">""" Log a warning message. """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="s2">"WARNING"</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="mylogger.error">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mylogger.html#pylab_ml.common.mqtt_client.mylogger.error">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Log an error message. &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="s2">&quot;ERROR&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
+<span class="w">        </span><span class="sd">""" Log an error message. """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="s2">"ERROR"</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="mylogger.display">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mylogger.html#pylab_ml.common.mqtt_client.mylogger.display">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typ</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="w">        </span><span class="sd">""" </span>
 <span class="sd">        Display a message with a specific type. </span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            typ : str</span>
-<span class="sd">                The type of the message (e.g., &quot;DEBUG&quot;, &quot;INFO&quot;, &quot;WARNING&quot;, &quot;ERROR&quot;).</span>
+<span class="sd">                The type of the message (e.g., "DEBUG", "INFO", "WARNING", "ERROR").</span>
 <span class="sd">            msg : str</span>
 <span class="sd">                The message to be displayed.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="sd">        """</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">"</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -301,7 +301,7 @@
 <div class="viewcode-block" id="mylogger.log_message">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mylogger.html#pylab_ml.common.mqtt_client.mylogger.log_message">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">log_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Log a message with a specific level. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Log a message with a specific level. """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div>
 </div>
 
@@ -310,26 +310,26 @@
 <div class="viewcode-block" id="mqtt_init">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_init.html#pylab_ml.common.mqtt_client.mqtt_init">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">mqtt_init</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">Singleton</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Initialise the mqtt connection and provide functions for the communication. &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">""" Initialise the mqtt connection and provide functions for the communication. """</span>
 
 <div class="viewcode-block" id="mqtt_init.__init__">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_init.html#pylab_ml.common.mqtt_client.mqtt_init.__init__">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s2">&quot;control&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s2">"control"</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialise the class mqtt_init.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            typ : str</span>
-<span class="sd">                &#39;instrument&#39; for instruments</span>
-<span class="sd">                &#39;control&#39; for guis or extern controlling (default)</span>
+<span class="sd">                'instrument' for instruments</span>
+<span class="sd">                'control' for guis or extern controlling (default)</span>
 <span class="sd">                </span>
 <span class="sd">            logger : mylogger or None</span>
 <span class="sd">                Logger instance for logging messages. If None, no logging is performed.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">def</span><span class="w"> </span><span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
-<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">            </span><span class="sd">"""</span>
 <span class="sd">            Callback function for when the client receives a CONNACK response from the server.</span>
 
 <span class="sd">            Parameters</span>
@@ -346,20 +346,20 @@
 <span class="sd">            Returns</span>
 <span class="sd">            -------</span>
 <span class="sd">                None</span>
-<span class="sd">            &quot;&quot;&quot;</span>
+<span class="sd">            """</span>
             
             <span class="k">if</span> <span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;MQTT Broker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="si">}</span><span class="s2">, user </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> connected&quot;</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"MQTT Broker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="si">}</span><span class="s2">, user </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> connected"</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">rc</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;MQTT Broker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="si">}</span><span class="s2">, user </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> authentication error&quot;</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"MQTT Broker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="si">}</span><span class="s2">, user </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> authentication error"</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;MQTT Broker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="si">}</span><span class="s2">,  user </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> connection failed (</span><span class="si">{</span><span class="n">mqttc</span><span class="o">.</span><span class="n">connack_string</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"MQTT Broker </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="si">}</span><span class="s2">,  user </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> connection failed (</span><span class="si">{</span><span class="n">mqttc</span><span class="o">.</span><span class="n">connack_string</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
         <span class="k">def</span><span class="w"> </span><span class="nf">on_disconnect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
-<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">            </span><span class="sd">"""</span>
 <span class="sd">            Callback function for when the client disconnects from the broker.</span>
 
 <span class="sd">            Parameters</span>
@@ -374,18 +374,18 @@
 <span class="sd">            Returns</span>
 <span class="sd">            -------</span>
 <span class="sd">                None</span>
-<span class="sd">            &quot;&quot;&quot;</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;MQTT Broker </span><span class="si">{}</span><span class="s2"> user </span><span class="si">{}</span><span class="s2"> disconnected&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="sd">            """</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">"MQTT Broker </span><span class="si">{}</span><span class="s2"> user </span><span class="si">{}</span><span class="s2"> disconnected"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span>
             <span class="p">)</span>
             <span class="k">if</span> <span class="n">rc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;, </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mqttc</span><span class="o">.</span><span class="n">connack_string</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">", </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mqttc</span><span class="o">.</span><span class="n">connack_string</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">typ</span> <span class="o">=</span> <span class="n">typ</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;create mqtt_init as Singleton typ=</span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">broker</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'create mqtt_init as Singleton typ=</span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">broker</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">qos</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">retain</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="n">logger</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -405,30 +405,30 @@
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_init.html#pylab_ml.common.mqtt_client.mqtt_init.init">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">broker</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="n">broker</span><span class="o">=</span><span class="s2">"127.0.0.1"</span><span class="p">,</span>
         <span class="n">port</span><span class="o">=</span><span class="mi">1883</span><span class="p">,</span>
         <span class="n">message_client</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">username</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">userpasswd</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">username</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+        <span class="n">userpasswd</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
         <span class="n">qos</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="n">retain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Normally call from plugin semi-control, you have not to call this function, if you use semi-control.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            broker : str</span>
-<span class="sd">                The address of the MQTT broker (default: &quot;127.0.0.1&quot;)</span>
+<span class="sd">                The address of the MQTT broker (default: "127.0.0.1")</span>
 <span class="sd">            port : int</span>
 <span class="sd">                The port of the MQTT broker (default: 1883)</span>
 <span class="sd">            message_client : str or None</span>
 <span class="sd">                None if client the instrument, like e.q. smu, digital-multimeter or thermostreamer.</span>
-<span class="sd">                eg. &#39;DT1604092&#39; if control and you want connect from an extern computer to DT1604092 (but is not checked until now!!)</span>
+<span class="sd">                eg. 'DT1604092' if control and you want connect from an extern computer to DT1604092 (but is not checked until now!!)</span>
 <span class="sd">            username : str</span>
-<span class="sd">                The username for MQTT authentication (default: &quot;&quot;)</span>
+<span class="sd">                The username for MQTT authentication (default: "")</span>
 <span class="sd">            userpasswd : str</span>
-<span class="sd">                The password for MQTT authentication (default: &quot;&quot;)</span>
+<span class="sd">                The password for MQTT authentication (default: "")</span>
 <span class="sd">            qos : int</span>
 <span class="sd">                The Quality of Service level for MQTT messages (default: 0)</span>
 <span class="sd">            retain : bool</span>
@@ -438,18 +438,18 @@
 <span class="sd">        -------</span>
 <span class="sd">            bool</span>
 <span class="sd">                True if the MQTT client was successfully initialized and connected to the broker, False otherwise.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">qos</span> <span class="o">=</span> <span class="n">qos</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">retain</span> <span class="o">=</span> <span class="n">retain</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">broker</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">broker</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">broker</span> <span class="o">=</span> <span class="n">broker</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">broker</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">(</span><span class="n">broker</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">username</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">username</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">username_pw_set</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">userpasswd</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
@@ -457,16 +457,16 @@
             <span class="p">)</span>  <span class="c1"># blocking until connection establish or timeout</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
-                <span class="s2">&quot;ERROR: MQTT couldn&#39;t connect to broker </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="p">)</span>
+                <span class="s2">"ERROR: MQTT couldn't connect to broker </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="p">)</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">topic</span> <span class="o">=</span> <span class="n">message_client</span>
             <span class="k">return</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">loop_start</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">message_client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">message_client</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TOPIC_PREFIX</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">message_client</span><span class="si">}</span><span class="s2">/#&quot;</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="n">qos</span><span class="p">)</span>
+            <span class="n">message_client</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TOPIC_PREFIX</span><span class="si">}</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">message_client</span><span class="si">}</span><span class="s2">/#"</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="n">qos</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.init: subscribe for </span><span class="si">{</span><span class="n">message_client</span><span class="si">}</span><span class="s2">/#&quot;</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.init: subscribe for </span><span class="si">{</span><span class="n">message_client</span><span class="si">}</span><span class="s2">/#"</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">topic</span> <span class="o">=</span> <span class="n">message_client</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span> <span class="o">=</span> <span class="p">{}</span>
@@ -476,7 +476,7 @@
 <div class="viewcode-block" id="mqtt_init.mqtt_add">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_init.html#pylab_ml.common.mqtt_client.mqtt_init.mqtt_add">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instrument</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Add first callback to get mqtt-commands from control, and append instrument to instruments-list.</span>
 
 <span class="sd">        Parameters</span>
@@ -484,35 +484,35 @@
 <span class="sd">            instrument : object</span>
 <span class="sd">                The instrument to be added to the MQTT client.</span>
 <span class="sd">            hostname : str or None</span>
-<span class="sd">                The hostname for the MQTT topic. If None, the client&#39;s hostname will be used (default: None).</span>
+<span class="sd">                The hostname for the MQTT topic. If None, the client's hostname will be used (default: None).</span>
 <span class="sd">                </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;hostname&quot;</span><span class="p">):</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"hostname"</span><span class="p">):</span>
             <span class="k">return</span>
         <span class="k">if</span> <span class="n">hostname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">hostname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hostname</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span> <span class="o">==</span> <span class="p">{}:</span>
-            <span class="k">if</span> <span class="n">hostname</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
-                <span class="n">callback</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TOPIC_PREFIX</span><span class="si">}</span><span class="s2">/#&quot;</span>
+            <span class="k">if</span> <span class="n">hostname</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+                <span class="n">callback</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TOPIC_PREFIX</span><span class="si">}</span><span class="s2">/#"</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">callback</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TOPIC_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">TOPIC_CONTROL</span><span class="si">}</span><span class="s2">/#&quot;</span>
+                <span class="n">callback</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TOPIC_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">TOPIC_CONTROL</span><span class="si">}</span><span class="s2">/#"</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">message_callback_add</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_message</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.mqtt_add: watching for </span><span class="si">{</span><span class="n">callback</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.mqtt_add: watching for </span><span class="si">{</span><span class="n">callback</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">instName</span><span class="p">]</span> <span class="o">=</span> <span class="n">instrument</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.mqtt_add: add </span><span class="si">{</span><span class="n">instrument</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2"> to instruments-list&quot;</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.mqtt_add: add </span><span class="si">{</span><span class="n">instrument</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2"> to instruments-list"</span>
         <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="mqtt_init.mqtt_disconnect">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_init.html#pylab_ml.common.mqtt_client.mqtt_init.mqtt_disconnect">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instrument</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Remove instrument from the instruments-list, if instruments-list is empty than remove callback.</span>
 
 <span class="sd">        Parameters</span>
@@ -520,28 +520,28 @@
 <span class="sd">            instrument : object or None</span>
 <span class="sd">                The instrument to be removed from the MQTT client. If None, no instrument will be removed (default: None).</span>
 <span class="sd">            hostname : str or None</span>
-<span class="sd">                The hostname for the MQTT topic. If None, the client&#39;s hostname will be used (default: None).</span>
+<span class="sd">                The hostname for the MQTT topic. If None, the client's hostname will be used (default: None).</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">hostname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;hostname&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"hostname"</span><span class="p">):</span>
                 <span class="k">return</span>
             <span class="n">hostname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hostname</span>
         <span class="k">if</span> <span class="n">instrument</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">instrument</span><span class="o">.</span><span class="n">instName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">instName</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span> <span class="o">==</span> <span class="p">{}:</span>
-            <span class="n">callback</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TOPIC_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hostname</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">TOPIC_CONTROL</span><span class="si">}</span><span class="s2">/#&quot;</span>
+            <span class="n">callback</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TOPIC_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hostname</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">TOPIC_CONTROL</span><span class="si">}</span><span class="s2">/#"</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">message_callback_remove</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>  <span class="c1"># remove subscribe</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.mqtt_disconnect: remove watching for </span><span class="si">{</span><span class="n">callback</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.mqtt_disconnect: remove watching for </span><span class="si">{</span><span class="n">callback</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span></div>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_mqtt_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Automatically call, if message received from broker.</span>
 <span class="sd">        If message from an instrument than send it via channel to mqtt_receive in your application,</span>
 <span class="sd">        else if message from control than call functions/attribute from the instrument.</span>
@@ -558,62 +558,62 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># if self.mqtt_debug: print(&#39;{}.mqtt_message value/payload:  {} = {}&#39;.format(self.__class__.__name__,message.topic,value))</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="sd">        """</span>
+        <span class="c1"># if self.mqtt_debug: print('{}.mqtt_message value/payload:  {} = {}'.format(self.__class__.__name__,message.topic,value))</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="s2">"ignore"</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="c1"># print(&quot;failed:&quot;,type(value))</span>
+            <span class="c1"># print("failed:",type(value))</span>
             <span class="n">payload</span> <span class="o">=</span> <span class="n">msg</span>
-        <span class="n">endtopic</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">endtopic</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">if</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;control&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">typ</span> <span class="o">==</span> <span class="s2">"control"</span>
             <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span>
             <span class="ow">and</span> <span class="n">endtopic</span> <span class="o">!=</span> <span class="n">TOPIC_CONTROL</span>
         <span class="p">):</span>  <span class="c1"># message from an instrument received -&gt; send it to a GUI or control</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mqttreceive</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
         <span class="k">elif</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;instrument&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">typ</span> <span class="o">==</span> <span class="s2">"instrument"</span>
             <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span>
             <span class="ow">and</span> <span class="n">endtopic</span> <span class="o">==</span> <span class="n">TOPIC_CONTROL</span>
         <span class="p">):</span>  <span class="c1"># message from control received, call function from instrument</span>
             <span class="n">instname</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">payload</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">payload</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="n">instname</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">instname</span> <span class="o">==</span> <span class="n">TOPIC_INSTNAME</span><span class="p">:</span>
-                <span class="n">instname</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;cmd&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-                <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;cmd&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">instname</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">payload</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">instname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="p">:</span>
                 <span class="n">instrument</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="p">[</span><span class="n">instname</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s2">&quot;cmd&quot;</span> <span class="ow">in</span> <span class="n">payload</span> <span class="ow">and</span> <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;cmd&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;mqtt_status&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">"cmd"</span> <span class="ow">in</span> <span class="n">payload</span> <span class="ow">and</span> <span class="n">payload</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"mqtt_status"</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;mqtt_message: </span><span class="si">{</span><span class="n">instname</span><span class="si">}</span><span class="s2"> not in my instrument list </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2"> payload = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2"> -&gt; do nothing&quot;</span>
+                        <span class="sa">f</span><span class="s2">"mqtt_message: </span><span class="si">{</span><span class="n">instname</span><span class="si">}</span><span class="s2"> not in my instrument list </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2"> payload = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2"> -&gt; do nothing"</span>
                     <span class="p">)</span>
                 <span class="k">return</span>
-            <span class="n">cmd</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;cmd&quot;</span><span class="p">]</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;payload&quot;</span><span class="p">]</span>
-            <span class="n">typ</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">]</span>
+            <span class="n">typ</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span>
 
             <span class="n">result</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">strcall</span><span class="p">(</span>
                 <span class="n">instrument</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="n">typ</span><span class="p">,</span> <span class="n">mqttcheck</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
-            <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">"ERROR"</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">instname</span><span class="si">}</span><span class="s2"> get an &#39;not found&#39; from a mqtt command = </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">instname</span><span class="si">}</span><span class="s2"> get an 'not found' from a mqtt command = </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
                 <span class="p">)</span>
             <span class="k">return</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;instrument&quot;</span> <span class="ow">or</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">typ</span> <span class="o">==</span> <span class="s2">&quot;control&quot;</span> <span class="ow">and</span> <span class="n">endtopic</span> <span class="o">!=</span> <span class="n">TOPIC_CONTROL</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">typ</span> <span class="o">==</span> <span class="s2">"instrument"</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">typ</span> <span class="o">==</span> <span class="s2">"control"</span> <span class="ow">and</span> <span class="n">endtopic</span> <span class="o">!=</span> <span class="n">TOPIC_CONTROL</span>
         <span class="p">):</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;unknown mqtt message </span><span class="si">{</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="si">}</span><span class="s2">  -&gt; do nothing&quot;</span>
+                <span class="sa">f</span><span class="s2">"unknown mqtt message </span><span class="si">{</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="si">}</span><span class="s2">  -&gt; do nothing"</span>
             <span class="p">)</span>
 
 <div class="viewcode-block" id="mqtt_init.publish">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_init.html#pylab_ml.common.mqtt_client.mqtt_init.publish">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="w">        </span><span class="sd">""" </span>
 <span class="sd">        Publish a message to the MQTT broker.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -630,7 +630,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">qos</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">qos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">qos</span>
         <span class="k">if</span> <span class="n">retain</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -639,18 +639,18 @@
             <span class="n">value</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;publish: couldn&#39;t send </span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> excepton occure </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"publish: couldn't send </span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> excepton occure </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
             <span class="k">return</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">qos</span><span class="o">=</span><span class="n">qos</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="n">retain</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">qos</span><span class="o">=</span><span class="n">qos</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="n">retain</span>
         <span class="p">)</span>  <span class="c1"># payload must be string,bytearray,int,float or None</span></div>
 
 
 <div class="viewcode-block" id="mqtt_init.clearpublish">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_init.html#pylab_ml.common.mqtt_client.mqtt_init.clearpublish">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">clearpublish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Remove retained publish message from broker</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -661,17 +661,17 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span>
-            <span class="n">attr</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span>
+            <span class="n">attr</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span>
         <span class="p">)</span>  <span class="c1"># send 0 message to remove retained flag</span></div>
 
 
 <div class="viewcode-block" id="mqtt_init.close">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_init.html#pylab_ml.common.mqtt_client.mqtt_init.close">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Close the MQTT client connection and clean up resources. &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;broker&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">""" Close the MQTT client connection and clean up resources. """</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"broker"</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">loop_stop</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="kc">None</span>
@@ -679,7 +679,7 @@
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Ensure that the MQTT client connection is closed when the instance is deleted. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Ensure that the MQTT client connection is closed when the instance is deleted. """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
     <span class="nd">@abstractmethod</span>
@@ -691,26 +691,26 @@
 <div class="viewcode-block" id="mqtt_deviceattributes">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_deviceattributes.html#pylab_ml.common.mqtt_client.mqtt_deviceattributes">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">mqtt_deviceattributes</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Handle MQTT messages for the instrument (=devices is &#39;transmitter&#39;).</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Handle MQTT messages for the instrument (=devices is 'transmitter').</span>
 
 <span class="sd">    - topic for the device:</span>
-<span class="sd">        f&#39;{TOPIC_PREFIX}/&#39;Hostname&#39;/{TOPIC_INSTRUMENT}</span>
+<span class="sd">        f'{TOPIC_PREFIX}/'Hostname'/{TOPIC_INSTRUMENT}</span>
 <span class="sd">    - payload:</span>
-<span class="sd">        {&quot;instrumentname&quot;: {&quot;type&quot;: &quot;set/get&quot;, &quot;cmd&quot;: &quot;function/attributename&quot;, &quot;payload&quot;: yourvalues}}</span>
+<span class="sd">        {"instrumentname": {"type": "set/get", "cmd": "function/attributename", "payload": yourvalues}}</span>
 
 <span class="sd">      mqtt_all will be overwriten, to uncover attributes for sending mqtt-messages</span>
 
-<span class="sd">    - if you define the function &#39;_mqtt2json(value, attributename)&#39; in your device, than this function will be call if a mqtt message should be send</span>
-<span class="sd">      With this function you can translate the value, or it the result &#39;nomqtt&#39; than the message will not be send.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    - if you define the function '_mqtt2json(value, attributename)' in your device, than this function will be call if a mqtt message should be send</span>
+<span class="sd">      With this function you can translate the value, or it the result 'nomqtt' than the message will not be send.</span>
+<span class="sd">    """</span>
 
     <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
     <span class="n">mqtt_enable</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">mqtt_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">command</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;menu&quot;</span><span class="p">,</span> <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+        <span class="s2">"set"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"cmd"</span><span class="p">,</span> <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"menu"</span><span class="p">,</span> <span class="s2">"payload"</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
     <span class="p">}</span>
 
 <div class="viewcode-block" id="mqtt_deviceattributes.__init__">
@@ -719,22 +719,22 @@
         <span class="n">_setattr</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="o">.</span><span class="fm">__get__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span>
         <span class="p">)</span>  <span class="c1"># set the values direct, without sending a mqtt-message</span>
-        <span class="n">_setattr</span><span class="p">(</span><span class="s2">&quot;mqtt_debug&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-        <span class="n">_setattr</span><span class="p">(</span><span class="s2">&quot;_mqttclient&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="n">_setattr</span><span class="p">(</span><span class="s2">&quot;_mqtt_status&quot;</span><span class="p">,</span> <span class="s2">&quot;disconnect&quot;</span><span class="p">)</span>
-        <span class="n">_setattr</span><span class="p">(</span><span class="s2">&quot;mqtt_enable&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-        <span class="n">_setattr</span><span class="p">(</span><span class="s2">&quot;hostname&quot;</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">())</span>
-        <span class="n">_setattr</span><span class="p">(</span><span class="s2">&quot;topic&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TOPIC_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hostname</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">TOPIC_INSTRUMENT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">_setattr</span><span class="p">(</span><span class="s2">&quot;mqtt_all&quot;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">_setattr</span><span class="p">(</span><span class="s2">"mqtt_debug"</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">_setattr</span><span class="p">(</span><span class="s2">"_mqttclient"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">_setattr</span><span class="p">(</span><span class="s2">"_mqtt_status"</span><span class="p">,</span> <span class="s2">"disconnect"</span><span class="p">)</span>
+        <span class="n">_setattr</span><span class="p">(</span><span class="s2">"mqtt_enable"</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">_setattr</span><span class="p">(</span><span class="s2">"hostname"</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">())</span>
+        <span class="n">_setattr</span><span class="p">(</span><span class="s2">"topic"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TOPIC_PREFIX</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hostname</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">TOPIC_INSTRUMENT</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">_setattr</span><span class="p">(</span><span class="s2">"mqtt_all"</span><span class="p">,</span> <span class="p">[])</span>
         <span class="n">_setattr</span><span class="p">(</span>
-            <span class="s2">&quot;_mqttclient&quot;</span><span class="p">,</span> <span class="kc">None</span>
+            <span class="s2">"_mqttclient"</span><span class="p">,</span> <span class="kc">None</span>
         <span class="p">)</span>  <span class="c1"># normally, overwritten in setup_inst from instrument</span></div>
 
 
 <div class="viewcode-block" id="mqtt_deviceattributes.mqtt_add">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_deviceattributes.html#pylab_ml.common.mqtt_client.mqtt_deviceattributes.mqtt_add">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">instrument</span><span class="p">,</span> <span class="n">liste</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">instrument</span><span class="p">,</span> <span class="n">liste</span><span class="o">=</span><span class="s2">"#"</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Add the instrument to mqtt.</span>
 <span class="sd">        Calling from base_instrument, after the instrument (device) has been create.</span>
 <span class="sd">        Normally you have not to use this function, only base_instrument use it.</span>
@@ -746,61 +746,61 @@
 <span class="sd">            instrument : object</span>
 <span class="sd">                The instrument to be added to the MQTT client.</span>
 <span class="sd">            liste : list or str</span>
-<span class="sd">                A list of attributes for which MQTT messages should be sent. If set to &quot;#&quot;, all attributes will be included (default: &quot;#&quot;).</span>
+<span class="sd">                A list of attributes for which MQTT messages should be sent. If set to "#", all attributes will be included (default: "#").</span>
 <span class="sd">            qos : int</span>
 <span class="sd">                The Quality of Service level for MQTT messages (default: 0).</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span> <span class="o">=</span> <span class="n">client</span>
-        <span class="k">if</span> <span class="n">liste</span> <span class="o">==</span> <span class="s2">&quot;#&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">liste</span> <span class="o">==</span> <span class="s2">"#"</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_all</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_list</span> <span class="o">=</span> <span class="n">liste</span>
         <span class="k">if</span> <span class="n">client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mqtt_add: client not defined&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"mqtt_add: client not defined"</span><span class="p">)</span>
             <span class="k">return</span>
         <span class="n">client</span><span class="o">.</span><span class="n">mqtt_add</span><span class="p">(</span><span class="n">instrument</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_enable</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">if</span> <span class="p">(</span>
-            <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;gui&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"gui"</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="p">):</span>  <span class="c1"># send a message direct to semictrl that the gui is available</span>
             <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;semictrl&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;cmd&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;button&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="p">},</span>
+                <span class="s2">"semictrl"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"cmd"</span><span class="p">,</span>
+                    <span class="s2">"cmd"</span><span class="p">:</span> <span class="s2">"button"</span><span class="p">,</span>
+                    <span class="s2">"payload"</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="p">},</span>
                 <span class="p">}</span>
             <span class="p">}</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span> <span class="o">=</span> <span class="s2">&quot;disconnect&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span> <span class="o">=</span> <span class="s2">"disconnect"</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span>
-            <span class="s2">&quot;mqtt_status&quot;</span><span class="p">,</span> <span class="s2">&quot;disconnect&quot;</span>
+            <span class="s2">"mqtt_status"</span><span class="p">,</span> <span class="s2">"disconnect"</span>
         <span class="p">)</span>  <span class="c1"># send mqtt_status default = disconnect</span></div>
 
 
 <div class="viewcode-block" id="mqtt_deviceattributes.mqtt_disconnect">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_deviceattributes.html#pylab_ml.common.mqtt_client.mqtt_deviceattributes.mqtt_disconnect">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Remove the instrument from mqtt.</span>
 <span class="sd">        Calling from base_instrument, if the instrument are closing.</span>
 <span class="sd">        Normally you have not to use this function, only base_instrument use it.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_mqttclient&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">&quot;mqtt_status&quot;</span><span class="p">,</span> <span class="s2">&quot;disconnect&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span> <span class="o">=</span> <span class="s2">&quot;disconnect&quot;</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"_mqttclient"</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">"mqtt_status"</span><span class="p">,</span> <span class="s2">"disconnect"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span> <span class="o">=</span> <span class="s2">"disconnect"</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span><span class="o">.</span><span class="n">mqtt_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>  <span class="c1"># remove from list</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_enable</span> <span class="o">=</span> <span class="kc">False</span></div>
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Publish attribute and value, if attribute was set and it is in mqtt_list.</span>
-<span class="sd">        Publish means: send &#39;hostname/instName/attribute/set value&#39; to the broker.</span>
+<span class="sd">        Publish means: send 'hostname/instName/attribute/set value' to the broker.</span>
 <span class="sd">        This function will be called from _mqtt_message, normally you have not to use this function.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -813,22 +813,22 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_enable</span> <span class="ow">and</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_list</span>
-        <span class="p">):</span>  <span class="c1"># attr == &#39;mqtt_status&#39; or</span>
+        <span class="p">):</span>  <span class="c1"># attr == 'mqtt_status' or</span>
             <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;set&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="n">attr</span><span class="p">,</span>
-                    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"set"</span><span class="p">,</span>
+                    <span class="s2">"cmd"</span><span class="p">:</span> <span class="n">attr</span><span class="p">,</span>
+                    <span class="s2">"payload"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
                 <span class="p">}</span>
             <span class="p">}</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_debug</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span>
-                    <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> publish: </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="s2">"</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> publish: </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                         <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span>
@@ -837,9 +837,9 @@
                 <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="o">*</span><span class="n">values</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Publish attribute and value, if attribute was get and it is in mqtt_list.</span>
-<span class="sd">        Publish means: send &#39;hostname/instName/attribute/set value&#39; to the broker.</span>
+<span class="sd">        Publish means: send 'hostname/instName/attribute/set value' to the broker.</span>
 <span class="sd">        This function will be called from _mqtt_message, normally you have not to use this function.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -853,49 +853,49 @@
 <span class="sd">        -------</span>
 <span class="sd">            any</span>
 <span class="sd">                The value of the attribute being accessed.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="s2">&quot;mqtt_enable&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="s2">"mqtt_enable"</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">value</span>
         <span class="k">if</span> <span class="p">(</span>
-            <span class="n">attr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;__class__&quot;</span><span class="p">,</span> <span class="s2">&quot;mqtt_list&quot;</span><span class="p">,</span> <span class="s2">&quot;INST_FUNCTION&quot;</span><span class="p">]</span>
+            <span class="n">attr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"__class__"</span><span class="p">,</span> <span class="s2">"mqtt_list"</span><span class="p">,</span> <span class="s2">"INST_FUNCTION"</span><span class="p">]</span>
             <span class="ow">and</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_list</span>
         <span class="p">):</span>
-            <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">()&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">()"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_list</span><span class="p">:</span>
                 <span class="c1"># TODO: function-call have to add their own call from self._mqttclient.publish(), because unitl now</span>
-                <span class="c1">#    I did&#39;nt know to get the function parameters</span>
-                <span class="c1"># payload = {f&quot;{self.instName}&quot;: {&#39;type&#39;: &#39;get&#39;, &#39;cmd&#39;: attr, &#39;payload&#39;: values}}</span>
+                <span class="c1">#    I did'nt know to get the function parameters</span>
+                <span class="c1"># payload = {f"{self.instName}": {'type': 'get', 'cmd': attr, 'payload': values}}</span>
                 <span class="nb">print</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;    (</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">   sorry, I did&#39;nt know to get the function parameters -&gt; improve it, until now  no mqtt publish&quot;</span>
+                    <span class="sa">f</span><span class="s2">"    (</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">   sorry, I did'nt know to get the function parameters -&gt; improve it, until now  no mqtt publish"</span>
                 <span class="p">)</span>
                 <span class="k">return</span> <span class="n">value</span>
-            <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_mqtt2json&quot;</span><span class="p">):</span>
-                <span class="c1"># print(f&quot;    call _mqtt2json({value})&quot;)</span>
+            <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"_mqtt2json"</span><span class="p">):</span>
+                <span class="c1"># print(f"    call _mqtt2json({value})")</span>
                 <span class="n">payload</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt2json</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">payload</span> <span class="o">!=</span> <span class="s2">&quot;nomqtt&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">payload</span> <span class="o">!=</span> <span class="s2">"nomqtt"</span><span class="p">:</span>
                     <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;get&quot;</span><span class="p">,</span>
-                            <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="n">attr</span><span class="p">,</span>
-                            <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="n">payload</span><span class="p">,</span>
+                        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"get"</span><span class="p">,</span>
+                            <span class="s2">"cmd"</span><span class="p">:</span> <span class="n">attr</span><span class="p">,</span>
+                            <span class="s2">"payload"</span><span class="p">:</span> <span class="n">payload</span><span class="p">,</span>
                         <span class="p">}</span>
                     <span class="p">}</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;get&quot;</span><span class="p">,</span>
-                        <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="n">attr</span><span class="p">,</span>
-                        <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+                    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"get"</span><span class="p">,</span>
+                        <span class="s2">"cmd"</span><span class="p">:</span> <span class="n">attr</span><span class="p">,</span>
+                        <span class="s2">"payload"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
                     <span class="p">}</span>
                 <span class="p">}</span>
-            <span class="k">if</span> <span class="n">payload</span> <span class="o">!=</span> <span class="s2">&quot;nomqtt&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">payload</span> <span class="o">!=</span> <span class="s2">"nomqtt"</span><span class="p">:</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; _mqttclient is None: coulnt&#39;t publish </span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">" _mqttclient is None: coulnt't publish </span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_debug</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span>
-                        <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> publish: </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="s2">"</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> publish: </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                             <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span>
@@ -907,8 +907,8 @@
 <div class="viewcode-block" id="mqtt_deviceattributes.publish">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_deviceattributes.html#pylab_ml.common.mqtt_client.mqtt_deviceattributes.publish">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">        Publish topic as type=&#39;cmd&#39; with payload=value. </span>
+<span class="w">        </span><span class="sd">""" </span>
+<span class="sd">        Publish topic as type='cmd' with payload=value. </span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -920,14 +920,14 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># function_name=inspect.stack()[1][3]</span>
         <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="n">topic</span><span class="p">,</span> <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">}</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"cmd"</span><span class="p">,</span> <span class="s2">"cmd"</span><span class="p">:</span> <span class="n">topic</span><span class="p">,</span> <span class="s2">"payload"</span><span class="p">:</span> <span class="n">value</span><span class="p">}</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_debug</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.publish: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.publish: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span></div>
@@ -936,32 +936,32 @@
 <div class="viewcode-block" id="mqtt_deviceattributes.publish_get">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_deviceattributes.html#pylab_ml.common.mqtt_client.mqtt_deviceattributes.publish_get">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">publish_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Publish function_name as type=&#39;get&#39; with paylad=value.</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Publish function_name as type='get' with paylad=value.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            function_name : str</span>
-<span class="sd">                The name of the function to be published as a &#39;get&#39; command.</span>
+<span class="sd">                The name of the function to be published as a 'get' command.</span>
 <span class="sd">            value : any</span>
-<span class="sd">                The value to be published as the payload of the &#39;get&#39; command.</span>
+<span class="sd">                The value to be published as the payload of the 'get' command.</span>
 <span class="sd">                </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># function_name=inspect.stack()[1][3]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_enable</span><span class="p">:</span>
             <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;set&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span>
-                    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"set"</span><span class="p">,</span>
+                    <span class="s2">"cmd"</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span>
+                    <span class="s2">"payload"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
                 <span class="p">}</span>
             <span class="p">}</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_debug</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.publish_get: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.publish_get: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">"</span>
                 <span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span></div>
@@ -970,32 +970,32 @@
 <div class="viewcode-block" id="mqtt_deviceattributes.publish_set">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_deviceattributes.html#pylab_ml.common.mqtt_client.mqtt_deviceattributes.publish_set">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">publish_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Publish function_name as type=&#39;set&#39; with paylad=value.</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Publish function_name as type='set' with paylad=value.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            function_name : str</span>
-<span class="sd">                The name of the function to be published as a &#39;set&#39; command.</span>
+<span class="sd">                The name of the function to be published as a 'set' command.</span>
 <span class="sd">            value : any</span>
-<span class="sd">                The value to be published as the payload of the &#39;set&#39; command.</span>
+<span class="sd">                The value to be published as the payload of the 'set' command.</span>
 <span class="sd">                </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># function_name=inspect.stack()[1][3]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_enable</span><span class="p">:</span>
             <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;set&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span>
-                    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"set"</span><span class="p">,</span>
+                    <span class="s2">"cmd"</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span>
+                    <span class="s2">"payload"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
                 <span class="p">}</span>
             <span class="p">}</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_debug</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.publish_set: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.publish_set: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">"</span>
                 <span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_mqttclient</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span></div>
@@ -1003,22 +1003,22 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Getter for the mqtt_status. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Getter for the mqtt_status. """</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_debug</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.mqtt_status == </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.mqtt_status == </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span>
 
     <span class="nd">@mqtt_status</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;The mqtt_status should be set only from an extern mqtt message.</span>
+<span class="w">        </span><span class="sd">"""The mqtt_status should be set only from an extern mqtt message.</span>
 
 <span class="sd">        value = disconnect/connect</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_debug</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.mqtt_status := </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"    </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.mqtt_status := </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;connect&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">&quot;mqtt_status&quot;</span><span class="p">,</span> <span class="s2">&quot;connect&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"connect"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="s2">"mqtt_status"</span><span class="p">,</span> <span class="s2">"connect"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_disconnect</span><span class="p">()</span></div>
@@ -1028,11 +1028,11 @@
 <div class="viewcode-block" id="mqtt_signal">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_signal.html#pylab_ml.common.mqtt_client.mqtt_signal">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">mqtt_signal</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">QObject</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for communicate with mqtt messages .</span>
+<span class="w">    </span><span class="sd">"""Class for communicate with mqtt messages .</span>
 
 <span class="sd">    We need a channel to communicate with some gui widgets (e.q. QTextEdit).</span>
-<span class="sd">    otherwhile we get the error: &#39;Cannot create children for a parent that is in a different thread&#39;</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    otherwhile we get the error: 'Cannot create children for a parent that is in a different thread'</span>
+<span class="sd">    """</span>
 
     <span class="n">channel</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span></div>
 
@@ -1041,24 +1041,24 @@
 <div class="viewcode-block" id="mqtt_displayattributes">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_displayattributes.html#pylab_ml.common.mqtt_client.mqtt_displayattributes">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">mqtt_displayattributes</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    MQTT messages for display and controlling (=&#39;receiver&#39;).</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    MQTT messages for display and controlling (='receiver').</span>
 
 <span class="sd">    docu muss überarbeitet werden:</span>
 
 <span class="sd">    publish:</span>
 <span class="sd">       - topic for display application:</span>
-<span class="sd">            f&#39;{TOPIC_PREFIX}/&#39;Hostname&#39;/{TOPIC_CONTROL}</span>
+<span class="sd">            f'{TOPIC_PREFIX}/'Hostname'/{TOPIC_CONTROL}</span>
 <span class="sd">       - payload:</span>
-<span class="sd">           f&#39;{&quot;instrumentname&quot;: {&quot;type&quot;: &quot;set/get&quot;, &quot;cmd&quot;: &quot;function/attributename&quot;, &quot;payload&quot;: yourvalues}}&#39;</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">           f'{"instrumentname": {"type": "set/get", "cmd": "function/attributename", "payload": yourvalues}}'</span>
+<span class="sd">    """</span>
 
     <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <div class="viewcode-block" id="mqtt_displayattributes.__init__">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_displayattributes.html#pylab_ml.common.mqtt_client.mqtt_displayattributes.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">message_client</span><span class="p">,</span> <span class="n">mqtt_receive</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Initialize the MQTT display attributes. </span>
+<span class="w">        </span><span class="sd">""" Initialize the MQTT display attributes. </span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1068,7 +1068,7 @@
 <span class="sd">                The name of the message client, used for constructing the MQTT topic.</span>
 <span class="sd">            mqtt_receive : function or None</span>
 <span class="sd">                A custom function to handle received MQTT messages. If None, the default mqtt_receive method will be used (default: None).</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_debug</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqttclient</span> <span class="o">=</span> <span class="n">client</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">instName</span> <span class="o">=</span> <span class="n">message_client</span>
@@ -1076,13 +1076,13 @@
         <span class="k">if</span> <span class="n">mqtt_receive</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">mqtt_receive</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_receive</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqttclient</span><span class="o">.</span><span class="n">mqttreceive</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">mqtt_receive</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">topic</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">message_client</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">platform</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">TOPIC_CONTROL</span><span class="si">}</span><span class="s2">&quot;</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topic</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">message_client</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">platform</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">TOPIC_CONTROL</span><span class="si">}</span><span class="s2">"</span></div>
 
 
 <div class="viewcode-block" id="mqtt_displayattributes.publish">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_displayattributes.html#pylab_ml.common.mqtt_client.mqtt_displayattributes.publish">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Send message to broker. </span>
+<span class="w">        </span><span class="sd">""" Send message to broker. </span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1094,14 +1094,14 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqttclient</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="mqtt_displayattributes.publish_set">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_displayattributes.html#pylab_ml.common.mqtt_client.mqtt_displayattributes.publish_set">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">publish_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="n">function_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Publish attribute with value as set. </span>
+<span class="w">        </span><span class="sd">""" Publish attribute with value as set. </span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1115,18 +1115,18 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># function_name=inspect.stack()[1][3]</span>
         <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;set&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span>
-                <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"set"</span><span class="p">,</span>
+                <span class="s2">"cmd"</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span>
+                <span class="s2">"payload"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
             <span class="p">}</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_debug</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mqttclient</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;publish_set: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"publish_set: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqttclient</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span></div>
 
@@ -1134,7 +1134,7 @@
 <div class="viewcode-block" id="mqtt_displayattributes.publish_get">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_displayattributes.html#pylab_ml.common.mqtt_client.mqtt_displayattributes.publish_get">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">publish_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="n">function_name</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Publish attribute with value as get. </span>
+<span class="w">        </span><span class="sd">""" Publish attribute with value as get. </span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1146,14 +1146,14 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># function_name=inspect.stack()[1][3]</span>
         <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;get&quot;</span><span class="p">,</span> <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span> <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"get"</span><span class="p">,</span> <span class="s2">"cmd"</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span> <span class="s2">"payload"</span><span class="p">:</span> <span class="s2">""</span><span class="p">}</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_debug</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mqttclient</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;publish_get: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"publish_get: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqttclient</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span></div>
 
@@ -1161,35 +1161,35 @@
 <div class="viewcode-block" id="mqtt_displayattributes.mqtt_add">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_displayattributes.html#pylab_ml.common.mqtt_client.mqtt_displayattributes.mqtt_add">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Add the module as member for the mqtt communication. &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mqttclient</span><span class="o">.</span><span class="n">mqtt_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+<span class="w">        </span><span class="sd">""" Add the module as member for the mqtt communication. """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqttclient</span><span class="o">.</span><span class="n">mqtt_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="mqtt_displayattributes.mqtt_disconnect">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.common.mqtt_client.mqtt_displayattributes.html#pylab_ml.common.mqtt_client.mqtt_displayattributes.mqtt_disconnect">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Remove the module as member for the mqtt communication. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Remove the module as member for the mqtt communication. """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqttclient</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">message_callback_remove</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">instName</span> <span class="o">+</span> <span class="s2">&quot;/#&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">instName</span> <span class="o">+</span> <span class="s2">"/#"</span>
         <span class="p">)</span>  <span class="c1"># remove subscribe for this client</span></div>
 
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_receive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: You have to overwrite mqtt_receive in your class&quot;</span><span class="p">)</span></div>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"ERROR: You have to overwrite mqtt_receive in your class"</span><span class="p">)</span></div>
 
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">mqtt</span> <span class="o">=</span> <span class="n">mqtt_init</span><span class="p">()</span>
-    <span class="c1"># mqtt.init(&#39;172.27.112.62&#39;, message_client=&#39;ate&#39;, username=&#39;&#39;)   # broker mosquitto on &#39;ubuntu-0001&#39;</span>
+    <span class="c1"># mqtt.init('172.27.112.62', message_client='ate', username='')   # broker mosquitto on 'ubuntu-0001'</span>
     <span class="n">mqtt</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
-        <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">message_client</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;ate/</span><span class="si">{</span><span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+        <span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="n">message_client</span><span class="o">=</span><span class="sa">f</span><span class="s2">"ate/</span><span class="si">{</span><span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span><span class="si">}</span><span class="s2">/"</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s2">""</span>
     <span class="p">)</span>  <span class="c1"># local mosquitto broker</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-        <span class="n">mqtt</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;mqtt_client/temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;25&quot;</span><span class="p">)</span>
+        <span class="n">mqtt</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"mqtt_client/temperature"</span><span class="p">,</span> <span class="s2">"25"</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
             <span class="k">break</span>

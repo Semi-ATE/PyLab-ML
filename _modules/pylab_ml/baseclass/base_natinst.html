@@ -182,12 +182,12 @@
   <h1>Source code for pylab_ml.baseclass.base_natinst</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="sd">&quot;&quot;&quot;Intialize Basic Interface to the National Instruments PXIe.</span>
+<span class="sd">"""Intialize Basic Interface to the National Instruments PXIe.</span>
 
 <span class="sd">:Date: |today|</span>
 <span class="sd">:Author: Semi-ATE &lt;info@Semi-ATE.org&gt;</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
@@ -199,7 +199,7 @@
 <div class="viewcode-block" id="NatInst">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">NatInst</span> <span class="p">(</span><span class="n">create_attributes</span><span class="p">,</span> <span class="n">Measure</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Intialize Basic Interface to the National Instruments PXIe.</span>
 
 <span class="sd">    :Date: |today|</span>
@@ -208,30 +208,30 @@
 <span class="sd">    .. image:: ../_static/pxie_.jpg</span>
 
 <span class="sd">    The NatInst baseclass can connect to National Instruments</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
 <div class="viewcode-block" id="NatInst.__init__">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize.</span>
+<span class="w">        </span><span class="sd">"""Initialize.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">           **kwargs</span>
 
 <span class="sd">        Example Initialization:</span>
-<span class="sd">           &gt;&gt;&gt; kwargs = {&quot;addr&quot;: 3, &quot;backend&quot;: backend, &quot;identify&quot;: False, &quot;instName&quot;: &#39;smu&#39;}</span>
+<span class="sd">           &gt;&gt;&gt; kwargs = {"addr": 3, "backend": backend, "identify": False, "instName": 'smu'}</span>
 <span class="sd">           &gt;&gt;&gt; instrument = NatInst(**kwargs)</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">create_attributes</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;interchoices&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'interchoices'</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">interchoices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Interface</span><span class="o">.</span><span class="n">pxie</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="s2">&quot;runningmode&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">runningmode</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;runningmode&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">"runningmode"</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">runningmode</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">"runningmode"</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">runningmode</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">runningmode</span> <span class="o">=</span> <span class="s1">'auto'</span>
         <span class="n">Measure</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Class </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">disabled</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
@@ -240,7 +240,7 @@
 <div class="viewcode-block" id="NatInst.State">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.State">[docs]</a>
     <span class="k">class</span><span class="w"> </span><span class="nc">State</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Possible states for the instrument.</span>
 
 <span class="sd">           +-------------------+---------------------+----------------------+---------------------------------------------------+</span>
@@ -257,40 +257,40 @@
 <span class="sd">           +-------------------+---------------------+----------------------+---------------------------------------------------+</span>
 <span class="sd">           | running state     | commit              | running state        |                                                   |</span>
 <span class="sd">           +-------------------+---------------------+----------------------+---------------------------------------------------+</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">disabled</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; reset instrument, output switched off&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" reset instrument, output switched off"""</span>
         <span class="n">uncommitted</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; uncommitted state &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" uncommitted state """</span>
         <span class="n">committed</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; committed state &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" committed state """</span>
         <span class="n">running</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; running  state &quot;&quot;&quot;</span></div>
+<span class="w">        </span><span class="sd">""" running  state """</span></div>
 
 
 <div class="viewcode-block" id="NatInst.Runningmode">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.Runningmode">[docs]</a>
     <span class="k">class</span><span class="w"> </span><span class="nc">Runningmode</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Possible Modes for state handling.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Possible Modes for state handling."""</span>
 
         <span class="n">auto</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;handle commit, uncommit, running automatically&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""handle commit, uncommit, running automatically"""</span>
         <span class="n">man</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;do it by yourselve&quot;&quot;&quot;</span></div>
+<span class="w">        </span><span class="sd">"""do it by yourselve"""</span></div>
 
 
     <span class="c1"># def init(self, identify=False):</span>
-    <span class="c1">#    &quot;&quot;&quot;Connect to NatInst instrument and initialize.&quot;&quot;&quot;</span>
+    <span class="c1">#    """Connect to NatInst instrument and initialize."""</span>
     <span class="c1">#    super().init(identify)</span>
 
 <div class="viewcode-block" id="NatInst.setup_inst">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.setup_inst">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">setup_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Will call from class base_instrument.</span>
+<span class="w">        </span><span class="sd">"""Will call from class base_instrument.</span>
 
 <span class="sd">        Set the instrument settings and intialise some variable to a startvalue.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">createattributes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">uncommitted</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">self_cal</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span></div>
@@ -299,7 +299,7 @@
 <div class="viewcode-block" id="NatInst.self_cal">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.self_cal">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">self_cal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform self calibration if last self calibration is older than 1 day.</span>
 
 <span class="sd">        Parameters</span>
@@ -312,36 +312,36 @@
 <span class="sd">        None.</span>
 <span class="sd">        gives information about the calibration</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;PXIe40xx&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'PXIe40xx'</span><span class="p">:</span>
             <span class="n">last_cal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">get_cal_date_and_time</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;PXIe41xx&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'PXIe41xx'</span><span class="p">:</span>
             <span class="n">last_cal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">get_self_cal_last_date_and_time</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">self_calibration_persistence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">SelfCalibrationPersistence</span><span class="o">.</span><span class="n">WRITE_TO_EEPROM</span>
         <span class="k">else</span><span class="p">:</span>                           <span class="c1"># e.q. for Scope PXIe51xx found no last calibration date? -&gt;so disable</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1"> no calibration function found&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">'</span><span class="si">{!r}</span><span class="s1"> no calibration function found'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
             <span class="n">last_cal</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>   <span class="c1"># for other instruments self_cal on init is disalbed, check if last calibration date exist!</span>
         <span class="c1"># perform self calibration if last self calibration is older than 1 day</span>
         <span class="k">if</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">!=</span> <span class="n">last_cal</span><span class="o">.</span><span class="n">year</span> <span class="ow">or</span> <span class="n">today</span><span class="o">.</span><span class="n">month</span> <span class="o">!=</span> <span class="n">last_cal</span><span class="o">.</span><span class="n">month</span> <span class="ow">or</span> <span class="n">today</span><span class="o">.</span><span class="n">day</span> <span class="o">!=</span> <span class="n">last_cal</span><span class="o">.</span><span class="n">day</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> last calibration older than 1 day&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"</span><span class="si">{!r}</span><span class="s2"> last calibration older than 1 day"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> last self calibration was today </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">last_cal</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"</span><span class="si">{!r}</span><span class="s2"> last self calibration was today </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">last_cal</span><span class="p">))</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
                 <span class="k">return</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> anyway force == True -&gt; do self calibration&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> self calibration ongoing ...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"</span><span class="si">{!r}</span><span class="s2"> anyway force == True -&gt; do self calibration"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"</span><span class="si">{!r}</span><span class="s2"> self calibration ongoing ..."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">self_cal</span><span class="p">()</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="si">{!r}</span><span class="s2"> self calibration error</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="si">{!r}</span><span class="s2"> self calibration error</span><span class="se">\n\n</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span>
             <span class="k">return</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> self calibration done&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"</span><span class="si">{!r}</span><span class="s2"> self calibration done"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">))</span></div>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">selftest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the device self-test routine and return pass, otherwise raise an exception.</span>
 
 <span class="sd">        After selftest the device is in reset state.</span>
@@ -350,89 +350,89 @@
 <span class="sd">        -------</span>
 <span class="sd">        result : bool</span>
 <span class="sd">            state from selftest.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">self_test</span><span class="p">()</span>        <span class="c1"># if fail self_test make a raise</span>
         <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1"> selftest passed&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{!r}</span><span class="s1"> selftest passed'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">result</span>
 
 <div class="viewcode-block" id="NatInst.reset">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Do nothing.</span>
 
 <span class="sd">        Each Instrument has its own reset-routine</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">pass</span></div>
 
 
 <div class="viewcode-block" id="NatInst.clear">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.clear">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear error status.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Clear error status."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="NatInst.commit">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.commit">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set state from Instrument to commit.</span>
+<span class="w">        </span><span class="sd">"""Set state from Instrument to commit.</span>
 
-<span class="sd">        usually handle automatically, if runningmode==&#39;auto&#39;.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        usually handle automatically, if runningmode=='auto'.</span>
+<span class="sd">        """</span>
         <span class="n">oldstate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">committed</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1">.set state to </span><span class="si">{}</span><span class="s1">, (old state = </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">oldstate</span><span class="p">))</span></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s1">'</span><span class="si">{!r}</span><span class="s1">.set state to </span><span class="si">{}</span><span class="s1">, (old state = </span><span class="si">{}</span><span class="s1">)'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">oldstate</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="NatInst.abort">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.abort">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">abort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set state from Instrument to uncommitted.</span>
+<span class="w">        </span><span class="sd">"""Set state from Instrument to uncommitted.</span>
 
-<span class="sd">        usually handle automatically, if runningmode==&#39;auto&#39;.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        usually handle automatically, if runningmode=='auto'.</span>
+<span class="sd">        """</span>
         <span class="n">oldstate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">abort</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">uncommitted</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1">.set state to </span><span class="si">{}</span><span class="s1">, (old state = </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">oldstate</span><span class="p">))</span></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s1">'</span><span class="si">{!r}</span><span class="s1">.set state to </span><span class="si">{}</span><span class="s1">, (old state = </span><span class="si">{}</span><span class="s1">)'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">oldstate</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="NatInst.initiate">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.initiate">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">initiate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set state from Instrument to running.</span>
+<span class="w">        </span><span class="sd">"""Set state from Instrument to running.</span>
 
-<span class="sd">        usually handle automatically, if runningmode==&#39;auto&#39;.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        usually handle automatically, if runningmode=='auto'.</span>
+<span class="sd">        """</span>
         <span class="n">oldstate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">initiate</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">running</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1">.set state to </span><span class="si">{}</span><span class="s1">, (old state = </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">oldstate</span><span class="p">))</span></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s1">'</span><span class="si">{!r}</span><span class="s1">.set state to </span><span class="si">{}</span><span class="s1">, (old state = </span><span class="si">{}</span><span class="s1">)'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">oldstate</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="NatInst.disable">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.disable">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">disable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set state from Instrument to uncommitted.</span>
+<span class="w">        </span><span class="sd">"""Set state from Instrument to uncommitted.</span>
 
-<span class="sd">        usually handle automtically, if runningmode==&#39;auto&#39;.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        usually handle automtically, if runningmode=='auto'.</span>
+<span class="sd">        """</span>
         <span class="n">oldstate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">uncommitted</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1">.set state to </span><span class="si">{}</span><span class="s1">, (old state = </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">oldstate</span><span class="p">))</span></div>
+        <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s1">'</span><span class="si">{!r}</span><span class="s1">.set state to </span><span class="si">{}</span><span class="s1">, (old state = </span><span class="si">{}</span><span class="s1">)'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">oldstate</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="NatInst.close_session">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.close_session">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">close_session</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close the session (=inst).&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Close the session (=inst)."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inst</span> <span class="o">=</span> <span class="kc">None</span></div>
 
@@ -440,11 +440,11 @@
 <div class="viewcode-block" id="NatInst.reopen_session">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.reopen_session">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reopen_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channels</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reopen last session with channels.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Reopen last session with channels."""</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>   <span class="c1"># session needs stringlist, so create from array a string</span>
-            <span class="n">ch</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">ch</span> <span class="o">=</span> <span class="s1">''</span>
             <span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">:</span>
-                <span class="n">ch</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;,&#39;</span>
+                <span class="n">ch</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span><span class="o">+</span><span class="s1">','</span>
             <span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">ch</span> <span class="o">=</span> <span class="n">channels</span>
@@ -453,7 +453,7 @@
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_create_channelinst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channels</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Create channel instances for each channel in session. &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">""" Create channel instances for each channel in session. """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ch</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">channels</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>     <span class="c1"># session has only one channel</span>
@@ -478,13 +478,13 @@
 <div class="viewcode-block" id="NatInst.error_list">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.error_list">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">error_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;List of outstanding errors.&quot;&quot;&quot;</span>
-        <span class="n">errormsgs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:SYST:ERR:ALL?&#39;</span><span class="p">)</span>
-        <span class="n">errors</span> <span class="o">=</span> <span class="n">errormsgs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">codes</span> <span class="o">=</span> <span class="n">errormsgs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="w">        </span><span class="sd">"""List of outstanding errors."""</span>
+        <span class="n">errormsgs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">':SYST:ERR:ALL?'</span><span class="p">)</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="n">errormsgs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">codes</span> <span class="o">=</span> <span class="n">errormsgs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
         <span class="n">errorlist</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">codes</span><span class="p">,</span> <span class="n">errors</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
             <span class="n">errorlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">errorlist</span></div>
 
@@ -492,44 +492,44 @@
 <div class="viewcode-block" id="NatInst.message">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.message">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Device has no display, message display to logger.info.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Device has no display, message display to logger.info."""</span>
         <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the id from the device.&quot;&quot;&quot;</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">:  </span><span class="si">{}</span><span class="s1"> at PXI1Slot</span><span class="si">{}</span><span class="s1">, Firmware:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">instrument_manufacturer</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">instrument_model</span><span class="p">,</span>
+<span class="w">        </span><span class="sd">"""Get the id from the device."""</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">:  </span><span class="si">{}</span><span class="s1"> at PXI1Slot</span><span class="si">{}</span><span class="s1">, Firmware:</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">instrument_manufacturer</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">instrument_model</span><span class="p">,</span>
                                                            <span class="bp">self</span><span class="o">.</span><span class="n">addr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">instrument_firmware_revision</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">msg</span>
 
 <div class="viewcode-block" id="NatInst.local">
 <a class="viewcode-back" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.NatInst.html#pylab_ml.baseclass.base_natinst.NatInst.local">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">local</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Not possible, always remote control.&quot;&quot;&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;set local not possible, always remote control&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">"""Not possible, always remote control."""</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"set local not possible, always remote control"</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span> <span class="o">=</span> <span class="kc">False</span></div>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_call_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">rw</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Call the function for the current channel instance. &quot;&quot;&quot;</span>
-        <span class="c1"># func_for_channel_switch = [&#39;channel_enabled&#39;, &#39;vertical_coupling&#39;, &#39;vertical_range&#39;, &#39;vertical_offset&#39;]</span>
-        <span class="k">if</span> <span class="n">rw</span> <span class="o">==</span> <span class="s2">&quot;wr&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">""" Call the function for the current channel instance. """</span>
+        <span class="c1"># func_for_channel_switch = ['channel_enabled', 'vertical_coupling', 'vertical_range', 'vertical_offset']</span>
+        <span class="k">if</span> <span class="n">rw</span> <span class="o">==</span> <span class="s2">"wr"</span><span class="p">:</span>
             <span class="c1"># if function not in func_for_channel_switch:</span>
             <span class="c1">#     self.channel = self.channels[0]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ch</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">]</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>     <span class="c1"># call inst.function=val enum[name.name]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="c1"># else:</span>
             <span class="c1">#     self.ch[self.channel].__setattr__(function, value)</span>
-        <span class="k">elif</span> <span class="n">rw</span> <span class="o">==</span> <span class="s2">&quot;rd&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">rw</span> <span class="o">==</span> <span class="s2">"rd"</span><span class="p">:</span>
             <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ch</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">]</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">return</span> <span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Set/get state, only set state if necessary.</span>
 
 <span class="sd">        Parameters:</span>
@@ -541,7 +541,7 @@
 <span class="sd">        --------</span>
 <span class="sd">            state: State</span>
 <span class="sd">                current state of the instrument.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
 
     <span class="nd">@state</span><span class="o">.</span><span class="n">setter</span>
@@ -565,14 +565,14 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">initiate</span><span class="p">()</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">running</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_enum_error</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="n">newstate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">State</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_enum_error</span><span class="p">(</span><span class="s1">'state'</span><span class="p">,</span> <span class="n">newstate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">State</span><span class="p">)</span>
                 <span class="k">return</span>
             <span class="k">if</span> <span class="n">oldstate</span> <span class="o">!=</span> <span class="n">newstate</span> <span class="ow">and</span> <span class="n">oldstate</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">newstate</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1">.set state to </span><span class="si">{}</span><span class="s1">, (old state = </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">oldstate</span><span class="p">))</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="s1">'</span><span class="si">{!r}</span><span class="s1">.set state to </span><span class="si">{}</span><span class="s1">, (old state = </span><span class="si">{}</span><span class="s1">)'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">oldstate</span><span class="p">))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">runningmode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set/get runningmode.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Set/get runningmode."""</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_runningmode</span>
 
     <span class="nd">@runningmode</span><span class="o">.</span><span class="n">setter</span>
@@ -583,7 +583,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_runningmode</span> <span class="o">=</span> <span class="n">i</span>
                 <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_enum_error</span><span class="p">(</span><span class="s1">&#39;runningmode&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Runningmode</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_enum_error</span><span class="p">(</span><span class="s1">'runningmode'</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Runningmode</span><span class="p">)</span></div>
 
 </pre></div>
 
