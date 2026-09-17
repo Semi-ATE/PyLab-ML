@@ -1,0 +1,26 @@
+pylab\_ml.common.singleton.Singleton
+====================================
+
+.. currentmodule:: pylab_ml.common.singleton
+
+.. autoclass:: Singleton
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Singleton.__init__
+      ~Singleton.mro
+   
+   
+
+   
+   
+   

@@ -1,0 +1,27 @@
+pylab\_ml.misc.registermaster.RegDB
+===================================
+
+.. currentmodule:: pylab_ml.misc.registermaster
+
+.. autoclass:: RegDB
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~RegDB.__init__
+      ~RegDB.build_database
+      ~RegDB.get_row_data
+   
+   
+
+   
+   
+   

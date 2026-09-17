@@ -1,0 +1,39 @@
+pylab\_ml.common.projectsetup.diclist
+=====================================
+
+.. currentmodule:: pylab_ml.common.projectsetup
+
+.. autoclass:: diclist
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~diclist.__init__
+      ~diclist.append
+      ~diclist.clear
+      ~diclist.copy
+      ~diclist.count
+      ~diclist.extend
+      ~diclist.index
+      ~diclist.insert
+      ~diclist.keys
+      ~diclist.pop
+      ~diclist.remove
+      ~diclist.reverse
+      ~diclist.run
+      ~diclist.sort
+      ~diclist.values
+   
+   
+
+   
+   
+   

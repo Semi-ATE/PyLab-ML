@@ -1,0 +1,26 @@
+pylab\_ml.misc.project\_info.Project\_Info
+==========================================
+
+.. currentmodule:: pylab_ml.misc.project_info
+
+.. autoclass:: Project_Info
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Project_Info.__init__
+      ~Project_Info.replace_variables
+   
+   
+
+   
+   
+   

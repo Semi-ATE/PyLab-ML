@@ -1,0 +1,33 @@
+pylab\_ml.common.environment
+============================
+
+.. automodule:: pylab_ml.common.environment
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:   
+   
+      checkNetworkPath
+      environ_getpath
+      path_insert
+      replaceEnvs
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

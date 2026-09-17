@@ -1,0 +1,39 @@
+pylab\_ml.gui.instruments
+=========================
+
+.. automodule:: pylab_ml.gui.instruments
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   base_instrument
+   coil
+   matrix
+   minisct
+   regs
+   smu
+   softscope
+   template_instrument
+

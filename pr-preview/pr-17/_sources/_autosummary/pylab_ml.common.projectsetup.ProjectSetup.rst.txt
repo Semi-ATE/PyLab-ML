@@ -1,0 +1,38 @@
+pylab\_ml.common.projectsetup.ProjectSetup
+==========================================
+
+.. currentmodule:: pylab_ml.common.projectsetup
+
+.. autoclass:: ProjectSetup
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ProjectSetup.__init__
+      ~ProjectSetup.apply_configuration
+      ~ProjectSetup.call
+      ~ProjectSetup.close
+      ~ProjectSetup.create_dotdic
+      ~ProjectSetup.do_fetch
+      ~ProjectSetup.init_instrument
+      ~ProjectSetup.initialization
+      ~ProjectSetup.jsondump
+      ~ProjectSetup.regDump
+      ~ProjectSetup.regDumpSave2DUT
+      ~ProjectSetup.runmacro
+      ~ProjectSetup.set_configuration_values
+      ~ProjectSetup.write
+   
+   
+
+   
+   
+   
