@@ -46,10 +46,10 @@ class LabGuiPlugin(SpyderDockablePlugin):
 
     @staticmethod
     def get_name() -> str:
-        return _('MLab_GUI')
+        return _('Lab_GUI')
 
     def get_description(self) -> str:
-        return _('MLab Gui integration')
+        return _('Lab Gui integration')
 
     def get_icon(self):
         return self.create_icon('mdi.chip')
