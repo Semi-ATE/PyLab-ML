@@ -44,4 +44,5 @@
    scope
    smu
    thermostreamer
+   widgets
 
