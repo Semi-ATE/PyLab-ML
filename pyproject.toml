@@ -47,7 +47,7 @@ dependencies = [
 	"nidcpower==1.4.2",
 	"nidmm==1.4.2",
 	"niscope==1.4.1",
-	"nitclk==1.4.1",	
+	"nitclk==1.4.1",
 	"matplotlib",
     "paho-mqtt",
     "pandas",
@@ -80,6 +80,7 @@ test = [
 
 [project.entry-points."ate.org"]
     pylabml = "pylab_ml.plugins.pylabml.instruments:Plugin"
-    
+    pylabml_gui = "plugin_gui:LabGuiPlugin"
+
 [project.scripts]
     enter_semiate = "pylab_ml.scripts.enter_semiate:main"
