@@ -80,7 +80,9 @@ test = [
 
 [project.entry-points."ate.org"]
     pylabml = "pylab_ml.plugins.pylabml.instruments:Plugin"
-    pylabml_gui = "plugin_gui:LabGuiPlugin"
+
+[project.entry-points."spyder.plugins"]
+	lab_gui = "plugin_gui:LabGuiPlugin"
 
 [project.scripts]
     enter_semiate = "pylab_ml.scripts.enter_semiate:main"
