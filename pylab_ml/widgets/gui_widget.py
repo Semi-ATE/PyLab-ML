@@ -14,7 +14,6 @@ Todo:
 """
 import os
 import time
-import importlib
 import qtawesome as qta
 import qdarkstyle
 from PyQt5 import uic
@@ -107,6 +106,8 @@ class LabGui(PluginMainWidget):
         self.state = "unknown"
         self.buttons = {}
         self.instruments_buttons = {}
+        self.mqtt = None
+        self.logger = None
         self.lab_control = None
         self.flagAppclosed = False
 
