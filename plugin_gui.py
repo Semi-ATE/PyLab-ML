@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright © Semi-ATE
 # Licensed under the terms of the GPLv2 License
 # (see LICENSE.txt for more details)
 
@@ -17,7 +16,6 @@ from spyder.api.plugin_registration.decorators import on_plugin_available, on_pl
 from qtpy.QtCore import Signal
 
 # Local imports
-# from ate_spyder_lab_control.widgets.gui_widget import LabGui
 from pylab_ml.widgets.gui_widget import LabGui
 from ate_spyder.plugin import ATE
 
