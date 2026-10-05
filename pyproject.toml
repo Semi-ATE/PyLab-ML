@@ -1,4 +1,4 @@
-[build-system]
+pwd[build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
@@ -42,8 +42,10 @@ classifiers = [
 ]
 dependencies = [
     "hightime",
+    "xlrd",
 	"h5py",
 	"ipywidgets",
+	"lxml",
 	"nidcpower==1.4.2",
 	"nidmm==1.4.2",
 	"niscope==1.4.1",
@@ -57,6 +59,7 @@ dependencies = [
 	"pyvisa",
 	"pyvisa-py",
 	"regex",
+	"svgelements",
     "semi-ate-common",
     "pyyaml",
 ]
