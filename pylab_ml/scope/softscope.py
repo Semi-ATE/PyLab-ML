@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-This script defines the Softscope class, which is responsible for communicating with a softscope GUI via MQTT. 
-The class allows for starting and stopping data sampling, setting the channel to be monitored, and adjusting the sample time. 
-It uses a Timer thread to manage the sampling loop and handles MQTT commands to control its behavior. 
+This script defines the Softscope class, which is responsible for communicating with a softscope GUI via MQTT.
+The class allows for starting and stopping data sampling, setting the channel to be monitored, and adjusting the sample time.
+It uses a Timer thread to manage the sampling loop and handles MQTT commands to control its behavior.
 The class also includes error handling for cases where the specified channel is not defined or returns an error.
 
 Created on Thu Jan  7 17:18:03 2021
@@ -10,6 +10,7 @@ Created on Thu Jan  7 17:18:03 2021
 @author: jung
 """
 from ate_common.logger import LogLevel
+from pylab_ml.common.mqtt_client import mylogger
 from pylab_ml.common.mqtt_client import mqtt_deviceattributes
 from pylab_ml.common import common
 from time import time
@@ -38,14 +39,12 @@ class Softscope(mqtt_deviceattributes):
             max sample Time ~50Hz
     """
 
-    def __init__(self, mqttc, logger, instName="softscope"):
+    def __init__(self, logger=mylogger, instName="softscope"):
         """
         Initialise the softscope class and subscribe for mqtt if mqttc is not None
-        
+
         Parameters
         ----------
-            mqttc : MQTT client object
-                The MQTT client to use for communication. If None, MQTT functionality will be disabled.
             logger : Logger object
                 The logger to use for logging messages.
             instName : str, optional
@@ -54,10 +53,8 @@ class Softscope(mqtt_deviceattributes):
         self.instName = instName
         self.logger = logger
         super().__init__()
-        self.gui = "pylab_ml.gui.instruments.softscope.softscope"  # semi-ctrl use this lib for the scope gui
+        self.gui = "pylab_ml.gui.instruments.softscope.softscope"                # semi-ctrl use this lib for the scope gui
         self.mqtt_all = ["setchannel()", "on()", "off()", "sampleTime", "test"]  # approved commands for mqtt
-        if mqttc is not None:
-            self.mqtt_add(mqttc, self)  # subscribe for mqtt and send information about the gui
         self.scopeChannel = None
         self._samplethread = None
         self.sampleTime = 0.1
@@ -67,14 +64,24 @@ class Softscope(mqtt_deviceattributes):
         self.busy = False
 
     def init(self, topinstname):
-        """Initialize the topinstname for the strcall to get the value for the scopeChannel"""
+        """Initialize the topinstname for the strcall to get the value for the scopeChannel.
+
+        connect to the mqttc if available
+        """
         self.topinstname = topinstname
+        try:
+            from labml_adjutancy.ctrl.labctrl import mqttc
+        except Exception:
+            mqttc = None
+
+        if mqttc is not None:
+            self.mqtt_add(mqttc, self)
 
     def setchannel(self, value):
         """Set the scopeChannel via mqtt"""
+        print(f'setchannel, {value}, type={type(value)}, topinstname={self.topinstname}')
         result = common.strcall(self.topinstname, value)
         self.scopeChannel = value if result != "ERROR" else "ERROR"
-        # print(f'Softscope.setchannel: {value} -> {result}')
         self.publish_set("scopeChannel", self.scopeChannel)
 
     def on(self):
@@ -131,7 +138,7 @@ class Softscope(mqtt_deviceattributes):
     def test(self):
         """
         Get the current test value for the softscope.
-        
+
         Returns
         -------
             int
@@ -145,6 +152,43 @@ class Softscope(mqtt_deviceattributes):
 
     def __repr__(self):
         return f"{self.__class__}"
+
+    def setshortnames(self, env):
+        """Get all available instruments.
+        """
+        self.init(env)
+
+
+# Functions for the plugin:
+    def do_import(self):
+        print("Softscope: do_import")
+
+    def do_export(self):
+        print("Softscope: do_import")
+
+    def get_abort_reason(self):
+        print("Softscope: get_abort_reason")
+
+    def set_mqtt_client(self, mqtt):
+        print(f"Softscope: set_mqtt_client {mqtt}")
+
+    def set_configuration_values(self, data):
+        print(f"Softscope: set_configuration_values {data}")
+
+    def apply_configuration(self, data):
+        """
+        Call from the Plugin if the modul placed in the hardwaresetups.
+
+        Parameters
+        ----------
+        data : TYPE
+            DESCRIPTION.
+
+        Returns
+        -------
+        None
+        """
+        pass
 
 
 if __name__ == "__main__":

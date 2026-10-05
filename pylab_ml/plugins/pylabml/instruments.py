@@ -22,20 +22,17 @@ from ate_semiateplugins.hookspec import hookimpl
 from pylab_ml.common import environment
 from pylab_ml.common import projectsetup
 from pylab_ml.misc import registermaster
+from pylab_ml.scope.softscope import Softscope
 
-__author__ = "Zlin526F"
-__credits__ = ["Zlin526F"]
-__email__ = "Zlin526F@github"
-__version__ = '0.6.0'
-
+__version__ = '0.7.0'
 
 NAME = "Pylab_Ml"
 
 
 class Plugin:
-    """ 
-    This class defines the plugin for the Pylab-Ml environment. 
-    It implements the hooks that will be called by the environment to get the plugin's functionality. 
+    """
+    This class defines the plugin for the Pylab-Ml environment.
+    It implements the hooks that will be called by the environment to get the plugin's functionality.
     """
 
     @hookimpl
@@ -48,9 +45,9 @@ class Plugin:
 
     @hookimpl
     def get_importer_names():
-        """ 
-        Return a list of importer names that this plugin provides. 
-        Each importer is represented as a dictionary with display name, version, and unique name. 
+        """
+        Return a list of importer names that this plugin provides.
+        Each importer is represented as a dictionary with display name, version, and unique name.
         """
         return [
             {"display_name": "Dummy Importer",
@@ -59,9 +56,9 @@ class Plugin:
 
     @hookimpl
     def get_exporter_names():
-        """ 
-        Return a list of exporter names that this plugin provides. 
-        Each exporter is represented as a dictionary with display name, version, and unique name. 
+        """
+        Return a list of exporter names that this plugin provides.
+        Each exporter is represented as a dictionary with display name, version, and unique name.
         """
         return [
             {"display_name": "Dummy Exporter",
@@ -70,9 +67,9 @@ class Plugin:
 
     @hookimpl
     def get_equipment_names():
-        """ 
-        Return a list of equipment names that this plugin provides. 
-        Each equipment is represented as a dictionary with display name, version, and unique name. 
+        """
+        Return a list of equipment names that this plugin provides.
+        Each equipment is represented as a dictionary with display name, version, and unique name.
         """
         return [
             {"display_name": "Dummy Equipment",
@@ -81,9 +78,9 @@ class Plugin:
 
     @hookimpl
     def get_devicepin_importer_names():
-        """ 
-        Return a list of device pin importer names that this plugin provides. 
-        Each importer is represented as a dictionary with display name, version, and unique name. 
+        """
+        Return a list of device pin importer names that this plugin provides.
+        Each importer is represented as a dictionary with display name, version, and unique name.
         """
         return [
             {"display_name": "Dummy Pinimport",
@@ -92,15 +89,21 @@ class Plugin:
 
     @hookimpl
     def get_instrument_names():
-        """ 
-        Return a list of instrument names that this plugin provides. 
-        Each instrument is represented as a dictionary with display name, version, manufacturer, and unique name. 
+        """
+        Return a list of instrument names that this plugin provides.
+        Each instrument is represented as a dictionary with display name, version, manufacturer, and unique name.
         """
         return [
             {"display_name": "PyLab-ML Instruments V" + __version__,
              "version": __version__,
              "manufacturer": "PyLab-ML Labor",
-             "name": f"{NAME}.Instruments"}]
+             "name": f"{NAME}.Instruments"},
+            {"display_name": "PyLab-ML Softscope V" + __version__,
+             "version": __version__,
+             "manufacturer": "PyLab-ML Labor",
+             "name": f"{NAME}.Softscope"}
+            ]
+
 
 #    @hookimpl
 #    def get_tester_names():
@@ -112,9 +115,9 @@ class Plugin:
 
     @hookimpl
     def get_general_purpose_function_names():
-        """ 
-        Return a list of general purpose function names that this plugin provides. 
-        Each function is represented as a dictionary with display name, version, manufacturer, and unique name. 
+        """
+        Return a list of general purpose function names that this plugin provides.
+        Each function is represented as a dictionary with display name, version, manufacturer, and unique name.
         """
         return [
             {"display_name": "Project Setup",
@@ -129,14 +132,14 @@ class Plugin:
 
     @hookimpl
     def get_importer(importer_name):
-        """ 
-        Return an instance of the importer class corresponding to the given importer name. 
-        
+        """
+        Return an instance of the importer class corresponding to the given importer name.
+
         Parameters
         ----------
             importer_name: str
                 The unique name of the importer to retrieve, as defined in get_importer_names().
-                
+
         Returns
         -------
             An instance of the importer class corresponding to the given importer name, or None if no matching importer is found.
@@ -147,14 +150,14 @@ class Plugin:
 
     @hookimpl
     def get_exporter(exporter_name):
-        """ 
-        Return an instance of the exporter class corresponding to the given exporter name. 
-        
+        """
+        Return an instance of the exporter class corresponding to the given exporter name.
+
         Parameters
         ----------
             exporter_name: str
                 The unique name of the exporter to retrieve, as defined in get_exporter_names().
-                
+
         Returns
         -------
             An instance of the exporter class corresponding to the given exporter name, or None if no matching exporter is found.
@@ -165,14 +168,14 @@ class Plugin:
 
     @hookimpl
     def get_equipment(equipment_name):
-        """ 
-        Return an instance of the equipment class corresponding to the given equipment name. 
-        
+        """
+        Return an instance of the equipment class corresponding to the given equipment name.
+
         Parameters
         ----------
             equipment_name: str
                 The unique name of the equipment to retrieve, as defined in get_equipment_names().
-                
+
         Returns
         -------
             An instance of the equipment class corresponding to the given equipment name, or None if no matching equipment is found.
@@ -183,14 +186,14 @@ class Plugin:
 
     @hookimpl
     def get_devicepin_importer(importer_name):
-        """ 
-        Return an instance of the device pin importer class corresponding to the given importer name. 
-        
+        """
+        Return an instance of the device pin importer class corresponding to the given importer name.
+
         Parameters
         ----------
             importer_name: str
                 The unique name of the device pin importer to retrieve, as defined in get_devicepin_importer_names().
-                
+
         Returns
         -------
             An instance of the device pin importer class corresponding to the given importer name, or None if no matching importer is found.
@@ -201,58 +204,58 @@ class Plugin:
 
     @hookimpl
     def get_instrument(instrument_name: str, logger):
-        """ 
-        Return an instance of the instrument class corresponding to the given instrument name. 
-        
+        """
+        Return an instance of the instrument class corresponding to the given instrument name.
+
         Parameters
         ----------
             instrument_name: str
                 The unique name of the instrument to retrieve, as defined in get_instrument_names().
             logger: logging.Logger
                 The logger instance to use for the instrument.
-                
+
         Returns
         -------
             An instance of the instrument class corresponding to the given instrument name, or None if no matching instrument is found.
         """
         if instrument_name == f"{NAME}.Instruments":
             return Instruments(logger)
+        elif instrument_name == f"{NAME}.Softscope":
+            return Softscope(logger)
 
     @hookimpl
     def get_instrument_proxy(instrument_name):
-        """ 
-        Return an instance of the instrument proxy class corresponding to the given instrument name. 
-        
+        """
+        Return an instance of the instrument proxy class corresponding to the given instrument name.
+
         Parameters
         ----------
             instrument_name: str
                 The unique name of the instrument proxy to retrieve, as defined in get_instrument_proxy_names().
-                
+
         Returns
         -------
             An instance of the instrument proxy class corresponding to the given instrument name, or None if no matching instrument proxy is found.
         """
-        if f"{NAME}." in instrument_name:
+        if instrument_name == f"{NAME}.Instruments":
             print(f'{NAME}.get_instrument_proxy')
             return Instruments()
-
-#    @hookimpl
-#    def get_tester(tester_name: str):
-#        if tester_name == f"{NAME}.NIPXIe":
-#            return NIPXIe.NIPXIe()
+        elif instrument_name == f"{NAME}.Softscope":
+            print(f'{NAME}.get_instrument_proxy')
+            return Softscope()
 
     @hookimpl
     def get_general_purpose_function(func_name: str, logger):
-        """ 
-        Return an instance of the general purpose function class corresponding to the given function name. 
-        
+        """
+        Return an instance of the general purpose function class corresponding to the given function name.
+
         Parameters
         ----------
             func_name: str
                 The unique name of the general purpose function to retrieve, as defined in get_general_purpose_function_names().
             logger: logging.Logger
                 The logger instance to use for the general purpose function.
-                
+
         Returns
         -------
             An instance of the general purpose function class corresponding to the given function name, or None if no matching function is found.
@@ -266,12 +269,13 @@ class Plugin:
     def get_configuration_options(object_name):
         """
         Return a list of configuration options for the given object name.
-        
+
         Parameters
         ----------
             object_name: str
                 The unique name of the object for which to retrieve configuration options, as defined in the plugin.
-                
+
+
         Returns
         -------
             A list of configuration option names for the given object name, or an empty list if no matching object is found.
@@ -282,6 +286,8 @@ class Plugin:
             return ["Network prefix", "working directory", "add path", 'instance name', 'filename']
         elif object_name == f"{NAME}.Registermaster":
             return ['instance name', 'filename', 'read mod write', 'reset value']
+        if object_name == f"{NAME}.Softscope":
+            return Softscope()
 
 
 class Instruments:
@@ -303,7 +309,7 @@ class Instruments:
         2. If not my_config.py, search for:
             2.1 my_init.py in your path                                                               = individual init settings
             2.2. when not found: search in project/version/harness/tb_project_init.py                 = project specific initialisation, e.q. kind of communication: halapb, sti, msp
-    
+
     Use this files together as $$$HW_config.py
 
         - add $WORKAREA/units/lab/source/python/harness to path
@@ -375,18 +381,18 @@ class Instruments:
         pass
 
     def apply_configuration(self, data):
-        """ 
+        """
         Apply the configuration for the instruments by loading the appropriate configuration files based on the provided data and environment variables.
-        
+
         Parameters
         ----------
             data: dict
-                A dictionary containing configuration data for the instruments, which may include keys such as "working directory", "add path", and "Network prefix". 
+                A dictionary containing configuration data for the instruments, which may include keys such as "working directory", "add path", and "Network prefix".
                 The values of these keys will be used to determine the paths to search for instrument configuration files and to set environment variables accordingly.
-        
+
         Returns
         -------
-            None.        
+            None.
         """
         # {"working directory": "$WORKAREA/units/lab/source/python; $WORKAREA/units/lab.Win64/source/python/",  the last exist path win
         #  "add path": "harness/",
