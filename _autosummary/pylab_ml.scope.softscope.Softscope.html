@@ -127,6 +127,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.misc.iasvg.html">pylab_ml.misc.iasvg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pylab_ml.misc.registermaster.html">pylab_ml.misc.registermaster</a></li>
 </ul>
@@ -190,7 +191,7 @@
 <h1>pylab_ml.scope.softscope.Softscope<a class="headerlink" href="#pylab-ml-scope-softscope-softscope" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pylab_ml.scope.softscope.Softscope">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Softscope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mqttc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'softscope'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/scope/softscope.html#Softscope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.scope.softscope.Softscope" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Softscope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger=&lt;class</span> <span class="pre">'pylab_ml.common.mqtt_client.mylogger'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instName='softscope'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/scope/softscope.html#Softscope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.scope.softscope.Softscope" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pylab_ml.common.mqtt_client.mqtt_deviceattributes.html#pylab_ml.common.mqtt_client.mqtt_deviceattributes" title="pylab_ml.common.mqtt_client.mqtt_deviceattributes"><code class="xref py py-class docutils literal notranslate"><span class="pre">mqtt_deviceattributes</span></code></a></p>
 <p>Class for the communication with the softcope-GUI.</p>
 <dl class="simple">
@@ -210,12 +211,11 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylab_ml.scope.softscope.Softscope.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mqttc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'softscope'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/scope/softscope.html#Softscope.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.scope.softscope.Softscope.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger=&lt;class</span> <span class="pre">'pylab_ml.common.mqtt_client.mylogger'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instName='softscope'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/scope/softscope.html#Softscope.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.scope.softscope.Softscope.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initialise the softscope class and subscribe for mqtt if mqttc is not None</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mqttc</strong> (<em>MQTT client object</em>) – The MQTT client to use for communication. If None, MQTT functionality will be disabled.</p></li>
 <li><p><strong>logger</strong> (<em>Logger object</em>) – The logger to use for logging messages.</p></li>
 <li><p><strong>instName</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the instrument. Default is “softscope”.</p></li>
 </ul>
@@ -226,14 +226,26 @@
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.scope.softscope.Softscope.__init__" title="pylab_ml.scope.softscope.Softscope.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(mqttc, logger[, instName])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.scope.softscope.Softscope.__init__" title="pylab_ml.scope.softscope.Softscope.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([logger, instName])</p></td>
 <td><p>Initialise the softscope class and subscribe for mqtt if mqttc is not None</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.scope.softscope.Softscope.close" title="pylab_ml.scope.softscope.Softscope.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.scope.softscope.Softscope.apply_configuration" title="pylab_ml.scope.softscope.Softscope.apply_configuration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_configuration</span></code></a>(data)</p></td>
+<td><p>Call from the Plugin if the modul placed in the hardwaresetups.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.scope.softscope.Softscope.close" title="pylab_ml.scope.softscope.Softscope.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code></a>()</p></td>
 <td><p>Close the softscope and disconnect from MQTT.</p></td>
 </tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">do_export</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">do_import</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_abort_reason</span></code>()</p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.scope.softscope.Softscope.init" title="pylab_ml.scope.softscope.Softscope.init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init</span></code></a>(topinstname)</p></td>
-<td><p>Initialize the topinstname for the strcall to get the value for the scopeChannel</p></td>
+<td><p>Initialize the topinstname for the strcall to get the value for the scopeChannel.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.scope.softscope.Softscope.mqtt_add" title="pylab_ml.scope.softscope.Softscope.mqtt_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_add</span></code></a>(client, instrument[, liste, qos])</p></td>
 <td><p>Add the instrument to mqtt.</p></td>
@@ -256,8 +268,17 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.scope.softscope.Softscope.publish_set" title="pylab_ml.scope.softscope.Softscope.publish_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish_set</span></code></a>(function_name, value)</p></td>
 <td><p>Publish function_name as type='set' with paylad=value.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_configuration_values</span></code>(data)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mqtt_client</span></code>(mqtt)</p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.scope.softscope.Softscope.setchannel" title="pylab_ml.scope.softscope.Softscope.setchannel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setchannel</span></code></a>(value)</p></td>
 <td><p>Set the scopeChannel via mqtt</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.scope.softscope.Softscope.setshortnames" title="pylab_ml.scope.softscope.Softscope.setshortnames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setshortnames</span></code></a>(env)</p></td>
+<td><p>Get all available instruments.</p></td>
 </tr>
 </tbody>
 </table>
@@ -285,6 +306,20 @@
 </tbody>
 </table>
 <dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.scope.softscope.Softscope.apply_configuration">
+<span class="sig-name descname"><span class="pre">apply_configuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/scope/softscope.html#Softscope.apply_configuration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.scope.softscope.Softscope.apply_configuration" title="Link to this definition"></a></dt>
+<dd><p>Call from the Plugin if the modul placed in the hardwaresetups.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>TYPE</em>) – DESCRIPTION.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pylab_ml.scope.softscope.Softscope.close">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/scope/softscope.html#Softscope.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.scope.softscope.Softscope.close" title="Link to this definition"></a></dt>
 <dd><p>Close the softscope and disconnect from MQTT.</p>
@@ -293,7 +328,8 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pylab_ml.scope.softscope.Softscope.init">
 <span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topinstname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/scope/softscope.html#Softscope.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.scope.softscope.Softscope.init" title="Link to this definition"></a></dt>
-<dd><p>Initialize the topinstname for the strcall to get the value for the scopeChannel</p>
+<dd><p>Initialize the topinstname for the strcall to get the value for the scopeChannel.</p>
+<p>connect to the mqttc if available</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -409,6 +445,12 @@ Normally you have not to use this function, only base_instrument use it.</p>
 <dt class="sig sig-object py" id="pylab_ml.scope.softscope.Softscope.setchannel">
 <span class="sig-name descname"><span class="pre">setchannel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/scope/softscope.html#Softscope.setchannel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.scope.softscope.Softscope.setchannel" title="Link to this definition"></a></dt>
 <dd><p>Set the scopeChannel via mqtt</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.scope.softscope.Softscope.setshortnames">
+<span class="sig-name descname"><span class="pre">setshortnames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/scope/softscope.html#Softscope.setshortnames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.scope.softscope.Softscope.setshortnames" title="Link to this definition"></a></dt>
+<dd><p>Get all available instruments.</p>
 </dd></dl>
 
 <dl class="py property">

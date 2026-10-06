@@ -1,0 +1,1028 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.misc.iasvg &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.iasvg.html">pylab_ml.misc.iasvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.misc.registermaster.html">pylab_ml.misc.registermaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.position_controller.html">pylab_ml.position_controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.position_controller.pollux.html">pylab_ml.position_controller.pollux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.scope.softscope.html">pylab_ml.scope.softscope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/pylab_ml.widgets.html">pylab_ml.widgets</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.misc.iasvg</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.misc.iasvg</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">"""</span>
+<span class="sd">Created on Fri Mar  4 12:00:27 2022</span>
+
+<span class="sd">Create interactive widgets from an svg image.</span>
+
+<span class="sd">@author: jung</span>
+
+<span class="sd">This lib is based on the following information or other libs:</span>
+<span class="sd">    - https://pypi.org/project/svgelements/  for calculation from the transformation matrix</span>
+<span class="sd">    - animated svg graphics:  https://funprojects.blog/2021/12/07/animated-svg-graphics-in-python/</span>
+<span class="sd">        -&gt; principle adopted for changing text</span>
+<span class="sd">    - selectable image: https://stackoverflow.com/questions/59090988/clickable-svg-image-to-run-method</span>
+<span class="sd">        - image is not adjusted to the size of the window</span>
+<span class="sd">        - not applicable to items within an image, because transform from parent missing</span>
+<span class="sd">    - https://forum.qt.io/topic/109025/updating-qgraphicseffect-for-qgraphicssvgitem/6</span>
+
+<span class="sd">    - QtWidgets.QGraphicsView</span>
+<span class="sd">        https://doc.qt.io/qt-5/qgraphicsview.html</span>
+
+
+<span class="sd">What is available for reading, writing, manipulating from svg-files:</span>
+<span class="sd">    - svgelements https://github.com/meerk40t/svgelements      -&gt; this lib is used in this class</span>
+<span class="sd">        - more robust as svg.path, include other elements like points, matrix, color</span>
+<span class="sd">    - SVG manipulation within a GUI https://github.com/MoplusplusApp/Moplusplus</span>
+<span class="sd">    - https://doc.qt.io/qtforpython/overviews/graphicsview.html</span>
+<span class="sd">    - svglib</span>
+<span class="sd">        - only reading SVG files and converting them (to a reasonable degree) to other formats using the ReportLab Open Source toolkit.</span>
+<span class="sd">    - CairoSVG  https://cairosvg.org/</span>
+<span class="sd">        - convert to png, pdf, ps and svg</span>
+<span class="sd">    - svg.path</span>
+<span class="sd">        - svg.path is a collection of objects that implement the different path commands in SVG, and a parser for SVG path definitions.</span>
+<span class="sd">    - drawSvg</span>
+<span class="sd">        - A Python 3 library for programmatically generating SVG images (vector drawings) and rendering them or displaying them in a Jupyter notebook.</span>
+<span class="sd">    - svgutils  https://svgutils.readthedocs.io/en/latest/transform.html</span>
+<span class="sd">        - basic svg transformations</span>
+
+
+<span class="sd">TODO:   </span>
+<span class="sd">    - si units missing</span>
+<span class="sd">    - min,max values for the QDoubleSpinBox</span>
+<span class="sd">    - show combobox for string values</span>
+
+<span class="sd">    - mouse bewegungen abfangen und setToolTip anzeigen</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">lxml</span><span class="w"> </span><span class="kn">import</span> <span class="n">etree</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">svgelements</span>  <span class="c1"># https://pypi.org/project/svgelements/</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5</span><span class="w"> </span><span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">QtCore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.QtSvg</span><span class="w"> </span><span class="kn">import</span> <span class="n">QGraphicsSvgItem</span><span class="p">,</span> <span class="n">QSvgRenderer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qtpy.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">Signal</span>
+
+
+<div class="viewcode-block" id="SvgItem">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgItem.html#pylab_ml.misc.iasvg.SvgItem">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SvgItem</span><span class="p">(</span><span class="n">QGraphicsSvgItem</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">""" SvgItem is a QGraphicsSvgItem with some additional functions for interactivity. """</span>
+
+    <span class="n">clickBox</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QPoint</span><span class="p">)</span>
+    <span class="n">clickHelpBox</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QPoint</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SvgItem.__init__">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgItem.html#pylab_ml.misc.iasvg.SvgItem.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Constructor for the SvgItem.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            id : string</span>
+<span class="sd">                id from the svg element.</span>
+<span class="sd">            renderer : QSvgRenderer</span>
+<span class="sd">                The SVG renderer to use for this item.</span>
+<span class="sd">            parent : TYPE, optional</span>
+<span class="sd">                The parent item. The default is None.</span>
+<span class="sd">            element : TYPE, optional</span>
+<span class="sd">                The SVG element associated with this item. The default is None.</span>
+<span class="sd">        """</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setSharedRenderer</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>  <span class="c1"># necessary for setting lifetime</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">boundsOnElement</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setElementId</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">bounds</span><span class="o">.</span><span class="n">topLeft</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFlags</span><span class="p">(</span><span class="n">QGraphicsSvgItem</span><span class="o">.</span><span class="n">ItemIsSelectable</span><span class="p">)</span>  <span class="c1"># | QGraphicsSvgItem.ItemSendsGeometryChanges)</span>
+        <span class="c1"># self.installEventFilter(self)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">boxes</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+
+<div class="viewcode-block" id="SvgItem.mousePressEvent">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgItem.html#pylab_ml.misc.iasvg.SvgItem.mousePressEvent">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="s2">"QtWidgets.QGraphicsSceneMouseEvent"</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Overwrite the mousePressEvent from QGraphicsSvgItem.</span>
+
+<span class="sd">        Send the clickBox or clickHelpBox Signal with the name from the element and the coordinates.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            event : 'QtWidgets.QGraphicsSceneMouseEvent'</span>
+<span class="sd">                    The mouse event that triggered the function.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">()</span><span class="o">.</span><span class="n">x</span><span class="p">()</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">()</span><span class="o">.</span><span class="n">y</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">tid</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">:</span>  <span class="c1"># find the accociated box and get the text attribute</span>
+            <span class="n">box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">[</span><span class="n">tid</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">box</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">box</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="s2">"w"</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">box</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">box</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="n">box</span><span class="p">[</span><span class="s2">"h"</span><span class="p">]):</span>
+                <span class="n">rectangle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapRectToScene</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">box</span><span class="p">[</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">box</span><span class="p">[</span><span class="s2">"w"</span><span class="p">],</span> <span class="n">box</span><span class="p">[</span><span class="s2">"h"</span><span class="p">])</span>  <span class="c1"># Scenen coordinats</span>
+                <span class="c1"># rectangle = self.mapRectFromScene(box['x'], box['y'], box['w'], box['h'])       # item coordinats(</span>
+                <span class="n">rectangle</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QRectF</span><span class="p">(</span>
+                    <span class="n">event</span><span class="o">.</span><span class="n">screenPos</span><span class="p">()</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">event</span><span class="o">.</span><span class="n">screenPos</span><span class="p">()</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">height</span><span class="p">()</span>
+                <span class="p">)</span>
+                <span class="n">point</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QPoint</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">x</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">y</span><span class="p">()))</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># right Mousebutton</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">clickBox</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">tid</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># left Mousebutton</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">clickHelpBox</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">tid</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">mousePressEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SvgItem.paint">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgItem.html#pylab_ml.misc.iasvg.SvgItem.paint">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">paint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">option</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Overwerite the paint-function  from QGraphicsSvgItem.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            painter : QPainter</span>
+<span class="sd">                The painter to use for drawing the item.</span>
+<span class="sd">            option : QStyleOptionGraphicsItem</span>
+<span class="sd">                The style options for the item.</span>
+<span class="sd">            widget : QWidget, optional</span>
+<span class="sd">                The widget that is being painted on. The default is None.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+
+<span class="sd">        """</span>
+        <span class="c1">#  set a graphics colorize effect when item is selected, and disable the effect when deselected</span>
+        <span class="c1"># if self.isSelected():</span>
+        <span class="c1">#     self._effect = QtCore.QGraphicsColorizeEffect()</span>
+        <span class="c1">#     self._effect.setColor(Qt.red)</span>
+        <span class="c1">#     self._effect.setStrength(.5)</span>
+        <span class="c1">#     self.setGraphicsEffect(self._effect)</span>
+        <span class="c1"># else:</span>
+        <span class="c1">#     pass</span>
+        <span class="c1">#     #self.setGraphicsEffect(0)</span>
+        <span class="n">QGraphicsSvgItem</span><span class="o">.</span><span class="n">paint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">option</span><span class="p">,</span> <span class="n">widget</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SvgItem.eventFilter">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgItem.html#pylab_ml.misc.iasvg.SvgItem.eventFilter">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">eventFilter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Set an event Filter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            obj : QObject</span>
+<span class="sd">                The object that is being filtered.</span>
+<span class="sd">            event : QEvent</span>
+<span class="sd">                The event that is being filtered.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            bool</span>
+<span class="sd">                True if the event should be filtered out, False otherwise.</span>
+<span class="sd">        """</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">())</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">QGraphicsSvgItem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">eventFilter</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SvgIaViewer">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgIaViewer.html#pylab_ml.misc.iasvg.SvgIaViewer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SvgIaViewer</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QGraphicsView</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">""" SVG Interactive Viewer """</span>
+
+<div class="viewcode-block" id="SvgIaViewer.__init__">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgIaViewer.html#pylab_ml.misc.iasvg.SvgIaViewer.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scene</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QGraphicsScene</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>  <span class="c1"># https://doc.qt.io/qtforpython/overviews/graphicsview.html</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span> <span class="o">=</span> <span class="n">QSvgRenderer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setScene</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_scene</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SvgIaViewer.setSvg">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgIaViewer.html#pylab_ml.misc.iasvg.SvgIaViewer.setSvg">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setSvg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Render the svg-file 'filename'.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            filename : string</span>
+<span class="sd">                The path to the SVG file to be rendered.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resetTransform</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scene</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"couldn't load </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainSvg</span> <span class="o">=</span> <span class="n">SvgItem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">getroot</span><span class="p">()),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainSvg</span><span class="o">.</span><span class="n">setX</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainSvg</span><span class="o">.</span><span class="n">setY</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainSvg</span><span class="o">.</span><span class="n">setElementId</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>  <span class="c1"># force repainting, otherwise the image is empty...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scene</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mainSvg</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SvgIaViewer.updateSvg">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgIaViewer.html#pylab_ml.misc.iasvg.SvgIaViewer.updateSvg">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">updateSvg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Update the rendering from the svg. This is necessary after changing the svg-tree, otherwise the changes aren't visible. """</span>
+        <span class="n">update</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">xml_declaration</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainSvg</span><span class="o">.</span><span class="n">setElementId</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>  <span class="c1"># force repainting</span></div>
+
+
+<div class="viewcode-block" id="SvgIaViewer.setBox">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgIaViewer.html#pylab_ml.misc.iasvg.SvgIaViewer.setBox">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Found the retangle from the element, save the coordinates in self.mainSvg.boxes and transformed to the parent position.</span>
+
+<span class="sd">        Each element must be placed within a rectangle.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            searchid : string</span>
+<span class="sd">                The id from the element, which is searched for.</span>
+<span class="sd">            element : &lt;Element&gt; from etree</span>
+<span class="sd">                The element, which is searched for. This is necessary, because not all elements have an id, so the element must be given directly.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            list</span>
+<span class="sd">                x,y position and widht/height from the retangle.</span>
+<span class="sd">        """</span>
+        <span class="n">bmatrix</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">box</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">parentid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getid</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="n">element</span>
+        <span class="k">while</span> <span class="n">element</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># go up and search for the first rectangle</span>
+            <span class="k">if</span> <span class="n">parentid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="n">SvgItem</span><span class="p">(</span><span class="n">parentid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="n">element</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">box</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">item</span><span class="o">.</span><span class="n">boundingRect</span><span class="p">()</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">!=</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="s2">"transform"</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">box</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">boundingRect</span><span class="p">()</span>
+                    <span class="n">bmatrix</span> <span class="o">=</span> <span class="n">svgelements</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"transform"</span><span class="p">])</span>
+                    <span class="n">box</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"w"</span><span class="p">:</span> <span class="n">box</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="s2">"h"</span><span class="p">:</span> <span class="n">box</span><span class="o">.</span><span class="n">height</span><span class="p">()}</span>
+            <span class="k">elif</span> <span class="p">(</span>
+                <span class="n">box</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">element</span><span class="o">.</span><span class="n">getchildren</span><span class="p">()</span> <span class="o">!=</span> <span class="p">[]</span>
+            <span class="p">):</span>  <span class="c1"># there are no id's in orginal visio-&gt; svg-files, so use another methode</span>
+                <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">getchildren</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="s2">"d"</span> <span class="ow">in</span> <span class="n">child</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                        <span class="n">box</span> <span class="o">=</span> <span class="n">svgelements</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"d"</span><span class="p">])</span>
+                        <span class="n">box</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"w"</span><span class="p">:</span> <span class="n">box</span><span class="o">.</span><span class="n">bbox</span><span class="p">()[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">"h"</span><span class="p">:</span> <span class="n">box</span><span class="o">.</span><span class="n">bbox</span><span class="p">()[</span><span class="mi">3</span><span class="p">]}</span>
+                <span class="n">bmatrix</span> <span class="o">=</span> <span class="n">svgelements</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"transform"</span><span class="p">])</span>
+            <span class="n">element</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span>
+            <span class="n">parentid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getid</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">"transform"</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">box</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">bmatrix</span> <span class="o">*=</span> <span class="n">svgelements</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"transform"</span><span class="p">])</span>  <span class="c1"># recalcuate the transform matrix</span>
+        <span class="k">if</span> <span class="n">bmatrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mainSvg</span><span class="o">.</span><span class="n">boxes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="n">bmatrix</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">bmatrix</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">:</span> <span class="n">box</span><span class="p">[</span><span class="s2">"w"</span><span class="p">],</span> <span class="s2">"h"</span><span class="p">:</span> <span class="n">box</span><span class="p">[</span><span class="s2">"h"</span><span class="p">]}</span>
+            <span class="n">root</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"1.0"</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SvgIaViewer.getid">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgIaViewer.html#pylab_ml.misc.iasvg.SvgIaViewer.getid">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Get the id from the element.</span>
+
+<span class="sd">        Not all elements have an id. It depends on the program with which the svg-image was created :-(</span>
+<span class="sd">        If now id found than it returns None</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element : &lt;Element&gt; from etree</span>
+<span class="sd">            The element, which is searched for the id.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            result : string</span>
+<span class="sd">                The id from the element.</span>
+<span class="sd">        """</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="SvgIaViewer.getAllTxtwColor">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgIaViewer.html#pylab_ml.misc.iasvg.SvgIaViewer.getAllTxtwColor">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getAllTxtwColor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">tlen</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Give a dictionary from all Text elements with the specific color and a length from minimum tlen.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            color : string</span>
+<span class="sd">                Color which is used.</span>
+<span class="sd">            tlen : int</span>
+<span class="sd">                Minimum text length</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">           result : dict</span>
+<span class="sd">                A dictionary with the text as key and the element, the get/set attribute and the type as value.</span>
+<span class="sd">        """</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">"*"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="s2">"fill"</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+                <span class="ow">and</span> <span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"fill"</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="n">color</span>
+                <span class="ow">and</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">tlen</span>
+            <span class="p">):</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="n">element</span><span class="p">,</span> <span class="s2">"get"</span><span class="p">,</span> <span class="s2">"text"</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="SvgIaViewer.getAllTxtColors">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.SvgIaViewer.html#pylab_ml.misc.iasvg.SvgIaViewer.getAllTxtColors">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getAllTxtColors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tlen</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Give a list of colors from all text elements with a length from minimum tlen.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            tlen : int</span>
+<span class="sd">                Minimum text length</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">           result : list</span>
+<span class="sd">                A list with the colors.</span>
+<span class="sd">        """</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">"*"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">"fill"</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">tlen</span><span class="p">:</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"fill"</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">color</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"fill"</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="InteractiveSvgWidget">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">InteractiveSvgWidget</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QWidget</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Interactive SVG Widget.</span>
+
+<span class="sd">    Make a svg image interactive. You can set values and replace elements inside the svg-image.</span>
+<span class="sd">    """</span>
+
+    <span class="n">editWidth</span> <span class="o">=</span> <span class="mi">60</span>
+    <span class="n">editHeight</span> <span class="o">=</span> <span class="mi">20</span>
+
+    <span class="n">changedId</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+
+<div class="viewcode-block" id="InteractiveSvgWidget.__init__">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svgfilename</span><span class="p">,</span> <span class="n">firstname</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Constructor for the InteractiveSvgWidget.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            svgfilename : string</span>
+<span class="sd">                The path to the SVG file to be rendered.</span>
+<span class="sd">            firstname : string, optional</span>
+<span class="sd">                The name of the widget, which is used for the signal. The default is "".</span>
+<span class="sd">        """</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span> <span class="o">=</span> <span class="n">SvgIaViewer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">firstname</span> <span class="o">=</span> <span class="n">firstname</span>
+        <span class="n">vb_layout</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">vb_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">setSvg</span><span class="p">(</span><span class="n">svgfilename</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">mainSvg</span><span class="o">.</span><span class="n">clickBox</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_clickBox</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">mainSvg</span><span class="o">.</span><span class="n">clickHelpBox</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_clickHelpBox</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">scene</span><span class="p">()</span><span class="o">.</span><span class="n">width</span><span class="p">())</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">scene</span><span class="p">()</span><span class="o">.</span><span class="n">height</span><span class="p">())</span> <span class="o">+</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMouseTracking</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoFillBackground</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># self.setStyleSheet("""QToolTip {color: black; border: black solid 1px}""")</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QDoubleSpinBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">editingFinished</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_editfinish</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">abort</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="InteractiveSvgWidget.loadSvg">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.loadSvg">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">loadSvg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">svgtxt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Load the svg-file and parse it.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            filename : string</span>
+<span class="sd">                The path to the SVG file to be loaded.</span>
+<span class="sd">            svgtxt : string, optional</span>
+<span class="sd">                The text to search for in the SVG elements. If None, the entire SVG is returned.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            svg : etree.ElementTree</span>
+<span class="sd">                The parsed SVG file.</span>
+<span class="sd">            element : etree.Element, optional</span>
+<span class="sd">                The parent element of the found text. Returned if svgtxt is provided and found.</span>
+<span class="sd">        """</span>
+        <span class="n">svg</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">svgtxt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">svg</span>
+        <span class="n">available</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">svg</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">"*"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span> <span class="o">==</span> <span class="n">svgtxt</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">element</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">:</span>
+                <span class="n">available</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"loadSvg: </span><span class="si">{</span><span class="n">svgtxt</span><span class="si">}</span><span class="s2"> not found, but found </span><span class="si">{</span><span class="n">available</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="InteractiveSvgWidget.replaceSvg">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.replaceSvg">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">replaceSvg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">replace</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Replace the svg-element with 'name'.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            name : string</span>
+<span class="sd">                The name of the element to be replaced.</span>
+<span class="sd">            replace : etree.Element</span>
+<span class="sd">                The element to replace with.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getGrandChildElement</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getparent</span><span class="p">(),</span> <span class="s2">"d"</span><span class="p">)</span>
+        <span class="n">child</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"d"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getGrandChildElement</span><span class="p">(</span><span class="n">replace</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">)</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"d"</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">updateSvg</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_getGrandChildElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">attrib</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Serach for 'attrib' in all grandchild.items().</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            element : etree.Element</span>
+<span class="sd">                The element to search for the grandchild with the attribute.</span>
+<span class="sd">            attrib : string</span>
+<span class="sd">                The name of the attribute to search for.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            result : etree.Element</span>
+<span class="sd">                The grandchild element with the specified attribute, or None if not found.</span>
+<span class="sd">        """</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">getchildren</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">grandchild</span> <span class="ow">in</span> <span class="n">child</span><span class="o">.</span><span class="n">getchildren</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">attrib</span> <span class="ow">in</span> <span class="n">grandchild</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="n">grandchild</span>
+                    <span class="k">break</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<div class="viewcode-block" id="InteractiveSvgWidget.setTextColor">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.setTextColor">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setTextColor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Fill the dictionary 'self.elements' with all Text elements with this color, listen to getattribute.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            color : string</span>
+<span class="sd">                The color to filter the text elements.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">getAllTxtwColor</span><span class="p">(</span><span class="n">color</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="InteractiveSvgWidget.setAllsvgElementsWTxt">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.setAllsvgElementsWTxt">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setAllsvgElementsWTxt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svgtxt</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Fill the dictionary 'self.elements' with  all elements, where text is starting with the string 'svgtxt'.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            svgtxt : string</span>
+<span class="sd">                The text to search for in the SVG elements.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            result : list</span>
+<span class="sd">                Return a list with the elements.</span>
+<span class="sd">        """</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">"*"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">svgtxt</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="n">element</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"element"</span></div>
+
+
+<div class="viewcode-block" id="InteractiveSvgWidget.setclickableText">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.setclickableText">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setclickableText</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Make 'self.elements' with the attribute 'text' clickable, now the element listen to setattr. """</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"text"</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"get"</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">setBox</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"set"</span><span class="p">,</span> <span class="s2">"text"</span></div>
+
+
+<div class="viewcode-block" id="InteractiveSvgWidget.setElementSvg">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.setElementSvg">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setElementSvg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">files</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Set all 'self.elements' with the attribute 'element'==None to get(=listen to getattr).</span>
+
+<span class="sd">        Load all files and search for the parent with the name.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            name : string, optional</span>
+<span class="sd">                The text to search for in the SVG elements. If None, the first element with the attribute 'element'==None is used. </span>
+<span class="sd">                The default is None.</span>
+<span class="sd">            *files : string</span>
+<span class="sd">                The paths to the SVG files to be loaded and used for replacement.</span>
+<span class="sd">                </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="n">mySvg</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="n">mySvg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loadSvg</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">ename</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">ename</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"element"</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">ename</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">replaceSvg</span><span class="p">(</span><span class="n">ename</span><span class="p">,</span> <span class="n">mySvg</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">ename</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">ename</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"get"</span><span class="p">,</span> <span class="s2">"element"</span><span class="p">,</span> <span class="n">mySvg</span><span class="p">,</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="InteractiveSvgWidget.setclickableElement">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.setclickableElement">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setclickableElement</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Make all 'self.elements' with the attribute 'element' clickable, now the element listen to setattr. """</span>
+        <span class="n">box</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"element"</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"get"</span><span class="p">:</span>
+                <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span>
+                <span class="n">box</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">bmatrix</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># todo: bmatrix = Matrix(1, 0, 0, 1, 0, 0)</span>
+                <span class="k">while</span> <span class="n">element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">box</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">grandchild</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getGrandChildElement</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">grandchild</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="n">box</span> <span class="o">=</span> <span class="n">svgelements</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">grandchild</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"d"</span><span class="p">])</span>
+                            <span class="n">box</span> <span class="o">=</span> <span class="p">{</span>
+                                <span class="s2">"w"</span><span class="p">:</span> <span class="n">box</span><span class="o">.</span><span class="n">bbox</span><span class="p">()[</span><span class="mi">2</span><span class="p">],</span>
+                                <span class="s2">"h"</span><span class="p">:</span> <span class="n">box</span><span class="o">.</span><span class="n">bbox</span><span class="p">()[</span><span class="mi">3</span><span class="p">],</span>
+                            <span class="p">}</span>  <span class="c1"># see https://github.com/meerk40t/svgelements</span>
+                            <span class="n">element</span> <span class="o">=</span> <span class="n">grandchild</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">box</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s2">"transform"</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                        <span class="k">if</span> <span class="n">bmatrix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="n">bmatrix</span> <span class="o">=</span> <span class="n">svgelements</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"transform"</span><span class="p">])</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">bmatrix</span> <span class="o">*=</span> <span class="n">svgelements</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"transform"</span><span class="p">])</span>
+                    <span class="n">element</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">box</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">mainSvg</span><span class="o">.</span><span class="n">boxes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="n">bmatrix</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">bmatrix</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">:</span> <span class="n">box</span><span class="p">[</span><span class="s2">"w"</span><span class="p">],</span> <span class="s2">"h"</span><span class="p">:</span> <span class="n">box</span><span class="p">[</span><span class="s2">"h"</span><span class="p">]}</span>
+                <span class="n">element</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"set"</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">element</span>
+        <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="InteractiveSvgWidget.setIdText">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.setIdText">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setIdText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Set the element with the name 'tid' to the value 'text'.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            tid : string</span>
+<span class="sd">                Text id.</span>
+<span class="sd">            text: string</span>
+<span class="sd">                New text string</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'text'</span><span class="p">:</span>
+            <span class="n">element</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">"</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">updateSvg</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'element'</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">replaceSvg</span><span class="p">(</span><span class="n">tid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">3</span><span class="p">][</span><span class="n">text</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="InteractiveSvgWidget.getAllTxtColors">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.getAllTxtColors">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getAllTxtColors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tlen</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Give a list of colors from all text elements with a length from minimum tlen.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            tlen : int</span>
+<span class="sd">                Minimum text length</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            result : list</span>
+<span class="sd">                A list of colors from all text elements with a length from minimum tlen.</span>
+<span class="sd">        """</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">"*"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">"fill"</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">tlen</span><span class="p">:</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"fill"</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">color</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"fill"</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+    <span class="nd">@QtCore</span><span class="o">.</span><span class="n">pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QPoint</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_clickBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="n">viewpoint</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Click on the box with the text 'tid' and show the edit field. </span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            tid : string</span>
+<span class="sd">                Text id.</span>
+<span class="sd">            viewpoint : QPoint</span>
+<span class="sd">                The position of the mouse click in global coordinates.</span>
+<span class="sd">                </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="n">tid</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_editfinish</span><span class="p">()</span>
+        <span class="n">typ</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">"text"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">"fill"</span><span class="p">]</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"None"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="n">viewpoint</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapFromGlobal</span><span class="p">(</span><span class="n">viewpoint</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span><span class="n">viewpoint</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">viewpoint</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">editWidth</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">editHeight</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="sa">f</span><span class="s2">"color: </span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">"element"</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">replaceSvg</span><span class="p">(</span><span class="n">tid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">3</span><span class="p">][</span><span class="n">index</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span>
+                <span class="n">index</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">changedId</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">firstname</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">tid</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>  <span class="c1"># send the signal to the parent</span>
+
+    <span class="nd">@QtCore</span><span class="o">.</span><span class="n">pyqtSlot</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QPoint</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_clickHelpBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="n">viewpoint</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Click on the help box with the text 'tid' and show the tooltip. </span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            tid : string</span>
+<span class="sd">                Text id.</span>
+<span class="sd">            viewpoint : QPoint</span>
+<span class="sd">                The position of the mouse click in global coordinates.</span>
+<span class="sd">                </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="c1"># ToDo: create a QLabel and show it</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">tid</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">:  This could be a Tip</span><span class="se">\n</span><span class="s2"> With some information about the using</span><span class="se">\n</span><span class="s2">      :-)"</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_editfinish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Finish the editing of the text and set the new value. """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">abort</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">abort</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">abort</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">newvalue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">newvalue</span><span class="si">}</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">updateSvg</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">changedId</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">firstname</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">newvalue</span><span class="p">))</span>  <span class="c1"># send the signal to the parent</span>
+
+<div class="viewcode-block" id="InteractiveSvgWidget.resizeEvent">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.resizeEvent">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resizeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newSize</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Overwrite the resizeEvent from QWidget.</span>
+
+<span class="sd">        This isn't running correctl, it must be improved.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            newSize : QResizeEvent</span>
+<span class="sd">                The new size of the widget after resizing.</span>
+<span class="sd">                </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">newSize</span><span class="o">.</span><span class="n">oldSize</span><span class="p">()</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">startSize</span> <span class="o">=</span> <span class="n">newSize</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">mainSvg</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">scale</span> <span class="o">=</span> <span class="n">newSize</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">startSize</span><span class="o">.</span><span class="n">width</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">mainSvg</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">resizeEvent</span><span class="p">(</span><span class="n">newSize</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="InteractiveSvgWidget.keyPressEvent">
+<a class="viewcode-back" href="../../../_autosummary/pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget.keyPressEvent">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Escape close the edit-field and refuse the value.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            event : QKeyEvent</span>
+<span class="sd">                The key event that triggered this method.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span><span class="p">()</span> <span class="o">==</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">Key_Escape</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">abort</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">keyPressEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"../../gui/instruments/miniSCT/"</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="s2">"SCT8_v7_PDC.svg"</span>
+
+    <span class="n">window</span> <span class="o">=</span> <span class="n">InteractiveSvgWidget</span><span class="p">(</span><span class="n">dirname</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>  <span class="c1"># this is the orginal svg data</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The used Text colors are : </span><span class="si">{</span><span class="n">window</span><span class="o">.</span><span class="n">getAllTxtColors</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="c1"># set/get</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">setTextColor</span><span class="p">(</span>
+        <span class="s2">"#c00000"</span>
+    <span class="p">)</span>  <span class="c1"># fill a dictionary 'elements' with all Text elements with this color, listen to getattribute</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">setclickableText</span><span class="p">()</span>  <span class="c1"># make the 'elements' clickable, now the element also listen to setattr</span>
+
+    <span class="n">window</span><span class="o">.</span><span class="n">setAllsvgElementsWTxt</span><span class="p">(</span>
+        <span class="s2">"SPST"</span>
+    <span class="p">)</span>  <span class="c1"># search for all elements which has an text item 'SPST'  -&gt; this are the switches</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">setElementSvg</span><span class="p">(</span><span class="s2">"SWITCH"</span><span class="p">,</span> <span class="n">dirname</span> <span class="o">+</span> <span class="s2">"sw0.svg"</span><span class="p">,</span> <span class="n">dirname</span> <span class="o">+</span> <span class="s2">"sw1.svg"</span><span class="p">)</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">setclickableElement</span><span class="p">()</span>  <span class="c1"># make the elements cklickable</span>
+
+    <span class="n">window</span><span class="o">.</span><span class="n">setAllsvgElementsWTxt</span><span class="p">(</span><span class="s2">"SPDT"</span><span class="p">)</span>  <span class="c1"># double-throw switch</span>
+    <span class="c1"># window.setElementSvg('SWITCH', dirname+'sw0.svg', dirname+'sw1.svg')</span>
+    <span class="c1"># window.setclickableElement()</span>
+
+    <span class="c1"># only get</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="s2">"#00B050"</span><span class="p">)</span>  <span class="c1"># all green Textboxes are only listening</span>
+
+    <span class="c1"># set the get's</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">setIdText</span><span class="p">(</span><span class="s2">"i_cnt_avrg"</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">setIdText</span><span class="p">(</span><span class="s2">"i_meas"</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">)</span>
+    
+    <span class="n">window</span><span class="o">.</span><span class="n">setIdText</span><span class="p">(</span><span class="s1">'SPST.252'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">window</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"background-color: white;"</span><span class="p">)</span>
+    <span class="c1"># window.setGeometry(500, 300, 900, 700)</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

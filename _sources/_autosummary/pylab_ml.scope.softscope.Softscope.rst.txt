@@ -17,7 +17,11 @@ pylab\_ml.scope.softscope.Softscope
    .. autosummary::
    
       ~Softscope.__init__
+      ~Softscope.apply_configuration
       ~Softscope.close
+      ~Softscope.do_export
+      ~Softscope.do_import
+      ~Softscope.get_abort_reason
       ~Softscope.init
       ~Softscope.mqtt_add
       ~Softscope.mqtt_disconnect
@@ -26,7 +30,10 @@ pylab\_ml.scope.softscope.Softscope
       ~Softscope.publish
       ~Softscope.publish_get
       ~Softscope.publish_set
+      ~Softscope.set_configuration_values
+      ~Softscope.set_mqtt_client
       ~Softscope.setchannel
+      ~Softscope.setshortnames
    
    
 
