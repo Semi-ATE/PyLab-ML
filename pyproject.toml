@@ -42,23 +42,26 @@ classifiers = [
 ]
 dependencies = [
     "hightime",
-	"h5py",
-	"ipywidgets",
-	"nidcpower==1.4.2",
-	"nidmm==1.4.2",
-	"niscope==1.4.1",
-	"nitclk==1.4.1",	
-	"matplotlib",
+    "xlrd",
+    "h5py",
+    "ipywidgets",
+    "lxml",
+    "nidcpower==1.4.2",
+    "nidmm==1.4.2",
+    "niscope==1.4.1",
+    "nitclk==1.4.1",
+    "matplotlib",
     "paho-mqtt",
     "pandas",
-	"psutil",
-	"pythonnet",
-	"pyserial",
-	"pyvisa",
-	"pyvisa-py",
-	"regex",
+    "psutil",
+    "pythonnet",
+    "pyserial",
+    "pyvisa",
+    "pyvisa-py",
+    "regex",
+    "svgelements",
     "semi-ate-common",
-    "pyyaml",
+    "pyyaml"
 ]
 
 [project.optional-dependencies]
@@ -80,6 +83,9 @@ test = [
 
 [project.entry-points."ate.org"]
     pylabml = "pylab_ml.plugins.pylabml.instruments:Plugin"
-    
+
+[project.entry-points."spyder.plugins"]
+    lab_gui = "plugin_gui:LabGuiPlugin"
+
 [project.scripts]
     enter_semiate = "pylab_ml.scripts.enter_semiate:main"
