@@ -46,7 +46,8 @@ class LabGuiPlugin(SpyderDockablePlugin):
     def get_name() -> str:
         return _('Lab_GUI')
 
-    def get_description(self) -> str:
+    @staticmethod
+    def get_description() -> str:
         return _('Lab Gui integration')
 
     def get_icon(self):
