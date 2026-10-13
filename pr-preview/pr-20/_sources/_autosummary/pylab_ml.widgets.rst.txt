@@ -1,0 +1,33 @@
+pylab\_ml.widgets
+=================
+
+.. automodule:: pylab_ml.widgets
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   buttons
+   gui_widget
+

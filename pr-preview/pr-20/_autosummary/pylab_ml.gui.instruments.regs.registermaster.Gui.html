@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.gui.instruments.regs.registermaster.Gui &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pylab_ml.gui.instruments.smu" href="pylab_ml.gui.instruments.smu.html" />
+    <link rel="prev" title="pylab_ml.gui.instruments.regs.registermaster" href="pylab_ml.gui.instruments.regs.registermaster.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="pylab_ml.html">pylab_ml</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="pylab_ml.gui.html">pylab_ml.gui</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.misc.iasvg.html">pylab_ml.misc.iasvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.misc.registermaster.html">pylab_ml.misc.registermaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.position_controller.html">pylab_ml.position_controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.position_controller.pollux.html">pylab_ml.position_controller.pollux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.scope.softscope.html">pylab_ml.scope.softscope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pylab_ml.widgets.html">pylab_ml.widgets</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.html">pylab_ml</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.gui.html">pylab_ml.gui</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.gui.instruments.regs.html">pylab_ml.gui.instruments.regs</a></li>
+          <li class="breadcrumb-item"><a href="pylab_ml.gui.instruments.regs.registermaster.html">pylab_ml.gui.instruments.regs.registermaster</a></li>
+      <li class="breadcrumb-item active">pylab_ml.gui.instruments.regs.registermaster.Gui</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pylab-ml-gui-instruments-regs-registermaster-gui">
+<h1>pylab_ml.gui.instruments.regs.registermaster.Gui<a class="headerlink" href="#pylab-ml-gui-instruments-regs-registermaster-gui" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Gui</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reg'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parentwindow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pylab_ml.gui.instruments.base_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui" title="pylab_ml.gui.instruments.base_instrument.Gui"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gui</span></code></a></p>
+<p>Simple basic GUI for the Registermaster.</p>
+<dl class="simple">
+<dt>Inherited from base_instrument</dt><dd><p>status</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reg'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parentwindow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the GUI for the registermaster.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>QWidget</em><em>, </em><em>optional</em>) – The parent widget of the GUI.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the GUI instance.</p></li>
+<li><p><strong>parentwindow</strong> (<em>QWidget</em><em>, </em><em>optional</em>) – The parent window of the GUI.</p></li>
+<li><p><strong>channel</strong> (<em>int</em><em>, </em><em>optional</em>) – The channel number for the registermaster.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.__init__" title="pylab_ml.gui.instruments.regs.registermaster.Gui.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([parent, name, parentwindow, channel])</p></td>
+<td><p>Initialize the GUI for the registermaster.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.add_menue" title="pylab_ml.gui.instruments.regs.registermaster.Gui.add_menue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_menue</span></code></a>(menue, connect, enabled[, ...])</p></td>
+<td><p>Add a menue item to Setup</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.add_menuicon" title="pylab_ml.gui.instruments.regs.registermaster.Gui.add_menuicon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_menuicon</span></code></a>(typ[, connect])</p></td>
+<td><p>Add icon and action to the menu.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.adjustUI" title="pylab_ml.gui.instruments.regs.registermaster.Gui.adjustUI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjustUI</span></code></a>()</p></td>
+<td><p>Adjust the UI, set the title and icons and connect the quit action.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.close" title="pylab_ml.gui.instruments.regs.registermaster.Gui.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code></a>([event])</p></td>
+<td><p>Handle the close event for the GUI by publishing an 'off' command and then calling the base class's close method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.dprint" title="pylab_ml.gui.instruments.regs.registermaster.Gui.dprint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dprint</span></code></a>(msg)</p></td>
+<td><p>Print a debug message if debugging is enabled.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.filtersubtopic" title="pylab_ml.gui.instruments.regs.registermaster.Gui.filtersubtopic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filtersubtopic</span></code></a>(value)</p></td>
+<td><p>Filter the subtopic from the value, if the value starts with the topinstname.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.gui2mqtt" title="pylab_ml.gui.instruments.regs.registermaster.Gui.gui2mqtt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gui2mqtt</span></code></a>(widget)</p></td>
+<td><p>Function connect a Gui-widget to mqtt, it sends a mqtt set command with the value from the Gui-widget.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.gui_disconnect" title="pylab_ml.gui.instruments.regs.registermaster.Gui.gui_disconnect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gui_disconnect</span></code></a>()</p></td>
+<td><p>Disconnect the GUI, set the MQTT status to &quot;disconnect&quot; and disable the frame.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.hide" title="pylab_ml.gui.instruments.regs.registermaster.Gui.hide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hide</span></code></a>()</p></td>
+<td><p>Hide the GUI.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.isVisible" title="pylab_ml.gui.instruments.regs.registermaster.Gui.isVisible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isVisible</span></code></a>()</p></td>
+<td><p>Return whether the GUI is currently visible.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.memoryframe" title="pylab_ml.gui.instruments.regs.registermaster.Gui.memoryframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">memoryframe</span></code></a>(adr, value)</p></td>
+<td><p>Update the memory frame in the GUI with the given address and value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.mqttConnectSVGWidget" title="pylab_ml.gui.instruments.regs.registermaster.Gui.mqttConnectSVGWidget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqttConnectSVGWidget</span></code></a>(filename, name[, channel])</p></td>
+<td><p>Create an InteractiveSvgWidget and load the filname.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.mqttConnectWidgets" title="pylab_ml.gui.instruments.regs.registermaster.Gui.mqttConnectWidgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqttConnectWidgets</span></code></a>()</p></td>
+<td><p>Connect all object which start with <a href="#id1"><span class="problematic" id="id2">MQTT_</span></a> to the function gui2mqtt().</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.mqttreceive" title="pylab_ml.gui.instruments.regs.registermaster.Gui.mqttreceive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqttreceive</span></code></a>(instName, msg)</p></td>
+<td><p>Common MQTT receive messages, get raw MQTT data for more information.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.myadjustUI" title="pylab_ml.gui.instruments.regs.registermaster.Gui.myadjustUI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">myadjustUI</span></code></a>()</p></td>
+<td><p>Adjust the GUI elements for the registermaster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.objectName2mqttName" title="pylab_ml.gui.instruments.regs.registermaster.Gui.objectName2mqttName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">objectName2mqttName</span></code></a>(name)</p></td>
+<td><p>Filter from the object name the right MQTT name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.openexcel" title="pylab_ml.gui.instruments.regs.registermaster.Gui.openexcel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">openexcel</span></code></a>()</p></td>
+<td><p>Open the current Excel file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.publish" title="pylab_ml.gui.instruments.regs.registermaster.Gui.publish"><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish</span></code></a>(cmd[, value, instName])</p></td>
+<td><p>Publish a command and value over MQTT.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.readreg" title="pylab_ml.gui.instruments.regs.registermaster.Gui.readreg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readreg</span></code></a>(regname)</p></td>
+<td><p>Read the value of a register.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.registerframe" title="pylab_ml.gui.instruments.regs.registermaster.Gui.registerframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerframe</span></code></a>(register, value)</p></td>
+<td><p>Update the register frame in the GUI with the given register and value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.regstatus" title="pylab_ml.gui.instruments.regs.registermaster.Gui.regstatus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">regstatus</span></code></a>(msg)</p></td>
+<td><p>Update the status label in the GUI with the given message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.retranslateUi" title="pylab_ml.gui.instruments.regs.registermaster.Gui.retranslateUi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">retranslateUi</span></code></a>(Form)</p></td>
+<td><p>Retranslate the UI, set the text of the widgets.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.setLabel" title="pylab_ml.gui.instruments.regs.registermaster.Gui.setLabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setLabel</span></code></a>(Label, value[, ext])</p></td>
+<td><p>Set the text of a label.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.set_Geometry" title="pylab_ml.gui.instruments.regs.registermaster.Gui.set_Geometry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_Geometry</span></code></a>(geometry)</p></td>
+<td><p>Set the geometry of the GUI, check if the geometry is on the actual screen.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.show" title="pylab_ml.gui.instruments.regs.registermaster.Gui.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>()</p></td>
+<td><p>Show the GUI.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.showdoc" title="pylab_ml.gui.instruments.regs.registermaster.Gui.showdoc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">showdoc</span></code></a>(action, label)</p></td>
+<td><p>Show or hide the documentation for a given label based on the state of the corresponding action.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.showregdoc" title="pylab_ml.gui.instruments.regs.registermaster.Gui.showregdoc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">showregdoc</span></code></a>()</p></td>
+<td><p>Show or hide the documentation for all registers based on the state of the corresponding actions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.svg2mqtt" title="pylab_ml.gui.instruments.regs.registermaster.Gui.svg2mqtt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">svg2mqtt</span></code></a>(name, value)</p></td>
+<td><p>Publish the name and value over mqtt.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.toggleBhold" title="pylab_ml.gui.instruments.regs.registermaster.Gui.toggleBhold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toggleBhold</span></code></a>(hold)</p></td>
+<td><p>Toggle the state of the hold button and update its icon accordingly.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.unitOfMeasurement" title="pylab_ml.gui.instruments.regs.registermaster.Gui.unitOfMeasurement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unitOfMeasurement</span></code></a>(value[, unit])</p></td>
+<td><p>Convert a value with a unit to its numerical representation.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.filename" title="pylab_ml.gui.instruments.regs.registermaster.Gui.filename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filename</span></code></a></p></td>
+<td><p>Get the current filename.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.id" title="pylab_ml.gui.instruments.regs.registermaster.Gui.id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">id</span></code></a></p></td>
+<td><p>Return the id of the instrument, which is used for MQTT topics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.mqtt_status" title="pylab_ml.gui.instruments.regs.registermaster.Gui.mqtt_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mqtt_status</span></code></a></p></td>
+<td><p>Return the MQTT status of the instrument, which is either &quot;connect&quot; or &quot;disconnect&quot;.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.status" title="pylab_ml.gui.instruments.regs.registermaster.Gui.status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">status</span></code></a></p></td>
+<td><p>Return the current status message from the status bar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.subtopic" title="pylab_ml.gui.instruments.regs.registermaster.Gui.subtopic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subtopic</span></code></a></p></td>
+<td><p>Return the subtopic of the instrument, which is the part after the topinstname.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.add_menue">
+<span class="sig-name descname"><span class="pre">add_menue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">menue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.add_menue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.add_menue" title="Link to this definition"></a></dt>
+<dd><p>Add a menue item to Setup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>menue</strong> (<em>string</em>) – The text of the menu item.</p></li>
+<li><p><strong>connect</strong> (<em>function</em>) – The function to be called when the menu item is triggered.</p></li>
+<li><p><strong>enabled</strong> (<em>bool</em>) – Whether the menu item is enabled.</p></li>
+<li><p><strong>checkable</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether the menu item is checkable. The default is False.</p></li>
+<li><p><strong>checked</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether the menu item is checked. The default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.add_menuicon">
+<span class="sig-name descname"><span class="pre">add_menuicon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.add_menuicon"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.add_menuicon" title="Link to this definition"></a></dt>
+<dd><p>Add icon and action to the menu.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>typ</strong> (<em>string</em>) – The type of the menu item.</p></li>
+<li><p><strong>connect</strong> (<em>function</em><em>, </em><em>optional</em>) – The function to be called when the menu item is triggered. The default is None.W</p></li>
+</ul>
+</dd>
+</dl>
+<p>“onoff” : on/off</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.adjustUI">
+<span class="sig-name descname"><span class="pre">adjustUI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.adjustUI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.adjustUI" title="Link to this definition"></a></dt>
+<dd><p>Adjust the UI, set the title and icons and connect the quit action.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.close" title="Link to this definition"></a></dt>
+<dd><p>Handle the close event for the GUI by publishing an ‘off’ command and then calling the base class’s close method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.dprint">
+<span class="sig-name descname"><span class="pre">dprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.dprint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.dprint" title="Link to this definition"></a></dt>
+<dd><p>Print a debug message if debugging is enabled.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.filename">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filename</span></span><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.filename" title="Link to this definition"></a></dt>
+<dd><p>Get the current filename.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.filtersubtopic">
+<span class="sig-name descname"><span class="pre">filtersubtopic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.filtersubtopic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.filtersubtopic" title="Link to this definition"></a></dt>
+<dd><p>Filter the subtopic from the value, if the value starts with the topinstname.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.gui2mqtt">
+<span class="sig-name descname"><span class="pre">gui2mqtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.gui2mqtt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.gui2mqtt" title="Link to this definition"></a></dt>
+<dd><p>Function connect a Gui-widget to mqtt, it sends a mqtt set command with the value from the Gui-widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget</strong> (<em>QtWidgets.QWidget</em>) – The GUI widget that triggered the MQTT command, expected to have an objectName that follows the</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.gui_disconnect">
+<span class="sig-name descname"><span class="pre">gui_disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.gui_disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.gui_disconnect" title="Link to this definition"></a></dt>
+<dd><p>Disconnect the GUI, set the MQTT status to “disconnect” and disable the frame.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.hide">
+<span class="sig-name descname"><span class="pre">hide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.hide"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.hide" title="Link to this definition"></a></dt>
+<dd><p>Hide the GUI.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.id" title="Link to this definition"></a></dt>
+<dd><p>Return the id of the instrument, which is used for MQTT topics.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.isVisible">
+<span class="sig-name descname"><span class="pre">isVisible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.isVisible"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.isVisible" title="Link to this definition"></a></dt>
+<dd><p>Return whether the GUI is currently visible.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.memoryframe">
+<span class="sig-name descname"><span class="pre">memoryframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.memoryframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.memoryframe" title="Link to this definition"></a></dt>
+<dd><p>Update the memory frame in the GUI with the given address and value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adr</strong> (<em>int</em>) – The address of the memory location.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – The value to set for the memory location.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.mqttConnectSVGWidget">
+<span class="sig-name descname"><span class="pre">mqttConnectSVGWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.mqttConnectSVGWidget"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.mqttConnectSVGWidget" title="Link to this definition"></a></dt>
+<dd><p>Create an InteractiveSvgWidget and load the filname.
+Connect all clicks to the text id’s to the function svg2mqtt().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>string</em>) – The path to the SVG file to be loaded into the widget.</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – The base name for the widget, used for MQTT topic construction.</p></li>
+<li><p><strong>channel</strong> (<em>string</em><em>, </em><em>optional</em>) – An optional channel identifier to be appended to the name for MQTT topic construction. The default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>svgWidget</strong> – The created InteractiveSvgWidget with the loaded SVG file and connected signals.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pylab_ml.misc.iasvg.InteractiveSvgWidget.html#pylab_ml.misc.iasvg.InteractiveSvgWidget" title="pylab_ml.misc.iasvg.InteractiveSvgWidget">InteractiveSvgWidget</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.mqttConnectWidgets">
+<span class="sig-name descname"><span class="pre">mqttConnectWidgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.mqttConnectWidgets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.mqttConnectWidgets" title="Link to this definition"></a></dt>
+<dd><p>Connect all object which start with <a href="#id3"><span class="problematic" id="id4">MQTT_</span></a> to the function gui2mqtt().</p>
+<p>Create a list with all commands in self.mqtt_cmds</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.mqtt_status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mqtt_status</span></span><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.mqtt_status" title="Link to this definition"></a></dt>
+<dd><p>Return the MQTT status of the instrument, which is either “connect” or “disconnect”.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.mqttreceive">
+<span class="sig-name descname"><span class="pre">mqttreceive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.mqttreceive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.mqttreceive" title="Link to this definition"></a></dt>
+<dd><p>Common MQTT receive messages, get raw MQTT data for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instName</strong> (<em>str</em>) – The name of the instrument instance.</p></li>
+<li><p><strong>msg</strong> (<em>dict</em>) – The MQTT message received.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.myadjustUI">
+<span class="sig-name descname"><span class="pre">myadjustUI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.myadjustUI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.myadjustUI" title="Link to this definition"></a></dt>
+<dd><p>Adjust the GUI elements for the registermaster.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.objectName2mqttName">
+<span class="sig-name descname"><span class="pre">objectName2mqttName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.objectName2mqttName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.objectName2mqttName" title="Link to this definition"></a></dt>
+<dd><p>Filter from the object name the right MQTT name.</p>
+<dl class="simple">
+<dt>eg. objectname  = MQTT_voltage     -&gt; Voltage listen on get and set</dt><dd><p>= MQTT_set_I_limit -&gt; I_limit listen only on set
+= MQTT_get_I_limit -&gt; I_limit listen only on get
+= TAB_ch           -&gt; Name for a tab-name</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>string</em>) – The object name to be filtered.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>listen</strong> (<em>string</em>) – The type of MQTT command to listen for (“set”, “get”, or “”).</p></li>
+<li><p><strong>result</strong> (<em>string</em>) – The filtered MQTT name extracted from the object name.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.openexcel">
+<span class="sig-name descname"><span class="pre">openexcel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.openexcel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.openexcel" title="Link to this definition"></a></dt>
+<dd><p>Open the current Excel file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.publish">
+<span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.publish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.publish" title="Link to this definition"></a></dt>
+<dd><p>Publish a command and value over MQTT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cmd</strong> (<em>string</em>) – The command to be published.</p></li>
+<li><p><strong>value</strong> (<em>string</em><em>, </em><em>optional</em>) – The value associated with the command. The default is an empty string.</p></li>
+<li><p><strong>instName</strong> (<em>string</em><em>, </em><em>optional</em>) – The name of the instrument. If None, the instance’s name is used. The default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.readreg">
+<span class="sig-name descname"><span class="pre">readreg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.readreg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.readreg" title="Link to this definition"></a></dt>
+<dd><p>Read the value of a register.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.registerframe">
+<span class="sig-name descname"><span class="pre">registerframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">register</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.registerframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.registerframe" title="Link to this definition"></a></dt>
+<dd><p>Update the register frame in the GUI with the given register and value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>register</strong> (<a class="reference internal" href="pylab_ml.misc.registermaster.Register.html#pylab_ml.misc.registermaster.Register" title="pylab_ml.misc.registermaster.Register"><em>Register</em></a>) – The register object to update.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – The value to set for the register.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.regstatus">
+<span class="sig-name descname"><span class="pre">regstatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.regstatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.regstatus" title="Link to this definition"></a></dt>
+<dd><p>Update the status label in the GUI with the given message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.retranslateUi">
+<span class="sig-name descname"><span class="pre">retranslateUi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Form</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.retranslateUi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.retranslateUi" title="Link to this definition"></a></dt>
+<dd><p>Retranslate the UI, set the text of the widgets.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.setLabel">
+<span class="sig-name descname"><span class="pre">setLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.setLabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.setLabel" title="Link to this definition"></a></dt>
+<dd><p>Set the text of a label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Label</strong> (<em>object</em>) – the label object.</p></li>
+<li><p><strong>value</strong> (<em>string</em>) – this text will be displayed.</p></li>
+<li><p><strong>ext</strong> (<em>string</em><em>, </em><em>optional</em>) – extention,  The default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.set_Geometry">
+<span class="sig-name descname"><span class="pre">set_Geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.set_Geometry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.set_Geometry" title="Link to this definition"></a></dt>
+<dd><p>Set the geometry of the GUI, check if the geometry is on the actual screen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>geometry</strong> (<em>tuple</em>) – A tuple of the form (x, y, width, height) representing the geometry of the GUI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.show" title="Link to this definition"></a></dt>
+<dd><p>Show the GUI.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.showdoc">
+<span class="sig-name descname"><span class="pre">showdoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.showdoc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.showdoc" title="Link to this definition"></a></dt>
+<dd><p>Show or hide the documentation for a given label based on the state of the corresponding action.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.showregdoc">
+<span class="sig-name descname"><span class="pre">showregdoc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.showregdoc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.showregdoc" title="Link to this definition"></a></dt>
+<dd><p>Show or hide the documentation for all registers based on the state of the corresponding actions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.status" title="Link to this definition"></a></dt>
+<dd><p>Return the current status message from the status bar.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.subtopic">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subtopic</span></span><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.subtopic" title="Link to this definition"></a></dt>
+<dd><p>Return the subtopic of the instrument, which is the part after the topinstname.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.svg2mqtt">
+<span class="sig-name descname"><span class="pre">svg2mqtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.svg2mqtt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.svg2mqtt" title="Link to this definition"></a></dt>
+<dd><p>Publish the name and value over mqtt.
+Overwrite this function if you need a more complex form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – The name of the SVG element that was changed.</p></li>
+<li><p><strong>value</strong> (<em>string</em>) – The new value of the SVG element.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.toggleBhold">
+<span class="sig-name descname"><span class="pre">toggleBhold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/regs/registermaster.html#Gui.toggleBhold"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.toggleBhold" title="Link to this definition"></a></dt>
+<dd><p>Toggle the state of the hold button and update its icon accordingly.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pylab_ml.gui.instruments.regs.registermaster.Gui.unitOfMeasurement">
+<span class="sig-name descname"><span class="pre">unitOfMeasurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylab_ml/gui/instruments/base_instrument.html#Gui.unitOfMeasurement"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylab_ml.gui.instruments.regs.registermaster.Gui.unitOfMeasurement" title="Link to this definition"></a></dt>
+<dd><p>Convert a value with a unit to its numerical representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>string</em>) – The value with a unit (e.g., “10 k”).</p></li>
+<li><p><strong>unit</strong> (<em>string</em><em>, </em><em>optional</em>) – The unit to use for conversion. If None, the unit is inferred from the value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The numerical representation of the value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pylab_ml.gui.instruments.regs.registermaster.html" class="btn btn-neutral float-left" title="pylab_ml.gui.instruments.regs.registermaster" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pylab_ml.gui.instruments.smu.html" class="btn btn-neutral float-right" title="pylab_ml.gui.instruments.smu" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+pylab\_ml.gui.instruments.matrix.matrix.Gui
+===========================================
+
+.. currentmodule:: pylab_ml.gui.instruments.matrix.matrix
+
+.. autoclass:: Gui
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Gui.__init__
+      ~Gui.add_menue
+      ~Gui.add_menuicon
+      ~Gui.adjustUI
+      ~Gui.close
+      ~Gui.color_inaktiv
+      ~Gui.create_CBox
+      ~Gui.create_label
+      ~Gui.create_line
+      ~Gui.create_net
+      ~Gui.discardTable
+      ~Gui.dprint
+      ~Gui.edit
+      ~Gui.edit_label
+      ~Gui.editfinish_label
+      ~Gui.filtersubtopic
+      ~Gui.get_nets
+      ~Gui.gui2mqtt
+      ~Gui.gui_disconnect
+      ~Gui.hide
+      ~Gui.isVisible
+      ~Gui.load_connectionTable
+      ~Gui.mqttConnectSVGWidget
+      ~Gui.mqttConnectWidgets
+      ~Gui.mqttreceive
+      ~Gui.myadjustUI
+      ~Gui.objectName2mqttName
+      ~Gui.publish
+      ~Gui.reset
+      ~Gui.retranslateUi
+      ~Gui.setLabel
+      ~Gui.set_Geometry
+      ~Gui.show
+      ~Gui.show_matrix
+      ~Gui.svg2mqtt
+      ~Gui.unitOfMeasurement
+      ~Gui.update_CBox
+      ~Gui.update_mainwindow
+      ~Gui.update_matrixarray
+      ~Gui.update_matrixcolor
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Gui.CB_OFFSET_X
+      ~Gui.CB_OFFSET_Y
+      ~Gui.CB_SPACE_X
+      ~Gui.CB_SPACE_Y
+      ~Gui.CB_WIDTH
+      ~Gui.COLOR_INAKTIV
+      ~Gui.Fontsize
+      ~Gui.RADIOBUTTONWIDTH
+      ~Gui.SetCrosspointState
+      ~Gui.X_LABELHIGH
+      ~Gui.X_LLABELWIDTH
+      ~Gui.X_OFFSET
+      ~Gui.X_RLABELWIDTH
+      ~Gui.X_STEP
+      ~Gui.Y_BLABELHIGH
+      ~Gui.Y_OFFSET
+      ~Gui.Y_STEP
+      ~Gui.Y_TLABELHIGH
+      ~Gui.Y_TLABELWIDTH
+      ~Gui.clear
+      ~Gui.dic_connectionTable
+      ~Gui.dic_constantsTable
+      ~Gui.disconnect
+      ~Gui.id
+      ~Gui.mqtt_status
+      ~Gui.set
+      ~Gui.status
+      ~Gui.subtopic
+   
+   
