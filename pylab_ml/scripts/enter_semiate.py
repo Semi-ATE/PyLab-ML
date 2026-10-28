@@ -70,7 +70,7 @@ class SemiAte:
 
     def _validate_version(self, v: str) -> str:
         """
-        Validate that version is a 4-digit number. If not, print error and exit.
+        Validate that version is a 4-digit number with the last character being a digit or 'a' or 'b'. If not, print error and exit.
         
         Parameters
         ----------
@@ -82,11 +82,11 @@ class SemiAte:
             str: 
                 Validated version string.
         """
-        if len(v) != 4 or not v.isdigit():
-            print("The version must be a 4-digit number, e.g. 0001")
+        if len(v) == 4 and v[:3].isdigit() and (v[3] in ['a', 'b'] or v[3].isdigit()):
+            return v
+        else:
+            print("The version must be a 4-digit number with the last character being a digit or 'a' or 'b', e.g. 0001, 0001a, 0001b")
             exit()
-        return v
-
 
     def start_spyder_in_env(self, env_name: str, project: str, version: str, user: Optional[str] = None) -> int:
         """
