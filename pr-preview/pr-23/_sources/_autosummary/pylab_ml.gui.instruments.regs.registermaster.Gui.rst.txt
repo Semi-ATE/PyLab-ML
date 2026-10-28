@@ -1,0 +1,65 @@
+pylab\_ml.gui.instruments.regs.registermaster.Gui
+=================================================
+
+.. currentmodule:: pylab_ml.gui.instruments.regs.registermaster
+
+.. autoclass:: Gui
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Gui.__init__
+      ~Gui.add_menue
+      ~Gui.add_menuicon
+      ~Gui.adjustUI
+      ~Gui.close
+      ~Gui.dprint
+      ~Gui.filtersubtopic
+      ~Gui.gui2mqtt
+      ~Gui.gui_disconnect
+      ~Gui.hide
+      ~Gui.isVisible
+      ~Gui.memoryframe
+      ~Gui.mqttConnectSVGWidget
+      ~Gui.mqttConnectWidgets
+      ~Gui.mqttreceive
+      ~Gui.myadjustUI
+      ~Gui.objectName2mqttName
+      ~Gui.openexcel
+      ~Gui.publish
+      ~Gui.readreg
+      ~Gui.registerframe
+      ~Gui.regstatus
+      ~Gui.retranslateUi
+      ~Gui.setLabel
+      ~Gui.set_Geometry
+      ~Gui.show
+      ~Gui.showdoc
+      ~Gui.showregdoc
+      ~Gui.svg2mqtt
+      ~Gui.toggleBhold
+      ~Gui.unitOfMeasurement
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Gui.filename
+      ~Gui.id
+      ~Gui.mqtt_status
+      ~Gui.status
+      ~Gui.subtopic
+   
+   
