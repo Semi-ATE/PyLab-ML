@@ -972,8 +972,13 @@ class Register:
                 The reset value of the register if all bit-slices have a defined reset value,
                 or a string indicating that the reset value is not defined if any bit-slice does not have a defined reset value.
         """
+        valres = 0
         for name, slice in self._slices.items():
-            valres = slice["res"]
+            lsb = slice["lsb"]
+            res = slice["res"]
+            if res == 'x':
+                return "Reset value not defined"
+            valres |= res << lsb
         return valres
 
     def _read(self, protocol=None):
