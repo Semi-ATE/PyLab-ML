@@ -1,0 +1,6 @@
+pylab\_ml.common.environment.path\_insert
+=========================================
+
+.. currentmodule:: pylab_ml.common.environment
+
+.. autofunction:: path_insert

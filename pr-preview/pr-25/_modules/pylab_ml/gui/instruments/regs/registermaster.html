@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.gui.instruments.regs.registermaster &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="../../../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.misc.iasvg.html">pylab_ml.misc.iasvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.misc.registermaster.html">pylab_ml.misc.registermaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.position_controller.html">pylab_ml.position_controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.position_controller.pollux.html">pylab_ml.position_controller.pollux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.scope.softscope.html">pylab_ml.scope.softscope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.widgets.html">pylab_ml.widgets</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.gui.instruments.regs.registermaster</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.gui.instruments.regs.registermaster</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">"""</span>
+<span class="sd">Simple basic GUI for the registermaster.</span>
+<span class="sd">This GUI allows users to interact with the registermaster, send MQTT commands, and receive updates.</span>
+<span class="sd">The class inherits from a base instrument GUI class and implements specific functionality for the registermaster.</span>
+
+<span class="sd">Created on Mon Jan  3 09:19:17 2022</span>
+<span class="sd">@author: C. Jung</span>
+
+<span class="sd">TODO:</span>
+<span class="sd">    Bug: no bugs known, but in work.....</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">qdarkstyle</span>
+
+<span class="c1"># import numpy as np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">qtawesome</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5</span><span class="w"> </span><span class="kn">import</span> <span class="n">QtWidgets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.gui.instruments.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Gui</span> <span class="k">as</span> <span class="n">Guibase</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.gui.instruments.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_ui</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.misc.registermaster</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegisterMaster</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ate_common.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogLevel</span>
+
+<span class="c1"># from pylab_ml.common.common import color</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">"Zlin526F"</span>
+<span class="n">__credits__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Zlin526F"</span><span class="p">]</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">"Zlin526F@github"</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.0.3a"</span>
+
+
+<div class="viewcode-block" id="Gui">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Gui</span><span class="p">(</span><span class="n">Guibase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Simple basic GUI for the Registermaster.</span>
+
+<span class="sd">    Inherited from base_instrument</span>
+<span class="sd">       status</span>
+
+<span class="sd">    """</span>
+
+    <span class="n">_states</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"connect"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"connect"</span><span class="p">,</span> <span class="s2">"color: rgb(0, 255, 0)"</span><span class="p">],</span>  <span class="c1"># overwrite the definitions in base_instrument</span>
+        <span class="s2">"disconnect"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"disconnect"</span><span class="p">,</span> <span class="s2">"color: rgb(255, 0, 0)"</span><span class="p">],</span>
+        <span class="s2">"on"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"running"</span><span class="p">,</span> <span class="s2">"color: rgb(0, 255, 0)"</span><span class="p">],</span>
+        <span class="s2">"off"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"waiting for start..."</span><span class="p">,</span> <span class="s2">"color: palette(HighlightedText)"</span><span class="p">],</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="Gui.__init__">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"reg"</span><span class="p">,</span> <span class="n">parentwindow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Initialize the GUI for the registermaster.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            parent: QWidget, optional</span>
+<span class="sd">                The parent widget of the GUI.</span>
+<span class="sd">            name: str, optional</span>
+<span class="sd">                The name of the GUI instance.</span>
+<span class="sd">            parentwindow: QWidget, optional</span>
+<span class="sd">                The parent window of the GUI.</span>
+<span class="sd">            channel: int, optional</span>
+<span class="sd">                The channel number for the registermaster.</span>
+<span class="sd">        """</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">grandparent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">parentwindow</span><span class="o">=</span><span class="n">parentwindow</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span> <span class="o">=</span> <span class="n">load_ui</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">myframe</span><span class="p">,</span> <span class="vm">__file__</span><span class="p">)</span>
+        <span class="c1"># bgcolor = self.gui.palette().color(QtGui.QPalette.Background).name()    # getRgb()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myadjustUI</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">closeEvent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">close</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_initlist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"filename"</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">regs</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show_regs</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+
+<div class="viewcode-block" id="Gui.myadjustUI">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.myadjustUI">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">myadjustUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Adjust the GUI elements for the registermaster."""</span>
+        <span class="c1"># set icons:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runToolBar</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="c1"># self.add_menuicon('onoff')                              # add existing icon and connection from the base-instrument</span>
+
+        <span class="c1"># create and connect Menue entries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionexcel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_menue</span><span class="p">(</span><span class="s2">"open registermaster in excel"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">openexcel</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshownames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_menue</span><span class="p">(</span><span class="s2">"show names"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">showregdoc</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowbits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_menue</span><span class="p">(</span><span class="s2">"show bits"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">showregdoc</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_menue</span><span class="p">(</span><span class="s2">"show value"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">showregdoc</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowdir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_menue</span><span class="p">(</span><span class="s2">"show dir"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">showregdoc</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowres</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_menue</span><span class="p">(</span><span class="s2">"show reset values"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">showregdoc</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># set connection fom Gui-object to functions:</span>
+        <span class="c1"># self.myframe.Dsamples.valueChanged.connect(self.rangeSamples)</span>
+        <span class="c1"># self.myframe.Echname.editingFinished.connect(self.editchname)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqttConnectWidgets</span><span class="p">()</span>  <span class="c1"># connect all widget which start with MQTT_</span>
+
+        <span class="n">geometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+        <span class="n">wh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">' </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">     (Version: </span><span class="si">{</span><span class="n">__version__</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">geometry</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span> <span class="n">wh</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="n">wh</span><span class="o">.</span><span class="n">height</span><span class="p">()</span> <span class="o">+</span> <span class="mi">250</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.regstatus">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.regstatus">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">regstatus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Update the status label in the GUI with the given message."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">Lstatus</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">Lstatus</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"color: rgb(255, 0, 0)"</span><span class="p">)</span></div>
+
+
+    <span class="c1"># ======================================================</span>
+    <span class="c1"># attributes which connect to an extern call (mqtt-command)</span>
+<div class="viewcode-block" id="Gui.mqttreceive">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.mqttreceive">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mqttreceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Common MQTT receive messages, get raw MQTT data for more information.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            instName: str</span>
+<span class="sd">                The name of the instrument instance.</span>
+<span class="sd">            msg: dict</span>
+<span class="sd">                The MQTT message received.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">mqttreceive</span><span class="p">(</span><span class="n">instName</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+            <span class="k">return</span>
+<span class="c1">#        self.logger.log_message(LogLevel.Debug(), f"{instName}.mqttreceive: {msg} ")  # e.q. msg={'type': 'set', 'cmd': 'TEST7.read', 'payload': 1608}</span>
+        <span class="c1"># if you change a widget with the mqtt command, you have to use the widget.blockSignals(True/False)</span>
+        <span class="k">if</span> <span class="s2">"cmd"</span> <span class="ow">in</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="s2">"payload"</span> <span class="ow">in</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="n">mycmd</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mycmd</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">mycmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'('</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="ow">in</span> <span class="p">[</span><span class="s2">"readreg"</span><span class="p">,</span> <span class="s2">"writereg"</span><span class="p">]:</span>
+                <span class="n">mycmd</span> <span class="o">=</span> <span class="n">mycmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'('</span><span class="p">)</span>
+                <span class="n">adr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mycmd</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"read/writereg: </span><span class="si">{</span><span class="n">adr</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">mycmd</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">memoryframe</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mycmd</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">16</span><span class="p">),</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">mycmd</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">mycmd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"write"</span><span class="p">]:</span>  <span class="c1"># special handling from mqtt commands</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">regstatus</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">mycmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">registerframe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">mycmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">regstatus</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">mycmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> not found in the registermaster"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Warning</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s1">'cmd'</span><span class="p">]</span><span class="si">}</span><span class="s2"> not found -&gt; do nothing"</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.registerframe">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.registerframe">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">registerframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Update the register frame in the GUI with the given register and value.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            register: Register</span>
+<span class="sd">                The register object to update.</span>
+<span class="sd">            value: int</span>
+<span class="sd">                The value to set for the register.</span>
+<span class="sd">        """</span>
+        <span class="c1"># self.logger.log_message(LogLevel.Debug(), f"      call registerframe with {register} {value}")</span>
+        <span class="n">register</span><span class="o">.</span><span class="n">_cache</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">myregister</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">myregisters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">show_regs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">hl</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="n">hle</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="k">for</span> <span class="n">regs</span> <span class="ow">in</span> <span class="n">myregisters</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">regs</span><span class="o">.</span><span class="n">Bhold</span><span class="o">.</span><span class="n">isChecked</span><span class="p">()</span> <span class="ow">and</span> <span class="n">regs</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">register</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span>
+                <span class="n">regs</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">QVBregisters</span><span class="o">.</span><span class="n">removeWidget</span><span class="p">(</span><span class="n">regs</span><span class="p">)</span>
+                <span class="n">regs</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+                <span class="n">regs</span><span class="o">.</span><span class="n">deleteLater</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">show_regs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">regs</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">regs</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">register</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span>
+                <span class="n">myregister</span> <span class="o">=</span> <span class="n">regs</span>
+        <span class="k">if</span> <span class="n">myregister</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">show_regs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QGroupBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="p">))</span>
+            <span class="n">myregister</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">show_regs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">load_ui</span><span class="p">(</span><span class="n">myregister</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">"register.ui"</span><span class="p">))</span>  <span class="c1"># QBregister</span>
+            <span class="n">myregister</span><span class="o">.</span><span class="n">Bhold</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"fa5s.thumbtack"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color_active</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">))</span>
+            <span class="n">myregister</span><span class="o">.</span><span class="n">Bhold</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">toggleBhold</span><span class="p">(</span><span class="n">myregister</span><span class="o">.</span><span class="n">Bhold</span><span class="p">))</span>
+            <span class="c1"># self.myframe.Name.mousePressEvent = self.readreg(register._name)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">QVBregisters</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">myregister</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">value</span> <span class="o">!=</span> <span class="n">myregister</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+            <span class="n">hl</span> <span class="o">=</span> <span class="s1">'&lt;font color="orange"&gt;'</span>
+            <span class="n">hle</span> <span class="o">=</span> <span class="s2">"&lt;/font&gt;"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshownames</span><span class="p">,</span> <span class="n">myregister</span><span class="o">.</span><span class="n">Lbitname</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowbits</span><span class="p">,</span> <span class="n">myregister</span><span class="o">.</span><span class="n">Lbit</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowval</span><span class="p">,</span> <span class="n">myregister</span><span class="o">.</span><span class="n">Lvalue</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowdir</span><span class="p">,</span> <span class="n">myregister</span><span class="o">.</span><span class="n">Lrw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowres</span><span class="p">,</span> <span class="n">myregister</span><span class="o">.</span><span class="n">Lres</span><span class="p">)</span>
+
+        <span class="c1"># &lt;font color="orange"&gt;&lt;/font&gt;</span>
+        <span class="n">myregister</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">register</span><span class="o">.</span><span class="n">_name</span>
+        <span class="n">myregister</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="n">register</span><span class="o">.</span><span class="n">value_table</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="n">register</span><span class="o">.</span><span class="n">_len_slices</span><span class="p">()</span>
+        <span class="n">myregister</span><span class="o">.</span><span class="n">Name</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">register</span><span class="o">.</span><span class="n">_name</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">(d)    = 0x</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">0</span><span class="si">{</span><span class="n">width</span><span class="o">//</span><span class="mi">4</span><span class="si">}</span><span class="s2">x</span><span class="si">}</span><span class="s2">    = b</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">0</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">b</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">bits</span> <span class="o">=</span> <span class="n">bitname</span> <span class="o">=</span> <span class="s2">"    "</span>
+        <span class="n">rw</span> <span class="o">=</span> <span class="s2">"dir"</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="s2">"val"</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">"res"</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s2">"name"</span><span class="p">][</span><span class="n">index</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s2">"name"</span><span class="p">][</span><span class="n">index</span><span class="p">])</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="n">bits</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">bits</span><span class="si">}{</span><span class="n">index</span><span class="si">:</span><span class="s2">&gt;</span><span class="si">{</span><span class="n">length</span><span class="si">}}</span><span class="s2"> "</span>
+            <span class="n">bitname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">bitname</span><span class="si">}{</span><span class="n">table</span><span class="p">[</span><span class="s1">'name'</span><span class="p">][</span><span class="n">index</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;</span><span class="si">{</span><span class="n">length</span><span class="si">}}</span><span class="s2"> "</span>
+            <span class="n">rw</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">rw</span><span class="si">}{</span><span class="n">table</span><span class="p">[</span><span class="s1">'dir'</span><span class="p">][</span><span class="n">index</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;</span><span class="si">{</span><span class="n">length</span><span class="si">}}</span><span class="s2"> "</span> <span class="k">if</span> <span class="n">table</span><span class="p">[</span><span class="s2">"dir"</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">rw</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'x'</span><span class="si">:</span><span class="s2">&gt;</span><span class="si">{</span><span class="n">length</span><span class="o">-</span><span class="mi">1</span><span class="si">}}</span><span class="s2"> "</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">val</span><span class="si">}{</span><span class="n">table</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">][</span><span class="n">index</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;</span><span class="si">{</span><span class="n">length</span><span class="si">}}</span><span class="s2"> "</span>
+            <span class="c1"># val = f"{val}{' ':&gt;{length}}{hl}{table['dec'][index]}{hle} "</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">res</span><span class="si">}{</span><span class="n">table</span><span class="p">[</span><span class="s1">'res'</span><span class="p">][</span><span class="n">index</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;</span><span class="si">{</span><span class="n">length</span><span class="si">}}</span><span class="s2"> "</span>
+        <span class="n">myregister</span><span class="o">.</span><span class="n">Lbit</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+        <span class="n">myregister</span><span class="o">.</span><span class="n">Lbitname</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">bitname</span><span class="p">)</span>
+        <span class="n">myregister</span><span class="o">.</span><span class="n">Lrw</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">rw</span><span class="p">)</span>
+        <span class="n">myregister</span><span class="o">.</span><span class="n">Lvalue</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="n">myregister</span><span class="o">.</span><span class="n">Lres</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">myregister</span><span class="o">.</span><span class="n">Lbitname</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="n">register</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
+
+        <span class="c1"># _len_slices()</span>
+
+<div class="viewcode-block" id="Gui.memoryframe">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.memoryframe">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">memoryframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">adr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Update the memory frame in the GUI with the given address and value.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            adr: int</span>
+<span class="sd">                The address of the memory location.</span>
+<span class="sd">            value: int</span>
+<span class="sd">                The value to set for the memory location.</span>
+<span class="sd">        """</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>                 <span class="c1"># search for address, perhaps it is a register</span>
+            <span class="n">register</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">register</span><span class="p">,</span> <span class="s2">"_cpuaddr"</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">register</span><span class="o">.</span><span class="n">_cpuaddr</span> <span class="o">==</span> <span class="n">adr</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"found </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">regstatus</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">registerframe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+                    <span class="k">return</span>
+        <span class="c1"># it is memory</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'it is memory....'</span><span class="p">)</span></div>
+
+
+
+    <span class="c1"># ======================================================================================</span>
+    <span class="c1"># definitions from complex mqtt commands, if you need only a connection between the mqtt-command and a widget, start the name of your widget with MQTT_</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get the current filename."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span>
+
+    <span class="nd">@filename</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">shortpath</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"proot"</span><span class="p">:</span>
+                <span class="n">project</span> <span class="o">=</span> <span class="n">val</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="n">version</span> <span class="o">=</span> <span class="n">val</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span>
+                <span class="n">workarea</span> <span class="o">=</span> <span class="n">val</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">4</span><span class="p">]</span>
+                <span class="n">shortpath</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">": </span><span class="si">{</span><span class="n">project</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">workarea</span><span class="si">}</span><span class="s2">/.../"</span>
+            <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">": </span><span class="si">{</span><span class="n">shortpath</span><span class="si">}{</span><span class="n">val</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionexcel</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">regs</span> <span class="o">=</span> <span class="n">RegisterMaster</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">regs</span><span class="o">.</span><span class="n">reset_regs</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">regstatus</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">regstatus</span><span class="p">(</span><span class="sa">f</span><span class="s2">"could not load </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"registermaster.filename something is wrong :-( : </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2">"</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="n">msg</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"registermaster.filename set to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">Lfilename</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"registermaster.filename set to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Gui.showdoc">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.showdoc">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Show or hide the documentation for a given label based on the state of the corresponding action."""</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">action</span><span class="o">.</span><span class="n">isChecked</span><span class="p">():</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+    <span class="c1"># end extern calling attributes</span>
+    <span class="c1"># ======================================================================================</span>
+    <span class="c1">#</span>
+    <span class="c1"># connected GUI-function to buttons or menues</span>
+    <span class="c1">#</span>
+
+<div class="viewcode-block" id="Gui.close">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Handle the close event for the GUI by publishing an 'off' command and then calling the base class's close method."""</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.openexcel">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.openexcel">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">openexcel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Open the current Excel file."""</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"start excel </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Info</span><span class="p">(),</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.toggleBhold">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.toggleBhold">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">toggleBhold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hold</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Toggle the state of the hold button and update its icon accordingly."""</span>
+        <span class="k">if</span> <span class="n">hold</span><span class="o">.</span><span class="n">isChecked</span><span class="p">():</span>
+            <span class="n">hold</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"fa5s.thumbtack"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color_active</span><span class="o">=</span><span class="s2">"white"</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">hold</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"fa5s.thumbtack"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color_active</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Gui.showregdoc">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.showregdoc">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">showregdoc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Show or hide the documentation for all registers based on the state of the corresponding actions."""</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"show_regs"</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">myregister</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">show_regs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshownames</span><span class="p">,</span> <span class="n">myregister</span><span class="o">.</span><span class="n">Lbitname</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowbits</span><span class="p">,</span> <span class="n">myregister</span><span class="o">.</span><span class="n">Lbit</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowval</span><span class="p">,</span> <span class="n">myregister</span><span class="o">.</span><span class="n">Lvalue</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowdir</span><span class="p">,</span> <span class="n">myregister</span><span class="o">.</span><span class="n">Lrw</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">showdoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionshowres</span><span class="p">,</span> <span class="n">myregister</span><span class="o">.</span><span class="n">Lres</span><span class="p">)</span>
+            <span class="n">myregister</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.readreg">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.regs.registermaster.Gui.html#pylab_ml.gui.instruments.regs.registermaster.Gui.readreg">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">readreg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">regname</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Read the value of a register."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">Error</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">" readreg </span><span class="si">{</span><span class="n">regname</span><span class="si">}</span><span class="s2"> "</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">regname</span><span class="si">}</span><span class="s2">.read"</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="c1"># from pylab_ml.common.mqtt_client import mqtt_init</span>
+
+    <span class="c1"># broker = 127.0.0.1'</span>
+    <span class="c1"># message_client = 'ate/DT1604092/matrix'</span>
+    <span class="c1"># mqttclient = mqtt_init()                                                 # prepare mqtt</span>
+    <span class="c1"># mqttclient.init(None, message_client=message_client.split('/')[0])    # mqtt client connect to broker</span>
+    <span class="c1"># mqttclient.init()</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">qdarkstyle</span><span class="o">.</span><span class="n">load_stylesheet_pyqt5</span><span class="p">())</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">Gui</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
+    <span class="c1"># window.scope.anim.event_source.stop()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

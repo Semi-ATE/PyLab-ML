@@ -1,0 +1,31 @@
+pylab\_ml.gui.instruments.minisct.minisct
+=========================================
+
+.. automodule:: pylab_ml.gui.instruments.minisct.minisct
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst  
+   
+      Gui
+   
+   
+
+   
+   
+   
+
+
+
