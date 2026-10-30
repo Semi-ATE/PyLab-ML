@@ -7,7 +7,6 @@ TODO:
 """
 
 import sys
-import qdarkstyle
 # import numpy as np
 import os
 from PyQt5 import QtWidgets
@@ -17,6 +16,7 @@ from pylab_ml.gui.instruments.base_instrument import load_ui
 __author__ = "Zlin526F"
 __credits__ = ["Zlin526F"]
 __email__ = "Zlin526F@github"
+__version__ = "0.0.0"
 
 
 class Gui(Guibase):
@@ -36,9 +36,9 @@ class Gui(Guibase):
         }
 
     def __init__(self, parent=None, name='scope', channel=None):
-        """ 
-        Initialize the GUI, load the UI file, adjust the UI elements, and set up MQTT connections. 
-        
+        """
+        Initialize the GUI, load the UI file, adjust the UI elements, and set up MQTT connections.
+
         Parameters
         ----------
             parent : object, optional
@@ -82,7 +82,7 @@ class Gui(Guibase):
     def mqttreceive(self, instName, msg):
         """
         Common MQTT receive messages, get raw MQTT data for more information.
-        
+
         Parameters
         ----------
             instName : str
@@ -128,7 +128,6 @@ if __name__ == "__main__":
     # mqttclient.init()
 
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     window = Gui(app)
     app.exec_()
     # window.scope.anim.event_source.stop()

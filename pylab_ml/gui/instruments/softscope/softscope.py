@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-This script defines a GUI class for a softscope instrument, which is part of the PyLab-ML project. 
-The GUI allows users to interact with the softscope instrument, send MQTT commands, and receive updates. 
+This script defines a GUI class for a softscope instrument, which is part of the PyLab-ML project.
+The GUI allows users to interact with the softscope instrument, send MQTT commands, and receive updates.
 The class inherits from a base instrument GUI class and implements specific functionality for the softscope instrument.
 
 Created on Wed April 21 13:43:20 2021
@@ -12,9 +12,7 @@ TODO:
 """
 
 import sys
-import qdarkstyle
 
-# import numpy as np
 import os
 from PyQt5 import QtWidgets, QtGui
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
@@ -31,7 +29,7 @@ __version__ = "0.0.8"
 
 class Scope(FigureCanvas):
     """ Scope class for the softscope instrument, responsible for plotting data in real-time.
-    It uses Matplotlib to create a dynamic plot that updates with new data points. 
+    It uses Matplotlib to create a dynamic plot that updates with new data points.
     The class handles the initialization of the plot, updating the data, and adjusting the axes as needed.
     """
 
@@ -40,7 +38,7 @@ class Scope(FigureCanvas):
     def __init__(self, gui, frame=None, width=5, height=5, dpi=100, min_y=None, max_y=None, bgcolor=None):
         """
         Initialize the Scope class with the given parameters and set up the Matplotlib figure and axes for plotting.
-        
+
         Parameters
         ----------
             gui: object
@@ -75,9 +73,9 @@ class Scope(FigureCanvas):
         FigureCanvas.__init__(self, fig)
         self.setParent(frame.scope)
         self.ax = pyplot.axes(xlim=(0, self.max_x), ylim=(self.min_y, self.max_y))
-        self.ax.tick_params(colors="white", which="both")
-        self.ax.xaxis.label.set_color("white")
-        self.ax.yaxis.label.set_color("white")
+        self.ax.tick_params(colors="gray", which="both")
+        self.ax.xaxis.label.set_color("gray")
+        self.ax.yaxis.label.set_color("gray")
         self.ax.grid()
         self.ax.set_xlabel("samples")  # time (s)
         (self.line,) = self.ax.plot([], [], lw=2)
@@ -255,7 +253,7 @@ class Gui(Guibase):
     def __init__(self, parent=None, name="softscope", parentwindow=None, channel=None):
         """
         Initialize the GUI for the softscope instrument.
-        
+
         Parameters
         ----------
             parent: object, optional
@@ -300,7 +298,7 @@ class Gui(Guibase):
     def mqttreceive(self, instName, msg):
         """
         Handle incoming MQTT messages for the softscope instrument.
-        
+
         Parameters
         ----------
             instName: str
@@ -383,7 +381,6 @@ if __name__ == "__main__":
     # mqttclient.init()
 
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     window = Gui(app)
     app.exec_()
     # window.scope.anim.event_source.stop()

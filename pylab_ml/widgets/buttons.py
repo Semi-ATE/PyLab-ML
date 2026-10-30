@@ -9,8 +9,6 @@ Created on Thu Dec 23 09:17:01 2020
 import subprocess
 import importlib
 from time import sleep
-import qtawesome as qta
-from qtpy.QtCore import Signal
 from PyQt5 import QtWidgets, QtCore
 from pydantic import BaseModel
 from pylab_ml.common.common import kill_proc_tree
@@ -37,7 +35,7 @@ class Button(QtWidgets.QToolButton):
 
     sytle_button = {'disabled': "color: rgb(128, 128, 128);",
                     'crash': "color: rgb(255, 64, 64);",
-                    'instance_ok': "color: rgb(240, 240, 240);",
+                    'instance_ok': "color: rgb(200, 200, 200);",
                     'available': "color: rgb(64, 164, 64);",
                     'connect': "color: rgb(64, 164, 64);",
                     'disconnect': "color: rgb(255, 64, 64);",
@@ -55,6 +53,7 @@ class Button(QtWidgets.QToolButton):
 
         self.setGeometry(QtCore.QRect(10, 10, 88, 60))
         self.setIconSize(QtCore.QSize(40, 40))
+        self.setAutoRaise(True)
         self.guiLib = ''
         self.guiLibImport = None
         self.instance = None
