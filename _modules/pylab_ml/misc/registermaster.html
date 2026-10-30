@@ -1191,12 +1191,31 @@
 <span class="sd">                or a string indicating that the reset value is not defined if any bit-slice does not have a defined reset value.</span>
 <span class="sd">        """</span>
         <span class="n">valres</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="nb">slice</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_slices</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">lsb</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">[</span><span class="s2">"lsb"</span><span class="p">]</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">[</span><span class="s2">"res"</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">res</span> <span class="o">==</span> <span class="s1">'x'</span><span class="p">:</span>
-                <span class="k">return</span> <span class="s2">"Reset value not defined"</span>
-            <span class="n">valres</span> <span class="o">|=</span> <span class="n">res</span> <span class="o">&lt;&lt;</span> <span class="n">lsb</span>
+        <span class="n">has_undefined</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">undefined_bits</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">max_bit</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">slice_info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_slices</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">lsb</span> <span class="o">=</span> <span class="n">slice_info</span><span class="p">[</span><span class="s2">"lsb"</span><span class="p">]</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">slice_info</span><span class="p">[</span><span class="s2">"res"</span><span class="p">]</span>
+
+            <span class="n">width</span> <span class="o">=</span> <span class="n">slice_info</span><span class="p">[</span><span class="s1">'msb'</span><span class="p">]</span> <span class="o">-</span> <span class="n">lsb</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">max_bit</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_bit</span><span class="p">,</span> <span class="n">lsb</span> <span class="o">+</span> <span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">res</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="n">has_undefined</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">undefined_bits</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">lsb</span><span class="p">,</span> <span class="n">lsb</span> <span class="o">+</span> <span class="n">width</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">valres</span> <span class="o">|=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">lsb</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">has_undefined</span><span class="p">:</span>
+            <span class="n">bin_str</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">valres</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">max_bit</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">bit_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">bin_str</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">bit_idx</span> <span class="ow">in</span> <span class="n">undefined_bits</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">bit_idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">bit_list</span><span class="p">):</span>
+                    <span class="n">bit_list</span><span class="p">[</span><span class="n">bit_idx</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'x'</span>
+            <span class="k">return</span> <span class="s2">"0b"</span> <span class="o">+</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">bit_list</span><span class="p">))</span>
+
         <span class="k">return</span> <span class="n">valres</span></div>
 
 
