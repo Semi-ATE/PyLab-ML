@@ -1,0 +1,1137 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.gui.instruments.matrix.matrix &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="../../../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.misc.iasvg.html">pylab_ml.misc.iasvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.misc.registermaster.html">pylab_ml.misc.registermaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.position_controller.html">pylab_ml.position_controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.position_controller.pollux.html">pylab_ml.position_controller.pollux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.scope.softscope.html">pylab_ml.scope.softscope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../_autosummary/pylab_ml.widgets.html">pylab_ml.widgets</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.gui.instruments.matrix.matrix</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.gui.instruments.matrix.matrix</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">"""</span>
+<span class="sd">This script defines a GUI class for a matrix instrument, which is part of the PyLab-ML project.</span>
+<span class="sd">The GUI allows users to interact with the matrix instrument, send MQTT commands, and receive updates.</span>
+
+<span class="sd">Created on Fri Jul 10 13:43:20 2020</span>
+
+<span class="sd">TODO:</span>
+<span class="sd">    Bug: in discardTable funktioniert nicht</span>
+
+<span class="sd">    ate/NB200813/instruments    {"matrix": {"type": "set", "cmd": "set", "payload": ["Position1", "close"]}}</span>
+
+<span class="sd">    Variablen in Gui dürfen nicht Namen benutzen die als mqtt-Kommandos benutzt werden!</span>
+<span class="sd">"""</span>
+
+<span class="c1"># todo:</span>
+<span class="c1">#   wenn editfish_label dann in dic_constantsTable ändern, bei save mqtt senden der neuen tabelle</span>
+<span class="c1">#   Scenarios Set werden noch nicht angezeigt</span>
+<span class="c1">#       senden einer geänderten dic_constantsTabel + dic_connectionTable</span>
+<span class="c1">#       farbige Darstellung von connections und wire</span>
+<span class="c1">#   kleinere Darstellung der Matrix ....</span>
+<span class="c1">#</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5</span><span class="w"> </span><span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">QtWidgets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.Qt</span><span class="w"> </span><span class="kn">import</span> <span class="n">QLabel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.gui.instruments.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">Gui</span> <span class="k">as</span> <span class="n">Guibase</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.gui.instruments.base_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_ui</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">"Zlin526F"</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">"Copyright 2020, Lab"</span>
+<span class="n">__credits__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Zlin526F"</span><span class="p">]</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">"Zlin526F@github"</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.0.3"</span>
+
+
+<div class="viewcode-block" id="VerticalLabel">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.VerticalLabel.html#pylab_ml.gui.instruments.matrix.matrix.VerticalLabel">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">VerticalLabel</span><span class="p">(</span><span class="n">QLabel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">""" VerticalLabel is a custom QLabel that displays text vertically. It overrides the paintEvent to rotate the text. """</span>
+
+<div class="viewcode-block" id="VerticalLabel.__init__">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.VerticalLabel.html#pylab_ml.gui.instruments.matrix.matrix.VerticalLabel.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Initialize the VerticalLabel."""</span>
+        <span class="n">QLabel</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="VerticalLabel.mousePressEvent">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.VerticalLabel.html#pylab_ml.gui.instruments.matrix.matrix.VerticalLabel.mousePressEvent">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Handle mouse press events on the vertical label."""</span>
+        <span class="c1"># self.clicked.emit()</span>
+        <span class="n">QLabel</span><span class="o">.</span><span class="n">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="VerticalLabel.paintEvent">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.VerticalLabel.html#pylab_ml.gui.instruments.matrix.matrix.VerticalLabel.paintEvent">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">paintEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Handle the paint event to draw the text vertically."""</span>
+        <span class="n">painter</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QPainter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">)</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">drawText</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">end</span><span class="p">()</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Gui">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Gui</span><span class="p">(</span><span class="n">Guibase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Gui class for the matrix instrument."""</span>
+
+    <span class="n">Fontsize</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">X_OFFSET</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">X_LLABELWIDTH</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># left text label width</span>
+    <span class="n">X_RLABELWIDTH</span> <span class="o">=</span> <span class="mi">70</span>  <span class="c1"># right text label width</span>
+    <span class="n">Y_TLABELWIDTH</span> <span class="o">=</span> <span class="mi">22</span>
+    <span class="n">RADIOBUTTONWIDTH</span> <span class="o">=</span> <span class="mi">14</span>
+    <span class="n">X_LABELHIGH</span> <span class="o">=</span> <span class="mi">18</span>
+    <span class="n">Y_TLABELHIGH</span> <span class="o">=</span> <span class="mi">35</span>  <span class="c1"># top label high</span>
+    <span class="n">Y_BLABELHIGH</span> <span class="o">=</span> <span class="mi">130</span>  <span class="c1"># botton label high</span>
+    <span class="n">Y_OFFSET</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">X_STEP</span> <span class="o">=</span> <span class="n">RADIOBUTTONWIDTH</span> <span class="o">+</span> <span class="mi">2</span>
+    <span class="n">Y_STEP</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">COLOR_INAKTIV</span> <span class="o">=</span> <span class="mf">0.6</span>  <span class="c1"># from 0.0-1.0 (=0-100%)</span>
+    <span class="n">CB_OFFSET_Y</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">CB_OFFSET_X</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">CB_SPACE_X</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">CB_SPACE_Y</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">CB_WIDTH</span> <span class="o">=</span> <span class="mi">150</span>
+
+<div class="viewcode-block" id="Gui.__init__">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"matrix"</span><span class="p">,</span> <span class="n">parentwindow</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Initialize the GUI for the matrix instrument.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            parent: QWidget, optional</span>
+<span class="sd">                The parent widget of the GUI.</span>
+<span class="sd">            name: str, optional</span>
+<span class="sd">                The name of the instrument.</span>
+<span class="sd">            parentwindow: QWidget, optional</span>
+<span class="sd">                The parent window of the GUI.</span>
+<span class="sd">        """</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">grandparent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">parentwindow</span><span class="o">=</span><span class="n">parentwindow</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span> <span class="o">=</span> <span class="n">load_ui</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">myframe</span><span class="p">,</span> <span class="vm">__file__</span><span class="p">)</span>
+        <span class="c1"># bgcolor = self.gui.palette().color(QtGui.QPalette.Background).name()    # getRgb()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myadjustUI</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">closeEvent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">close</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">instName</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subtopic</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dic_constantsTable</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dic_connectionTable</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">geometry</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">height</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">lcb</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cb</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_max</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_loadNames</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topinstname</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_initlist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"load_connectionTable()"</span><span class="p">,</span> <span class="s2">"display()"</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Gui.myadjustUI">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.myadjustUI">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">myadjustUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Adjust the GUI elements for the matrix instrument."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runToolBar</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="c1"># set icons:</span>
+        <span class="c1"># self.windowIcon(qta.icon('ei.file', color='white', scale_factor=1.0, color_active='orange'))</span>
+
+        <span class="c1"># create and connect Menue entries</span>
+        <span class="n">actiondiscardTable</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QAction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
+        <span class="n">actiondiscardTable</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">"discard Table"</span><span class="p">)</span>
+        <span class="n">actiondiscardTable</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">discardTable</span><span class="p">)</span>
+        <span class="n">actiondiscardTable</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">menuSetup</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">actiondiscardTable</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actiondiscardTable</span> <span class="o">=</span> <span class="n">actiondiscardTable</span>
+
+        <span class="n">actiongetTable</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QAction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
+        <span class="n">actiongetTable</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">"get Table"</span><span class="p">)</span>
+        <span class="n">actiongetTable</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">load_connectionTable</span><span class="p">)</span>
+        <span class="n">actiongetTable</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">menuSetup</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">actiongetTable</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actiongetTable</span> <span class="o">=</span> <span class="n">actiongetTable</span>
+
+        <span class="n">actionShow</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QAction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
+        <span class="n">actionShow</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">"Edit Table"</span><span class="p">)</span>
+        <span class="n">actionShow</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">show_matrix</span><span class="p">)</span>
+        <span class="n">actionShow</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">menuSetup</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">actionShow</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionShow</span> <span class="o">=</span> <span class="n">actionShow</span>
+
+        <span class="c1"># set connection fom Gui-object to functions:</span>
+        <span class="c1"># self.gui.actionEdit.triggered.connect(self.edit)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">PBclear</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"clear()"</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">' </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">     (Version: </span><span class="si">{</span><span class="n">__version__</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span></div>
+
+        <span class="c1"># geometry = self.gui.geometry()</span>
+        <span class="c1"># wh = self.myframe.geometry()</span>
+        <span class="c1"># self.myframe.setGeometry(geometry.x(), geometry.y(), wh.width()+100, wh.height()+250)</span>
+
+<div class="viewcode-block" id="Gui.create_CBox">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.create_CBox">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_CBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Create a combo box and its associated label for the given index.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            index: int</span>
+<span class="sd">                The index of the combo box to create.</span>
+<span class="sd">        """</span>
+        <span class="n">panel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QWidget</span><span class="p">,</span> <span class="s2">"tabshow"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lcb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLabel</span><span class="p">(</span><span class="n">panel</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QComboBox</span><span class="p">(</span><span class="n">panel</span><span class="p">))</span>
+        <span class="n">lcb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lcb</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">cb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">2</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">index</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">lcb</span><span class="o">.</span><span class="n">setObjectName</span><span class="p">(</span><span class="s2">"label_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
+        <span class="n">lcb</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+            <span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span>
+                <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CB_WIDTH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_SPACE_X</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_OFFSET_X</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_SPACE_Y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_WIDTH</span><span class="p">,</span> <span class="mi">18</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">lcb</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"color: rgb</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"0 0 0"</span><span class="p">))</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+            <span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span>
+                <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CB_WIDTH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_SPACE_X</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_OFFSET_X</span><span class="p">,</span>
+                <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_SPACE_Y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_OFFSET_Y</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">CB_WIDTH</span><span class="p">,</span>
+                <span class="mi">18</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"color: rgb</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"0 0 0"</span><span class="p">))</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">activated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="k">lambda</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">index</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="c1"># lcb.setToolTip("for editing: wait til 2099, or doit yourselve ....")</span>
+        <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="Gui.update_mainwindow">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.update_mainwindow">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_mainwindow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Update the main window of the GUI based on the current connection table and constants table."""</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lcb</span> <span class="o">!=</span> <span class="p">[]:</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dic_connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>  <span class="c1"># create the comboboxes , depends form the connectionTable</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">"Color"</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">create_CBox</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_CBox</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dic_connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">"List"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+            <span class="n">cb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="n">cb</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">"open"</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+                <span class="n">cb</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">cb</span><span class="o">.</span><span class="n">setCurrentIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_OFFSET_Y</span> <span class="o">+</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_SPACE_Y</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CB_WIDTH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CB_SPACE_X</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">centralwidget</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"     </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x_max</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y_max</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="si">}</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instNameExtension</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_status</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">PBclear</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionShow</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actiongetTable</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actiondiscardTable</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span></div>
+
+        <span class="c1"># self.gui.setGeometry(0, 0, width+20, height+50)</span>
+
+<div class="viewcode-block" id="Gui.update_CBox">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.update_CBox">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_CBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Update the combo box and its associated label for the given index, name, and color.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            index: int</span>
+<span class="sd">                The index of the combo box to update.</span>
+<span class="sd">            name: str</span>
+<span class="sd">                The name to set for the combo box and its label.</span>
+<span class="sd">            color: tuple</span>
+<span class="sd">                The RGB color to set for the combo box and its label.</span>
+<span class="sd">        """</span>
+        <span class="n">lcb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lcb</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">cb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">lcb</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">lcb</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"color: rgb</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">color</span><span class="p">)))</span>
+        <span class="n">lcb</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">setObjectName</span><span class="p">(</span><span class="s2">"comboBox_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"color: rgb</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">color</span><span class="p">)))</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.show_matrix">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.show_matrix">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Show the matrix window with the current connection and constants tables."""</span>
+        <span class="n">matrix_window</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">()</span>
+        <span class="n">matrix_window</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x_max</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y_max</span><span class="si">}</span><span class="s2">   </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">matrix_window</span><span class="o">.</span><span class="n">setObjectName</span><span class="p">(</span><span class="s2">"matrix"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">netname_y</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">netname_x</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">nets</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dic_constantsTable</span><span class="p">[</span><span class="s2">"XLables"</span><span class="p">]:</span>
+            <span class="c1"># print(int(self._dic_constantsTable['XLables'][nets]),nets )</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">netname_x</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dic_constantsTable</span><span class="p">[</span><span class="s2">"XLables"</span><span class="p">][</span><span class="n">nets</span><span class="p">])]</span> <span class="o">=</span> <span class="n">nets</span>
+        <span class="k">for</span> <span class="n">nets</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dic_constantsTable</span><span class="p">[</span><span class="s2">"YLables"</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">netname_y</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dic_constantsTable</span><span class="p">[</span><span class="s2">"YLables"</span><span class="p">][</span><span class="n">nets</span><span class="p">])]</span> <span class="o">=</span> <span class="n">nets</span>
+        <span class="n">nets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">label_y</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">label_x</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">line_x</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">line_y</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">create_label</span><span class="p">(</span><span class="n">matrix_window</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># left labels with net numbers</span>
+            <span class="n">label_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">create_label</span><span class="p">(</span><span class="n">matrix_window</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">netname_y</span><span class="p">[</span><span class="n">y</span><span class="p">]))</span>  <span class="c1"># right labels with net names</span>
+            <span class="n">line_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">create_line</span><span class="p">(</span><span class="n">matrix_window</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">create_label</span><span class="p">(</span><span class="n">matrix_window</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Top labels with net numbers</span>
+                    <span class="n">label_x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">create_label</span><span class="p">(</span><span class="n">matrix_window</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">netname_x</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+                    <span class="p">)</span>  <span class="c1"># Bottom labels with net names</span>
+                    <span class="n">line_x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">create_line</span><span class="p">(</span><span class="n">matrix_window</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+                <span class="n">nets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">create_net</span><span class="p">(</span><span class="n">matrix_window</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+        <span class="n">matrix_window</span><span class="o">.</span><span class="n">label_y</span> <span class="o">=</span> <span class="n">label_y</span>
+        <span class="n">matrix_window</span><span class="o">.</span><span class="n">label_x</span> <span class="o">=</span> <span class="n">label_x</span>
+        <span class="n">matrix_window</span><span class="o">.</span><span class="n">line_x</span> <span class="o">=</span> <span class="n">line_x</span>
+        <span class="n">matrix_window</span><span class="o">.</span><span class="n">line_y</span> <span class="o">=</span> <span class="n">line_y</span>
+        <span class="n">QtCore</span><span class="o">.</span><span class="n">QMetaObject</span><span class="o">.</span><span class="n">connectSlotsByName</span><span class="p">(</span><span class="n">matrix_window</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLineEdit</span><span class="p">(</span><span class="n">matrix_window</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">setObjectName</span><span class="p">(</span><span class="s2">"lineEdit"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">editingFinished</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">editfinish_label</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">source_object</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span> <span class="o">=</span> <span class="n">matrix_window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span><span class="o">.</span><span class="n">nets</span> <span class="o">=</span> <span class="n">nets</span>
+        <span class="n">matrix_window</span><span class="o">.</span><span class="n">setMinimumSize</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">X_OFFSET</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_STEP</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_RLABELWIDTH</span> <span class="o">+</span> <span class="mi">30</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Y_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELHIGH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_max</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_STEP</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_BLABELHIGH</span> <span class="o">+</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_matrixarray</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_matrixcolor</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.update_matrixarray">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.update_matrixarray">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_matrixarray</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Update the matrix array based on the current connection table and constants table."""</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_max</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span><span class="p">):</span>
+                    <span class="c1"># if self.matrix_array[y][x]==1:</span>
+                    <span class="c1"># if y==1:</span>
+                    <span class="c1">#    self.matrix_window.label_x[x].setStyleSheet('color: white')</span>
+                    <span class="c1">#    self.matrix_window.label_x[row].setStyleSheet('color: rgb{}'.format(str(color)))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span><span class="o">.</span><span class="n">nets</span><span class="p">[</span><span class="n">y</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">+</span> <span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+                    <span class="p">)</span>  <span class="c1"># set connection</span></div>
+
+
+<div class="viewcode-block" id="Gui.update_matrixcolor">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.update_matrixcolor">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_matrixcolor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Update the colors of the matrix labels based on the current connection table and constants table."""</span>
+        <span class="k">for</span> <span class="n">categorie</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dic_connectionTable</span><span class="p">[</span><span class="n">categorie</span><span class="p">][</span><span class="s2">"List"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">color</span><span class="p">,</span> <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nets</span><span class="p">(</span><span class="n">categorie</span><span class="p">,</span> <span class="n">scenario</span><span class="p">)</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_inaktiv</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+                <span class="c1"># print(categorie,scenario,nets,color)</span>
+                <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">nets</span><span class="p">:</span>
+                    <span class="n">row</span> <span class="o">=</span> <span class="n">net</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span><span class="o">.</span><span class="n">label_x</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"color: rgb</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">color</span><span class="p">)))</span></div>
+
+                    <span class="c1"># self.matrix_window.line_x[row].setStyleSheet('color: rgb{}'.format(str(color)))</span>
+                <span class="c1"># for net in nets:</span>
+                <span class="c1"># cb = self.gui.findChild(QtWidgets.QComboBox, "comboBox_{}".format(categorie))</span>
+                <span class="c1"># color finden</span>
+                <span class="c1"># self.matrix_window.label_x[x].setStyleSheet('color: rgb{}'.format(str(color)))</span>
+
+<div class="viewcode-block" id="Gui.color_inaktiv">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.color_inaktiv">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">color_inaktiv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Calculate the inactive color based on the given color and the COLOR_INAKTIV factor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            color : tuple</span>
+<span class="sd">                The RGB color to be modified.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            result : tuple</span>
+<span class="sd">                The inactive RGB color.</span>
+<span class="sd">        """</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)))</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">COLOR_INAKTIV</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">color</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="Gui.get_nets">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.get_nets">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_nets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">categorie</span><span class="p">,</span> <span class="n">scenario</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Get the nets for a given category and scenario from the connection table.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            categorie : str</span>
+<span class="sd">                The category of the nets.</span>
+<span class="sd">            scenario : str</span>
+<span class="sd">                The scenario of the nets.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            color : tuple</span>
+<span class="sd">                The RGB color associated with the category.</span>
+<span class="sd">            result : list</span>
+<span class="sd">                A list of nets, where each net is represented as a list of three integers [x1, x2, y].</span>
+<span class="sd">        """</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">categorie</span><span class="p">][</span><span class="s2">"Color"</span><span class="p">]</span>
+        <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dic_connectionTable</span><span class="p">[</span><span class="n">categorie</span><span class="p">][</span><span class="s2">"List"</span><span class="p">][</span><span class="n">scenario</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">";"</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">nets</span><span class="p">:</span>
+            <span class="n">net</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">net</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">categorie</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">scenario</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">net</span><span class="si">}</span><span class="s2"> nets are not correct -&gt; discarded"</span><span class="p">)</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">color</span><span class="p">,</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="Gui.create_net">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.create_net">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_net</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Create a radio button representing a net at the given x and y coordinates.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            form : QWidget</span>
+<span class="sd">                The parent widget for the radio button.</span>
+<span class="sd">            x : int</span>
+<span class="sd">                The x-coordinate of the net.</span>
+<span class="sd">            y : int</span>
+<span class="sd">                The y-coordinate of the net.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            radioButton : QRadioButton</span>
+<span class="sd">                The created radio button representing the net.</span>
+<span class="sd">        """</span>
+        <span class="n">radioButton</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QRadioButton</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
+        <span class="n">radioButton</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+            <span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">X_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_LLABELWIDTH</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_STEP</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Y_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELHIGH</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_STEP</span> <span class="o">+</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">RADIOBUTTONWIDTH</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">RADIOBUTTONWIDTH</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">radioButton</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"QRadioButton::checked { background-color : red;}"</span><span class="p">)</span>
+        <span class="n">radioButton</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"QRadioButton::indicator { width: 10px; height: 10px;};"</span><span class="p">)</span>
+        <span class="c1"># radioButton.setStyleSheet('QRadioButton::indicator \{ width: {}px; height: {}px;\};'.format(self.RADIOBUTTONWIDTH,self.RADIOBUTTONWIDTH))</span>
+        <span class="n">radioButton</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+        <span class="n">radioButton</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">radioButton</span><span class="o">.</span><span class="n">setAutoExclusive</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">radioButton</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">-&gt;</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+        <span class="n">radioButton</span><span class="o">.</span><span class="n">setObjectName</span><span class="p">(</span><span class="s2">"net_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">radioButton</span></div>
+
+
+<div class="viewcode-block" id="Gui.create_label">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.create_label">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Create a label at the given x and y coordinates with the specified text.</span>
+<span class="sd">            x== -1   -&gt; place wire numbers left</span>
+<span class="sd">            x== -2   -&gt; place wire text right</span>
+<span class="sd">            y== -1   -&gt; pace wire number at top vertical</span>
+<span class="sd">            y== -2   -&gt; pace wire text at bottom vertical</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            form : QWidget</span>
+<span class="sd">                The parent widget for the label.</span>
+<span class="sd">            x : int</span>
+<span class="sd">                The x-coordinate for the label. Special values:</span>
+<span class="sd">                    -1: place wire numbers on the left</span>
+<span class="sd">                    -2: place wire text on the right</span>
+<span class="sd">            y : int</span>
+<span class="sd">                The y-coordinate for the label. Special values:</span>
+<span class="sd">                    -1: place wire numbers at the top</span>
+<span class="sd">                    -2: place wire text at the bottom</span>
+<span class="sd">            text : str, optional</span>
+<span class="sd">                The text to display on the label. If None, default text will be used based on the coordinates.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            label : QLabel</span>
+<span class="sd">                The created label with the specified properties.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLabel</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">typ</span> <span class="o">=</span> <span class="s2">"horizontal"</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">VerticalLabel</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">typ</span> <span class="o">=</span> <span class="s2">"vertical"</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QFont</span><span class="p">(</span><span class="s2">"Times"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Fontsize</span><span class="p">,</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QFont</span><span class="o">.</span><span class="n">Bold</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># wire numbers horizontal left</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+                <span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">X_OFFSET</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Y_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELHIGH</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_STEP</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">X_LLABELWIDTH</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">X_LABELHIGH</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span>  <span class="c1"># net names horizontal.right</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+                <span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">X_OFFSET</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_STEP</span> <span class="o">+</span> <span class="mi">40</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Y_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELHIGH</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_STEP</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">X_RLABELWIDTH</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">X_LABELHIGH</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># wire numbers vertical  top</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+                <span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">X_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_LLABELWIDTH</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_STEP</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Y_OFFSET</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELWIDTH</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELWIDTH</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELHIGH</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span>  <span class="c1"># net names vertical  bottom</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+                <span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">X_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_LLABELWIDTH</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_STEP</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Y_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELHIGH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_max</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_STEP</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELWIDTH</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Y_BLABELHIGH</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="s2">"_"</span>
+        <span class="k">if</span> <span class="n">text</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">label</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s2">"for editing: click labels at right"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">text</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">label</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s2">"for editing: click labels at bottom"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">setObjectName</span><span class="p">(</span><span class="s2">"label_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">mousePressEvent</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edit_label</span><span class="p">,</span> <span class="n">source_object</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s2">"for editing: click on label"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">label</span></div>
+
+
+<div class="viewcode-block" id="Gui.edit_label">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.edit_label">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">edit_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">source_object</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Handle the mouse press event on a label to allow editing of the label's text.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            event : QMouseEvent</span>
+<span class="sd">                The mouse event that triggered the label editing.</span>
+<span class="sd">            source_object : QLabel, optional</span>
+<span class="sd">                The label that was clicked, triggering the edit. If None, the event's source will be used.</span>
+<span class="sd">        """</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">source_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">editfinish_label</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">source_object</span><span class="o">.</span><span class="n">y</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">source_object</span><span class="o">.</span><span class="n">typ</span> <span class="o">==</span> <span class="s2">"vertical"</span><span class="p">:</span>
+                <span class="n">y</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_BLABELHIGH</span> <span class="o">-</span> <span class="mi">25</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span><span class="n">source_object</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">y</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">source_object</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">source_object</span> <span class="o">=</span> <span class="n">source_object</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.editfinish_label">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.editfinish_label">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">editfinish_label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Handle the completion of label editing by updating the label's text and hiding the line edit."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">source_object</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">text</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.create_line">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.create_line">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Create a line (horizontal or vertical) in the given form.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            form : QWidget</span>
+<span class="sd">                The parent widget in which the line will be created.</span>
+<span class="sd">            x : int</span>
+<span class="sd">                The x-coordinate or special value indicating a horizontal line (-1).</span>
+<span class="sd">            y : int</span>
+<span class="sd">                The y-coordinate or special value indicating a vertical line (-1).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            line : QFrame</span>
+<span class="sd">                The created line (either horizontal or vertical) with the specified properties.</span>
+<span class="sd">        """</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFrame</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># horizontal  left, top, width and height</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+                <span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">X_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_LLABELWIDTH</span><span class="p">,</span>
+                    <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Y_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELHIGH</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_STEP</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_LABELHIGH</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span>
+                    <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_STEP</span> <span class="o">+</span> <span class="mi">20</span><span class="p">),</span>
+                    <span class="mi">2</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">setFrameShape</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFrame</span><span class="o">.</span><span class="n">HLine</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># vertical</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span>
+                <span class="n">QtCore</span><span class="o">.</span><span class="n">QRect</span><span class="p">(</span>
+                    <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_LLABELWIDTH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">RADIOBUTTONWIDTH</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_STEP</span><span class="p">),</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Y_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELHIGH</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span>
+                    <span class="mi">2</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">y_max</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_STEP</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">setFrameShape</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFrame</span><span class="o">.</span><span class="n">VLine</span><span class="p">)</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">setFrameShadow</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFrame</span><span class="o">.</span><span class="n">Sunken</span><span class="p">)</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">setObjectName</span><span class="p">(</span><span class="s2">"line_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">line</span></div>
+
+
+<div class="viewcode-block" id="Gui.retranslateUi">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.retranslateUi">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">retranslateUi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Form</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Set the text for the GUI elements based on the current language settings."""</span>
+        <span class="n">_translate</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QCoreApplication</span><span class="o">.</span><span class="n">translate</span>
+        <span class="n">Form</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"Form"</span><span class="p">,</span> <span class="s2">"Form"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checkBox</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"Form"</span><span class="p">,</span> <span class="s2">"CheckBox"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"Form"</span><span class="p">,</span> <span class="s2">"Label"</span><span class="p">))</span></div>
+
+
+    <span class="c1"># =======================================================</span>
+    <span class="c1"># attributes which connect to an extern call (mqtt-command)</span>
+<div class="viewcode-block" id="Gui.mqttreceive">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.mqttreceive">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mqttreceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Handle incoming MQTT messages and update the GUI elements accordingly.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            instName : str</span>
+<span class="sd">                The name of the instance sending the MQTT message.</span>
+<span class="sd">            msg : dict</span>
+<span class="sd">                The MQTT message containing the command and payload.</span>
+<span class="sd">        """</span>
+        <span class="c1"># print(instName, msg)</span>
+        <span class="k">if</span> <span class="n">instName</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instName</span> <span class="ow">and</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"loadNames"</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loadNames</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">create_CBox</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lcb</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_CBox</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+            <span class="n">cb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_loadNames</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loadNames</span><span class="p">:</span>
+                <span class="n">cb</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">cb</span><span class="o">.</span><span class="n">setCurrentIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"loadNames"</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subtopic</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">instName</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">subtopic</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"load"</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+                    <span class="n">payload</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\r</span><span class="s2">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">payload</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">]</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loadNames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s1">'cmd'</span><span class="p">]</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">"</span>
+                    <span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="n">cmd</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span>
+                        <span class="k">if</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loadNames</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loadNames</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loadNames</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">cmd</span><span class="p">:</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setCurrentText</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"show"</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"state"</span><span class="p">:</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+                        <span class="n">scenario</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                        <span class="n">state</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s2">"open"</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">set</span> <span class="o">=</span> <span class="p">[</span><span class="n">scenario</span><span class="p">,</span> <span class="n">state</span><span class="p">]</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">set</span> <span class="o">=</span> <span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="s2">"close"</span><span class="p">]</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.mqttreceive: </span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">, subtopic=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">subtopic</span><span class="si">}</span><span class="s2">  not implemented -&gt; do nothing"</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.reset">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.reset">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Reset the GUI to its initial state by clearing the matrix array and resetting the combo boxes."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setCurrentIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get the ID of the instrument."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id</span>
+
+    <span class="nd">@id</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instNameExtension</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"   </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x_max</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y_max</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dic_constantsTable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get the constants table dictionary."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dic_constantsTable</span>
+
+    <span class="nd">@dic_constantsTable</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dic_constantsTable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dic_constantsTable</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dic_constantsTable</span><span class="p">[</span><span class="s2">"XLength"</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_max</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dic_constantsTable</span><span class="p">[</span><span class="s2">"YLength"</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">y_max</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dic_connectionTable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get the connection table dictionary."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dic_connectionTable</span>
+
+    <span class="nd">@dic_connectionTable</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dic_connectionTable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dic_connectionTable</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dic_connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="c1"># translate color from string float to rgb integer</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">"Color"</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="mi">255</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mi">255</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="s2">"(</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"Color"</span><span class="p">:</span> <span class="n">color</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_mainwindow</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">SetCrosspointState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Get the current crosspoint state."""</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@SetCrosspointState</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">SetCrosspointState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">card</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">if</span> <span class="n">card</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2"> supports only 1 Card, but received Card=</span><span class="si">{</span><span class="n">card</span><span class="si">}</span><span class="s2">, if you need this, please extend the software...."</span>
+            <span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">y</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span><span class="o">.</span><span class="n">nets</span><span class="p">[</span><span class="n">y</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">+</span> <span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="nd">@set</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""set Category in the comboboxes and in the matrix-window the associated color"""</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">scenario</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># set color in matrix to inactiv</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">categorie</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">scenario</span> <span class="o">==</span> <span class="n">categorie</span> <span class="ow">or</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">categorie</span><span class="p">][</span><span class="s2">"List"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="k">for</span> <span class="n">scene</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">categorie</span><span class="p">][</span><span class="s2">"List"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                        <span class="n">color</span><span class="p">,</span> <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nets</span><span class="p">(</span><span class="n">categorie</span><span class="p">,</span> <span class="n">scene</span><span class="p">)</span>
+                        <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_inaktiv</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">nets</span><span class="p">:</span>
+                            <span class="n">row</span> <span class="o">=</span> <span class="n">net</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span><span class="o">.</span><span class="n">label_x</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"color: rgb</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">color</span><span class="p">)))</span>
+            <span class="c1"># QCoreApplication.processEvents()</span>
+        <span class="c1"># now set connections and the true color</span>
+        <span class="k">for</span> <span class="n">categorie</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">scenario</span> <span class="o">==</span> <span class="n">categorie</span> <span class="ow">or</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">categorie</span><span class="p">][</span><span class="s2">"List"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">cb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QComboBox</span><span class="p">,</span> <span class="s2">"comboBox_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">categorie</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">cb</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"couldn't find the associated comboBox_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">categorie</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s2">"open"</span><span class="p">:</span>
+                    <span class="n">cb</span><span class="o">.</span><span class="n">setCurrentText</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">cb</span><span class="o">.</span><span class="n">setCurrentText</span><span class="p">(</span><span class="n">scenario</span><span class="p">)</span>
+                    <span class="n">color</span><span class="p">,</span> <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nets</span><span class="p">(</span><span class="n">categorie</span><span class="p">,</span> <span class="n">scenario</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">nets</span><span class="p">:</span>
+                            <span class="n">row</span> <span class="o">=</span> <span class="n">net</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span><span class="o">.</span><span class="n">label_x</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"color: rgb</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">color</span><span class="p">)))</span>
+                            <span class="c1"># radioButton.setObjectName("net_{}_{}".format(y,x))</span>
+                <span class="k">break</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="nd">@clear</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dummy</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">y_max</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_max</span><span class="p">))</span>  <span class="c1"># clear matrix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_matrixarray</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">categorie</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>  <span class="c1"># set all comboboxes = 'open'</span>
+                <span class="n">cb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QComboBox</span><span class="p">,</span> <span class="s2">"comboBox_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">categorie</span><span class="p">))</span>
+                <span class="n">cb</span><span class="o">.</span><span class="n">setCurrentIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">categorie</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">scene</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_connectionTable</span><span class="p">[</span><span class="n">categorie</span><span class="p">][</span><span class="s2">"List"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">color</span><span class="p">,</span> <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nets</span><span class="p">(</span><span class="n">categorie</span><span class="p">,</span> <span class="n">scene</span><span class="p">)</span>
+                    <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_inaktiv</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">nets</span><span class="p">:</span>
+                        <span class="n">row</span> <span class="o">=</span> <span class="n">net</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span><span class="o">.</span><span class="n">label_x</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"color: rgb</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">color</span><span class="p">)))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="nd">@disconnect</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dummy</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">discardTable</span><span class="p">()</span>
+
+    <span class="c1"># end extern calling attributes</span>
+    <span class="c1"># ======================================================================================</span>
+    <span class="c1">#</span>
+    <span class="c1"># connected GUI-function to buttons or menues</span>
+    <span class="c1">#</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Handle the activation of a combo box and publish the corresponding command based on the selected scenario."""</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subtopic</span> <span class="o">!=</span> <span class="p">[]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loadNames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">pos</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loadNames</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">.</span><span class="n">currentText</span><span class="p">()]</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"="</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s2">""</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">subtopic</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">categorie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lcb</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+            <span class="n">scenario</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">.</span><span class="n">currentText</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">scenario</span> <span class="o">==</span> <span class="s2">"open"</span><span class="p">:</span>
+                <span class="n">state</span> <span class="o">=</span> <span class="s2">"open"</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">categorie</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">state</span> <span class="o">=</span> <span class="s2">"close"</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">scenario</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"set()"</span><span class="p">,</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Gui.edit">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.edit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Handle the editing of the matrix by enabling the tab edit and allowing the user to modify the connection and constants tables."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">tabedit</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.close">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Handle the closing of the GUI by closing the matrix window and the main GUI window if necessary."""</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">event</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.load_connectionTable">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.load_connectionTable">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_connectionTable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Handle the loading of the connection table by publishing the corresponding command to retrieve the connection table data."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"load_connectionTable()"</span><span class="p">)</span></div>
+
+        <span class="c1"># if len(self.subtopic) &gt; 0:</span>
+        <span class="c1">#    self.parent.publish_get(self.subtopic[0], 'loadNames')</span>
+
+<div class="viewcode-block" id="Gui.discardTable">
+<a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.Gui.html#pylab_ml.gui.instruments.matrix.matrix.Gui.discardTable">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">discardTable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Handle the discarding of the table by resetting the instance name extension, MQTT status, and deleting all combo boxes."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instNameExtension</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_status</span>
+        <span class="k">for</span> <span class="n">lcb</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lcb</span><span class="p">:</span>
+            <span class="n">lcb</span><span class="o">.</span><span class="n">deleteLater</span><span class="p">()</span>
+            <span class="n">lcb</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">cb</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">:</span>
+            <span class="n">cb</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+            <span class="n">cb</span><span class="o">.</span><span class="n">deleteLater</span><span class="p">()</span>
+            <span class="n">cb</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lcb</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cb</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dic_constantsTable</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dic_connectionTable</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">PBclear</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionShow</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actiongetTable</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actiondiscardTable</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+    <span class="c1"># from pytestsharing.instruments.mqtt_client import mqtt_init</span>
+
+    <span class="c1"># broker = 127.0.0.1'</span>
+    <span class="c1"># message_client = 'ate/DT1604092/matrix'</span>
+    <span class="c1"># mqttclient = mqtt_init()                                                 # prepare mqtt</span>
+    <span class="c1"># mqttclient.init(None, message_client=message_client.split('/')[0])    # mqtt client connect to broker</span>
+    <span class="c1"># mqttclient.init()</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">Gui</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
+    <span class="c1"># window.scope.anim.event_source.stop()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

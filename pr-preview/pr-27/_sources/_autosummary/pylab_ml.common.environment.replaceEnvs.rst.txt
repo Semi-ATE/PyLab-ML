@@ -1,0 +1,6 @@
+pylab\_ml.common.environment.replaceEnvs
+========================================
+
+.. currentmodule:: pylab_ml.common.environment
+
+.. autofunction:: replaceEnvs

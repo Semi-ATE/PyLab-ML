@@ -1,0 +1,986 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pylab_ml.gui.instruments.base_instrument &mdash; PyLab-ML documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=fadf00a0" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            PyLab-ML
+              <img src="../../../../_static/mips.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pylab_ml.html">pylab_ml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.html">pylab_ml.attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.Child.html">pylab_ml.attributes.Child</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.attributes.create_attributes.html">pylab_ml.attributes.create_attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.html">pylab_ml.base_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.choicelogger.html">pylab_ml.base_instrument.choicelogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.createDummyifInvalid.html">pylab_ml.base_instrument.createDummyifInvalid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.logsetup.html">pylab_ml.base_instrument.logsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.measure.html">pylab_ml.base_instrument.measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.mqttclose.html">pylab_ml.base_instrument.mqttclose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.GeneralVisa.html">pylab_ml.base_instrument.GeneralVisa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.GenericInstrument.html">pylab_ml.base_instrument.GenericInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.Instrument.html">pylab_ml.base_instrument.Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.LocalInstrument.html">pylab_ml.base_instrument.LocalInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.NetworkInstrument.html">pylab_ml.base_instrument.NetworkInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.PxieInstrument.html">pylab_ml.base_instrument.PxieInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.TimeoutBudget.html">pylab_ml.base_instrument.TimeoutBudget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentConnection.html">pylab_ml.base_instrument.InvalidInstrumentConnection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction.html">pylab_ml.base_instrument.InvalidInstrumentCreateSessionFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.html">pylab_ml.baseclass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.base_measurement.html">pylab_ml.baseclass.base_measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.baseclass.base_natinst.html">pylab_ml.baseclass.base_natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.html">pylab_ml.collate_instrument</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.CollateInstrument.html">pylab_ml.collate_instrument.CollateInstrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.DefInter.html">pylab_ml.collate_instrument.DefInter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentDefinition.html">pylab_ml.collate_instrument.InstrumentDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentItem.html">pylab_ml.collate_instrument.InstrumentItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InstrumentLibrary.html">pylab_ml.collate_instrument.InstrumentLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.Interface.html">pylab_ml.collate_instrument.Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.collate_instrument.InterfaceItem.html">pylab_ml.collate_instrument.InterfaceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.html">pylab_ml.common</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.common.html">pylab_ml.common.common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.data.html">pylab_ml.common.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.environment.html">pylab_ml.common.environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.file_io.html">pylab_ml.common.file_io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.memorytest.html">pylab_ml.common.memorytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.mqtt_client.html">pylab_ml.common.mqtt_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.projectsetup.html">pylab_ml.common.projectsetup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.singleton.html">pylab_ml.common.singleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.common.spinner.html">pylab_ml.common.spinner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.html">pylab_ml.dmm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.keithley.html">pylab_ml.dmm.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dmm.natinst.html">pylab_ml.dmm.natinst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dummy.html">pylab_ml.dummy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.dummy.Dummy.html">pylab_ml.dummy.Dummy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.html">pylab_ml.example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.base_example.html">pylab_ml.example.base_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.example.eg.html">pylab_ml.example.eg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.gui.html">pylab_ml.gui</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.gui.instruments.html">pylab_ml.gui.instruments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.html">pylab_ml.ident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.find_names.html">pylab_ml.ident.find_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.ident.Ident.html">pylab_ml.ident.Ident</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.html">pylab_ml.matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.Pipx40.html">pylab_ml.matrix.Pipx40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.base_matrix.html">pylab_ml.matrix.base_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.base_pickering.html">pylab_ml.matrix.base_pickering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.matrix.pickering.html">pylab_ml.matrix.pickering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.html">pylab_ml.misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.iasvg.html">pylab_ml.misc.iasvg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.project_info.html">pylab_ml.misc.project_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.misc.registermaster.html">pylab_ml.misc.registermaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.position_controller.html">pylab_ml.position_controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.position_controller.pollux.html">pylab_ml.position_controller.pollux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.html">pylab_ml.scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.base_scope.html">pylab_ml.scope.base_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.lecroy.html">pylab_ml.scope.lecroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.natinst.html">pylab_ml.scope.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.scope.softscope.html">pylab_ml.scope.softscope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.html">pylab_ml.smu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.keithley.html">pylab_ml.smu.keithley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.natinst.html">pylab_ml.smu.natinst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.rohde_schwarz.html">pylab_ml.smu.rohde_schwarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.smu.tti.html">pylab_ml.smu.tti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.html">pylab_ml.thermostreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.base_thermostreamer.html">pylab_ml.thermostreamer.base_thermostreamer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../_autosummary/pylab_ml.thermostreamer.mpi_ta5k.html">pylab_ml.thermostreamer.mpi_ta5k</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_autosummary/pylab_ml.widgets.html">pylab_ml.widgets</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PyLab-ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pylab_ml.gui.instruments.base_instrument</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pylab_ml.gui.instruments.base_instrument</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">"""</span>
+<span class="sd">base_instrument.</span>
+
+<span class="sd">Copyright &lt;2022&gt; &lt;Christian  Jung, www.heli2.de&gt;</span>
+
+<span class="sd">Permission is hereby granted, free of charge, to any person obtaining a copy of this software</span>
+<span class="sd">and associated documentation files (the "Software"), to deal in the Software without restriction,</span>
+<span class="sd">including without limitation the rights to use, copy, modify, merge, publish, distribute,</span>
+<span class="sd">sublicense, and/or sell copies of the Software, and to permit persons to whom the Software</span>
+<span class="sd">is furnished to do so, subject to the following conditions:</span>
+
+<span class="sd">The above copyright notice and this permission notice shall be included in all copies or substantial</span>
+<span class="sd">portions of the Software.</span>
+
+<span class="sd">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING</span>
+<span class="sd">BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
+<span class="sd">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,</span>
+<span class="sd">DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="sd">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span>
+
+
+<span class="sd">Created on Fri Jan 14 11:56:24 2022</span>
+<span class="sd">@author: Christian Jung</span>
+
+
+<span class="sd">INFO:</span>
+<span class="sd">    icons von https://github.com/spyder-ide/qtawesome</span>
+<span class="sd">        conda install qtawesome</span>
+
+<span class="sd">Done:</span>
+<span class="sd">    read svg-files and connect id's to a mqtt-command</span>
+
+<span class="sd">"""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5</span><span class="w"> </span><span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">qtawesome</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.misc.iasvg</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveSvgWidget</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common.mqtt_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">mylogger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.common.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">str2num</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">"Christian Jung"</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">"Copyright 2022, Christian Jung"</span>
+<span class="n">__credits__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Christan Jung"</span><span class="p">]</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">"christian.jung@heli2.de"</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.0.5"</span>
+
+
+<div class="viewcode-block" id="load_ui">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.base_instrument.load_ui.html#pylab_ml.gui.instruments.base_instrument.load_ui">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_ui</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">my_uifile</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">my_uifile</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">".py"</span><span class="p">:</span>
+        <span class="n">my_uifile</span> <span class="o">=</span> <span class="n">my_uifile</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".py"</span><span class="p">,</span> <span class="s2">".ui"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">my_uifile</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"'</span><span class="si">%s</span><span class="s2">' doesn't exist"</span> <span class="o">%</span> <span class="n">my_uifile</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">uic</span><span class="o">.</span><span class="n">loadUi</span><span class="p">(</span><span class="n">my_uifile</span><span class="p">,</span> <span class="n">window</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Gui">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.base_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Gui</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Base Class for Gui Applikations with an Sensor/Instrument</span>
+<span class="sd">    Needs:</span>
+<span class="sd">        - mqtt-message from the parent</span>
+
+<span class="sd">    Provides:</span>
+<span class="sd">        - basic-Window for Instruments</span>
+<span class="sd">        - receive and show mqtt_status in the statusbar</span>
+<span class="sd">        - subtopic</span>
+<span class="sd">        - function mqttConnectWidgets: if Objects-name or an svg-id start with MQTT than automatically</span>
+<span class="sd">          connect this object to gui2mqtt() and send the new value about mqtt</span>
+<span class="sd">          recognise QT-objects: QCombobox, QPushButton, QDoubleSpinBox, QSpinBox, QLCDNumber, QLabel</span>
+<span class="sd">        - if the Gui starts, it send the mqtt connect message</span>
+<span class="sd">          if the Gui receive a mqtt connect, it send the the mqtt get from the list self.mqtt_initlist + self.mqtt_cmds</span>
+<span class="sd">    """</span>
+
+    <span class="n">_states</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"disconnect"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"disconnect"</span><span class="p">,</span> <span class="s2">"color: rgb(255, 0, 0)"</span><span class="p">],</span>
+        <span class="s2">"connect"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"connect"</span><span class="p">,</span> <span class="s2">"color: rgb(0, 255, 0)"</span><span class="p">],</span>
+        <span class="s2">"on"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"on"</span><span class="p">,</span> <span class="s2">"color: rgb(0, 255, 0)"</span><span class="p">],</span>
+        <span class="s2">"off"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">"off"</span><span class="p">,</span>
+            <span class="s2">"color: palette(HighlightedText)"</span><span class="p">,</span>
+        <span class="p">],</span>  <span class="c1"># { color: palette(dark); }#QPalette::HighlightedText</span>
+    <span class="p">}</span>
+    <span class="n">_mqttPrefix</span> <span class="o">=</span> <span class="s2">"MQTT_"</span>
+    <span class="n">_mqttSet</span> <span class="o">=</span> <span class="s2">"SET_"</span>
+    <span class="n">_mqttGet</span> <span class="o">=</span> <span class="s2">"GET_"</span>
+    <span class="n">_tabPrefix</span> <span class="o">=</span> <span class="s2">"TAB_"</span>
+
+<div class="viewcode-block" id="Gui.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.base_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grandparent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parentwindow</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Init the Gui, create a window and load the ui-file with the same name as the class.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            grandparent : object, optional</span>
+<span class="sd">                The parent object that contains the MQTT client and other shared resources. The default is None.</span>
+<span class="sd">            name : string, optional</span>
+<span class="sd">                The name of the instrument, used for MQTT topics and window title. The default is None.</span>
+<span class="sd">            parentwindow : QtWidgets.QWidget, optional</span>
+<span class="sd">                The parent window for the GUI. The default is None.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">mylogger</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">grandparent</span><span class="p">,</span> <span class="s2">"logger"</span><span class="p">)</span> <span class="k">else</span> <span class="n">grandparent</span><span class="o">.</span><span class="n">logger</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentwindow</span> <span class="o">=</span> <span class="n">parentwindow</span> <span class="k">if</span> <span class="n">parentwindow</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">grandparent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">(</span><span class="n">parentwindow</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instName</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instNameExtension</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grandparent</span> <span class="o">=</span> <span class="n">grandparent</span>
+        <span class="n">load_ui</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="vm">__file__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="n">window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adjustUI</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">geometry</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">closeEvent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">close</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_onoff_</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span> <span class="o">=</span> <span class="s2">"disconnect"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"disconnect"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topinstname</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_subtopic</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lastsvgcolour</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_initlist</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_cmds</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"mqtt_status"</span><span class="p">,</span> <span class="s2">"connect"</span><span class="p">)</span>  <span class="c1"># I'm alive</span></div>
+
+        <span class="c1"># self.gui.myframe.setEnabled(True)</span>
+
+<div class="viewcode-block" id="Gui.adjustUI">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.adjustUI">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">adjustUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Adjust the UI, set the title and icons and connect the quit action. """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">" </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="si">}</span><span class="s2">-Gui (Version </span><span class="si">{</span><span class="n">__version__</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QCoreApplication</span><span class="o">.</span><span class="n">translate</span>
+        <span class="c1"># set icons:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionQuit</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span>
+            <span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span>
+                <span class="s2">"ei.remove-sign"</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span>
+                <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                <span class="n">color_active</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># set connect:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">actionQuit</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">close</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runToolBar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="s2">"Run"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runMenu</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+
+<div class="viewcode-block" id="Gui.add_menue">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.add_menue">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_menue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">menue</span><span class="p">,</span> <span class="n">connect</span><span class="p">,</span> <span class="n">enabled</span><span class="p">,</span> <span class="n">checkable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">checked</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Add a menue item to Setup</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            menue : string</span>
+<span class="sd">                The text of the menu item.</span>
+<span class="sd">            connect : function</span>
+<span class="sd">                The function to be called when the menu item is triggered.</span>
+<span class="sd">            enabled : bool</span>
+<span class="sd">                Whether the menu item is enabled.</span>
+<span class="sd">            checkable : bool, optional</span>
+<span class="sd">                Whether the menu item is checkable. The default is False.</span>
+<span class="sd">            checked : bool, optional</span>
+<span class="sd">                Whether the menu item is checked. The default is False.</span>
+<span class="sd">        """</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QAction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
+        <span class="n">action</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">menue</span><span class="p">)</span>
+        <span class="n">action</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
+        <span class="n">action</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="n">enabled</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">checkable</span><span class="p">:</span>
+            <span class="n">action</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">action</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="n">checked</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">menuSetup</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">action</span></div>
+
+
+<div class="viewcode-block" id="Gui.add_menuicon">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.add_menuicon">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_menuicon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typ</span><span class="p">,</span> <span class="n">connect</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Add icon and action to the menu.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            typ : string</span>
+<span class="sd">                The type of the menu item.</span>
+<span class="sd">            connect : function, optional</span>
+<span class="sd">                The function to be called when the menu item is triggered. The default is None.W</span>
+
+<span class="sd">        "onoff" : on/off</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runMenu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QAction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runToolBar</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runMenu</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">typ</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runToolBar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runMenu</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">connect</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runMenu</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">"onoff"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runMenu</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"ei.play"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"green"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">0.6</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runMenu</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_onoff</span><span class="p">())</span>
+        <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s2">"clear"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runMenu</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"ei.remove"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">0.6</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Gui.retranslateUi">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.retranslateUi">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">retranslateUi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Form</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Retranslate the UI, set the text of the widgets. """</span>
+        <span class="n">_translate</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QCoreApplication</span><span class="o">.</span><span class="n">translate</span>
+        <span class="n">Form</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"Form"</span><span class="p">,</span> <span class="s2">"Form"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checkBox</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"Form"</span><span class="p">,</span> <span class="s2">"CheckBox"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">_translate</span><span class="p">(</span><span class="s2">"Form"</span><span class="p">,</span> <span class="s2">"Label"</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Gui.setLabel">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.setLabel">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Set the text of a label.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            Label : object</span>
+<span class="sd">                the label object.</span>
+<span class="sd">            value : string</span>
+<span class="sd">                this text will be displayed.</span>
+<span class="sd">            ext : string, optional</span>
+<span class="sd">                extention,  The default is None.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">Label</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">text</span><span class="p">[:</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">':'</span><span class="p">)]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">if</span> <span class="n">ext</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">ext</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">Label</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.set_Geometry">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.set_Geometry">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_Geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geometry</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Set the geometry of the GUI, check if the geometry is on the actual screen.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            geometry : tuple</span>
+<span class="sd">                A tuple of the form (x, y, width, height) representing the geometry of the GUI.</span>
+<span class="sd">        """</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QDesktopWidget</span><span class="p">()</span><span class="o">.</span><span class="n">screenCount</span><span class="p">()):</span>
+            <span class="n">screen</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QDesktopWidget</span><span class="p">()</span><span class="o">.</span><span class="n">screenGeometry</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">screen</span><span class="o">.</span><span class="n">x</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">geometry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">screen</span><span class="o">.</span><span class="n">y</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">geometry</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">geometry</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">geometry</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">geometry</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">geometry</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Warning: coudn't set last geometry for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">, it is out of the actual screen"</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">subtopic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Return the subtopic of the instrument, which is the part after the topinstname. """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtopic</span>
+
+    <span class="nd">@subtopic</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">subtopic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_subtopic</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">return</span>
+        <span class="n">split</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_subtopic</span> <span class="o">=</span> <span class="p">[</span><span class="n">split</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="k">if</span> <span class="n">split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topinstname</span> <span class="k">else</span> <span class="p">[</span><span class="n">split</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+
+<div class="viewcode-block" id="Gui.filtersubtopic">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.filtersubtopic">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filtersubtopic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Filter the subtopic from the value, if the value starts with the topinstname. """</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">value</span><span class="p">[</span><span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topinstname</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topinstname</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">topinstname</span>
+            <span class="k">else</span> <span class="n">value</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.unitOfMeasurement">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.unitOfMeasurement">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">unitOfMeasurement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Convert a value with a unit to its numerical representation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            value : string</span>
+<span class="sd">                The value with a unit (e.g., "10 k").</span>
+<span class="sd">            unit : string, optional</span>
+<span class="sd">                The unit to use for conversion. If None, the unit is inferred from the value.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            float</span>
+<span class="sd">                The numerical representation of the value.</span>
+<span class="sd">        """</span>
+        <span class="n">split</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">split</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">unit</span> <span class="o">=</span> <span class="n">split</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">split</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">unit</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">unit</span>
+        <span class="n">mul</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="s2">"M"</span><span class="p">:</span>
+            <span class="n">mul</span> <span class="o">=</span> <span class="mi">1000000</span>
+        <span class="k">elif</span> <span class="n">unit</span> <span class="o">==</span> <span class="s2">"k"</span><span class="p">:</span>
+            <span class="n">mul</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="k">elif</span> <span class="n">unit</span> <span class="o">==</span> <span class="s2">"m"</span><span class="p">:</span>
+            <span class="n">mul</span> <span class="o">=</span> <span class="mf">0.001</span>
+        <span class="k">elif</span> <span class="n">unit</span> <span class="o">==</span> <span class="s2">"u"</span><span class="p">:</span>
+            <span class="n">mul</span> <span class="o">=</span> <span class="mf">0.000001</span>
+        <span class="k">elif</span> <span class="n">unit</span> <span class="o">==</span> <span class="s2">"n"</span><span class="p">:</span>
+            <span class="n">mul</span> <span class="o">=</span> <span class="mf">0.000000001</span>
+        <span class="k">return</span> <span class="n">result</span> <span class="o">*</span> <span class="n">mul</span></div>
+
+
+<div class="viewcode-block" id="Gui.objectName2mqttName">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.objectName2mqttName">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">objectName2mqttName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Filter from the object name the right MQTT name.</span>
+
+<span class="sd">        eg. objectname  = MQTT_voltage     -&gt; Voltage listen on get and set</span>
+<span class="sd">                        = MQTT_set_I_limit -&gt; I_limit listen only on set</span>
+<span class="sd">                        = MQTT_get_I_limit -&gt; I_limit listen only on get</span>
+<span class="sd">                        = TAB_ch           -&gt; Name for a tab-name</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            name : string</span>
+<span class="sd">                The object name to be filtered.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            listen : string</span>
+<span class="sd">                The type of MQTT command to listen for ("set", "get", or "").</span>
+<span class="sd">            result : string</span>
+<span class="sd">                The filtered MQTT name extracted from the object name.</span>
+<span class="sd">        """</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mqttPrefix</span><span class="p">)</span>
+        <span class="n">listen</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mqttPrefix</span><span class="p">)</span>
+            <span class="n">listen</span> <span class="o">=</span> <span class="s2">""</span>
+            <span class="n">setget</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="n">pos</span><span class="p">:]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mqttSet</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">setget</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">pos</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mqttSet</span><span class="p">)</span>
+                <span class="n">listen</span> <span class="o">=</span> <span class="s2">"set"</span>
+            <span class="n">setget</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="n">pos</span><span class="p">:]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mqttGet</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">setget</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">pos</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mqttSet</span><span class="p">)</span>
+                <span class="n">listen</span> <span class="o">=</span> <span class="s2">"get"</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="n">pos</span><span class="p">:]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tabPrefix</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pos</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tabPrefix</span>
+        <span class="k">return</span> <span class="n">listen</span><span class="p">,</span> <span class="n">result</span></div>
+
+
+    <span class="c1"># =======================================================</span>
+    <span class="c1"># attributes which connect to an extern call (mqtt-command)</span>
+<div class="viewcode-block" id="Gui.mqttreceive">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.base_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.mqttreceive">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mqttreceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Common MQTT receive messages, get raw MQTT data for receiving more information.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            instName : string</span>
+<span class="sd">                The name of the instrument sending the MQTT message.</span>
+<span class="sd">            msg : dict</span>
+<span class="sd">                The MQTT message received, expected to have keys "cmd", "payload", and "type".</span>
+<span class="sd">            check : bool, optional</span>
+<span class="sd">                If True, only process the message if the command is in self.mqtt_cmds. The default is False.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            result : bool</span>
+<span class="sd">                True if the message was processed successfully, False otherwise.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s1">'        </span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s1">.mqttreceive from base class:   search </span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="s2">"cmd"</span> <span class="ow">in</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="s2">"payload"</span> <span class="ow">in</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_cmds</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">check</span><span class="p">):</span>
+            <span class="n">typ</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="n">widget</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span>
+                <span class="sa">f</span><span class="s1">'MQTT_</span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">'MQTT_</span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+            <span class="p">]:</span>  <span class="c1"># search for corresponding widget</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+                    <span class="n">widget</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="n">widget</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"svgWidgets"</span><span class="p">):</span>  <span class="c1"># search for corresponding svg-id</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s1">'        now search for </span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="si">}</span><span class="s1"> in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">svgWidgets</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">svgWidgets</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s2">"        </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.mqttreceive base:  found svgWidgets: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">svgwidget</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">svgWidgets</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">element</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">][</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+                        <span class="n">svgwidget</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">svgWidgets</span><span class="p">[</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                    <span class="n">svgwidget</span><span class="o">.</span><span class="n">setIdText</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s2">"        </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.mqttreceive base:  set </span><span class="si">{</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">element</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s1">'payload'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">widget</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s1">'    Warning </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1">.mqttreceive base: </span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s1">, cmd=</span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="si">}</span><span class="s1"> type= msg["type"] not implemented yet !'</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s1">'    </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1">.mqttreceive base: </span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s1">, found </span><span class="si">{</span><span class="n">widget</span><span class="o">.</span><span class="n">objectName</span><span class="p">()</span><span class="si">}</span><span class="s1">, type=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span><span class="si">}</span><span class="s1"> value=</span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">"payload"</span><span class="p">],</span> <span class="n">default</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">twidget</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">twidget</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+                <span class="n">widget</span><span class="p">[</span><span class="s2">"svgelement"</span><span class="p">]</span><span class="o">.</span><span class="n">getchildren</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">result</span>
+            <span class="k">if</span> <span class="n">twidget</span> <span class="o">==</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QComboBox</span><span class="p">:</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">blockSignals</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">widget</span><span class="o">.</span><span class="n">count</span><span class="p">()):</span>
+                    <span class="n">itemvalue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unitOfMeasurement</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">itemText</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="n">itemvalue</span><span class="p">:</span>
+                        <span class="k">break</span>
+                    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">itemText</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="k">break</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">setCurrentIndex</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s1">'    </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1">.mqttreceive base: </span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s1">, cmd=</span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="si">}</span><span class="s1">  done'</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">twidget</span> <span class="o">==</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">:</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">blockSignals</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span> <span class="k">else</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">textchoice</span><span class="p">):</span>
+                    <span class="n">widget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">textchoice</span><span class="p">[</span><span class="n">value</span><span class="p">])</span>
+                <span class="c1"># if value == 1:</span>
+                <span class="c1">#     widget.setStyleSheet("color: palette(HighlightedText);background-color: #19c9ff;")</span>
+                <span class="c1"># elif value == 0:</span>
+                <span class="c1">#     widget.setStyleSheet("color: palette(HighlightedText);background-color: transparent;")</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">twidget</span> <span class="ow">in</span> <span class="p">[</span>
+                <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QDoubleSpinBox</span><span class="p">,</span>
+                <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QSpinBox</span><span class="p">,</span>
+                <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLCDNumber</span><span class="p">,</span>
+            <span class="p">]:</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">blockSignals</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">"value"</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">twidget</span> <span class="o">==</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLabel</span><span class="p">:</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">blockSignals</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s1">'    </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s1">.mqttreceive base: </span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s1">, cmd=</span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="si">}</span><span class="s1"> widget=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span><span class="si">}</span><span class="s1">  not yet implemented -&gt; improve it !'</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">widget</span><span class="o">.</span><span class="n">blockSignals</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s1">'        </span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s1">.mqttreceive from base:  </span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="si">}</span><span class="s1"> not found in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mqtt_cmds</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Return the id of the instrument, which is used for MQTT topics. """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id</span>
+
+    <span class="nd">@id</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instNameExtension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_status</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Return the MQTT status of the instrument, which is either "connect" or "disconnect". """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s2">"   </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.mqtt_status == </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span><span class="si">}</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">myInstrument</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span>
+
+    <span class="nd">@mqtt_status</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s2">"   </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.mqtt_status := </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"disconnect"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"mqtt_status"</span><span class="p">,</span> <span class="s2">"connect"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"connect"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span> <span class="o">==</span> <span class="s2">"disconnect"</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s2">"   now ask for init values  </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mqtt_initlist</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mqtt_cmds</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_initlist</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_cmds</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">attribute</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"!"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s2">"       </span><span class="si">{</span><span class="n">attribute</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">grandparent</span><span class="o">.</span><span class="n">mqtt</span><span class="o">.</span><span class="n">publish_get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">myInstrument</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Gui.gui_disconnect">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.gui_disconnect">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gui_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Disconnect the GUI, set the MQTT status to "disconnect" and disable the frame. """</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="s2">"disconnect"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"mqtt_status"</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">myInstrument</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+    <span class="c1"># end extern calling attributes</span>
+    <span class="c1"># ======================================================================================</span>
+    <span class="c1">#</span>
+    <span class="c1"># connected GUI-function to buttons or menues</span>
+    <span class="c1">#</span>
+
+<div class="viewcode-block" id="Gui.mqttConnectWidgets">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.mqttConnectWidgets">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mqttConnectWidgets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Connect all object which start with MQTT_ to the function gui2mqtt().</span>
+
+<span class="sd">        Create a list with all commands in self.mqtt_cmds</span>
+<span class="sd">        """</span>
+        <span class="k">for</span> <span class="n">objectname</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="p">):</span>
+            <span class="n">listen</span><span class="p">,</span> <span class="n">mqtt_objectname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objectName2mqttName</span><span class="p">(</span><span class="n">objectname</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mqtt_objectname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_cmds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mqtt_objectname</span><span class="p">)</span>
+                <span class="n">widget</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="p">,</span> <span class="n">objectname</span><span class="p">)</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">listen</span> <span class="o">=</span> <span class="n">listen</span>
+                <span class="n">connect</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QComboBox</span><span class="p">:</span>
+                    <span class="n">connect</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">activated</span>
+                <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="o">==</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">:</span>
+                    <span class="n">connect</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">clicked</span>
+                    <span class="n">widget</span><span class="o">.</span><span class="n">textchoice</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">text</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">";"</span><span class="p">)</span>
+                    <span class="n">widget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">textchoice</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span>
+                    <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QDoubleSpinBox</span><span class="p">,</span>
+                    <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QSpinBox</span><span class="p">,</span>
+                <span class="p">]:</span>
+                    <span class="n">connect</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">valueChanged</span>
+                <span class="k">if</span> <span class="n">connect</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">connect</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="k">lambda</span> <span class="n">widget</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="n">widget</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui2mqtt</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                    <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLCDNumber</span><span class="p">,</span>
+                    <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLabel</span><span class="p">,</span>
+                <span class="p">]:</span>  <span class="c1"># the widgets in the table needs normaly only receiver</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">"Error:   base_instrument.mqttConnectWidgets: </span><span class="si">{</span><span class="n">objectname</span><span class="si">}</span><span class="s2"> with widget </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span><span class="si">}</span><span class="s2"> connect not yet implemented -&gt; improve it !!"</span>
+                    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.mqttConnectSVGWidget">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.mqttConnectSVGWidget">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mqttConnectSVGWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Create an InteractiveSvgWidget and load the filname.</span>
+<span class="sd">        Connect all clicks to the text id's to the function svg2mqtt().</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            filename : string</span>
+<span class="sd">                The path to the SVG file to be loaded into the widget.</span>
+<span class="sd">            name : string</span>
+<span class="sd">                The base name for the widget, used for MQTT topic construction.</span>
+<span class="sd">            channel : string, optional</span>
+<span class="sd">                An optional channel identifier to be appended to the name for MQTT topic construction. The default is None.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            svgWidget : InteractiveSvgWidget</span>
+<span class="sd">                The created InteractiveSvgWidget with the loaded SVG file and connected signals.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"svgWidgets"</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">svgWidgets</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># firstname = f'{name}({channel})' if channel is not None else name              #todo mqtt send = ch(0) not possible yet</span>
+        <span class="n">firstname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}{</span><span class="n">channel</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">channel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">name</span>
+        <span class="n">svgWidget</span> <span class="o">=</span> <span class="n">InteractiveSvgWidget</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">firstname</span><span class="o">=</span><span class="n">firstname</span><span class="p">)</span>
+        <span class="n">svgWidget</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"background-color: white;"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">svgWidgets</span><span class="p">[</span><span class="n">firstname</span><span class="p">]</span> <span class="o">=</span> <span class="n">svgWidget</span>
+        <span class="n">svgWidget</span><span class="o">.</span><span class="n">changedId</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">svg2mqtt</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">svgWidget</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_onoff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Toggle the on/off state of the instrument, send the corresponding MQTT command and update the menu icon and status. """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mqtt_status</span> <span class="o">==</span> <span class="s2">"disconnect"</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_onoff_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"off()"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"no channel defined"</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_onoff_</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"on()"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runMenu</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"ei.pause"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_onoff_</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"on"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"off()"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">runMenu</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"ei.play"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"green"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_onoff_</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"off"</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Return the current status message from the status bar."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">statusbar</span><span class="o">.</span><span class="n">currentMessage</span><span class="p">()</span>
+
+    <span class="nd">@status</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Set the status message and style in the status bar."""</span>
+        <span class="n">style</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="nb">tuple</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">style</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_states</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_states</span><span class="p">[</span><span class="n">value</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">style</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_states</span><span class="p">[</span><span class="n">value</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">style</span> <span class="o">==</span> <span class="s2">"color: palette(HighlightedText);background-color: transparent;"</span> <span class="k">if</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">style</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">statusbar</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">statusbar</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Gui.publish">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.publish">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Publish a command and value over MQTT.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            cmd : string</span>
+<span class="sd">                The command to be published.</span>
+<span class="sd">            value : string, optional</span>
+<span class="sd">                The value associated with the command. The default is an empty string.</span>
+<span class="sd">            instName : string, optional</span>
+<span class="sd">                The name of the instrument. If None, the instance's name is used. The default is None.</span>
+<span class="sd">        """</span>
+        <span class="n">instName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instName</span> <span class="k">if</span> <span class="n">instName</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">instName</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grandparent</span><span class="p">,</span> <span class="s2">"mqtt"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grandparent</span><span class="o">.</span><span class="n">mqtt</span><span class="p">,</span> <span class="s2">"publish_set"</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">grandparent</span><span class="o">.</span><span class="n">mqtt</span><span class="o">.</span><span class="n">publish_set</span><span class="p">(</span><span class="n">instName</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: </span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2"> := </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">   but no publish_set defined!"</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.gui2mqtt">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.gui2mqtt">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gui2mqtt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Function connect a Gui-widget to mqtt, it sends a mqtt set command with the value from the Gui-widget.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            widget : QtWidgets.QWidget</span>
+<span class="sd">                The GUI widget that triggered the MQTT command, expected to have an objectName that follows the</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            None.</span>
+<span class="sd">        """</span>
+        <span class="n">listen</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objectName2mqttName</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">objectName</span><span class="p">())</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">objectName</span><span class="p">()</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">name</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.gui2mqtt </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">typ</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">typ</span> <span class="o">==</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QComboBox</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unitOfMeasurement</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">currentText</span><span class="p">())</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">widget</span><span class="o">.</span><span class="n">isChecked</span><span class="p">()</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">typ</span> <span class="ow">in</span> <span class="p">[</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QDoubleSpinBox</span><span class="p">,</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QSpinBox</span><span class="p">]:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Warning: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="si">}</span><span class="s2">.gui2mqtt </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">  widget=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span><span class="si">}</span><span class="s2"> not yet implemented -&gt; improve it !!!!!!"</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.svg2mqtt">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.svg2mqtt">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">svg2mqtt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Publish the name and value over mqtt.</span>
+<span class="sd">        Overwrite this function if you need a more complex form.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : string</span>
+<span class="sd">            The name of the SVG element that was changed.</span>
+<span class="sd">        value : string</span>
+<span class="sd">            The new value of the SVG element.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Gui.isVisible">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.isVisible">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">isVisible</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Return whether the GUI is currently visible. """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">isVisible</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.hide">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.hide">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Hide the GUI. """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.show">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.show">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Show the GUI. """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.close">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.base_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Close the GUI, publish a disconnect message and call the appclosed method of the grandparent if it exists. """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"mqtt_status"</span><span class="p">,</span> <span class="s2">"disconnect"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grandparent</span><span class="p">,</span> <span class="s2">"appclosed"</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">grandparent</span><span class="o">.</span><span class="n">appclosed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instName</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Gui.dprint">
+<a class="viewcode-back" href="../../../../_autosummary/pylab_ml.gui.instruments.template_instrument.Gui.html#pylab_ml.gui.instruments.base_instrument.Gui.dprint">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dprint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">""" Print a debug message if debugging is enabled. """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">pass</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+    <span class="c1"># from mqtt_client import mqtt_init</span>
+
+    <span class="c1"># broker = 127.0.0.1'</span>
+    <span class="c1"># message_client = 'ate/DT1604092/matrix'</span>
+    <span class="c1"># mqttclient = mqtt_init()                                              # prepare mqtt</span>
+    <span class="c1"># mqttclient.init(None, message_client=message_client.split('/')[0])    # mqtt client connect to broker</span>
+    <span class="c1"># mqttclient.init()</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">Gui</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s2">"My Instrument"</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Semi-ATE contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
