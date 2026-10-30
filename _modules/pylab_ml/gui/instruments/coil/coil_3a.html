@@ -184,8 +184,8 @@
   <h1>Source code for pylab_ml.gui.instruments.coil.coil_3a</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">"""</span>
-<span class="sd">This script defines a GUI class for a coil instrument, which is part of the PyLab-ML project. </span>
-<span class="sd">The GUI allows users to interact with the coil instrument, send MQTT commands, and receive updates. </span>
+<span class="sd">This script defines a GUI class for a coil instrument, which is part of the PyLab-ML project.</span>
+<span class="sd">The GUI allows users to interact with the coil instrument, send MQTT commands, and receive updates.</span>
 <span class="sd">The class inherits from a base instrument GUI class and implements specific functionality for the coil instrument.</span>
 
 <span class="sd">Created on Mon Jan  3 09:19:17 2022</span>
@@ -195,7 +195,6 @@
 <span class="sd">"""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">qdarkstyle</span>
 
 <span class="c1"># import numpy as np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -233,7 +232,7 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"scope"</span><span class="p">,</span> <span class="n">parentwindow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize the GUI for the coil instrument.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            parent: object, optional</span>
@@ -294,7 +293,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">mqttreceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Handle incoming MQTT messages and update the GUI accordingly.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            instName: str</span>
@@ -381,7 +380,6 @@
     <span class="c1"># mqttclient.init()</span>
 
     <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">qdarkstyle</span><span class="o">.</span><span class="n">load_stylesheet_pyqt5</span><span class="p">())</span>
     <span class="n">window</span> <span class="o">=</span> <span class="n">Gui</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
     <span class="c1"># window.scope.anim.event_source.stop()</span>

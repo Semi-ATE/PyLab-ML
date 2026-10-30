@@ -218,7 +218,6 @@
 <span class="sd">"""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">qdarkstyle</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5</span><span class="w"> </span><span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">qtawesome</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qta</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylab_ml.misc.iasvg</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveSvgWidget</span>
@@ -282,7 +281,7 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grandparent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parentwindow</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Init the Gui, create a window and load the ui-file with the same name as the class.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            grandparent : object, optional</span>
@@ -316,8 +315,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_lastsvgcolour</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_initlist</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_cmds</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"mqtt_status"</span><span class="p">,</span> <span class="s2">"connect"</span><span class="p">)</span>  <span class="c1"># I'm alive</span>
-        <span class="n">window</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">qdarkstyle</span><span class="o">.</span><span class="n">load_stylesheet_pyqt5</span><span class="p">())</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">"mqtt_status"</span><span class="p">,</span> <span class="s2">"connect"</span><span class="p">)</span>  <span class="c1"># I'm alive</span></div>
 
         <span class="c1"># self.gui.myframe.setEnabled(True)</span>
 
@@ -348,7 +346,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">add_menue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">menue</span><span class="p">,</span> <span class="n">connect</span><span class="p">,</span> <span class="n">enabled</span><span class="p">,</span> <span class="n">checkable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">checked</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Add a menue item to Setup</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            menue : string</span>
@@ -417,7 +415,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">setLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Set the text of a label.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            Label : object</span>
@@ -443,7 +441,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">set_Geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geometry</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Set the geometry of the GUI, check if the geometry is on the actual screen.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            geometry : tuple</span>
@@ -489,7 +487,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">unitOfMeasurement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Convert a value with a unit to its numerical representation.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            value : string</span>
@@ -529,12 +527,12 @@
 <span class="sd">                        = MQTT_set_I_limit -&gt; I_limit listen only on set</span>
 <span class="sd">                        = MQTT_get_I_limit -&gt; I_limit listen only on get</span>
 <span class="sd">                        = TAB_ch           -&gt; Name for a tab-name</span>
-<span class="sd">                        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            name : string</span>
 <span class="sd">                The object name to be filtered.</span>
-<span class="sd">                </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            listen : string</span>
@@ -571,7 +569,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">mqttreceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Common MQTT receive messages, get raw MQTT data for receiving more information.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            instName : string</span>
@@ -580,12 +578,12 @@
 <span class="sd">                The MQTT message received, expected to have keys "cmd", "payload", and "type".</span>
 <span class="sd">            check : bool, optional</span>
 <span class="sd">                If True, only process the message if the command is in self.mqtt_cmds. The default is False.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            result : bool</span>
 <span class="sd">                True if the message was processed successfully, False otherwise.</span>
-<span class="sd">        """</span>    
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dprint</span><span class="p">(</span><span class="sa">f</span><span class="s1">'        </span><span class="si">{</span><span class="n">instName</span><span class="si">}</span><span class="s1">.mqttreceive from base class:   search </span><span class="si">{</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="s2">"cmd"</span> <span class="ow">in</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="s2">"payload"</span> <span class="ow">in</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">and</span> <span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">"cmd"</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mqtt_cmds</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">check</span><span class="p">):</span>
@@ -762,7 +760,7 @@
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Create an InteractiveSvgWidget and load the filname.</span>
 <span class="sd">        Connect all clicks to the text id's to the function svg2mqtt().</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            filename : string</span>
@@ -771,7 +769,7 @@
 <span class="sd">                The base name for the widget, used for MQTT topic construction.</span>
 <span class="sd">            channel : string, optional</span>
 <span class="sd">                An optional channel identifier to be appended to the name for MQTT topic construction. The default is None.</span>
-<span class="sd">                </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            svgWidget : InteractiveSvgWidget</span>
@@ -831,7 +829,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">instName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Publish a command and value over MQTT.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            cmd : string</span>
@@ -853,12 +851,12 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">gui2mqtt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Function connect a Gui-widget to mqtt, it sends a mqtt set command with the value from the Gui-widget.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            widget : QtWidgets.QWidget</span>
 <span class="sd">                The GUI widget that triggered the MQTT command, expected to have an objectName that follows the</span>
-<span class="sd">                </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            None.</span>
@@ -889,7 +887,7 @@
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Publish the name and value over mqtt.</span>
 <span class="sd">        Overwrite this function if you need a more complex form.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        name : string</span>

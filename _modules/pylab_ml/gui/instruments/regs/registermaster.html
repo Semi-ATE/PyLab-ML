@@ -196,7 +196,6 @@
 <span class="sd">"""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">qdarkstyle</span>
 
 <span class="c1"># import numpy as np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -238,7 +237,7 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"reg"</span><span class="p">,</span> <span class="n">parentwindow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize the GUI for the registermaster.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            parent: QWidget, optional</span>
@@ -305,7 +304,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">mqttreceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Common MQTT receive messages, get raw MQTT data for more information.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            instName: str</span>
@@ -339,7 +338,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">registerframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Update the register frame in the GUI with the given register and value.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            register: Register</span>
@@ -366,7 +365,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">show_regs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QGroupBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="p">))</span>
             <span class="n">myregister</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">show_regs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">load_ui</span><span class="p">(</span><span class="n">myregister</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">"register.ui"</span><span class="p">))</span>  <span class="c1"># QBregister</span>
-            <span class="n">myregister</span><span class="o">.</span><span class="n">Bhold</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"fa5s.thumbtack"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color_active</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">))</span>
+            <span class="n">myregister</span><span class="o">.</span><span class="n">Bhold</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"fa5s.thumbtack"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"grey"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color_active</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">))</span>
             <span class="n">myregister</span><span class="o">.</span><span class="n">Bhold</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">toggleBhold</span><span class="p">(</span><span class="n">myregister</span><span class="o">.</span><span class="n">Bhold</span><span class="p">))</span>
             <span class="c1"># self.myframe.Name.mousePressEvent = self.readreg(register._name)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">myframe</span><span class="o">.</span><span class="n">QVBregisters</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">myregister</span><span class="p">)</span>
@@ -508,9 +507,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">toggleBhold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hold</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Toggle the state of the hold button and update its icon accordingly."""</span>
         <span class="k">if</span> <span class="n">hold</span><span class="o">.</span><span class="n">isChecked</span><span class="p">():</span>
-            <span class="n">hold</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"fa5s.thumbtack"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color_active</span><span class="o">=</span><span class="s2">"white"</span><span class="p">))</span>
+            <span class="n">hold</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"fa5s.thumbtack"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color_active</span><span class="o">=</span><span class="s2">"grey"</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">hold</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"fa5s.thumbtack"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color_active</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">))</span></div>
+            <span class="n">hold</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">qta</span><span class="o">.</span><span class="n">icon</span><span class="p">(</span><span class="s2">"fa5s.thumbtack"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"grey"</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color_active</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="Gui.showregdoc">
@@ -548,7 +547,6 @@
     <span class="c1"># mqttclient.init()</span>
 
     <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">qdarkstyle</span><span class="o">.</span><span class="n">load_stylesheet_pyqt5</span><span class="p">())</span>
     <span class="n">window</span> <span class="o">=</span> <span class="n">Gui</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
     <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>

@@ -184,7 +184,7 @@
   <h1>Source code for pylab_ml.gui.instruments.matrix.matrix</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">"""</span>
-<span class="sd">This script defines a GUI class for a matrix instrument, which is part of the PyLab-ML project. </span>
+<span class="sd">This script defines a GUI class for a matrix instrument, which is part of the PyLab-ML project.</span>
 <span class="sd">The GUI allows users to interact with the matrix instrument, send MQTT commands, and receive updates.</span>
 
 <span class="sd">Created on Fri Jul 10 13:43:20 2020</span>
@@ -204,7 +204,6 @@
 <span class="c1">#       farbige Darstellung von connections und wire</span>
 <span class="c1">#   kleinere Darstellung der Matrix ....</span>
 <span class="c1">#</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">qdarkstyle</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5</span><span class="w"> </span><span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">QtWidgets</span>
@@ -224,7 +223,7 @@
 <a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.VerticalLabel.html#pylab_ml.gui.instruments.matrix.matrix.VerticalLabel">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">VerticalLabel</span><span class="p">(</span><span class="n">QLabel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">""" VerticalLabel is a custom QLabel that displays text vertically. It overrides the paintEvent to rotate the text. """</span>
-    
+
 <div class="viewcode-block" id="VerticalLabel.__init__">
 <a class="viewcode-back" href="../../../../../_autosummary/pylab_ml.gui.instruments.matrix.matrix.VerticalLabel.html#pylab_ml.gui.instruments.matrix.matrix.VerticalLabel.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -282,7 +281,7 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"matrix"</span><span class="p">,</span> <span class="n">parentwindow</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize the GUI for the matrix instrument.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            parent: QWidget, optional</span>
@@ -365,7 +364,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">create_CBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Create a combo box and its associated label for the given index.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            index: int</span>
@@ -437,7 +436,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">update_CBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Update the combo box and its associated label for the given index, name, and color.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            index: int</span>
@@ -501,7 +500,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">source_object</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span> <span class="o">=</span> <span class="n">matrix_window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">matrix_window</span><span class="o">.</span><span class="n">nets</span> <span class="o">=</span> <span class="n">nets</span>
-        <span class="n">matrix_window</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">qdarkstyle</span><span class="o">.</span><span class="n">load_stylesheet_pyqt5</span><span class="p">())</span>
         <span class="n">matrix_window</span><span class="o">.</span><span class="n">setMinimumSize</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">X_OFFSET</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_STEP</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_RLABELWIDTH</span> <span class="o">+</span> <span class="mi">30</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">Y_OFFSET</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_TLABELHIGH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_max</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_STEP</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_BLABELHIGH</span> <span class="o">+</span> <span class="mi">30</span><span class="p">,</span>
@@ -551,12 +549,12 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">color_inaktiv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Calculate the inactive color based on the given color and the COLOR_INAKTIV factor.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            color : tuple</span>
 <span class="sd">                The RGB color to be modified.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            result : tuple</span>
@@ -572,14 +570,14 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_nets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">categorie</span><span class="p">,</span> <span class="n">scenario</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Get the nets for a given category and scenario from the connection table.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            categorie : str</span>
 <span class="sd">                The category of the nets.</span>
 <span class="sd">            scenario : str</span>
 <span class="sd">                The scenario of the nets.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            color : tuple</span>
@@ -604,7 +602,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">create_net</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Create a radio button representing a net at the given x and y coordinates.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            form : QWidget</span>
@@ -613,7 +611,7 @@
 <span class="sd">                The x-coordinate of the net.</span>
 <span class="sd">            y : int</span>
 <span class="sd">                The y-coordinate of the net.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            radioButton : QRadioButton</span>
@@ -648,7 +646,7 @@
 <span class="sd">            x== -2   -&gt; place wire text right</span>
 <span class="sd">            y== -1   -&gt; pace wire number at top vertical</span>
 <span class="sd">            y== -2   -&gt; pace wire text at bottom vertical</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            form : QWidget</span>
@@ -663,7 +661,7 @@
 <span class="sd">                    -2: place wire text at the bottom</span>
 <span class="sd">            text : str, optional</span>
 <span class="sd">                The text to display on the label. If None, default text will be used based on the coordinates.</span>
-<span class="sd">                </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            label : QLabel</span>
@@ -736,7 +734,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">edit_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">source_object</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Handle the mouse press event on a label to allow editing of the label's text.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            event : QMouseEvent</span>
@@ -744,7 +742,7 @@
 <span class="sd">            source_object : QLabel, optional</span>
 <span class="sd">                The label that was clicked, triggering the edit. If None, the event's source will be used.</span>
 <span class="sd">        """</span>
-        
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">source_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">editfinish_label</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -770,7 +768,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">create_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Create a line (horizontal or vertical) in the given form.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            form : QWidget</span>
@@ -779,7 +777,7 @@
 <span class="sd">                The x-coordinate or special value indicating a horizontal line (-1).</span>
 <span class="sd">            y : int</span>
 <span class="sd">                The y-coordinate or special value indicating a vertical line (-1).</span>
-<span class="sd">                </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">            line : QFrame</span>
@@ -828,7 +826,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">mqttreceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instName</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Handle incoming MQTT messages and update the GUI elements accordingly.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">            instName : str</span>
@@ -1104,7 +1102,6 @@
     <span class="c1"># mqttclient.init()</span>
 
     <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">qdarkstyle</span><span class="o">.</span><span class="n">load_stylesheet_pyqt5</span><span class="p">())</span>
     <span class="n">window</span> <span class="o">=</span> <span class="n">Gui</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
     <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
     <span class="c1"># window.scope.anim.event_source.stop()</span>
