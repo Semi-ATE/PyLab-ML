@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-This script defines a GUI class for a matrix instrument, which is part of the PyLab-ML project. 
+This script defines a GUI class for a matrix instrument, which is part of the PyLab-ML project.
 The GUI allows users to interact with the matrix instrument, send MQTT commands, and receive updates.
 
 Created on Fri Jul 10 13:43:20 2020
@@ -20,7 +20,6 @@ TODO:
 #       farbige Darstellung von connections und wire
 #   kleinere Darstellung der Matrix ....
 #
-import qdarkstyle
 import numpy as np
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -38,7 +37,7 @@ __version__ = "0.0.3"
 
 class VerticalLabel(QLabel):
     """ VerticalLabel is a custom QLabel that displays text vertically. It overrides the paintEvent to rotate the text. """
-    
+
     def __init__(self, *args):
         """Initialize the VerticalLabel."""
         QLabel.__init__(self, *args)
@@ -82,7 +81,7 @@ class Gui(Guibase):
     def __init__(self, parent=None, name="matrix", parentwindow=None):
         """
         Initialize the GUI for the matrix instrument.
-        
+
         Parameters
         ----------
             parent: QWidget, optional
@@ -159,7 +158,7 @@ class Gui(Guibase):
     def create_CBox(self, index):
         """
         Create a combo box and its associated label for the given index.
-        
+
         Parameters
         ----------
             index: int
@@ -225,7 +224,7 @@ class Gui(Guibase):
     def update_CBox(self, index, name, color):
         """
         Update the combo box and its associated label for the given index, name, and color.
-        
+
         Parameters
         ----------
             index: int
@@ -286,7 +285,6 @@ class Gui(Guibase):
         self.lineEdit.source_object = None
         self.matrix_window = matrix_window
         self.matrix_window.nets = nets
-        matrix_window.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
         matrix_window.setMinimumSize(
             self.X_OFFSET + (self.x_max + 1) * self.X_STEP + self.X_RLABELWIDTH + 30,
             self.Y_OFFSET + self.Y_TLABELHIGH + self.y_max * self.Y_STEP + self.Y_BLABELHIGH + 30,
@@ -327,12 +325,12 @@ class Gui(Guibase):
     def color_inaktiv(self, color):
         """
         Calculate the inactive color based on the given color and the COLOR_INAKTIV factor.
-        
+
         Parameters
         ----------
             color : tuple
                 The RGB color to be modified.
-        
+
         Returns
         -------
             result : tuple
@@ -345,14 +343,14 @@ class Gui(Guibase):
     def get_nets(self, categorie, scenario):
         """
         Get the nets for a given category and scenario from the connection table.
-        
+
         Parameters
         ----------
             categorie : str
                 The category of the nets.
             scenario : str
                 The scenario of the nets.
-        
+
         Returns
         -------
             color : tuple
@@ -374,7 +372,7 @@ class Gui(Guibase):
     def create_net(self, form, x, y):
         """
         Create a radio button representing a net at the given x and y coordinates.
-        
+
         Parameters
         ----------
             form : QWidget
@@ -383,7 +381,7 @@ class Gui(Guibase):
                 The x-coordinate of the net.
             y : int
                 The y-coordinate of the net.
-        
+
         Returns
         -------
             radioButton : QRadioButton
@@ -415,7 +413,7 @@ class Gui(Guibase):
             x== -2   -> place wire text right
             y== -1   -> pace wire number at top vertical
             y== -2   -> pace wire text at bottom vertical
-        
+
         Parameters
         ----------
             form : QWidget
@@ -430,7 +428,7 @@ class Gui(Guibase):
                     -2: place wire text at the bottom
             text : str, optional
                 The text to display on the label. If None, default text will be used based on the coordinates.
-                
+
         Returns
         -------
             label : QLabel
@@ -500,7 +498,7 @@ class Gui(Guibase):
     def edit_label(self, event, source_object=None):
         """
         Handle the mouse press event on a label to allow editing of the label's text.
-        
+
         Parameters
         ----------
             event : QMouseEvent
@@ -508,7 +506,7 @@ class Gui(Guibase):
             source_object : QLabel, optional
                 The label that was clicked, triggering the edit. If None, the event's source will be used.
         """
-        
+
         if self.lineEdit.source_object is not None:
             self.editfinish_label()
         if event.button() == 1:
@@ -528,7 +526,7 @@ class Gui(Guibase):
     def create_line(self, form, x, y):
         """
         Create a line (horizontal or vertical) in the given form.
-        
+
         Parameters
         ----------
             form : QWidget
@@ -537,7 +535,7 @@ class Gui(Guibase):
                 The x-coordinate or special value indicating a horizontal line (-1).
             y : int
                 The y-coordinate or special value indicating a vertical line (-1).
-                
+
         Returns
         -------
             line : QFrame
@@ -580,7 +578,7 @@ class Gui(Guibase):
     def mqttreceive(self, instName, msg):
         """
         Handle incoming MQTT messages and update the GUI elements accordingly.
-        
+
         Parameters
         ----------
             instName : str
@@ -839,7 +837,6 @@ if __name__ == "__main__":
     # mqttclient.init()
 
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     window = Gui(app)
     app.exec_()
     # window.scope.anim.event_source.stop()

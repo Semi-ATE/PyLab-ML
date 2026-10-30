@@ -15,7 +15,6 @@ Todo:
 import os
 import time
 import qtawesome as qta
-import qdarkstyle
 from PyQt5 import uic
 from qtpy.QtCore import Signal
 from PyQt5 import QtWidgets, QtCore
@@ -23,10 +22,6 @@ from PyQt5 import QtWidgets, QtCore
 from qtpy.QtWidgets import QHBoxLayout
 from spyder.api.translations import get_translation
 
-if __name__ == "__main__":
-    import sys
-    from PyQt5.QtWidgets import QApplication
-    app = QApplication(sys.argv)
 from spyder.api.widgets.main_widget import PluginMainWidget
 from ate_projectdatabase.Utils import DB_KEYS
 from ate_projectdatabase.FileOperator import DBObject, FileOperator
@@ -97,7 +92,6 @@ class LabGui(PluginMainWidget):
         self.plugin = plugin
         self.gui = LabGuiDialog()
         self.adjustUI()
-        self.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
         self.closeEvent = self.close
         self.reset()
         self.project_info = None
@@ -318,31 +312,3 @@ class LabGui(PluginMainWidget):
     def debug_stop(self):
         ''' do update the state of lab gui when the test application is stoped '''
         pass
-
-
-if __name__ == "__main__":
-    from ate_spyder.widgets.navigation import ProjectNavigation
-    from PyQt5.QtWidgets import QApplication
-    from qtpy.QtWidgets import QMainWindow
-    import sys
-
-    QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_ShareOpenGLContexts)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-    app.references = set()
-    main = QMainWindow()
-    homedir = os.path.expanduser("~")
-    project_directory = homedir + r'\ATE\packages\envs\semi-ate-awinia1\HATB'       # path to your semi-ate project
-    project_directory = homedir + r'\Work Folders\Projecte\Repository\hatc\0203\units\lab\source\python\HATC'
-    project_info = ProjectNavigation(project_directory, homedir, main)
-    project_info.active_hardware = 'HW0'
-    project_info.active_base = 'FT'
-    project_info.active_target = 'Device1'
-
-    main.NAME = 'lab_gui'
-    main.WIDGET_CLASS = LabGui
-    main.CONF_SECTION = main.NAME
-
-    labgui = LabGui('Lab Gui', main, main)
-    labgui.setup_widget(project_info)
-    main.show()
-    sys.exit(app.exec_())

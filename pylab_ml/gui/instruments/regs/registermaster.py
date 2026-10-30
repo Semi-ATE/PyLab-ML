@@ -12,7 +12,6 @@ TODO:
 """
 
 import sys
-import qdarkstyle
 
 # import numpy as np
 import os
@@ -50,7 +49,7 @@ class Gui(Guibase):
     def __init__(self, parent=None, name="reg", parentwindow=None, channel=None):
         """
         Initialize the GUI for the registermaster.
-        
+
         Parameters
         ----------
             parent: QWidget, optional
@@ -108,7 +107,7 @@ class Gui(Guibase):
     def mqttreceive(self, instName, msg):
         """
         Common MQTT receive messages, get raw MQTT data for more information.
-        
+
         Parameters
         ----------
             instName: str
@@ -139,7 +138,7 @@ class Gui(Guibase):
     def registerframe(self, register, value):
         """
         Update the register frame in the GUI with the given register and value.
-        
+
         Parameters
         ----------
             register: Register
@@ -166,7 +165,7 @@ class Gui(Guibase):
             self.show_regs.append(QtWidgets.QGroupBox(self.myframe))
             myregister = self.show_regs[-1]
             load_ui(myregister, os.path.join(os.path.dirname(__file__), "register.ui"))  # QBregister
-            myregister.Bhold.setIcon(qta.icon("fa5s.thumbtack", color="white", scale_factor=1.0, color_active="orange"))
+            myregister.Bhold.setIcon(qta.icon("fa5s.thumbtack", color="grey", scale_factor=1.0, color_active="orange"))
             myregister.Bhold.clicked.connect(lambda: self.toggleBhold(myregister.Bhold))
             # self.myframe.Name.mousePressEvent = self.readreg(register._name)
             self.myframe.QVBregisters.addWidget(myregister)
@@ -293,9 +292,9 @@ class Gui(Guibase):
     def toggleBhold(self, hold):
         """Toggle the state of the hold button and update its icon accordingly."""
         if hold.isChecked():
-            hold.setIcon(qta.icon("fa5s.thumbtack", color="orange", scale_factor=1.0, color_active="white"))
+            hold.setIcon(qta.icon("fa5s.thumbtack", color="orange", scale_factor=1.0, color_active="grey"))
         else:
-            hold.setIcon(qta.icon("fa5s.thumbtack", color="white", scale_factor=1.0, color_active="orange"))
+            hold.setIcon(qta.icon("fa5s.thumbtack", color="grey", scale_factor=1.0, color_active="orange"))
 
     def showregdoc(self):
         """Show or hide the documentation for all registers based on the state of the corresponding actions."""
@@ -325,7 +324,6 @@ if __name__ == "__main__":
     # mqttclient.init()
 
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     window = Gui(app)
 
     app.exec_()
