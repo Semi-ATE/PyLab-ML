@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-This script defines a GUI class for a coil instrument, which is part of the PyLab-ML project. 
-The GUI allows users to interact with the coil instrument, send MQTT commands, and receive updates. 
+This script defines a GUI class for a coil instrument, which is part of the PyLab-ML project.
+The GUI allows users to interact with the coil instrument, send MQTT commands, and receive updates.
 The class inherits from a base instrument GUI class and implements specific functionality for the coil instrument.
 
 Created on Mon Jan  3 09:19:17 2022
@@ -11,7 +11,6 @@ TODO:
 """
 
 import sys
-import qdarkstyle
 
 # import numpy as np
 import os
@@ -45,7 +44,7 @@ class Gui(Guibase):
     def __init__(self, parent=None, name="scope", parentwindow=None, channel=None):
         """
         Initialize the GUI for the coil instrument.
-        
+
         Parameters
         ----------
             parent: object, optional
@@ -97,7 +96,7 @@ class Gui(Guibase):
     def mqttreceive(self, instName, msg):
         """
         Handle incoming MQTT messages and update the GUI accordingly.
-        
+
         Parameters
         ----------
             instName: str
@@ -176,7 +175,6 @@ if __name__ == "__main__":
     # mqttclient.init()
 
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     window = Gui(app)
     app.exec_()
     # window.scope.anim.event_source.stop()

@@ -11,7 +11,6 @@ TODO:
 """
 
 import sys
-import qdarkstyle
 
 # import numpy as np
 import os
@@ -47,7 +46,7 @@ class Gui(Guibase):
     def __init__(self, parent=None, name="scope", parentwindow=None, channel=None):
         """
         Initialize the GUI for the SMU instrument.
-        
+
         Parameters
         ----------
             parent : QWidget, optional
@@ -114,7 +113,7 @@ class Gui(Guibase):
     def mqttreceive(self, instName, msg):
         """
         Common MQTT receive messages, get raw MQTT data for more information.
-        
+
         Parameters
         ----------
             instName : str
@@ -289,7 +288,6 @@ if __name__ == "__main__":
     # mqttclient.init()
 
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     window = Gui(app)
     app.exec_()
     # window.scope.anim.event_source.stop()

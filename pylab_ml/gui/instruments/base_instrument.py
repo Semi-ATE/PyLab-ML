@@ -34,7 +34,6 @@ Done:
 """
 
 import os
-import qdarkstyle
 from PyQt5 import QtCore, QtWidgets, uic
 import qtawesome as qta
 from pylab_ml.misc.iasvg import InteractiveSvgWidget
@@ -91,7 +90,7 @@ class Gui(object):
     def __init__(self, grandparent=None, name=None, parentwindow=None):
         """
         Init the Gui, create a window and load the ui-file with the same name as the class.
-        
+
         Parameters
         ----------
             grandparent : object, optional
@@ -126,7 +125,6 @@ class Gui(object):
         self.mqtt_initlist = []
         self.mqtt_cmds = []
         self.publish("mqtt_status", "connect")  # I'm alive
-        window.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
         # self.gui.myframe.setEnabled(True)
 
     def adjustUI(self):
@@ -151,7 +149,7 @@ class Gui(object):
     def add_menue(self, menue, connect, enabled, checkable=False, checked=False):
         """
         Add a menue item to Setup
-        
+
         Parameters
         ----------
             menue : string
@@ -211,7 +209,7 @@ class Gui(object):
     def setLabel(self, Label, value, ext=None):
         """
         Set the text of a label.
-        
+
         Parameters
         ----------
             Label : object
@@ -234,7 +232,7 @@ class Gui(object):
     def set_Geometry(self, geometry):
         """
         Set the geometry of the GUI, check if the geometry is on the actual screen.
-        
+
         Parameters
         ----------
             geometry : tuple
@@ -274,7 +272,7 @@ class Gui(object):
     def unitOfMeasurement(self, value, unit=None):
         """
         Convert a value with a unit to its numerical representation.
-        
+
         Parameters
         ----------
             value : string
@@ -311,12 +309,12 @@ class Gui(object):
                         = MQTT_set_I_limit -> I_limit listen only on set
                         = MQTT_get_I_limit -> I_limit listen only on get
                         = TAB_ch           -> Name for a tab-name
-                        
+
         Parameters
         ----------
             name : string
                 The object name to be filtered.
-                
+
         Returns
         -------
             listen : string
@@ -350,7 +348,7 @@ class Gui(object):
     def mqttreceive(self, instName, msg, check=False):
         """
         Common MQTT receive messages, get raw MQTT data for receiving more information.
-        
+
         Parameters
         ----------
             instName : string
@@ -359,12 +357,12 @@ class Gui(object):
                 The MQTT message received, expected to have keys "cmd", "payload", and "type".
             check : bool, optional
                 If True, only process the message if the command is in self.mqtt_cmds. The default is False.
-        
+
         Returns
         -------
             result : bool
                 True if the message was processed successfully, False otherwise.
-        """    
+        """
         self.dprint(f'        {instName}.mqttreceive from base class:   search {msg["cmd"]}')
         result = False
         if "cmd" in tuple(msg.keys()) and "payload" in tuple(msg.keys()) and (msg["cmd"] in self.mqtt_cmds or not check):
@@ -532,7 +530,7 @@ class Gui(object):
         """
         Create an InteractiveSvgWidget and load the filname.
         Connect all clicks to the text id's to the function svg2mqtt().
-        
+
         Parameters
         ----------
             filename : string
@@ -541,7 +539,7 @@ class Gui(object):
                 The base name for the widget, used for MQTT topic construction.
             channel : string, optional
                 An optional channel identifier to be appended to the name for MQTT topic construction. The default is None.
-                
+
         Returns
         -------
             svgWidget : InteractiveSvgWidget
@@ -598,7 +596,7 @@ class Gui(object):
     def publish(self, cmd, value="", instName=None):
         """
         Publish a command and value over MQTT.
-        
+
         Parameters
         ----------
             cmd : string
@@ -617,12 +615,12 @@ class Gui(object):
     def gui2mqtt(self, widget):
         """
         Function connect a Gui-widget to mqtt, it sends a mqtt set command with the value from the Gui-widget.
-        
+
         Parameters
         ----------
             widget : QtWidgets.QWidget
                 The GUI widget that triggered the MQTT command, expected to have an objectName that follows the
-                
+
         Returns
         -------
             None.
@@ -650,7 +648,7 @@ class Gui(object):
         """
         Publish the name and value over mqtt.
         Overwrite this function if you need a more complex form.
-        
+
         Parameters
         ----------
         name : string

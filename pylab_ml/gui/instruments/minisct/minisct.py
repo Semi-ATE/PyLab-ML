@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-This script defines a GUI class for the MiniSCT instrument, which is part of the PyLab-ML project. 
-The GUI allows users to interact with the MiniSCT instrument, send MQTT commands, and receive updates. 
+This script defines a GUI class for the MiniSCT instrument, which is part of the PyLab-ML project.
+The GUI allows users to interact with the MiniSCT instrument, send MQTT commands, and receive updates.
 The class inherits from a base instrument GUI class and implements specific functionality for the MiniSCT instrument.
 
 Created on Mon Jan  3 09:19:17 2022
@@ -12,7 +12,6 @@ TODO:
 """
 
 import sys
-import qdarkstyle
 import os
 from PyQt5 import QtWidgets
 import qtawesome as qta
@@ -104,7 +103,7 @@ class Gui(Guibase):
     def __init__(self, parent, name="miniSCT", parentwindow=None, channel=None):
         """
         Initialize the GUI for the MiniSCT instrument.
-        
+
         Parameters
         ----------
             parent: object
@@ -218,7 +217,7 @@ class Gui(Guibase):
     def mqttreceive(self, instName, msg):
         """
         Common MQTT receive messages, get raw MQTT data for more information.
-        
+
         Parameters
         ----------
             instName: str
@@ -273,7 +272,7 @@ class Gui(Guibase):
         """
         Overwrite from the base_instrument.svg2mqtt.
         Translate svg-names to his mqtt command.
-        
+
         Parameters
         ----------
             name: str
@@ -314,7 +313,6 @@ if __name__ == "__main__":
     mqttclient.init()
 
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     window = Gui(app)
     app.exec_()
     # window.scope.anim.event_source.stop()
