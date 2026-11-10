@@ -1,0 +1,33 @@
+pylab\_ml.plugins.stdf\_browser
+===============================
+
+.. automodule:: pylab_ml.plugins.stdf_browser
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   api
+   plugin
+

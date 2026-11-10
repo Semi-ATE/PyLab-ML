@@ -40,6 +40,7 @@
    ident
    matrix
    misc
+   plugins
    position_controller
    scope
    smu
