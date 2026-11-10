@@ -24,9 +24,9 @@ classifiers = [
     "Operating System :: Microsoft :: Windows",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Education",
     "Intended Audience :: Science/Research",
@@ -50,6 +50,7 @@ dependencies = [
     "nidmm==1.4.2",
     "niscope==1.4.1",
     "nitclk==1.4.1",
+    "numpy",
     "matplotlib",
     "paho-mqtt",
     "pandas",
@@ -61,6 +62,8 @@ dependencies = [
     "regex",
     "svgelements",
     "semi-ate-common",
+    "Semi-ATE-Metis",
+    "tables",
     "pyyaml"
 ]
 
@@ -86,6 +89,7 @@ test = [
 
 [project.entry-points."spyder.plugins"]
     lab_gui = "plugin_gui:LabGuiPlugin"
+    Stdf = "pylab_ml.plugins.stdf_browser.plugin:StdfBrowser"
 
 [project.scripts]
     enter_semiate = "pylab_ml.scripts.enter_semiate:main"

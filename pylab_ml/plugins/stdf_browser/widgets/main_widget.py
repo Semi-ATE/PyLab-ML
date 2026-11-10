@@ -6,23 +6,17 @@ Stdf Main Widget.
 """
 
 # Third party imports
-from PyQt5 import QtWidgets, QtCore
 from qtpy.QtWidgets import QHBoxLayout
 
 # Local imports
-from spyder.api.config.decorators import on_conf_change
 from spyder.api.translations import get_translation
 from spyder.api.widgets.main_widget import PluginMainWidgetMenus
 from spyder.api.widgets.main_widget import PluginMainWidget
 from spyder.utils.misc import getcwd_or_home
-from spyder.utils.palette import QStylePalette
-from stdf_browser.widgets.showstdf import Test_Results
+from pylab_ml.plugins.stdf_browser.widgets.showstdf import Test_Results
 
 # Localization
 _ = get_translation("spyder")
-
-
-MAIN_BG_COLOR = QStylePalette.COLOR_BACKGROUND_1
 
 
 # --- Constants
@@ -55,6 +49,10 @@ class StdfWidgetToolbarItems:
 # ----------------------------------------------------------------------------
 class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,PluginMainWidget
     """ Main widget for the STDF plugin. """
+    
+    SHOW_MESSAGE_WHEN_EMPTY = False
+    IMAGE_WHEN_EMPTY = "plots"
+    MESSAGE_WHEN_EMPTY = _("No result to show")
 
     def __init__(self, name=None, plugin=None, parent=None):
         """ Initialize the main widget. 
@@ -72,7 +70,7 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
         #QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_ShareOpenGLContexts)
 
         # Widgets
-        self.widget = Test_Results(parent=self, background_color=MAIN_BG_COLOR)
+        self.widget = Test_Results(parent=self)        
 
         # Resize to a huge width to get the right size of the thumbnail
         # scrollbar at startup.
@@ -92,6 +90,7 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
 
     def setup(self):
         """ Setup the main widget. This is called after the widget is created and before it is shown for the first time. """
+        print("   StdfWidget.setup()")
         layout = QHBoxLayout()
         layout.addWidget(self.widget)
         self.setLayout(layout)
@@ -113,7 +112,7 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
             tip=_("Import data..."),
             icon=self.create_icon("fileimport"),
             triggered=self.import_data,
-            # register_shortcut=True,                # uesed in the plot-plugin from spyder, but in this plugin an exceptin occure :-()
+            # register_shortcut=True,                # used in the plot-plugin from spyder, but in this plugin an exceptin occure :-()
         )
 
         reload_data_action = self.create_action(
@@ -160,6 +159,7 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
         context_menu = self.create_menu(PluginMainWidgetMenus.Context)
         for item in [import_data_action]:
             self.add_item_to_menu(item, menu=context_menu)
+        print("   StdfWidget.setup() done")
 
     def update_actions(self):
         """ Update the enabled/disabled state of actions based on the current context. """
@@ -193,6 +193,7 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
 
     def on_close(self):
         """ Handle the widget being closed. """
+        print("   StdfWidget.on_close")
         return super().on_close()
 
     # ---- Public API:
@@ -200,12 +201,12 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
 
     def import_data(self):
         """Import data."""
-        print('StdfWidget.import_data')
+        print('   StdfWidget.import_data')
         self.widget.open_files()
 
     def reload_data(self):
         """Reload data."""
-        print('StdfWidget.reload_data')
+        print('   StdfWidget.reload_data')
         if self.widget.filename != "":
             self.widget.open_files(self.widget.path + "/" + self.widget.filename)
         else:
@@ -213,8 +214,9 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
 
     def set_filename(self, path, filename):
         """ Set the filename and path for the widget. """
+        print(f"   StdfWidget.set_filename({path}, {filename})")                
         self.widget.path = path
-        self.widget.filename = filename.lower() + ".stdf"
+        self.widget.filename = filename + ".stdf"
 
     def graph_show(self):
         """Show graph."""

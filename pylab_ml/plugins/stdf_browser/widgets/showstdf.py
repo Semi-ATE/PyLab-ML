@@ -28,9 +28,6 @@ import numpy as np
 # spyder library imports
 from spyder.api.widgets.mixins import SpyderWidgetMixin
 
-__author__ = "Hariharan Karthikeyan"
-__credits__ = ["Hariharan Karthikeyan"]
-__email__ = "Hariharan.Karthikeyan@tdk.com"
 __version__ = "0.0.5"
 
 
