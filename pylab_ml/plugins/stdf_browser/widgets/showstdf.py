@@ -1212,6 +1212,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         results = self.tableWidget_ptr.item(selectIndex, TaPtrItems["Results"]).text()[1:-1].split(" ")
         data = []
         for value in results:
+            value = value[0:value.find(',')] if value.find(',')>0 else value
             if value != "":
                 data.append(str2float(value))
         if ltl != utl:
