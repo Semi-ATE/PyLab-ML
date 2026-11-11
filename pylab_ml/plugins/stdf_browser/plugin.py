@@ -94,7 +94,7 @@ class StdfBrowser(SpyderDockablePlugin):
         if msg == "terminated" or (msg == "idle" and self._testing):
             widget: StdfWidget = self.get_widget()        
             widget.set_filename(widget.widget.path, widget._filename)
-            # widget.reload_data()
+            widget.reload_data()
         elif msg== "idle":
             self._testing = True
 
