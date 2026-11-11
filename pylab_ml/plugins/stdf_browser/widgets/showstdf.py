@@ -179,7 +179,7 @@ class showStdf:
 
         # Making separate dataframe to concatenate the results of various IC's
         # of a particular test to a single list
-        ptr2.drop(columns=ptr2.columns[0], axis=1, inplace=True)
+        ptr2.drop(columns=ptr2.columns[0], inplace=True)
 
         # Deleting the duplicate rows in the 'TestNo' column
         ptr.drop_duplicates(subset=["TestNo"], inplace=True, ignore_index=True)
@@ -315,8 +315,7 @@ class showStdf:
                     "MPR.START_IN",
                     "MPR.INCR_IN",
                     "MPR.RTN_INDX",
-                ],
-                axis=1,
+                ]
             )
 
             # Creating empty lists which will be used in the below operation
@@ -346,7 +345,7 @@ class showStdf:
 
             # Adding 'Result' and 'Test_Failed' columns
             mpr = mpr.assign(Results=res_split, Test_Failed=test_failed_mpr, Units=units)
-            mpr = mpr.drop(["Result"], axis=1)
+            mpr = mpr.drop(["Result"])
 
             # Storing 'Mean', 'Maximum', 'Minimum' and 'Root Mean Square' value
             # of test results of a test in 'max_result' variable
