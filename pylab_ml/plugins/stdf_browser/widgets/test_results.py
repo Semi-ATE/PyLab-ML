@@ -15,7 +15,7 @@ import os
 from qtpy import PYQT5
 from qtpy.QtCore import Signal, Qt, QCoreApplication
 from qtpy.QtWidgets import (QApplication, QWidget, QFileDialog, QMenu,
-                            QTableWidgetItem, QVBoxLayout)
+                            QTableWidgetItem, QVBoxLayout, QAbstractItemView)
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qtagg import (
     FigureCanvasQTAgg as FigureCanvas,
@@ -57,6 +57,23 @@ TaPtrItems = {
     "ICFailed": 17,
 }
 
+
+TaMprItems = {
+    "TestNo": 0,
+    "Test": 1,
+    "PART_INDEX": 2,
+    "Result_Count": 3,
+    "LSL": 4,
+    "LTL": 5,
+    "Results": 6,
+    "UTL": 7,
+    "USL": 8,
+    "Mean": 9,
+    "Min": 10,
+    "Max": 11,
+    "RMS": 12,
+    "Test Failed": 13,
+}
 
 class PlotWindow(QWidget):
     """Eigenständiges, wiederverwendbares Fenster mit Matplotlib-Canvas."""
@@ -101,6 +118,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
     It inherits from QWidget and SpyderWidgetMixin to create a custom widget for displaying test results.
     """
     sig_data_changed = Signal()
+    sig_mpr_selection_changed = Signal()
 
 
     def __init__(self, parent=None, background_color=None):
@@ -129,30 +147,43 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         self.lot = ""
         self.ptr_table = pd.DataFrame()
         self.mpr_table = pd.DataFrame()
-        self.last_selected_row = -1
-        self.clicked_index = []
         self.plot_window = None
         self._updating = False
 
         self.filename = ""
         self.adjustUI()
         self._connect_signals()
+        self.update_tabs()
 
     def _connect_signals(self):
         # currentCellChanged reagiert auf Maus UND Tastatur
         self.tableWidget_ptr.currentCellChanged.connect(self._on_ptr_cell_changed)
-        self.tableWidget_mpr.currentCellChanged.connect(self._on_mpr_cell_changed)
-        # Klick auf bereits gewählte Zeile: geschlossenes Plotfenster wieder zeigen
         self.tableWidget_ptr.cellClicked.connect(self._reshow_plot_window)
-        self.tableWidget_mpr.cellClicked.connect(self._reshow_plot_window)
 
+        # MPR: ganze Zeilen, Mehrfachauswahl (Strg/Shift), KEIN automatischer Plot
+        self.tableWidget_mpr.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.tableWidget_mpr.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        self.tableWidget_mpr.selectionModel().selectionChanged.connect(
+            self._on_mpr_selection_changed)
+
+        # Filter
         self.enter_filter_test_name_ptr.textChanged.connect(self.filter_test_name_ptr)
         self.enter_filter_test_name_mpr.textChanged.connect(self.filter_test_name_mpr)
-        self.tabWidget.currentChanged.connect(lambda _: self.keyPressEvent(None))
+        # Nach dem Filtern können ausgewählte Zeilen ausgeblendet sein -> Icon neu prüfen
+        self.enter_filter_test_name_mpr.textChanged.connect(
+            lambda _: self.sig_mpr_selection_changed.emit())
+
+        self.tabWidget.currentChanged.connect(self._on_tab_changed)
 
     def adjustUI(self):
         """ This method is used to adjust the UI elements of the PyQt window, such as setting the column width of the 'QTableWidget' and hiding the progress bar and status labels."""
         self.set_column_width()
+        self._arrange_columns()
+
+        # header_item = self.tableWidget_mpr.horizontalHeaderItem(TaMprItems["Test"])
+        # if header_item is not None:
+        #     header_item.setText("Test Name")
+        #     print("setText")
         self.progressBar.hide()
         self.lstatus.setText("")
         self.llotid.setText("")
@@ -163,6 +194,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         self.ptr_table = pd.DataFrame()
         self.mpr_table = pd.DataFrame()
         self.keyPressEvent(None)
+        self.update_tabs()
         if self.plot_window is not None:
             self.plot_window.close()
         self.sig_data_changed.emit()
@@ -199,6 +231,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
             self._updating = True
             self.keyPressEvent(None)
             self._fill_tables()
+            self.update_tabs()
         finally:
             self._updating = False
             self.progressBar.hide()
@@ -224,7 +257,8 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         self.fill_ptr_data()
         self.fill_mpr_data()
         self.set_column_width()
-        self.colour_pass_fail_ptr_data()
+        if self.has_ptr():
+            self.colour_pass_fail_ptr_data()
         if self.has_mpr():
             self.colour_pass_fail_mpr_data()
 
@@ -262,8 +296,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         """
         table = self.tableWidget_mpr
         if not self.has_mpr():
-            table.setRowCount(1)
-            table.setItem(0, 2, QTableWidgetItem("MPR data is empty"))
+            table.setRowCount(0)
             return
 
         columns = list(self.mpr_table.columns[0:14])
@@ -277,6 +310,9 @@ class Test_Results(QWidget, SpyderWidgetMixin):
             self.printProgressBar(col + 1, len(columns))
 
     def has_data(self):
+        return self.has_ptr() or self.has_mpr()
+
+    def has_ptr(self):
         return isinstance(self.ptr_table, pd.DataFrame) and not self.ptr_table.empty
 
     def has_mpr(self):
@@ -705,11 +741,10 @@ class Test_Results(QWidget, SpyderWidgetMixin):
                 self.tableWidget_mpr.item(j, 6).setForeground(QtGui.QColor(0, 255, 0))
                 self.tableWidget_mpr.item(j, 13).setForeground(QtGui.QColor(0, 255, 0))
             else:
-
                 # Red Colour if test is failed
-                self.tableWidget_mpr.item(j, 1).setForeground(QtGui.QColor(255, 0, 0))
-                self.tableWidget_mpr.item(j, 6).setForeground(QtGui.QColor(255, 0, 0))
-                self.tableWidget_mpr.item(j, 13).setForeground(QtGui.QColor(255, 0, 0))
+                self.tableWidget_mpr.item(j, TaMprItems["Test"]).setForeground(QtGui.QColor(255, 0, 0))
+                self.tableWidget_mpr.item(j, TaMprItems["Results"]).setForeground(QtGui.QColor(255, 0, 0))
+                self.tableWidget_mpr.item(j, TaMprItems["Test Failed"]).setForeground(QtGui.QColor(255, 0, 0))
 
     @property
     def filename(self):
@@ -766,6 +801,24 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         # bar = fill * filledLength + "-" * (length - filledLength)
         self.update_Progress_bar(iteration, total)
 
+    def update_tabs(self):
+        """PTR-/MPR-Display the register only if the corresponding data is available"""
+        tabs = [
+            (self._tab_index_of(self.tableWidget_ptr), self.has_ptr()),
+            (self._tab_index_of(self.tableWidget_mpr), self.has_mpr()),
+        ]
+        for index, visible in tabs:
+            if index >= 0:
+                self.tabWidget.setTabVisible(index, visible)
+
+        # Falls das aktuelle Register ausgeblendet wurde -> auf sichtbares wechseln
+        current = self.tabWidget.currentIndex()
+        if current < 0 or not self.tabWidget.isTabVisible(current):
+            for index, visible in tabs:
+                if index >= 0 and visible:
+                    self.tabWidget.setCurrentIndex(index)
+                    break
+
     def update_Progress_bar(self, count, maxcount):
         """
         This method is used to update the progress bar in the PyQt window.
@@ -809,6 +862,47 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         except (ValueError, IndexError):
             return None   # z.B. leere Grenze ("inf" wurde zu "")
 
+    # ---- Register ein-/ausblenden
+    def _tab_index_of(self, widget):
+        """Index der Tab-Seite, die 'widget' enthält (-1 falls keine)."""
+        for i in range(self.tabWidget.count()):
+            page = self.tabWidget.widget(i)
+            if page is widget or page.isAncestorOf(widget):
+                return i
+        return -1
+
+    # ---- Spaltenreihenfolge (nur visuell, logische Indizes bleiben gleich)
+    @staticmethod
+    def _move_column_after(table, logical, after_logical):
+        """Spalte 'logical' visuell direkt hinter 'after_logical' platzieren."""
+        header = table.horizontalHeader()
+        src = header.visualIndex(logical)
+        dst = header.visualIndex(after_logical)
+        if src < 0 or dst < 0:
+            return
+        if src > dst:
+            dst += 1          # beim Verschieben nach links hinter das Ziel
+        if src != dst:
+            header.moveSection(src, dst)
+
+    def _arrange_columns(self):
+        # PTR: Test Name | Test Failed | IC Failed | LSL | ...
+        self._move_column_after(self.tableWidget_ptr,
+                                TaPtrItems["Test Failed"], TaPtrItems["Test Name"])
+        self._move_column_after(self.tableWidget_ptr,
+                                TaPtrItems["ICFailed"], TaPtrItems["Test Failed"])
+
+        # MPR: Test | Test Name | Test Failed | Part INdex | Result_Count | ...
+        self._move_column_after(self.tableWidget_mpr,
+                                TaMprItems["Test"], TaMprItems["PART_INDEX"])
+        self._move_column_after(self.tableWidget_mpr,
+                                TaMprItems["Test Failed"], TaMprItems["PART_INDEX"])
+
+        # Optional: Benutzer darf Spalten per Drag & Drop verschieben
+        # self.tableWidget_ptr.horizontalHeader().setSectionsMovable(True)
+        # self.tableWidget_mpr.horizontalHeader().setSectionsMovable(True)
+
+
     def _get_plot_window(self):
         if self.plot_window is None:
             self.plot_window = PlotWindow(self)
@@ -817,6 +911,40 @@ class Test_Results(QWidget, SpyderWidgetMixin):
     def _reshow_plot_window(self, row, col):
         if self.plot_window is not None and not self.plot_window.isVisible():
             self.plot_window.refresh()
+
+    # ---- MPR-Auswahl
+    def _on_tab_changed(self, index):
+        self.keyPressEvent(None)
+        self.sig_mpr_selection_changed.emit()     # Icon hängt auch vom Register ab
+
+    def _on_mpr_selection_changed(self, selected=None, deselected=None):
+        if self._updating:
+            return
+        n = len(self.selected_mpr_indices())
+        self.lstatus.setText(f"{n} MPR line(s) selected" if n else "")
+        self.sig_mpr_selection_changed.emit()
+
+    def selected_mpr_indices(self):
+        """DataFrame-Indizes aller ausgewählten, sichtbaren MPR-Zeilen
+        (in der aktuell angezeigten Reihenfolge)."""
+        if not self.has_mpr():
+            return []
+        table = self.tableWidget_mpr
+        rows = sorted({i.row() for i in table.selectionModel().selectedIndexes()})
+        result = []
+        for row in rows:
+            if table.isRowHidden(row):            # durch Filter ausgeblendet
+                continue
+            idx = self._df_index(table, row)
+            if idx is not None:
+                result.append(idx)
+        return result
+
+    def can_plot_mpr(self):
+        """True, wenn das MPR-Register aktiv ist und Zeilen ausgewählt sind."""
+        return (self.has_mpr()
+                and self.tabWidget.currentIndex() == self._tab_index_of(self.tableWidget_mpr)
+                and bool(self.selected_mpr_indices()))
 
     # ---- PTR
     def _on_ptr_cell_changed(self, row, col, prev_row, prev_col):
@@ -854,26 +982,12 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         pw.refresh()
 
     # ---- MPR
-    def _on_mpr_cell_changed(self, row, col, prev_row, prev_col):
-        if self._updating or row < 0:
-            return
-        idx = self._df_index(self.tableWidget_mpr, row)
-        if idx is None:
-            return
-        self.last_selected_row = idx        # DataFrame-Index, nicht sichtbare Zeile
-        if row != prev_row:
-            self.plot_mpr([idx])
-
     def plot_mpr(self, indices):
         if not self.has_mpr() or not indices:
             return
         pw = self._get_plot_window()
         ax = pw.new_axes()
-        try:
-            self._draw_mpr(ax, indices[:4])
-        except ValueError:
-            ax.clear()
-            ax.set_title("Result Count must match ...")
+        self._draw_mpr(ax, indices)
         pw.refresh()
 
     def _draw_mpr(self, ax, idx):
@@ -881,74 +995,50 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         title = f"{self.filename} \\ {self.lot}"
 
         if len(idx) == 1:
+            # Einzelzeile: Verlauf mit Grenzen, Min/Max und Mittelwert
             i = idx[0]
             count = t["Result_Count"][i]
             for lim in (t["MPR.LO_LIMIT"][i], t["MPR.HI_LIMIT"][i]):
                 if np.isfinite(lim):
-                    ax.hlines(lim, 0, count, color="r")
+                    ax.hlines(lim, 0, count, color="r", label="_nolegend_")
             ax.hlines([t["Min_Value"][i], t["Max_Value"][i]], 0, count, color="m")
             ax.hlines(t["Mean_Value"][i], 0, count, color="y")
             ax.plot(t["Results"][i], "bo-", markeredgecolor="magenta", markersize=1)
-            ax.set_title(title)
+            ax.set_title(f"{title}\n{t['Test'][i]} [{t['PART_INDEX'][i]}]")
             ax.set_ylabel(f'{t["Test"][i]}\n({t["Units"][i]})')
+        else:
+            # Mehrere Zeilen: alle Verläufe überlagert (Farben aus dem Standard-Zyklus)
+            for i in idx:
+                ax.plot(t["Results"][i], "o-", markersize=1, linewidth=0.8,
+                        label=f'{t["Test"][i]} [{t["PART_INDEX"][i]}]')
+            units = list(dict.fromkeys(str(t["Units"][i]) for i in idx))
+            ax.set_title(f"{title}\n{len(idx)} MPR rows")
+            ax.set_ylabel(" / ".join(units))
+            if len(idx) <= 15:
+                ax.legend(fontsize="small")
+            else:
+                ax.legend(fontsize="x-small", ncol=2)
 
-        elif len(idx) == 2:
-            for i, fmt in zip(idx, ("go-", "ro-")):
-                ax.plot(t["Results"][i], fmt, markersize=0.3, alpha=0.5,
-                        label=t["Test"][i])
-            ax.set_title(title)
-            ax.set_ylabel(t["Units"][idx[0]])
-            ax.legend()
-
-        else:   # 3 oder 4: erste Auswahl = x, weitere = y
-            def lab(i):
-                return f'{t["Units"][i]}[{t["PART_INDEX"][i]}]'
-            x = t["Results"][idx[0]]
-            for i, fmt in zip(idx[1:], ("go", "ro", "yo")):
-                ax.plot(x, t["Results"][i], fmt, markersize=1, alpha=0.5,
-                        label=f"{lab(idx[0])} vs {lab(i)}")
-            ax.set_title(f'{title}\n{t["Test"][idx[0]]}')
-            ax.set_xlabel(t["Units"][idx[0]])
-            ax.set_ylabel("   /   ".join(str(t["Units"][i]) for i in idx[1:]))
-            ax.legend()
+        ax.set_xlabel("Result Index")
+        ax.grid(True, alpha=0.3)
 
     def graph_show(self):
         """This method is used to plot the graph based on the selected rows in the 'MPR' table.
         It checks the number of selected rows and plots the graph accordingly."""
-        indices = list(self.clicked_index)
-        if not indices and self.last_selected_row >= 0:
-            indices = [self.last_selected_row]
-        self.plot_mpr(indices)
-        self.clicked_index.clear()
-        self.lstatus.setText("")
+        indices = self.selected_mpr_indices()
+        if indices:
+            self.plot_mpr(indices)
 
     def contextMenuEvent(self, event):
         """
-        This method is triggered when the user right-clicks on the 'MPR' table.
-        It checks if any row is selected and opens a context menu with options to plot a graph or add a graph.
-
-        Parameters
-        ----------
-            event : QContextMenuEvent
-                The context menu event that triggered this method.
+        This method is triggered when the user select  on the 'MPR' table.
         """
-        if not (self.tableWidget_mpr.isVisible() and self.has_mpr()):
-            return
-        if not self.tableWidget_mpr.selectionModel().selection().indexes():
+        if not self.can_plot_mpr():
             return
         menu = QMenu(self)
-        plot_action = menu.addAction("Plot Graph") if self.clicked_index else None
-        add_action = menu.addAction("Add Graph")
-        action = menu.exec_(self.mapToGlobal(event.pos()))
-        if action is None:                       # Menü abgebrochen
-            return
-        if action is plot_action:
+        plot_action = menu.addAction("Plot selected rows")
+        if menu.exec_(self.mapToGlobal(event.pos())) is plot_action:
             self.graph_show()
-        elif (action is add_action and self.last_selected_row != -1
-              and self.last_selected_row not in self.clicked_index):
-            self.clicked_index.append(self.last_selected_row)
-            self.lstatus.setText(
-                f"line {[i + 1 for i in self.clicked_index]} selected")
 
     def keyPressEvent(self, event):
         """
@@ -962,10 +1052,9 @@ class Test_Results(QWidget, SpyderWidgetMixin):
             event : QKeyEvent
                 The key event that triggered this method.
         """
-        print("Esc")
         if event is None or event.key() == Qt.Key_Escape:
-            self.last_selected_row = -1
-            self.clicked_index.clear()
+            if event is not None:                  # nur echte Esc-Taste
+                self.tableWidget_mpr.clearSelection()
             self.lstatus.setText("")
         elif event.key() == Qt.Key_Return:
             self.load_IC_data()

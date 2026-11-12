@@ -125,135 +125,141 @@ class showStdf:
                 The preprocessed data as a Pandas DataFrame.
         """
         # PREPROCESSING "PTR" DATA
-        ptr = pd.read_hdf(self.hdf5_file, f"/raw_stdf_data/{self.filename}/PTR", mode="a")
+        try:
+            ptr = pd.read_hdf(self.hdf5_file, f"/raw_stdf_data/{self.filename}/PTR", mode="a")
+        except (KeyError, FileNotFoundError):
+            ptr = None
 
-        # Renaming columns to simple names
-        ptr.rename(columns={"PTR.TEST_NUM": "TestNo", "PTR.RESULT": "Result", "PTR.TEST_TXT": "Test"}, inplace=True)
+        if ptr is None or ptr.empty:
+            ptr = pd.DataFrame()
+        else:
+            # Renaming columns to simple names
+            ptr.rename(columns={"PTR.TEST_NUM": "TestNo", "PTR.RESULT": "Result", "PTR.TEST_TXT": "Test"}, inplace=True)
 
-        # Sorting the values according to 'TestNo' column
-        ptr.sort_values(["TestNo", "PART_INDEX"], inplace=True)
+            # Sorting the values according to 'TestNo' column
+            ptr.sort_values(["TestNo", "PART_INDEX"], inplace=True)
 
-        ptr["fmt"] = ptr["PTR.C_HLMFMT"].apply(lambda x: x.decode()[1:])
-        fmt = "7.3f"
+            ptr["fmt"] = ptr["PTR.C_HLMFMT"].apply(lambda x: x.decode()[1:])
+            fmt = "7.3f"
 
-        # Assigning values 10 to the power of 'PTR.RES_SCAL' column
-        ptr["mul"] = 10 ** ptr["PTR.RES_SCAL"].apply(lambda x: float(x))
+            # Assigning values 10 to the power of 'PTR.RES_SCAL' column
+            ptr["mul"] = 10 ** ptr["PTR.RES_SCAL"].apply(lambda x: float(x))
 
-        # Rounding off the decimal digits to 3 values for easy readability
-        ptr2 = ptr.groupby("TestNo")["Result"].apply(list).reset_index(name="Result_Append")
+            # Rounding off the decimal digits to 3 values for easy readability
+            ptr2 = ptr.groupby("TestNo")["Result"].apply(list).reset_index(name="Result_Append")
 
-        # Making separate dataframe to concatenate the results of various IC's
-        # of a particular test to a single list
-        ptr2.drop(columns=ptr2.columns[0], inplace=True)
+            # Making separate dataframe to concatenate the results of various IC's
+            # of a particular test to a single list
+            ptr2.drop(columns=ptr2.columns[0], inplace=True)
 
-        # Deleting the duplicate rows in the 'TestNo' column
-        ptr.drop_duplicates(subset=["TestNo"], inplace=True, ignore_index=True)
+            # Deleting the duplicate rows in the 'TestNo' column
+            ptr.drop_duplicates(subset=["TestNo"], inplace=True, ignore_index=True)
 
-        # Combining 'Result_Append' column to the 'ptr' dataframe
-        ptr = ptr.assign(Result_Append=ptr2)
+            # Combining 'Result_Append' column to the 'ptr' dataframe
+            ptr = ptr.assign(Result_Append=ptr2)
 
-        # Creating empty lists which will be used in the below operation
-        mean_result_ptr = []
-        min_result_ptr = []
-        max_result_ptr = []
-        root_mean_square_ptr = []
-        test_failed_ptr = []
-        failed_idx_ptr = []
-        failed_IC_ptr = []
+            # Creating empty lists which will be used in the below operation
+            mean_result_ptr = []
+            min_result_ptr = []
+            max_result_ptr = []
+            root_mean_square_ptr = []
+            test_failed_ptr = []
+            failed_idx_ptr = []
+            failed_IC_ptr = []
 
-        # Assigning values from the 'SI' dictionary above to the 'ptr['mul']'
-        ptr["SI"] = ptr["mul"].apply(lambda x: self.SI[x])
+            # Assigning values from the 'SI' dictionary above to the 'ptr['mul']'
+            ptr["SI"] = ptr["mul"].apply(lambda x: self.SI[x])
 
-        ptr["LTL"] = (
-            (ptr["PTR.LO_LIMIT"] * ptr["mul"]).apply(lambda x: f"{x:{fmt}} ") + ptr["SI"].apply(lambda x: x) + ptr["PTR.UNITS"].apply(lambda x: x.decode())
-        )
-        ptr["UTL"] = (
-            (ptr["PTR.HI_LIMIT"] * ptr["mul"]).apply(lambda x: f"{x:{fmt}} ") + ptr["SI"].apply(lambda x: x) + ptr["PTR.UNITS"].apply(lambda x: x.decode())
-        )
-        ptr["Test"] = ptr["Test"].apply(lambda x: x.decode())
-        ptr["LSL"] = (
-            (ptr["PTR.LO_SPEC"] * ptr["mul"]).apply(lambda x: f"{x:{fmt}} ") + ptr["SI"].apply(lambda x: x) + ptr["PTR.UNITS"].apply(lambda x: x.decode())
-        )
-        ptr["USL"] = (
-            (ptr["PTR.HI_SPEC"] * ptr["mul"]).apply(lambda x: f"{x:{fmt}} ") + ptr["SI"].apply(lambda x: x) + ptr["PTR.UNITS"].apply(lambda x: x.decode())
-        )
+            ptr["LTL"] = (
+                (ptr["PTR.LO_LIMIT"] * ptr["mul"]).apply(lambda x: f"{x:{fmt}} ") + ptr["SI"].apply(lambda x: x) + ptr["PTR.UNITS"].apply(lambda x: x.decode())
+            )
+            ptr["UTL"] = (
+                (ptr["PTR.HI_LIMIT"] * ptr["mul"]).apply(lambda x: f"{x:{fmt}} ") + ptr["SI"].apply(lambda x: x) + ptr["PTR.UNITS"].apply(lambda x: x.decode())
+            )
+            ptr["Test"] = ptr["Test"].apply(lambda x: x.decode())
+            ptr["LSL"] = (
+                (ptr["PTR.LO_SPEC"] * ptr["mul"]).apply(lambda x: f"{x:{fmt}} ") + ptr["SI"].apply(lambda x: x) + ptr["PTR.UNITS"].apply(lambda x: x.decode())
+            )
+            ptr["USL"] = (
+                (ptr["PTR.HI_SPEC"] * ptr["mul"]).apply(lambda x: f"{x:{fmt}} ") + ptr["SI"].apply(lambda x: x) + ptr["PTR.UNITS"].apply(lambda x: x.decode())
+            )
 
-        ptr["LSL"] = ptr["LSL"].apply(lambda x: x if x.find("inf") < 0 else "")
-        ptr["LTL"] = ptr["LTL"].apply(lambda x: x if x.find("inf") < 0 else "")
-        ptr["UTL"] = ptr["UTL"].apply(lambda x: x if x.find("inf") < 0 else "")
-        ptr["USL"] = ptr["USL"].apply(lambda x: x if x.find("inf") < 0 else "")
-        ptr["PTR.UNITS"] = ptr["PTR.UNITS"].apply(lambda x: x.decode())
+            ptr["LSL"] = ptr["LSL"].apply(lambda x: x if x.find("inf") < 0 else "")
+            ptr["LTL"] = ptr["LTL"].apply(lambda x: x if x.find("inf") < 0 else "")
+            ptr["UTL"] = ptr["UTL"].apply(lambda x: x if x.find("inf") < 0 else "")
+            ptr["USL"] = ptr["USL"].apply(lambda x: x if x.find("inf") < 0 else "")
+            ptr["PTR.UNITS"] = ptr["PTR.UNITS"].apply(lambda x: x.decode())
 
-        # Storing 'Mean', 'Maximum', 'Minimum' and 'Root Mean Square' value of
-        # test results of a test in 'max_result' variable
-        for i in range(0, len(ptr)):
-            result = ptr["Result_Append"].copy(deep=False)
-            result[i] = (np.array(result[i]) * ptr["mul"][i]).round(decimals=3)
+            # Storing 'Mean', 'Maximum', 'Minimum' and 'Root Mean Square' value of
+            # test results of a test in 'max_result' variable
+            for i in range(0, len(ptr)):
+                result = ptr["Result_Append"].copy(deep=False)
+                result[i] = (np.array(result[i]) * ptr["mul"][i]).round(decimals=3)
 
-            mean_result_ptr.append(np.mean(ptr["Result_Append"][i]))
-            min_result_ptr.append(np.min(ptr["Result_Append"][i]))
-            max_result_ptr.append(np.max(ptr["Result_Append"][i]))
-            root_mean_square_ptr.append(np.sqrt(np.mean(np.square(ptr["Result_Append"][i]))))
+                mean_result_ptr.append(np.mean(ptr["Result_Append"][i]))
+                min_result_ptr.append(np.min(ptr["Result_Append"][i]))
+                max_result_ptr.append(np.max(ptr["Result_Append"][i]))
+                root_mean_square_ptr.append(np.sqrt(np.mean(np.square(ptr["Result_Append"][i]))))
 
-            ltl = str2float(ptr["LTL"][i])
-            utl = str2float(ptr["UTL"][i])
+                ltl = str2float(ptr["LTL"][i])
+                utl = str2float(ptr["UTL"][i])
 
-            if ltl == utl == 0:
-                test_failed_ptr.insert(i, 0)
-            elif (result[i] < ltl).any() or (result[i] > utl).any():
-                test_failed_ptr.insert(i, 1)
-            else:
-                test_failed_ptr.insert(i, 0)
+                if ltl == utl == 0:
+                    test_failed_ptr.insert(i, 0)
+                elif (result[i] < ltl).any() or (result[i] > utl).any():
+                    test_failed_ptr.insert(i, 1)
+                else:
+                    test_failed_ptr.insert(i, 0)
 
-            temp_a = result[i] < ltl
-            temp_b = result[i] > utl
-            try:
-                temp = [a or b for a, b in zip(temp_a, temp_b)]
-            except Exception:
-                temp = [temp_a or temp_b]
-            failed_idx_ptr.insert(i, temp)
+                temp_a = result[i] < ltl
+                temp_b = result[i] > utl
+                try:
+                    temp = [a or b for a, b in zip(temp_a, temp_b)]
+                except Exception:
+                    temp = [temp_a or temp_b]
+                failed_idx_ptr.insert(i, temp)
 
-            # To find which 'IC' failed in a particular test
-            if ltl == utl == 0:
-                failed_IC_ptr.insert(i, 0)
-            elif any(failed_idx_ptr[i]):
-                temp_c = ((np.where(failed_idx_ptr[i])[0]) + 1).tolist()
-                failed_IC_ptr.insert(i, temp_c)
-            else:
-                # '0' means all IC's in a test are passed
-                failed_IC_ptr.insert(i, 0)
+                # To find which 'IC' failed in a particular test
+                if ltl == utl == 0:
+                    failed_IC_ptr.insert(i, 0)
+                elif any(failed_idx_ptr[i]):
+                    temp_c = ((np.where(failed_idx_ptr[i])[0]) + 1).tolist()
+                    failed_IC_ptr.insert(i, temp_c)
+                else:
+                    # '0' means all IC's in a test are passed
+                    failed_IC_ptr.insert(i, 0)
 
-        ptr = ptr.assign(
-            Mean_Value=mean_result_ptr,
-            Min_Value=min_result_ptr,
-            Max_Value=max_result_ptr,
-            RMS=root_mean_square_ptr,
-            Test_Failed=test_failed_ptr,
-            IC_Failed=failed_IC_ptr,
-        )
+            ptr = ptr.assign(
+                Mean_Value=mean_result_ptr,
+                Min_Value=min_result_ptr,
+                Max_Value=max_result_ptr,
+                RMS=root_mean_square_ptr,
+                Test_Failed=test_failed_ptr,
+                IC_Failed=failed_IC_ptr,
+            )
 
-        # Rounding off the decimal digits to 2 values for easy readability
-        ptr[["Mean_Value", "Min_Value", "Max_Value", "RMS"]] = ptr[["Mean_Value", "Min_Value", "Max_Value", "RMS"]].round(decimals=2)
-        ptr = ptr[
-            [
-                "TestNo",
-                "Test",
-                "LSL",
-                "LTL",
-                "Result_Append",
-                "UTL",
-                "USL",
-                "Mean_Value",
-                "Min_Value",
-                "Max_Value",
-                "RMS",
-                "Test_Failed",
-                "IC_Failed",
-                "PTR.LO_LIMIT",
-                "PTR.HI_LIMIT",
-                "PTR.UNITS",
+            # Rounding off the decimal digits to 2 values for easy readability
+            ptr[["Mean_Value", "Min_Value", "Max_Value", "RMS"]] = ptr[["Mean_Value", "Min_Value", "Max_Value", "RMS"]].round(decimals=2)
+            ptr = ptr[
+                [
+                    "TestNo",
+                    "Test",
+                    "LSL",
+                    "LTL",
+                    "Result_Append",
+                    "UTL",
+                    "USL",
+                    "Mean_Value",
+                    "Min_Value",
+                    "Max_Value",
+                    "RMS",
+                    "Test_Failed",
+                    "IC_Failed",
+                    "PTR.LO_LIMIT",
+                    "PTR.HI_LIMIT",
+                    "PTR.UNITS",
+                ]
             ]
-        ]
 
         # PREPROCESSING "MPR" DATA
         try:

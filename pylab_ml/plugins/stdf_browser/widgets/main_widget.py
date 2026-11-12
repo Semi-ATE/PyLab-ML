@@ -76,12 +76,9 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
         self.set_content_widget(self.widget)
 
         self.widget.sig_data_changed.connect(self._on_data_changed)
+        self.widget.sig_mpr_selection_changed.connect(self.update_actions)
 
         self.show_empty_message()
-
-        # Resize to a huge width to get the right size of the thumbnail
-        # scrollbar at startup.
-        # self.resize(50000, self.height())
 
     # ---- PluginMainWidget API
     # ------------------------------------------------------------------------
@@ -161,44 +158,25 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
 
     def update_actions(self):
         """ Update the enabled/disabled state of actions based on the current context. """
-        has_file = self._has_file()
-        has_data = self._has_data()
-
         states = {
             StdfWidgetActions.Import: True,
-            StdfWidgetActions.Reload: bool(self.widget.filename),   # only if the file known
-            StdfWidgetActions.Graph: self.weidgt.has_mpr,           # only if the file load
-            StdfWidgetActions.Json: has_data,                       # only if the file load
+            StdfWidgetActions.Reload: bool(self.widget.filename),
+            StdfWidgetActions.Graph: self.widget.can_plot_mpr(),
+            StdfWidgetActions.Json: self.widget.has_data(),
             }
         for name, enabled in states.items():
             try:
-                action = self.get_action(name)
-            except KeyError:
+                self.get_action(name).setEnabled(enabled)
+            except Exception:
                 continue
-            action.setEnabled(enabled)
-            # IMPORTANT: Since we are defining the main actions in here
-            # and the context is WidgetWithChildrenShortcut we need to
-            # assign the same actions to the children widgets in order
-            # for shortcuts to work
-            # if figviewer:
-            #     figviewer_actions = figviewer.actions()
-            #     # thumbnails_sb_actions = thumbnails_sb.actions()
 
-            #     if action not in figviewer_actions:
-            #         figviewer.addAction(action)
-
-            # if action not in thumbnails_sb_actions:
-            #    thumbnails_sb.addAction(action)
+    def _has_file(self):
+        return bool(getattr(self.widget, "filename", ""))
 
     def _has_data(self):
         return len(self.widget.mpr_table)>0 or len(self.widget.ptr_table)>0
 
     def on_close(self):
-        """ Handle the widget being closed. """
-        print("   StdfWidget.on_close")
-        return super().on_close()
-
-     def on_close(self):
         if self.widget.plot_window is not None:
             self.widget.plot_window.close()
         return super().on_close()
