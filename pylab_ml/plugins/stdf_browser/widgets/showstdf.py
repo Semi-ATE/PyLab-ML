@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-""" 
+"""
 This script contains the 'showStdf' class which is used to convert the '.stdf' file into '.hdf5' file and
 then preprocess the data to fill in the 'QTableWidget' in the PyQt window. It also contains the 'Test_Results' class
 which is used to display the preprocessed data in the PyQt window and also to generate graphs from the data.
@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Third library imports
 from qtpy import PYQT5
-from qtpy.QtCore import Qt, QCoreApplication
+from qtpy.QtCore import Signal, Qt, QCoreApplication
 from qtpy.QtWidgets import (QApplication, QWidget, QFileDialog, QMenu,
                             QTableWidgetItem)
 from qtpy.uic import loadUi
@@ -28,7 +28,7 @@ import numpy as np
 # spyder library imports
 from spyder.api.widgets.mixins import SpyderWidgetMixin
 
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 
 
 TaPtrItems = {
@@ -54,16 +54,16 @@ TaPtrItems = {
 
 
 def str2float(string):
-    """ 
+    """
     This function is used to convert the string value of 'LTL' and 'UTL' columns to float values for comparison with the test results.
-    
+
     eg. str2float("1.234 kV") will return 1234.0
-    
+
     Parameters
     ----------
         string : str
             The string value of 'LTL' or 'UTL' column, which contains the value along with the SI unit and the unit of measurement.
-            
+
     Returns
     -------
         float
@@ -74,12 +74,12 @@ def str2float(string):
 
 
 class showStdf:
-    """ 
+    """
     This class is used to convert the '.stdf' file into '.hdf5' file and
     then preprocess the data to fill in the 'QTableWidget' in the PyQt window. It also contains methods
     to display the preprocessed data in the PyQt window and to generate graphs from the data.
     """
-    
+
     RESULTDIR = "result_h5"
 
     # Dictionary for the Suffix in the [LSL, LTL, UTL, USL] columns
@@ -106,10 +106,10 @@ class showStdf:
     }
 
     def __init__(self, path, filename, lot, resultdir, update_Progress_bar=None):
-        """ 
-        Initializes the showStdf class with the given parameters and checks if the corresponding '.hdf5' file already exists. 
+        """
+        Initializes the showStdf class with the given parameters and checks if the corresponding '.hdf5' file already exists.
         If it exists and is older than the '.stdf' file, it removes the '.hdf5' file to ensure that the data is updated when the '.stdf' file is processed again.
-        
+
         Parameters
         ----------
             path : str
@@ -128,20 +128,22 @@ class showStdf:
         self.path = path
         self.resultdir = resultdir
         self.update_Progress_bar = update_Progress_bar
+        self.ptr_table = []
+        self.mpr_table = []
 
         if Path(self.hdf5_file).is_file() and os.path.getmtime(path + "/" + filename) > os.path.getmtime(self.hdf5_file):
             os.remove(self.hdf5_file)
 
     def init(self):
         """
-        This method checks if the corresponding '.hdf5' file already exists. 
+        This method checks if the corresponding '.hdf5' file already exists.
         If it does not exist, it converts the '.stdf' file into '.hdf5' file using the 'stdf2ph5' module and stores it in the specified directory.
-        
+
         Returns
         -------
             bool
                 True if the '.hdf5' file exists or was successfully created, False otherwise.
-        """ 
+        """
         if not Path(self.hdf5_file).is_file():
             stdf = stdf2ph5.SHP(False, update_progress=self.update_Progress_bar)
             if not STDFHelper.is_plain_stdf(f"{self.path}/{self.filename}"):
@@ -431,15 +433,17 @@ class TableWidget(QTableWidgetItem):
 
 class Test_Results(QWidget, SpyderWidgetMixin):
     """
-    This class is used to display the preprocessed data in the PyQt window and also to generate graphs from the data. 
+    This class is used to display the preprocessed data in the PyQt window and also to generate graphs from the data.
     It inherits from QWidget and SpyderWidgetMixin to create a custom widget for displaying test results.
     """
-    
+    sig_data_changed = Signal()
+
+
     def __init__(self, parent=None, background_color=None):
         """
-        Initializes the Test_Results class and loads the UI file developed in QtDesigner. 
+        Initializes the Test_Results class and loads the UI file developed in QtDesigner.
         It also sets up the necessary variables and connects the signals to the respective functions.
-        
+
         Parameters
         ----------
             parent : QWidget, optional
@@ -460,6 +464,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         self._filename = ""
         self.filename = ""
         self.ptr_table = []
+        self.mpr_table = []
         self.adjustUI()
 
         # Connect to the mentioned functions when 'PushButton' is triggered
@@ -474,14 +479,14 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         self.llotid.setText("")
 
     def open_files(self, fname=""):
-        """ 
+        """
         This method is used to open the '.stdf' file and load the data into the PyQt window.
-        
+
         Parameters
         ----------
             fname : str, optional
                 The path to the '.stdf' file. If not provided, a file dialog will be opened to select the file.
-        
+
         Returns
         -------
             bool
@@ -543,10 +548,10 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     # To load Pandas dataframes
     def loaddata(self):
-        """ 
-        This method is used to load the data from the '.hdf5' file into Pandas DataFrames. 
+        """
+        This method is used to load the data from the '.hdf5' file into Pandas DataFrames.
         It uses the 'showStdf' class to read the data and preprocess it for further analysis.
-        
+
         Returns
         -------
             bool
@@ -567,7 +572,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         """
         This method is used to generate graphs from the data stored in a '.json' file.
         It reads the JSON file, processes the data, and creates plots using Matplotlib.
-        
+
         Returns
         -------
             bool
@@ -727,7 +732,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     # Function to generate the '.pdf' files containing all the images
     def generate_pdf(self):
-        """ 
+        """
         This method is used to generate a PDF file containing all the images in a folder.
         It reads all the images in the specified folder, converts them to RGB format, and saves them as a single PDF file.
         """
@@ -762,9 +767,9 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         img_rgb.save(pdf_path + pdf_file, save_all=True, append_images=image_pdf_list)
 
     def fill_ptr_data(self):
-        """ 
+        """
         This method is used to fill the 'PTR' data in the 'QTableWidget' in the PyQt window.
-        It iterates through the columns of the 'ptr_table' DataFrame and sets the values in the corresponding cells of the 'QTableWidget'. 
+        It iterates through the columns of the 'ptr_table' DataFrame and sets the values in the corresponding cells of the 'QTableWidget'.
         It also updates the progress bar to indicate the progress of filling the data.
         """
         # Set no. of rows in PyQt5 Widget
@@ -796,17 +801,17 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         """
         This method is used to filter the 'PTR' data in the 'QTableWidget' based on the test name.
         It hides the rows that do not match the specified filter.
-        
+
         Parameters
         ----------
             filter_test : str
                 The test name to filter the data by. If an empty string is provided, all rows will be shown.
-                
+
         Returns
         -------
             None.
         """
-        
+
         temp = []
         self.keyPressEvent(None)
         if filter_test == '':
@@ -831,7 +836,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     # To fill 'MPR' data in 'QTableWidget'
     def fill_mpr_data(self):
-        """ 
+        """
         This method is used to fill the 'MPR' data in the 'QTableWidget' in the PyQt window.
         It iterates through the columns of the 'mpr_table' DataFrame and sets the values in the corresponding cells of the 'QTableWidget'.
         It also updates the progress bar to indicate the progress of filling the data.
@@ -856,12 +861,12 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         """
         This method is used to filter the 'MPR' data in the 'QTableWidget' based on the test name.
         It hides the rows that do not match the specified filter.
-        
+
         Parameters
         ----------
             filter_test : str
                 The test name to filter the data by. If an empty string is provided, all rows will be shown.
-                
+
         Returns
         -------
             None.
@@ -944,9 +949,9 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     # Assigning desiered column width to particular columns
     def set_column_width(self):
-        """ 
+        """
         This method is used to set the column width of the 'QTableWidget' in the PyQt window.
-        It assigns specific widths to each column based on the content and importance of the data. 
+        It assigns specific widths to each column based on the content and importance of the data.
         It also sets a minimum section size for the horizontal header to ensure that the columns are not too narrow.
         """
         self.tableWidget_ptr.horizontalHeader().setMinimumSectionSize(10)
@@ -973,14 +978,14 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     # To Colour values based on whether test has been passed (PTR Table)
     def colour_pass_fail_ptr_data(self):
-        """ 
+        """
         This method is used to color the values in the 'PTR' table based on whether the test has been passed or failed.
-        It iterates through the rows of the 'ptr_table' DataFrame and checks the values in the 'Test_Failed' column. 
-        If the value is '0', it means the test has passed, and the corresponding cells are colored green. 
-        If the value is not '0', it means the test has failed, and the corresponding cells are colored red. 
+        It iterates through the rows of the 'ptr_table' DataFrame and checks the values in the 'Test_Failed' column.
+        If the value is '0', it means the test has passed, and the corresponding cells are colored green.
+        If the value is not '0', it means the test has failed, and the corresponding cells are colored red.
         Additionally, if there are any IC values that are out of limits, they are colored yellow.
         """
-        
+
         for j in range(0, len(self.ptr_table)):
             # If values in the 'Test_Failed' column is '0' then test Passed
             if self.ptr_table["Test_Failed"][j] == 0:
@@ -1003,9 +1008,9 @@ class Test_Results(QWidget, SpyderWidgetMixin):
     def colour_pass_fail_mpr_data(self):
         """
         This method is used to color the values in the 'MPR' table based on whether the test has been passed or failed.
-        It iterates through the rows of the 'mpr_table' DataFrame and checks the values in the 'Test_Failed' column. 
-        If the value is '0', it means the test has passed, and the corresponding cells are colored green. 
-        If the value is not '0', it means the test has failed, and the corresponding cells are colored red. 
+        It iterates through the rows of the 'mpr_table' DataFrame and checks the values in the 'Test_Failed' column.
+        If the value is '0', it means the test has passed, and the corresponding cells are colored green.
+        If the value is not '0', it means the test has failed, and the corresponding cells are colored red.
         """
         for j in range(0, len(self.mpr_table)):
 
@@ -1024,10 +1029,10 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     # Action function on the event of 'Cell Clicked' in QTableWidget
     def plot_select(self, selected):
-        """ 
+        """
         This method is triggered when a cell in the 'MPR' table is clicked. It retrieves the index of the selected row and updates the 'last_selected_row' variable.
-        If no row is selected, it prints a message indicating that no row is selected. 
-         
+        If no row is selected, it prints a message indicating that no row is selected.
+
         Parameters
         ----------
             selected : QItemSelection
@@ -1041,9 +1046,9 @@ class Test_Results(QWidget, SpyderWidgetMixin):
     # To open menu on Right-Click
     def contextMenuEvent(self, event):
         """
-        This method is triggered when the user right-clicks on the 'MPR' table. 
+        This method is triggered when the user right-clicks on the 'MPR' table.
         It checks if any row is selected and opens a context menu with options to plot a graph or add a graph.
-        
+
         Parameters
         ----------
             event : QContextMenuEvent
@@ -1062,7 +1067,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     # Function to plot graph
     def graph_show(self):
-        """ 
+        """
         This method is used to plot the graph based on the selected rows in the 'MPR' table.
         It checks the number of selected rows and plots the graph accordingly.
         """
@@ -1191,13 +1196,13 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         """
         This method is used to plot the graph based on the selected row in the 'PTR' table.
         It retrieves the index of the selected row and updates the status label with the selected line number.
-        
+
         Parameters
         ----------
             selected : QItemSelection
                 The selection object that contains the indexes of the selected cells.
         """
-        
+
         if len(selected.indexes()) == 0:
             self.lstatus.setText('')
             return
@@ -1227,6 +1232,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         if len(si.split(" ")) > 1:
             ylabel = f'{ylabel}\n ({si.split(" ")[1]})'
         plt.ylabel(ylabel, rotation=90)
+        self.graph_show()
 
     @property
     def filename(self):
@@ -1254,7 +1260,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
     def printProgressBar(self, iteration, total, prefix="", suffix="", decimals=1, length=100, fill="█", printEnd="\r"):
         """
         Call in a loop to create terminal progress bar
-        
+
         Parameters
         ----------
             iteration : int
@@ -1273,7 +1279,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
                 Bar fill character (Str)
             printEnd : str, optional
                 End character (e.g. "\r", "\r\n") (Str)
-        
+
         Returns
         -------
             None.
@@ -1288,17 +1294,17 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     def update_Progress_bar(self, count, maxcount):
         """
-        This method is used to update the progress bar in the PyQt window. 
-        It sets the range and value of the progress bar based on the current count and maximum count. 
+        This method is used to update the progress bar in the PyQt window.
+        It sets the range and value of the progress bar based on the current count and maximum count.
         It also processes any pending events to ensure that the progress bar is updated in real-time.
-        
+
         Parameters
         ----------
             count : int
                 The current count or progress value.
             maxcount : int
                 The maximum count or total value for the progress bar.
-                
+
         Returns
         -------
             None.
@@ -1314,12 +1320,12 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     # 'Esc' key event to reset the click counter if unknowingly pressed
     def keyPressEvent(self, event):
-        """ 
-        This method is triggered when a key is pressed. 
-        If the 'Esc' key is pressed, it resets the 'last_selected_row' variable and clears the 'clicked_index' list. 
-        It also updates the status label to indicate that no line is selected. 
-        If the 'Return' key is pressed, it calls the 'load_IC_data' method to load the IC data into the table. 
-        
+        """
+        This method is triggered when a key is pressed.
+        If the 'Esc' key is pressed, it resets the 'last_selected_row' variable and clears the 'clicked_index' list.
+        It also updates the status label to indicate that no line is selected.
+        If the 'Return' key is pressed, it calls the 'load_IC_data' method to load the IC data into the table.
+
         Parameters
         ----------
             event : QKeyEvent
