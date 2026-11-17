@@ -32,6 +32,9 @@ def str2float(string):
         float
             The float value of the input string after removing the SI unit and the unit of measurement.
     """
+    if string == "":
+        return string
+    print(f"str2float({string})")
     result = string.strip().split(" ")
     return float(result[0])
 
@@ -206,13 +209,13 @@ class showStdf:
 
                 if ltl == utl == 0:
                     test_failed_ptr.insert(i, 0)
-                elif (result[i] < ltl).any() or (result[i] > utl).any():
+                elif (ltl !="" and (result[i] < ltl).any()) or (utl != "" and (result[i] > utl).any()):
                     test_failed_ptr.insert(i, 1)
                 else:
                     test_failed_ptr.insert(i, 0)
 
-                temp_a = result[i] < ltl
-                temp_b = result[i] > utl
+                temp_a = False if ltl == "" else result[i] < ltl
+                temp_b = False if utl == "" else result[i] > utl
                 try:
                     temp = [a or b for a, b in zip(temp_a, temp_b)]
                 except Exception:
@@ -222,7 +225,7 @@ class showStdf:
                 # To find which 'IC' failed in a particular test
                 if ltl == utl == 0:
                     failed_IC_ptr.insert(i, 0)
-                elif any(failed_idx_ptr[i]):
+                elif np.any(failed_idx_ptr[i]):
                     temp_c = ((np.where(failed_idx_ptr[i])[0]) + 1).tolist()
                     failed_IC_ptr.insert(i, temp_c)
                 else:
