@@ -1,0 +1,75 @@
+pylab\_ml.common.projectsetup.setupstr
+======================================
+
+.. currentmodule:: pylab_ml.common.projectsetup
+
+.. autoclass:: setupstr
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~setupstr.__init__
+      ~setupstr.arange
+      ~setupstr.capitalize
+      ~setupstr.casefold
+      ~setupstr.center
+      ~setupstr.count
+      ~setupstr.encode
+      ~setupstr.end
+      ~setupstr.endswith
+      ~setupstr.expandtabs
+      ~setupstr.find
+      ~setupstr.format
+      ~setupstr.format_map
+      ~setupstr.index
+      ~setupstr.isalnum
+      ~setupstr.isalpha
+      ~setupstr.isascii
+      ~setupstr.isdecimal
+      ~setupstr.isdigit
+      ~setupstr.isidentifier
+      ~setupstr.islower
+      ~setupstr.isnumeric
+      ~setupstr.isprintable
+      ~setupstr.isspace
+      ~setupstr.istitle
+      ~setupstr.isupper
+      ~setupstr.join
+      ~setupstr.ljust
+      ~setupstr.lower
+      ~setupstr.lstrip
+      ~setupstr.maketrans
+      ~setupstr.partition
+      ~setupstr.removeprefix
+      ~setupstr.removesuffix
+      ~setupstr.replace
+      ~setupstr.rfind
+      ~setupstr.rindex
+      ~setupstr.rjust
+      ~setupstr.rpartition
+      ~setupstr.rsplit
+      ~setupstr.rstrip
+      ~setupstr.split
+      ~setupstr.splitlines
+      ~setupstr.start
+      ~setupstr.startswith
+      ~setupstr.strip
+      ~setupstr.swapcase
+      ~setupstr.title
+      ~setupstr.translate
+      ~setupstr.upper
+      ~setupstr.zfill
+   
+   
+
+   
+   
+   

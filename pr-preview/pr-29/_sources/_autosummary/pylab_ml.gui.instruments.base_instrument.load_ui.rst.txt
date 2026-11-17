@@ -1,0 +1,6 @@
+pylab\_ml.gui.instruments.base\_instrument.load\_ui
+===================================================
+
+.. currentmodule:: pylab_ml.gui.instruments.base_instrument
+
+.. autofunction:: load_ui

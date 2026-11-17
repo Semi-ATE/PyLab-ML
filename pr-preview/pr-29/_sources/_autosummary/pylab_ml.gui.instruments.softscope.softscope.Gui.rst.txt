@@ -1,0 +1,59 @@
+pylab\_ml.gui.instruments.softscope.softscope.Gui
+=================================================
+
+.. currentmodule:: pylab_ml.gui.instruments.softscope.softscope
+
+.. autoclass:: Gui
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Gui.__init__
+      ~Gui.add_menue
+      ~Gui.add_menuicon
+      ~Gui.adjustUI
+      ~Gui.close
+      ~Gui.dprint
+      ~Gui.editchname
+      ~Gui.filtersubtopic
+      ~Gui.gui2mqtt
+      ~Gui.gui_disconnect
+      ~Gui.hide
+      ~Gui.isVisible
+      ~Gui.mqttConnectSVGWidget
+      ~Gui.mqttConnectWidgets
+      ~Gui.mqttreceive
+      ~Gui.myadjustUI
+      ~Gui.objectName2mqttName
+      ~Gui.publish
+      ~Gui.rangeSamples
+      ~Gui.retranslateUi
+      ~Gui.setLabel
+      ~Gui.set_Geometry
+      ~Gui.show
+      ~Gui.svg2mqtt
+      ~Gui.unitOfMeasurement
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Gui.id
+      ~Gui.mqtt_status
+      ~Gui.scopeChannel
+      ~Gui.status
+      ~Gui.subtopic
+   
+   

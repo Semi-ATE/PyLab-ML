@@ -1,0 +1,41 @@
+pylab\_ml.plugins.pylabml.functions.Functions
+=============================================
+
+.. currentmodule:: pylab_ml.plugins.pylabml.functions
+
+.. autoclass:: Functions
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Functions.__init__
+      ~Functions.apply_configuration
+      ~Functions.do_export
+      ~Functions.do_import
+      ~Functions.get_abort_reason
+      ~Functions.init
+      ~Functions.set_configuration_values
+      ~Functions.set_mqtt_client
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Functions.ERROMSG
+      ~Functions.INSTRUMENT_INIT
+      ~Functions.INSTRUMENT_INIT_ALL
+      ~Functions.USER_PATH
+   
+   

@@ -1,0 +1,53 @@
+pylab\_ml.scope.softscope.Softscope
+===================================
+
+.. currentmodule:: pylab_ml.scope.softscope
+
+.. autoclass:: Softscope
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Softscope.__init__
+      ~Softscope.apply_configuration
+      ~Softscope.close
+      ~Softscope.do_export
+      ~Softscope.do_import
+      ~Softscope.get_abort_reason
+      ~Softscope.init
+      ~Softscope.mqtt_add
+      ~Softscope.mqtt_disconnect
+      ~Softscope.off
+      ~Softscope.on
+      ~Softscope.publish
+      ~Softscope.publish_get
+      ~Softscope.publish_set
+      ~Softscope.set_configuration_values
+      ~Softscope.set_mqtt_client
+      ~Softscope.setchannel
+      ~Softscope.setshortnames
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Softscope.command
+      ~Softscope.mqtt_enable
+      ~Softscope.mqtt_list
+      ~Softscope.mqtt_status
+      ~Softscope.sampleTime
+      ~Softscope.test
+   
+   

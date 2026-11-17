@@ -1,0 +1,26 @@
+pylab\_ml.misc.registermaster.Logger
+====================================
+
+.. currentmodule:: pylab_ml.misc.registermaster
+
+.. autoclass:: Logger
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Logger.__init__
+      ~Logger.log_message
+   
+   
+
+   
+   
+   

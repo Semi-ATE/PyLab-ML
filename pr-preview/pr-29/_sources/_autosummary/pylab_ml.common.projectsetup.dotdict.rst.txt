@@ -1,0 +1,37 @@
+pylab\_ml.common.projectsetup.dotdict
+=====================================
+
+.. currentmodule:: pylab_ml.common.projectsetup
+
+.. autoclass:: dotdict
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~dotdict.__init__
+      ~dotdict.clear
+      ~dotdict.copy
+      ~dotdict.fromkeys
+      ~dotdict.get
+      ~dotdict.items
+      ~dotdict.keys
+      ~dotdict.myget
+      ~dotdict.pop
+      ~dotdict.popitem
+      ~dotdict.setdefault
+      ~dotdict.update
+      ~dotdict.values
+   
+   
+
+   
+   
+   
