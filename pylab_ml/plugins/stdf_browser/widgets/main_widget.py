@@ -7,7 +7,6 @@ Stdf Main Widget.
 import os
 
 # Third party imports
-from qtpy.QtWidgets import QHBoxLayout
 
 # Local imports
 from spyder.api.translations import get_translation

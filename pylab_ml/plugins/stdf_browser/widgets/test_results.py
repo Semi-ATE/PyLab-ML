@@ -78,6 +78,8 @@ TaMprItems = {
 class PlotWindow(QWidget):
     """Eigenständiges, wiederverwendbares Fenster mit Matplotlib-Canvas."""
 
+    sig_closed = Signal()
+
     def __init__(self, parent=None):
         super().__init__(parent, Qt.Window)
         self.setWindowTitle("STDF Plot")
@@ -102,6 +104,10 @@ class PlotWindow(QWidget):
             self.show()
         self.raise_()
 
+    def closeEvent(self, event):
+        self.sig_closed.emit()
+        super().closeEvent(event)
+
 
 class TableWidget(QTableWidgetItem):
     """Custom QTableWidgetItem for handling numeric comparisons."""
@@ -119,6 +125,11 @@ class Test_Results(QWidget, SpyderWidgetMixin):
     """
     sig_data_changed = Signal()
     sig_mpr_selection_changed = Signal()
+
+
+    # Anzahl der Zeilen (ab der 2.), die eine eigene y-Achse bekommen.
+    # 1 -> nur die zweite Zeile, 2 -> zweite und dritte Zeile, ...
+    OWN_Y_AXIS_ROWS = 1
 
 
     def __init__(self, parent=None, background_color=None):
@@ -152,6 +163,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
         self.filename = ""
         self.adjustUI()
+        self._plotted_mpr = []      # DataFrame-Indizes der MPR-Zeilen im Plot
         self._connect_signals()
         self.update_tabs()
 
@@ -165,6 +177,9 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         self.tableWidget_mpr.setSelectionMode(QAbstractItemView.ExtendedSelection)
         self.tableWidget_mpr.selectionModel().selectionChanged.connect(
             self._on_mpr_selection_changed)
+        self.tableWidget_mpr.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.tableWidget_mpr.customContextMenuRequested.connect(
+            self._show_mpr_context_menu)
 
         # Filter
         self.enter_filter_test_name_ptr.textChanged.connect(self.filter_test_name_ptr)
@@ -190,6 +205,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     def clear_data(self):
         """ Geladene Daten verwerfen (-> Spyder zeigt das Leerbild). """
+        self._plotted_mpr = []
         self.clear_tables()
         self.ptr_table = pd.DataFrame()
         self.mpr_table = pd.DataFrame()
@@ -228,6 +244,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         try:
             if not self.loaddata():
                 return False
+            self._plotted_mpr = []
             self._updating = True
             self.keyPressEvent(None)
             self._fill_tables()
@@ -902,10 +919,10 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         # self.tableWidget_ptr.horizontalHeader().setSectionsMovable(True)
         # self.tableWidget_mpr.horizontalHeader().setSectionsMovable(True)
 
-
     def _get_plot_window(self):
         if self.plot_window is None:
             self.plot_window = PlotWindow(self)
+            self.plot_window.sig_closed.connect(self._on_plot_window_closed)
         return self.plot_window
 
     def _reshow_plot_window(self, row, col):
@@ -962,6 +979,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         data = np.asarray(rec["Result_Append"], dtype=float)
         ltl, utl = self._limit(rec["LTL"]), self._limit(rec["UTL"])
 
+        self._plotted_mpr = []
         pw = self._get_plot_window()
         ax = pw.new_axes()
         if ltl != utl:                      # ltl == utl == 0 -> keine Grenzen
@@ -985,10 +1003,60 @@ class Test_Results(QWidget, SpyderWidgetMixin):
     def plot_mpr(self, indices):
         if not self.has_mpr() or not indices:
             return
+        self._plotted_mpr = list(dict.fromkeys(indices))   # Duplikate entfernen
+        self._redraw_mpr_plot()
+
+    def add_to_mpr_plot(self, indices):
+        """Zeilen zum bestehenden MPR-Plot hinzufügen."""
+        if not self.has_mpr() or not indices:
+            return
+        if not self._plotted_mpr or self.plot_window is None \
+                or not self.plot_window.isVisible():
+            # Noch kein MPR-Plot vorhanden -> wie 'Plot'
+            self.plot_mpr(indices)
+            return
+        self._plotted_mpr += [i for i in indices if i not in self._plotted_mpr]
+        self._redraw_mpr_plot()
+
+    def remove_from_mpr_plot(self, indices):
+        """Zeilen aus dem bestehenden MPR-Plot entfernen."""
+        if not self._plotted_mpr:
+            return
+        remaining = [i for i in self._plotted_mpr if i not in indices]
+        if remaining == self._plotted_mpr:
+            return                                  # nichts davon war im Plot
+        if not remaining:
+            # Letzte Kurve entfernt -> Fenster schließen
+            # (closeEvent -> sig_closed -> _plotted_mpr wird geleert)
+            if self.plot_window is not None:
+                self.plot_window.close()
+            self._plotted_mpr = []
+            self.lstatus.setText("")
+            return
+        self._plotted_mpr = remaining
+        self._redraw_mpr_plot()
+
+    def _redraw_mpr_plot(self):
         pw = self._get_plot_window()
         ax = pw.new_axes()
-        self._draw_mpr(ax, indices)
+        self._draw_mpr(ax, self._plotted_mpr)
         pw.refresh()
+        self.lstatus.setText(f"{len(self._plotted_mpr)} MPR line(s) in plot")
+
+    def _on_plot_window_closed(self):
+        self._plotted_mpr = []
+
+    def _create_y_axes(self, ax, count):
+        """Liste von 'count' Achsen mit gemeinsamer x-Achse:
+        [linke Achse, rechte Achse, weitere versetzte rechte Achsen ...]."""
+        axes = [ax]
+        for k in range(1, count):
+            twin = ax.twinx()
+            if k > 1:
+                # weitere Achsen nach rechts versetzen, damit sie sich nicht überlagern
+                twin.spines["right"].set_position(("axes", 1.0 + 0.15 * (k - 1)))
+            axes.append(twin)
+        return axes
 
     def _draw_mpr(self, ax, idx):
         t = self.mpr_table
@@ -1000,27 +1068,58 @@ class Test_Results(QWidget, SpyderWidgetMixin):
             count = t["Result_Count"][i]
             for lim in (t["MPR.LO_LIMIT"][i], t["MPR.HI_LIMIT"][i]):
                 if np.isfinite(lim):
-                    ax.hlines(lim, 0, count, color="r", label="_nolegend_")
+                    ax.hlines(lim, 0, count, color="r")
             ax.hlines([t["Min_Value"][i], t["Max_Value"][i]], 0, count, color="m")
             ax.hlines(t["Mean_Value"][i], 0, count, color="y")
             ax.plot(t["Results"][i], "bo-", markeredgecolor="magenta", markersize=1)
             ax.set_title(f"{title}\n{t['Test'][i]} [{t['PART_INDEX'][i]}]")
             ax.set_ylabel(f'{t["Test"][i]}\n({t["Units"][i]})')
-        else:
-            # Mehrere Zeilen: alle Verläufe überlagert (Farben aus dem Standard-Zyklus)
-            for i in idx:
-                ax.plot(t["Results"][i], "o-", markersize=1, linewidth=0.8,
-                        label=f'{t["Test"][i]} [{t["PART_INDEX"][i]}]')
-            units = list(dict.fromkeys(str(t["Units"][i]) for i in idx))
-            ax.set_title(f"{title}\n{len(idx)} MPR rows")
-            ax.set_ylabel(" / ".join(units))
-            if len(idx) <= 15:
-                ax.legend(fontsize="small")
-            else:
-                ax.legend(fontsize="x-small", ncol=2)
+            ax.set_xlabel("Result Index")
+            ax.grid(True, alpha=0.3)
+            return
 
+        # Mehrere Zeilen: 1. Zeile links, 2. (ggf. weitere) mit eigener y-Achse
+        colors = plt.rcParams["axes.prop_cycle"].by_key()["color"]
+        n_axes = min(len(idx), 1 + self.OWN_Y_AXIS_ROWS)
+        axes = self._create_y_axes(ax, n_axes)
+
+        handles = []
+        left_rows = []                      # Zeilen auf der linken Achse
+        for n, i in enumerate(idx):
+            color = colors[n % len(colors)]
+            target = axes[n] if n < n_axes else axes[0]
+            if target is axes[0]:
+                left_rows.append(i)
+            line, = target.plot(t["Results"][i], "o-", color=color,
+                                markersize=1, linewidth=0.8,
+                                label=f'{t["Test"][i]} [{t["PART_INDEX"][i]}]')
+            handles.append(line)
+
+            # Eigene Achse in Kurvenfarbe beschriften
+            if target is not axes[0]:
+                target.set_ylabel(f'{t["Test"][i]}\n({t["Units"][i]})', color=color)
+                target.tick_params(axis="y", colors=color)
+                target.spines["right"].set_color(color)
+
+        # Linke Achse beschriften
+        if len(left_rows) == 1:
+            i = left_rows[0]
+            color = colors[0]
+            ax.set_ylabel(f'{t["Test"][i]}\n({t["Units"][i]})', color=color)
+            ax.tick_params(axis="y", colors=color)
+            ax.spines["left"].set_color(color)
+        else:
+            units = list(dict.fromkeys(str(t["Units"][i]) for i in left_rows))
+            ax.set_ylabel(" / ".join(units))
+
+        ax.set_title(f"{title}\n{len(idx)} MPR rows")
         ax.set_xlabel("Result Index")
         ax.grid(True, alpha=0.3)
+
+        # Gemeinsame Legende auf der obersten Achse (sonst von Kurven verdeckt)
+        axes[-1].legend(handles=handles,
+                        fontsize="small" if len(idx) <= 15 else "x-small",
+                        ncol=1 if len(idx) <= 15 else 2)
 
     def graph_show(self):
         """This method is used to plot the graph based on the selected rows in the 'MPR' table.
@@ -1029,16 +1128,39 @@ class Test_Results(QWidget, SpyderWidgetMixin):
         if indices:
             self.plot_mpr(indices)
 
-    def contextMenuEvent(self, event):
-        """
-        This method is triggered when the user select  on the 'MPR' table.
-        """
-        if not self.can_plot_mpr():
+    def _show_mpr_context_menu(self, pos):
+        """Kontextmenü nur bei Rechtsklick auf eine selektierte MPR-Zeile."""
+        table = self.tableWidget_mpr
+        index = table.indexAt(pos)
+        if not index.isValid() or not self.has_mpr():
             return
+
+        selected_rows = {i.row() for i in table.selectionModel().selectedIndexes()}
+        if index.row() not in selected_rows:
+            return
+
+        indices = self.selected_mpr_indices()
+        if not indices:
+            return
+
+        plot_visible = self.plot_window is not None and self.plot_window.isVisible()
+        new = [i for i in indices if i not in self._plotted_mpr]
+        in_plot = [i for i in indices if i in self._plotted_mpr] if plot_visible else []
+
         menu = QMenu(self)
         plot_action = menu.addAction("Plot selected rows")
-        if menu.exec_(self.mapToGlobal(event.pos())) is plot_action:
-            self.graph_show()
+        add_action = menu.addAction("Add")
+        add_action.setEnabled(bool(new))
+        remove_action = menu.addAction("Remove")
+        remove_action.setEnabled(bool(in_plot))
+
+        action = menu.exec_(table.viewport().mapToGlobal(pos))
+        if action is plot_action:
+            self.plot_mpr(indices)
+        elif action is add_action:
+            self.add_to_mpr_plot(indices)
+        elif action is remove_action:
+            self.remove_from_mpr_plot(indices)
 
     def keyPressEvent(self, event):
         """
