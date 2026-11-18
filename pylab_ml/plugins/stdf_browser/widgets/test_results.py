@@ -129,7 +129,7 @@ class Test_Results(QWidget, SpyderWidgetMixin):
 
     # Anzahl der Zeilen (ab der 2.), die eine eigene y-Achse bekommen.
     # 1 -> nur die zweite Zeile, 2 -> zweite und dritte Zeile, ...
-    OWN_Y_AXIS_ROWS = 1
+    OWN_Y_AXIS_ROWS = 3
 
 
     def __init__(self, parent=None, background_color=None):
