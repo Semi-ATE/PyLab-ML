@@ -3,12 +3,13 @@
 """
 __version__ = '0.0.0'
 
-__all__ = [
+__all__ = [ # files:
             "attributes",
-            "base_instrument",
+            "base_instrument",            
             "collate_instrument",
             "dummy",
             "ident",
+            # directories:
             "baseclass",
             "common",
             "dmm",
@@ -17,8 +18,10 @@ __all__ = [
             "matrix",
             "misc",
             "plugins",
-            "pollux",
+            "position_controller",
             "scope",
+            "scripts",
             "smu",
-            "thermostreamer"
+            "thermostreamer",
+            "widgets"
             ]

@@ -51,4 +51,20 @@ pip install -e .						# install the pylab-ml instrument lib, the spyder plugin f
 										# and the STDF-data widget for spyder
 ```
 
-When we started with this package we did not know **[pymeasure ](https://pymeasure.readthedocs.io/en/latest/introduction.html)** yet. Therefore there are some overlaps with this package.
+The STDF browser plugin uses the latest libraries from STDF and Metis, which have not yet been released in Conda and Pip.
+Therefore, these libraries must still be downloaded directly from GitHub:
+
+```bash
+cd ..
+git clone https://github.com/Semi-ATE/Metis
+cd Metis
+pip install -e .
+
+cd ..
+
+git clone https://github.com/Semi-ATE/STDF.git
+cd STDF
+pip install -e .
+```
+
+If you need more instruments, check out  **[pymeasure ](https://pymeasure.readthedocs.io/en/latest/introduction.html)**.

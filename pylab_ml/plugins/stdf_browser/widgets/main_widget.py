@@ -4,25 +4,18 @@
 """
 Stdf Main Widget.
 """
+import os
 
 # Third party imports
-from PyQt5 import QtWidgets, QtCore
-from qtpy.QtWidgets import QHBoxLayout
 
 # Local imports
-from spyder.api.config.decorators import on_conf_change
 from spyder.api.translations import get_translation
-from spyder.api.widgets.main_widget import PluginMainWidgetMenus
-from spyder.api.widgets.main_widget import PluginMainWidget
-from spyder.utils.misc import getcwd_or_home
-from spyder.utils.palette import QStylePalette
-from stdf_browser.widgets.showstdf import Test_Results
+from spyder.api.widgets.main_widget import (
+    PluginMainWidget, PluginMainWidgetMenus)
+from pylab_ml.plugins.stdf_browser.widgets.test_results import Test_Results
 
 # Localization
 _ = get_translation("spyder")
-
-
-MAIN_BG_COLOR = QStylePalette.COLOR_BACKGROUND_1
 
 
 # --- Constants
@@ -56,9 +49,16 @@ class StdfWidgetToolbarItems:
 class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,PluginMainWidget
     """ Main widget for the STDF plugin. """
 
+    SHOW_MESSAGE_WHEN_EMPTY = True
+    IMAGE_WHEN_EMPTY = "plots"
+    MESSAGE_WHEN_EMPTY = _("No STDF file loaded")
+    DESCRIPTION_WHEN_EMPTY = _(
+        "Use the import button in the toolbar to open a STDF file."
+    )
+
     def __init__(self, name=None, plugin=None, parent=None):
-        """ Initialize the main widget. 
-        
+        """ Initialize the main widget.
+
         Parameters
         ----------
             name: str
@@ -69,14 +69,15 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
                 The parent widget.
         """
         super().__init__(name, plugin, parent)
-        #QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_ShareOpenGLContexts)
 
         # Widgets
-        self.widget = Test_Results(parent=self, background_color=MAIN_BG_COLOR)
+        self.widget = Test_Results(parent=self)
+        self.set_content_widget(self.widget)
 
-        # Resize to a huge width to get the right size of the thumbnail
-        # scrollbar at startup.
-        self.resize(50000, self.height())
+        self.widget.sig_data_changed.connect(self._on_data_changed)
+        self.widget.sig_mpr_selection_changed.connect(self.update_actions)
+
+        self.show_empty_message()
 
     # ---- PluginMainWidget API
     # ------------------------------------------------------------------------
@@ -86,16 +87,11 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
 
     def get_focus_widget(self):
         """ Return the widget to give focus to when this plugin's dockwidget is raised. """
-        widget = self.current_widget()
-
-        return widget
+        # widget = self.current_widget      # existiert nur in ShellConnectMainWidget!
+        return self.widget
 
     def setup(self):
         """ Setup the main widget. This is called after the widget is created and before it is shown for the first time. """
-        layout = QHBoxLayout()
-        layout.addWidget(self.widget)
-        self.setLayout(layout)
-
         # Menu actions
         # self.fit_action = self.create_action(
         #     name=StdfWidgetActions.ToggleAutoFitPlotting,
@@ -113,7 +109,7 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
             tip=_("Import data..."),
             icon=self.create_icon("fileimport"),
             triggered=self.import_data,
-            # register_shortcut=True,                # uesed in the plot-plugin from spyder, but in this plugin an exceptin occure :-()
+            # register_shortcut=True,                # used in the plot-plugin from spyder, but in this plugin an exceptin occure :-()
         )
 
         reload_data_action = self.create_action(
@@ -127,7 +123,7 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
         graph_show_action = self.create_action(
             name=StdfWidgetActions.Graph,
             text=_("Show grap"),
-            tip=_("Show grap..."),
+            tip=_("Plot the selected MPR rows"),
             icon=self.create_icon("plot"),
             triggered=self.graph_show,
         )
@@ -139,8 +135,6 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
             icon=self.create_icon("PDFIcon"),
             triggered=self.generate_graph_from_json,
         )
-
-        # Options menu
 
         # Main toolbar
         main_toolbar = self.get_main_toolbar()
@@ -158,42 +152,43 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
 
         # Context menu
         context_menu = self.create_menu(PluginMainWidgetMenus.Context)
-        for item in [import_data_action]:
-            self.add_item_to_menu(item, menu=context_menu)
+        self.add_item_to_menu(import_data_action, menu=context_menu)
+
 
     def update_actions(self):
         """ Update the enabled/disabled state of actions based on the current context. """
-        value = False
-#        widget = self.current_widget()
-
-        for __, action in self.get_actions().items():
+        states = {
+            StdfWidgetActions.Import: True,
+            StdfWidgetActions.Reload: bool(self.widget.filename),
+            StdfWidgetActions.Graph: self.widget.can_plot_mpr(),
+            StdfWidgetActions.Json: self.widget.has_data(),
+            }
+        for name, enabled in states.items():
             try:
-                if action and action not in [self.undock_action,
-                                             self.close_action,
-                                             self.dock_action,
-                                             self.toggle_view_action,
-                                             self.lock_unlock_action]:
-                    action.setEnabled(value)
+                self.get_action(name).setEnabled(enabled)
+            except Exception:
+                continue
 
-                    # IMPORTANT: Since we are defining the main actions in here
-                    # and the context is WidgetWithChildrenShortcut we need to
-                    # assign the same actions to the children widgets in order
-                    # for shortcuts to work
-                    # if figviewer:
-                    #     figviewer_actions = figviewer.actions()
-                    #     # thumbnails_sb_actions = thumbnails_sb.actions()
+    def _has_file(self):
+        return bool(getattr(self.widget, "filename", ""))
 
-                    #     if action not in figviewer_actions:
-                    #         figviewer.addAction(action)
-
-                    # if action not in thumbnails_sb_actions:
-                    #    thumbnails_sb.addAction(action)
-            except (RuntimeError, AttributeError):
-                pass
+    def _has_data(self):
+        return len(self.widget.mpr_table)>0 or len(self.widget.ptr_table)>0
 
     def on_close(self):
-        """ Handle the widget being closed. """
+        if self.widget.plot_window is not None:
+            self.widget.plot_window.close()
         return super().on_close()
+
+    # ---- Private API
+    # ------------------------------------------------------------------------
+    def _on_data_changed(self):
+        """ Zwischen Leerbild und Inhalt umschalten. """
+        if self.widget.has_data():
+            self.show_content_widget()
+        else:
+            self.show_empty_message()
+        self.update_actions()
 
     # ---- Public API:
     # ------------------------------------------------------------------------
@@ -201,20 +196,31 @@ class StdfWidget(PluginMainWidget):             # ShellConnectMainWidget ,Plugin
     def import_data(self):
         """Import data."""
         print('StdfWidget.import_data')
+        result_h5 = os.path.join(self.widget.path, "result_h5", "no_lot.h5")
+        if os.path.isfile(result_h5):
+            os.remove(result_h5)
         self.widget.open_files()
+        # self.update_actions()
 
     def reload_data(self):
         """Reload data."""
         print('StdfWidget.reload_data')
         if self.widget.filename != "":
-            self.widget.open_files(self.widget.path + "/" + self.widget.filename)
+            self.widget.open_files(os.path.join(self.widget.path, self.widget.filename))
         else:
             self.import_data()
+        self.update_actions()
 
     def set_filename(self, path, filename):
         """ Set the filename and path for the widget. """
+        print(f"StdfWidget.set_filename({path}, {filename})")
         self.widget.path = path
-        self.widget.filename = filename.lower() + ".stdf"
+        self.widget.filename = filename + ".stdf"
+        self.update_actions()
+
+    def clear(self):
+        """ Daten verwerfen und wieder das Leerbild zeigen. """
+        self.widget.clear_data()
 
     def graph_show(self):
         """Show graph."""
